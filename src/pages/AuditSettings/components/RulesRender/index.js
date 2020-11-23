@@ -11,6 +11,7 @@ import CheckBoxRender from './CheckBoxRender';
 import InputRender from './InputRender';
 import SelectRender from './SelectRender';
 import CascaderCheckBox from './CascaderCheckBox';
+import TreeClassification from './TreeClassification';
 
 const labelText = (List = [], key = '') => {
   for (const item of List) {
@@ -150,6 +151,11 @@ const ruleJson = (labelList, item, isEdit, bid) => {
     19: () => (
       <Form.Item {...itemProps}>
         <SelectRender showType={isEdit}></SelectRender>
+      </Form.Item>
+    ),
+    20: () => (
+      <Form.Item {...itemProps}>
+        <TreeClassification showType={isEdit}></TreeClassification>
       </Form.Item>
     ),
   };

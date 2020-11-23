@@ -96,10 +96,10 @@ export default {
               isEdit: false,
               actionLoading: false,
               queueContentData: data,
-              curArt: data.content,
+              curArt: data.feedMessage,
               queueContentId: data.id,
               // category: data.content.categoryIds,
-              newsDataType: data.newsDataType,
+              newsDataType: data.displayTemplate,
               forbiddenWordList: data.forbiddenWordList || [], // 违禁词
               sensitiveWordList: data.sensitiveWordList || [], // 敏感词
               hotWord: data.hotWord || [], // 热词

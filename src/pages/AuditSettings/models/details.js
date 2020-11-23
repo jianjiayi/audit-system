@@ -41,7 +41,7 @@ export default {
     *init({ payload }, { put }) {
       yield put({ type: 'save', payload: { category: '', art: {}, loading: true } });
       // yield put({ type: 'getMediaInfo', payload: { type: 'rmw_media_type' } });
-      yield put({ type: 'Global/getFirstCategory', payload:{id: 0, type: payload.type}  });
+      // yield put({ type: 'Global/getCategoryTree', payload:{id: 0}  });
       yield put({ type: 'getRuleInfo' });
       yield put({ type: 'getContentSource' });
       yield put({ type: 'save', payload: { loading: false } });

@@ -4,6 +4,13 @@
 /* eslint-disable spaced-comment */
 import request from '@http';
 
+// 获取分类树接口
+export async function getCategoryTree(params) {
+  return request(`/audit/categoryTree?type=${params.type}`, {
+    method: 'GET',
+  });
+}
+
 // 获取一级分类接口
 export async function getFirstCategory(params) {
   return request(`/audit/categoryInfo?parentCode=0&type=${params.type === 'VIDEO'? 1 :0}`, {

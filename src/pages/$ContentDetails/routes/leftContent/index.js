@@ -108,13 +108,13 @@ function Content(props) {
           <Form.Item
             label="来源"
             name={origin}
-            initialValue={curArt.origin || curArt.originName}
+            initialValue={curArt.sourceId || curArt.sourceName}
             rules={[{ required: true, message: `请输入来源` }]}
           >
             {isEdit ? (
               <Input placeholder="请输入来源" />
             ) : (
-              <span className={styles.title}>{curArt.origin || curArt.originName}</span>
+              <span className={styles.title}>{curArt.sourceId || curArt.sourceName}</span>
             )}
           </Form.Item>
           <Form.Item

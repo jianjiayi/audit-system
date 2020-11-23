@@ -1,8 +1,23 @@
 @import '~antd/es/style/themes/default.less';
+.content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .main {
   width: 328px;
-  margin: 0 auto;
+  
+  .title{
+    text-align: center;
+    line-height: 60px;
+    font-size: 25px;
+  }
   @media screen and (max-width: @screen-sm) {
     width: 95%;
     max-width: 328px;

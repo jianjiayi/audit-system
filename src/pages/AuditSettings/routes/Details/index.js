@@ -14,7 +14,6 @@ import { history, useModel } from 'umi';
 
 import BaseForm  from '@components/BaseForm';
 import RuleJsonRender from './RuleJsonRender';
-import TreeClassification from '../../components/TreeClassification';
 
 import { contentType, queueType, keepDays, queueStatus } from '@/pages/constants';
 import { ExObject } from '@/utils/utils';
@@ -105,14 +104,6 @@ function QueueContent(props) {
         showCount:true,
         maxLength:50,
         required: true 
-      },
-      { 
-        label: '对应分类', 
-        name: 'category', 
-        required: true,
-        itemRender: (
-          <TreeClassification></TreeClassification>
-        )
       },
       { 
         label: '规则配置', 
