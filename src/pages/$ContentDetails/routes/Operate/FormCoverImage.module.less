@@ -1,0 +1,42 @@
+.content{
+  display: flex;
+  justify-content: space-between;
+  .button_list{
+    display: flex;
+    flex-direction: column;
+    button{
+      flex: 1;
+      margin: 10% 0;
+    }
+    button:first-child{
+      margin-top: 0;
+    }
+    button:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+.images_list{
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  min-height: 300px;
+  .item{
+    margin-right: 18px;
+  }
+}
+.upload_list{
+  min-height: 300px;
+  .button_header{
+    height: 50px;
+  }
+}
+.footer{
+  display: flex;
+  height: 53px;
+  align-items: center;
+  justify-content: center;
+  button{
+    margin: 30px;
+  }
+}
