@@ -40,8 +40,6 @@ export default {
     // 初始化
     *init({ payload }, { put }) {
       yield put({ type: 'save', payload: { category: '', art: {}, loading: true } });
-      // yield put({ type: 'getMediaInfo', payload: { type: 'rmw_media_type' } });
-      // yield put({ type: 'Global/getCategoryTree', payload:{id: 0}  });
       yield put({ type: 'getRuleInfo' });
       yield put({ type: 'getContentSource' });
       yield put({ type: 'save', payload: { loading: false } });
@@ -62,6 +60,8 @@ export default {
       // 编辑、复用
       yield put({ type: 'getQueue', payload });
     },
+
+    // 获取队列详情
     *getQueue({ payload }, { call, put }) {
       const { code, data } = yield call(api.getQueue, payload);
 
@@ -85,12 +85,14 @@ export default {
         });
       }
     },
+
     // 保存接口
     *saveQueue({ payload, callback }, { call }) {
       // yield put({type: 'save',payload: { loading: true}})
       const { code } = yield call(api.saveQueue, payload);
       callback(code);
     },
+
     // 获取规则列表接口
     *getRuleInfo({ payload }, { call, put }) {
       const { code, data } = yield call(api.getRuleInfo, payload);
@@ -115,6 +117,7 @@ export default {
         });
       }
     },
+
     // 获取屏蔽词接口
     *getDenyWords({ payload }, { call, put, select }) {
       const { query, pagination } = yield select(({ QDetails }) => QDetails);
@@ -127,7 +130,6 @@ export default {
       };
 
       const { code, data } = yield call(api.getDenyWords, params);
-
 
       if (code === 200) {
         yield put({
@@ -145,33 +147,7 @@ export default {
         });
       }
     },
-    // 获取媒体类型和分类接口
-    *getMediaInfo({ payload }, { call, put }) {
-      const { code, data } = yield call(api.getMediaInfo, payload);
-      if (code === 200) {
-        let mediaInfoList = [];
-        for (let i in data) {
-          let { code: c, data: d } = yield call(api.getMediaInfo, { type: data[i].code });
-          if (c === 200) {
-            let map = [];
-            d.map(item => {
-              map.push({
-                label: item.name,
-                value: item.code,
-              });
-            });
-            mediaInfoList[data[i].code] = map;
-          }
-        }
-        yield put({
-          type: 'save',
-          payload: {
-            mediaInfo: data,
-            mediaInfoList: mediaInfoList,
-          },
-        });
-      }
-    },
+
   },
 
   reducers: {

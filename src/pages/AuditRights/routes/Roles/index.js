@@ -67,23 +67,24 @@ function RolePage(props) {
   const searchFormProps = {
     className: styles['form-contaner'],
     layout: 'inline',
+    resetShow: true,
     authProps: {
       pathUrl: '/rights/role',
       perms: 'role:select',
     },
     dataSource: [
-      {
-        label: '业务线',
-        type: 'SELECT',
-        name: 'businessId',
-        initialValue: '',
-        map: { '': '全部', ...business },
-      },
-      { label: '更新时间', name: 'datatime', type: 'DateTimeStartEnd' },
+      // {
+      //   label: '业务线',
+      //   type: 'SELECT',
+      //   name: 'businessId',
+      //   initialValue: '',
+      //   map: { '': '全部', ...business },
+      // },
       {
         label: '角色',
         name: 'roleName',
       },
+      { label: '更新时间', name: 'datatime', type: 'DateTimeStartEnd' },
       {
         label: '状态',
         type: 'SELECT',
@@ -128,21 +129,7 @@ function RolePage(props) {
       {
         title: '角色名',
         dataIndex: 'roleName',
-        width: '300px',
         render: (text) => <span>{text}</span>,
-      },
-      {
-        title: '业务线',
-        align: 'center',
-        render(data) {
-          return (
-            !_.isEmpty(data) && (
-              <Tag color="#108ee9" key={data.id}>
-                {data.businessName}
-              </Tag>
-            )
-          );
-        },
       },
       {
         title: '更新时间',
@@ -167,7 +154,7 @@ function RolePage(props) {
         align: 'center',
         render(r) {
           return (
-            <>
+            <div className={styles.tableaction}>
               <WrapAuthButton
                 pathUrl="/rights/role"
                 perms="role:edit"
@@ -183,7 +170,7 @@ function RolePage(props) {
                 text={r.state !== 1 ? '注销' : '重启'}
                 onClick={() => updateUserOrRoleStatus('role', r.state, r.id)}
               ></WrapAuthButton>
-            </>
+            </div>
           );
         },
       },
@@ -263,7 +250,7 @@ function RolePage(props) {
       }
     });
 
-    values.businessId = values.businessId.toString();
+    // values.businessId = values.businessId.toString();
     console.log(values);
     setFormValues(values);
   };
@@ -291,14 +278,21 @@ function RolePage(props) {
       layout: 'horizontal',
       submitText: '保存',
       dataSource: [
-        { label: '角色名', name: 'roleName', required: true },
-        {
-          label: '业务线',
-          type: 'SELECT',
-          name: 'businessId',
+        { 
+          label: '角色名', 
+          name: 'roleName', 
           required: true,
-          map: business,
+          type: 'TextArea',
+          showCount:true,
+          maxLength:200 
         },
+        // {
+        //   label: '业务线',
+        //   type: 'SELECT',
+        //   name: 'businessId',
+        //   required: true,
+        //   map: business,
+        // },
         {
           label: '分配权限',
           name: 'permissionIds',
@@ -376,7 +370,7 @@ function RolePage(props) {
         <WrapAuthButton
           pathUrl="/rights/role"
           perms="role:add"
-          text="创建角色"
+          text="新建"
           ghost
           type="primary"
           onClick={() => openUserModal('create')}

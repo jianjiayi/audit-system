@@ -1,15 +1,20 @@
+/* eslint-disable @typescript-eslint/dot-notation */
+/* eslint-disable jsx-a11y/media-has-caption */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable import/order */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react';
 import styles from './index.module.less';
+import classNames from 'classnames';
 import _ from 'lodash';
 
 function VideoPlayer(props) {
   const videoRef = useRef(null);
   const [showOverlay, setShowOverlay] = useState(true);
   const [hasControls, setHasControls] = useState(false);
-  const { className, name, source, poster, duration } = props;
+  const { className, source, poster, duration } = props;
 
   const onPlay = () => {
     const video = videoRef.current;
@@ -17,18 +22,15 @@ function VideoPlayer(props) {
     setShowOverlay(false);
     setHasControls(true);
   };
-  const onEnded = () => {
-    setShowOverlay(true);
-  };
 
   return (
-    <div className={styles['video-player']}>
+    <div className={classNames(className,styles['video-player'])}>
       <video
         ref={videoRef}
         controls={hasControls}
         controlsList="nodownload"
         src={source}
-        poster={(!_.isEmpty(poster) && poster[0].originalUrl) || ''}
+        poster={(!_.isEmpty(poster) && poster[1].src) || ''}
         // ended={()=>onEnded()}
       ></video>
       {showOverlay && (

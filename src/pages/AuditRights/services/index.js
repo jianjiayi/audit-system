@@ -43,6 +43,13 @@ export async function getRuleListByBusiness(params) {
   });
 }
 
+// 获取所有角色列表
+export async function getRuleListAll(params) {
+  return request(`/audit/role/listAll`, {
+    method: 'GET',
+  });
+}
+
 // 根据id获取角色详情
 export async function getRuleDetailsById(params) {
   return request(`/audit/role/detail?id=${params.id}`, {

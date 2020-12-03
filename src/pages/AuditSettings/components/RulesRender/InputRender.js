@@ -10,7 +10,7 @@ function InputRender(props) {
   return (
     <>
       {showType === 'form' ? (
-        <TextArea placeholder={'输入框输用","隔开或是"||"隔开，仅支持一种模式'} onChange={onChange}/>
+        <TextArea placeholder={'输入框输用","隔开或是"||"隔开，仅支持一种模式'} defaultValue={value} onChange={onChange}/>
       ) : (
         <span>{value}</span>
       )}

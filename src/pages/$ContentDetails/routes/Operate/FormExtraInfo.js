@@ -16,11 +16,11 @@ function FormExtraInfo(props) {
   return (
     <div className={classNames(className, styles['container'])}>
       <p>
-        <span>抓取来源ID: {(curArt.extra && curArt.extra.sourceExtra.source_id) || ''}</span>
-        <span>抓取来源： {(curArt.extra && curArt.extra.sourceExtra.name) || ''}</span>
+        <span>抓取来源ID: {curArt.sourceName || ''}</span>
+        <span>抓取来源： {curArt.sourceId || ''}</span>
       </p>
       <p>
-        原文链接： <a href={curArt.originLink || ''}>{curArt.originLink || ''}</a>
+        原文链接： <a href={curArt.originUrl || ''}>{curArt.originUrl || ''}</a>
       </p>
       <p>摘要： {curArt.summary || ''}</p>
     </div>

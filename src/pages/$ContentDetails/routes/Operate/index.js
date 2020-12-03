@@ -4,37 +4,43 @@ import React, { useState, useRef } from 'react';
 import { connect } from 'dva';
 import { Form, message, Modal } from 'antd';
 import _ from 'lodash';
+import classNames from 'classnames';
 
 import FormCoverImage from './FormCoverImage';
 import FormExtraInfo from './FormExtraInfo';
 import FormAction from './FormAction';
 
-function Operate() {
+import styles from './index.module.less';
+
+function Operate(props) {
+  const { className, CDetails, dispatch } = props;
+  const [selfForm] = Form.useForm();
+
   const FormCoverImageProps = {
+    pForm: selfForm,
     handleCoverImages: (fileList)=> {
-      console.log('fileList',fileList)
+      // console.log('fileList',fileList)
     }
   }
   const FormExtraInfoProps = {
-    name: 'FormExtraInfo'
+    name: 'FormExtraInfo',
+    pForm: selfForm,
   }
   const FormActionProps = {
     name: 'FormAction',
+    pForm: selfForm,
   }
 
   return (
     <>
-      <Form.Provider
-        onFormFinish={(name, { values, forms }) => {
-          console.log(values)
-        }}
-       >
-        <div>
+      <Form form={selfForm}>
+        <div className={classNames(className)}>
           <FormCoverImage {...FormCoverImageProps}></FormCoverImage>
           <FormExtraInfo {...FormExtraInfoProps}></FormExtraInfo>
           <FormAction {...FormActionProps}></FormAction>
         </div>
-      </Form.Provider>
+        
+      </Form>
     </>
   );
 }

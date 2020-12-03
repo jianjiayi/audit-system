@@ -23,7 +23,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'dva';
 import { useModel } from 'umi';
 import _ from 'lodash';
-import { Modal, message, Input, Tag } from 'antd';
+import { Modal, message, Select, Input, Tag } from 'antd';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
@@ -36,6 +36,7 @@ import styles from './index.module.less';
 import WrapAuthButton from '@components/WrapAuth';
 
 const { TextArea } = Input;
+const { Option } = Select;
 
 const { confirm } = Modal;
 
@@ -57,7 +58,7 @@ function UserRights(props) {
   const {
     dispatch,
     business = currentUser.business || {},
-    Rights: { loading, query, roleList, dataSource, pagination },
+    Rights: { loading, query, roleList, roleAllLIst, dataSource, pagination },
   } = props;
 
   useEffect(() => {
@@ -73,30 +74,12 @@ function UserRights(props) {
   const searchFormProps = {
     className: styles['form-contaner'],
     layout: 'inline',
+    resetShow: true,
     authProps: {
       pathUrl: '/rights/user',
       perms: 'user:select',
     },
     dataSource: [
-      {
-        label: '业务线',
-        type: 'SELECT',
-        name: 'businessId',
-        initialValue: '',
-        map: { '': '全部', ...business },
-        onChange: (e) => {
-          console.log('e', e);
-          if (!e) return;
-
-          dispatch({
-            type: 'Rights/getRuleListByBusiness',
-            payload: {
-              id: e,
-            },
-          });
-        },
-      },
-      { label: '时间', name: 'datatime', type: 'DateTimeStartEnd' },
       {
         label: '角色',
         type: 'SELECT',
@@ -104,6 +87,7 @@ function UserRights(props) {
         initialValue: '',
         map: { '': '全部', ...roleList },
       },
+      { label: '时间', name: 'datatime', type: 'DateTimeStartEnd' },
       {
         label: '状态',
         type: 'SELECT',
@@ -111,8 +95,8 @@ function UserRights(props) {
         initialValue: '',
         map: rightStatus,
       },
-      { label: 'ip', name: 'loginIp' },
       { label: '真实姓名', name: 'name' },
+      { label: 'ip', name: 'loginIp' },
       { label: '用户名', name: 'username' },
     ],
     onReset: () => {
@@ -150,25 +134,8 @@ function UserRights(props) {
       {
         title: '用户名',
         dataIndex: 'username',
-        width: '300px',
+        width: '100px',
         render: (text) => <span>{text}</span>,
-      },
-      {
-        title: '业务线',
-        align: 'center',
-        dataIndex: 'businesses',
-        render(data) {
-          return (
-            !_.isEmpty(data) &&
-            data.map((item, index) => {
-              return (
-                <Tag color="#108ee9" style={{ marginBottom: '5px' }} key={item.id}>
-                  {item.coorpName}
-                </Tag>
-              );
-            })
-          );
-        },
       },
       {
         title: '真实姓名',
@@ -193,7 +160,7 @@ function UserRights(props) {
         },
       },
       {
-        title: '登陆时间',
+        title: '最近一次登陆时间',
         align: 'center',
         dataIndex: 'loginTime',
       },
@@ -202,15 +169,14 @@ function UserRights(props) {
         align: 'center',
         dataIndex: 'loginIp',
       },
-      {
-        title: '登出时间',
-        align: 'center',
-        dataIndex: 'logoutTime',
-      },
+      // {
+      //   title: '登出时间',
+      //   align: 'center',
+      //   dataIndex: 'logoutTime',
+      // },
       {
         title: '状态',
         align: 'center',
-        width: '160px',
         dataIndex: 'state',
         render: (text) => <span>{text === '' ? '全部' : rightStatus[text]}</span>,
       },
@@ -356,75 +322,79 @@ function UserRights(props) {
       submitText: '保存',
       loading: btnLoading,
       dataSource: [
-        { label: '用户名', name: 'username', required: true, disabled: title !== '创建' && true },
-        { label: '密码', name: title === '创建' ? 'password' : null, required: true },
-        {
-          label: '业务线',
-          type: 'CHECKBOX',
-          name: 'businesses',
-          required: true,
-          map: business,
-          onChange: (e) => {
-            console.log('e', e);
-            let options = [];
-
-            // console.log(business)
-
-            if (_.isEmpty(e)) {
-              setItemOptions([]);
-              return;
-            }
-
-            e.map((item) => {
-              dispatch({
-                type: 'Rights/getRuleListByBusiness',
-                payload: {
-                  id: item,
-                },
-                callback: (data) => {
-                  options.push({
-                    label: business[item] + '角色',
-                    type: 'SELECT',
-                    name: item,
-                    required: true,
-                    placeholder: '请选择',
-                    map: data,
-                  });
-
-                  setItemOptions([...options]);
-                },
-              });
-            });
-          },
+        { 
+          label: '用户名', 
+          name: 'username', 
+          required: true, 
+          disabled: title !== '创建' && true,
+          type: 'TextArea',
+          showCount:true,
+          maxLength:100
         },
-        { label: '真实姓名', name: 'name', required: true },
+        { 
+          label: '密码', 
+          name: title === '创建' ? 'password' : null, 
+          required: true,
+          type: 'TextArea',
+          showCount:true,
+          maxLength:100
+        },
+        // {
+        //   label: '角色',
+        //   type: 'SELECT',
+        //   name: 'roles',
+        //   required: true,
+        //   showSearch: true,
+        //   placeholder: '请选择',
+        //   map: roleList,
+        // },
+        {
+          label: '角色',
+          name: 'roles',
+          itemRender: (
+            <Select
+              showSearch
+              placeholder="请选择角色"
+            >
+              {
+                !_.isEmpty(roleAllLIst) && roleAllLIst.map((item,index)=>{
+                  return <Option key={index} value={item.roleName}>{item.roleName}</Option>
+                })
+              }
+            </Select>
+          ),
+        },
 
-        ...ItemOptions,
+        { 
+          label: '真实姓名', 
+          name: 'name', 
+          required: true,
+          type: 'TextArea',
+          showCount:true,
+          maxLength:100 
+        },
 
         {
           label: '备注',
           name: 'remarks',
-          itemRender: <TextArea rows={12} maxLength={200} />,
+          type: 'TextArea',
+          showCount:true,
+          maxLength:200,
         },
       ],
       formValues: formValues,
       onSubmit: (formValues) => {
-        // 整理配置规则
-        let ruleJson = [];
-        if (_.isEmpty(ItemOptions)) {
-          return message.error('请添加配置规则');
-        }
-        !_.isEmpty(ItemOptions) &&
-          ItemOptions.map((option, index) => {
-            ruleJson.push({
-              businessId: option.name,
-              roleId: formValues[option.name],
-            });
-            delete formValues[option.name];
-          });
-        formValues.roles = ruleJson;
-
         console.log('formValues', formValues);
+        // 处理角色
+        if(!_.isEmpty(formValues.roles)){
+          let list = [];
+          let item = roleAllLIst.filter(v=>{
+            return v.roleName === formValues.roles;
+          })
+          console.log(item)
+          list.push(item[0].id);
+          formValues.roles = list;
+        }
         // 设置按钮状态
         setBtnLoading(true);
 
@@ -463,7 +433,7 @@ function UserRights(props) {
         <WrapAuthButton
           pathUrl="/rights/user"
           perms="user:add"
-          text="创建用户"
+          text="新建"
           ghost
           type="primary"
           onClick={() => openUserModal('create')}

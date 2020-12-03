@@ -7,6 +7,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'dva';
+import { Card } from 'antd';
 import _ from 'lodash';
 import { useModel } from 'umi';
 
@@ -129,24 +130,22 @@ function HomePage(props) {
     height: '500px',
   };
   return (
-    <div className={styles.container}>
+    <>
       <BaseForm {...searchFormProps} pRef={formRef}></BaseForm>
-      <TextCountUp {...TextCountUpProps}></TextCountUp>
-      <div className={styles.echarts}>
+      
+      <div className={styles.container}>
         <div className={styles.piebox}>
-          <h2>昨日的音，视，图，文的审核量统计</h2>
+          <h3 className={styles.title}>昨日审核量</h3>
+          <TextCountUp dataSource={yesterdaySource}></TextCountUp>
           <PieChart {...pieChartsProps1}></PieChart>
         </div>
         <div className={styles.piebox}>
-          <h2>新增的音，视，图，文的总量统计</h2>
-          <PieChart {...pieChartsProps2}></PieChart>
-        </div>
-        <div className={styles.piebox}>
-          <h2>累计的音，视，图，文的待审核量的统计</h2>
+          <h3 className={styles.title}>待审核量</h3>
+          <TextCountUp dataSource={totalSource}></TextCountUp>
           <PieChart {...pieChartsProps3}></PieChart>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

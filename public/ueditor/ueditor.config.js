@@ -31,7 +31,7 @@
 
         // 服务器统一请求接口路径
         // , serverUrl: "http://10.50.162.153:8081/api/ueditor/action"
-        , serverUrl: "http://172.30.4.49:8180/audit/ueditor/action"
+        , serverUrl: "http://172.30.4.48:8180/audit/ueditor/action"
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
         , toolbars: [[

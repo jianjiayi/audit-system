@@ -22,8 +22,10 @@ function TextCountUp(props) {
         dataSource.map((item, index) => {
           return (
             <div key={index} className={styles.item}>
-              <span>{item.name}</span>
-              <Countup number={item.value} {...countupProps} />
+              <div className={styles.content}>
+                <span>{item.name}</span>
+                <Countup number={item.value} {...countupProps} />
+              </div>
             </div>
           );
         })}

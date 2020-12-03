@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import request from '@http';
 import { ExParams } from '@utils/utils';
 

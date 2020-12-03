@@ -7,6 +7,7 @@ import {
   // Input, Radio, Checkbox, Select,
   DatePicker,
   Input,
+  InputNumber,
 } from 'antd';
 // eslint-disable-next-line import/no-cycle
 import { renderRadioGroup, renderCheckBoxGroup, renderSelect } from './extra';
@@ -39,6 +40,11 @@ export const FormItem = {
   DateTimeStartEnd: (options, map, props) => (
     <Form.Item {...options}>
       <RangePicker showTime format={dateFormat} {...props} style={{ width: '100%' }} />
+    </Form.Item>
+  ),
+  Number: (options, map, props) => (
+    <Form.Item {...options}>
+      <InputNumber {...props} style={{ width: '100%' }} />
     </Form.Item>
   ),
   NumberRange: (options, map, props) => (

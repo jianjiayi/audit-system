@@ -5,7 +5,7 @@
 /* eslint-disable react/self-closing-comp */
 import React, { useState, useEffect } from 'react';
 import { message, Button, Form, Select, Input } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import _ from 'lodash';
 import { connect } from 'dva';
 
@@ -19,22 +19,25 @@ const { Option } = Select;
 
 function RuleJsonRender(props) {
   const {
+    pForm,
     value = {},
+    onChange = () => {},
     QDetails: { configRule = [] },
   } = props;
 
-  // console.log('value',value)
+  // console.log('pForm222',pForm)
 
   const [jsonArray, setJsonArray] = useState({});
-  const [itemKey, setItemKey] = useState(1);
+  const [itemKey, setItemKey] = useState('无');
   const [itemExtra, setItemExtra] = useState('in');
 
   useEffect(() => {
-    if(!_.isEmpty(value)){
+    if (!_.isEmpty(value)) {
       setJsonArray(value || {});
     }
   }, [value]);
 
+  // 增加配置项
   const addJsonItem = () => {
     let key = isShowInclude(itemKey.toString()) ? `${itemKey}_${itemExtra}` : itemKey;
     let value = null;
@@ -45,6 +48,15 @@ function RuleJsonRender(props) {
 
     setJsonArray({ ...jsonArray });
   };
+
+  // 删除配置项
+  const delJsonItem = (key) => {
+    console.log(key)
+    let arr = _.clone(jsonArray);
+    delete arr[key];
+    setJsonArray({ ...arr });
+    onChange(arr)
+  }
 
   return (
     <>
@@ -80,14 +92,20 @@ function RuleJsonRender(props) {
           </Select>
         )}
 
-        <Button type="primary" icon={<PlusOutlined />} onClick={() => addJsonItem()}>
+        <Button
+          type="primary"
+          disabled={itemKey === '无'}
+          icon={<PlusOutlined />}
+          onClick={() => addJsonItem()}
+        >
           增加
         </Button>
       </Input.Group>
 
       {/* json数据 */}
-      {!_.isEmpty(jsonArray) ? (
+      {!_.isEmpty(jsonArray) && pForm ? (
         <Form.Item
+          key="qqqqqqqq"
           className={styles.container}
           shouldUpdate={(prevValues, curValues) => {
             return prevValues.ruleJson !== curValues.ruleJson || prevValues.bid !== curValues.bid;
@@ -104,7 +122,17 @@ function RuleJsonRender(props) {
                 // console.log('params', params, 'key', key);
 
                 return (
-                  RulesRender(configRule, item, 'form', bid)[key]()
+                  <div key={item} className={styles.ruleitem}>
+                    {RulesRender(configRule, item, 'form', bid, pForm)[key]()}
+                    {key !== '8' && (
+                      <Button
+                        className={styles.delete_button}
+                        type="link"
+                        icon={<MinusCircleOutlined />}
+                        onClick={() => delJsonItem(item)}
+                      />
+                    )}
+                  </div>
                 );
               })
             );

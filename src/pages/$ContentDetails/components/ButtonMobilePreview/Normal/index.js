@@ -35,9 +35,9 @@ function Normal(props) {
     <div className={styles.normal}>
       <p className={styles.title}>{curArt.title}</p>
       <p className={styles.source}>
-        {curArt.createtime && <span>{ExTime.formatDate(curArt.createtime)}</span>}
-        {curArt.origin.length > 5 && <br />}
-        <span> 来源：{curArt.origin || curArt.originName}</span>
+        {curArt.pubtime && <span>{ExTime.formatDate(curArt.pubtime)}</span>}
+        {curArt.sourceName.length > 5 && <br />}
+        <span> 来源：{curArt.sourceName || curArt.sourceName}</span>
       </p>
       <div className={styles['content-detail']} dangerouslySetInnerHTML={textHtml}></div>
     </div>

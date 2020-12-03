@@ -1,3 +1,4 @@
+/* eslint-disable import/no-useless-path-segments */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   LockTwoTone,
@@ -14,7 +15,6 @@ import {
 
 import proSettings from './../../../../config/defaultSettings';
 
-import { getFakeCaptcha } from '@/services/login';
 import userLogin from './models';
 import styles from './index.less';
 

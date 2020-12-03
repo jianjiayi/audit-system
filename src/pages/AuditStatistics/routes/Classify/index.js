@@ -45,7 +45,7 @@ function AuditStatistics(props) {
       type: 'Statistics/init',
       payload: {
         type: 'category',
-        businessId: formRef.current.getFieldValue('businessId'),
+        ...formRef.current.getFieldsValue(),
       },
     });
   }, [dispatch]);
@@ -62,6 +62,7 @@ function AuditStatistics(props) {
   const searchFormProps = {
     className: styles['form-contaner'],
     layout: 'inline',
+    resetShow: true,
     authProps: {
       pathUrl: '/statistics/classify',
       perms: 'statistics:classify:select',
@@ -83,6 +84,11 @@ function AuditStatistics(props) {
         map: contentType,
         onChange: (e)=>{
           console.log(e)
+          formRef.current.setFieldsValue(
+            {
+              categoryId: '',
+            }
+          );
           dispatch({
             type: 'Global/getFirstCategory', 
             payload:{

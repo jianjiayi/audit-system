@@ -17,7 +17,7 @@ function SelectRender(props) {
     QDetails: { sourceList },
   } = props;
 
-  // console.log('SelectRender---',SelectRender)
+  // console.log('SelectRendervalue---',value)
 
   return (
     <>
@@ -27,12 +27,12 @@ function SelectRender(props) {
           size={'default'}
           placeholder="请选择"
           onChange={onChange}
-          defaultValue={value}
+          defaultValue={value !== null ? value : []}
         >
           {!_.isEmpty(sourceList) &&
             sourceList.map((item, index) => {
               return (
-                <Option key={item.id} value={item.name}>
+                <Option key={item.id+index} value={item.name}>
                   {item.name}
                 </Option>
               );
@@ -42,7 +42,7 @@ function SelectRender(props) {
         <>
           {!_.isEmpty(value) &&
             value.map((item, index) => {
-              return <Tag key={item.id}>{item.name}</Tag>;
+              return <Tag key={index}>{item}</Tag>;
             })}
         </>
       )}

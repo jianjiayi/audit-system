@@ -36,7 +36,7 @@ export default {
     },
   },
   pre: {
-    '/api/': {
+    '/audit/': {
       target: domain,
       changeOrigin: true,
       pathRewrite: {

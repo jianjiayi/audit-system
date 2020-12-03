@@ -65,11 +65,9 @@ function Content(props) {
     values.content = editorText;
     if (!_.isEmpty(values.datetime)) {
       const time = values.datetime.format(dateFormat);
-      values.pubtime = new Date(time.replace(/-/g, '/')).getTime();
+      values.pubTime = new Date(time.replace(/-/g, '/')).getTime();
     }
     delete values.datetime;
-
-    values.originName = values.origin;
 
     const { id, ...rest } = values;
 
@@ -99,7 +97,7 @@ function Content(props) {
             {isEdit ? (
               <Input placeholder="请输入标题" />
             ) : (
-              <h2 className={styles.title}>{curArt.title}</h2>
+              <h3 className={styles.title}>{curArt.title}</h3>
             )}
           </Form.Item>
           <Form.Item label="&nbsp;&nbsp;&nbsp;ID" name="id" initialValue={curArt.id}>
@@ -107,26 +105,26 @@ function Content(props) {
           </Form.Item>
           <Form.Item
             label="来源"
-            name={origin}
-            initialValue={curArt.sourceId || curArt.sourceName}
+            name='originName'
+            initialValue={curArt.originName || curArt.sourceName}
             rules={[{ required: true, message: `请输入来源` }]}
           >
             {isEdit ? (
               <Input placeholder="请输入来源" />
             ) : (
-              <span className={styles.title}>{curArt.sourceId || curArt.sourceName}</span>
+              <span className={styles.title}>{curArt.originName || curArt.sourceName}</span>
             )}
           </Form.Item>
           <Form.Item
             label="时间"
             name="datetime"
-            initialValue={moment(curArt.pubtime)}
+            initialValue={moment(curArt.pubTime)}
             rules={[{ required: true, message: `请选择时间` }]}
           >
             {isEdit ? (
               <DatePicker showTime format={dateFormat} />
             ) : (
-              <span className={styles.title}>{ExTime.formatDate(curArt.pubtime)}</span>
+              <span className={styles.title}>{ExTime.formatDate(curArt.pubTime)}</span>
             )}
           </Form.Item>
         </div>
@@ -223,12 +221,15 @@ function Content(props) {
     },
   };
   // 音频
-  const audioProps = {};
+  const audioProps = {
+    url: curArt.mediaInfo&&curArt.mediaInfo.audios
+  };
+  // console.log(curArt.mediaInfo.videos)
   // 视频
   const videoProps = {
-    source: curArt.videoUrl,
-    poster: (curArt.coverInfo && curArt.coverInfo.imageInfos) || [],
-    duration: curArt.durationStr,
+    source: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].src,
+    poster: (curArt.mediaInfo && curArt.mediaInfo.images) || [],
+    duration: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].duration,
   };
 
   const getContentTpl = () => {
@@ -238,14 +239,15 @@ function Content(props) {
 
         {newsDataType === 'VIDEO' && (
           <div>
-            <h2 className={styles.title}>视频详情 : </h2>
+            <h4 className={styles.title}>视频详情 : </h4>
             <VideoPlayer {...videoProps} />
           </div>
         )}
 
-        {(newsDataType === 'NEWS' || newsDataType === 'IMAGE') && (
+
+        <>
           <div className="">
-            <h2 className={styles.title}>文章详情 : </h2>
+            <h3 className={styles.title}>正文详情 : </h3>
             {isEdit && (
               <div>
                 <Ueditor {...UeditorProps} />
@@ -257,7 +259,8 @@ function Content(props) {
               </div>
             )}
           </div>
-        )}
+        </>
+        
       </div>
     );
   };

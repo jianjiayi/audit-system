@@ -7,15 +7,16 @@
 /* eslint-disable import/order */
 /* eslint-disable import/no-unresolved */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'dva';
 import _ from 'lodash';
+import { Button } from 'antd';
 import { history, useModel } from 'umi';
 
 import BaseForm  from '@components/BaseForm';
 import RuleJsonRender from './RuleJsonRender';
 
-import { contentType, queueType, keepDays, queueStatus } from '@/pages/constants';
+import { contentType } from '@/pages/constants';
 import { ExObject } from '@/utils/utils';
 
 import styles from './index.module.less';
@@ -32,11 +33,6 @@ function QueueContent(props) {
     dispatch,
     location,
     business = currentUser.business || {},
-    Global: {
-      firstCategory, // 一级分类
-      secondCategory, // 二级分类
-      thirdCategory, // 三级分类
-    },
     QDetails: { art },
   } = props;
 
@@ -58,13 +54,18 @@ function QueueContent(props) {
   // 处理规则配置回显
   useEffect(() => {
     // console.log('art',art)
-    if(_.isEmpty(art)){
+    const artData = _.clone(art);
+    if(_.isEmpty(artData)){
       formRef.current.resetFields();
+      formRef.current.setFieldsValue({
+        queueType: '1'
+      });
     }else{
-      formRef.current.setFieldsValue({...art});
+      artData.bid = _.toString(artData.bid)
+      formRef.current.setFieldsValue({...artData});
     }
     
-  }, [art]);
+  }, [JSON.stringify(art)]);
 
   const searchFormProps = {
     className: styles['content'],
@@ -110,7 +111,7 @@ function QueueContent(props) {
         name: 'ruleJson', 
         required: true,
         itemRender: (
-          <RuleJsonRender></RuleJsonRender>
+          <RuleJsonRender pForm={formRef.current}></RuleJsonRender>
         )
       },
       {
@@ -123,6 +124,9 @@ function QueueContent(props) {
       { 
         label: '队列权重', 
         name: 'priority', 
+        type: 'Number',
+        min: 0,
+        max: 100000,
         required: true,
         help: '权重：0~10000，整数'
       },
@@ -134,22 +138,15 @@ function QueueContent(props) {
         maxLength:200
       },
     ],
-    formValues: {
-      // ...art,
-      // category: ["16-160000", "16-160001", "16-160005", "16-160006", "16-420100"],
-      bid: _.cloneDeep(art['bid']),
-      category: _.cloneDeep(art['category']),
-      queueType: _.toString(art['queueType']),
-      keepDays: _.toString(art['keepDays']),
-    },
+    formValues: {},
     onSubmit: formValues => {
       console.log('formValues',formValues)
       formValues.ruleJson = JSON.stringify(formValues.ruleJson);
 
       // 判断是否更新
-      let action = location.query.action || '';
-      if (action !== 'update') {
-        delete formValues.id;
+      const { action, id } = location.query;
+      if (action === 'update') {
+        formValues['id'] = id;
       }
 
       console.log('formValues', formValues);
@@ -168,7 +165,9 @@ function QueueContent(props) {
 
   return (
     <div className={styles.container}>
-      <BaseForm {...searchFormProps} pRef={formRef}></BaseForm>
+      <BaseForm {...searchFormProps} pRef={formRef}>
+        <Button type="dashed" onClick={()=>{history.go(-1)}}>返回</Button>
+      </BaseForm>
     </div>
   )
 }

@@ -17,3 +17,11 @@ export async function getPersoneDetailQuery(params){
     body: params
   })
 }
+
+// 下载excel
+export async function getPersoneExportExcel(params){
+  return request(`/audit/statistic/person/export`, {
+    method: 'POST',
+    body: params
+  })
+}

@@ -40,7 +40,7 @@ const getAllTreeCode = (data = []) => {
 function TreeClassification(props) {
   const { showType = 'form', value = [], type = 0, onChange = () => {} } = props;
 
-  console.log('---value',value)
+  // console.log('---value',value)
 
   const [treeData, setTreeData] = useState([]);
   const [checkedKeys, setCheckedKeys] = useState(value);
@@ -74,6 +74,7 @@ function TreeClassification(props) {
 
   return (
       <Tree 
+        height= {400}
         checkable
         checkedKeys={checkedKeys} 
         treeData={treeData} 

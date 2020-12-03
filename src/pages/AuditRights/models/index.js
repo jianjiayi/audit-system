@@ -36,6 +36,7 @@ export default {
     // 初始化
     *init({ payload }, { put }) {
       yield put({ type: 'reset' });
+      yield put({ type: 'getRuleListAll' });
       yield put({ type: 'getUserOrRoleQuery', payload });
     },
 
@@ -101,6 +102,27 @@ export default {
           },
         });
         callback(obj);
+      }
+    },
+
+    // 获取所有角色列表
+    *getRuleListAll({ payload }, { call, put }) {
+
+      const { code, data } = yield call(api.getRuleListAll, payload);
+
+      if (code === 200 && data) {
+        let obj = {};
+        !_.isEmpty(data) &&
+          data.map(item => {
+            obj[item.id] = item.roleName;
+          });
+        yield put({
+          type: 'save',
+          payload: {
+            roleAllLIst: data,
+            roleList: obj,
+          },
+        });
       }
     },
 

@@ -8,11 +8,12 @@
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'dva';
 import _ from 'lodash';
-import { useModel } from 'umi';
+import { Button } from 'antd';
+import { history, useModel } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
-import { contentType, auditResult, dateFormat } from '@/pages/constants';
+import { contentType, auditResult1, dateFormat } from '@/pages/constants';
 
 import styles from './index.module.less';
 
@@ -60,9 +61,9 @@ function AuditStatistics(props) {
         // initialValue: ExObject.getFirstValue(business),
         map: business,
       },
-      { label: '时间', name: 'datatime', type: 'DateTimeStartEnd' },
+      { label: '审核时间', name: 'datatime', type: 'DateTimeStartEnd' },
       {
-        label: '类型',
+        label: '内容类型',
         type: 'SELECT',
         name: 'newsType',
         map: contentType,
@@ -72,7 +73,7 @@ function AuditStatistics(props) {
         type: 'SELECT',
         name: 'auditStatus',
         initialValue: '',
-        map: auditResult,
+        map: auditResult1,
       },
       { label: '标题', name: 'title' },
     ],
@@ -81,7 +82,7 @@ function AuditStatistics(props) {
       dispatch({
         type: 'Statistics/getPersoneDetailQuery',
         payload: {
-          user: location.query.user,
+          userId: location.query.id,
           businessId: formRef.current.getFieldValue('businessId'),
         },
       });
@@ -98,7 +99,7 @@ function AuditStatistics(props) {
         type: 'Statistics/getPersoneDetailQuery',
         payload: {
           ...formValues,
-          user: location.query.user,
+          userId: location.query.id,
         },
       });
     },
@@ -147,7 +148,7 @@ function AuditStatistics(props) {
         align: 'center',
         width: '260px',
         dataIndex: 'auditStatus',
-        render: text => <span>{auditResult[text]}</span>,
+        render: text => <span>{text}</span>,
       },
     ],
     loading,
@@ -169,7 +170,9 @@ function AuditStatistics(props) {
 
   return (
     <>
-      <BaseForm {...searchFormProps} pRef={formRef}></BaseForm>
+      <BaseForm {...searchFormProps} pRef={formRef}>
+        <Button onClick={()=>{history.go(-1)}}>返回</Button>
+      </BaseForm>
       <BaseTable {...tableProps}></BaseTable>
     </>
   );

@@ -1,9 +1,10 @@
+/* eslint-disable no-unneeded-ternary */
 /* eslint-disable consistent-return */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
-import { Button, Form } from 'antd';
+import { Form } from 'antd';
 
 import WordsComponents from './WordsRender';
 import IntervalValue from './IntervalValue';
@@ -30,7 +31,7 @@ const labelText = (List = [], key = '') => {
  * @param {*} bid  业务线id
  * @return {*} dom
  */
-const ruleJson = (labelList, item, isEdit, bid) => {
+const ruleJson = (labelList, item, isEdit, bid, pForm) => {
   const parentName = 'ruleJson';
 
   const params = item.split('_');
@@ -44,7 +45,7 @@ const ruleJson = (labelList, item, isEdit, bid) => {
     name: [parentName, type ? `${key}_${type}` : key],
     rules: [
       {
-        required: true,
+        required: (key >=11 && key<=14 ) ? false : true,
         message: `${label} 字段不能为空`,
       },
     ],
@@ -73,7 +74,7 @@ const ruleJson = (labelList, item, isEdit, bid) => {
     ),
     5: () => (
       <Form.Item {...itemProps} help={isEdit === 'form' && '分值：0~100，可输入相同分数，左小右大'}>
-        <IntervalValue min={0} max={100} showType={isEdit}></IntervalValue>
+        <IntervalValue pForm={pForm} min={0} max={100} showType={isEdit}></IntervalValue>
       </Form.Item>
     ),
     6: () => (

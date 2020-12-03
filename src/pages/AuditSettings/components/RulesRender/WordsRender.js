@@ -32,7 +32,7 @@ const getDenyWordsKey = (name) => {
       value: '热词',
     },
     {
-      key: 'personage ',
+      key: 'personage',
       value: '人物词',
     },
   ];
@@ -44,7 +44,7 @@ const getDenyWordsKey = (name) => {
 function WordsRender(props) {
   const { showType = 'form', bid = '100002', label = '', value: tagsList, onChange = () => {} } = props;
 
-  // console.log('dataSource',dataSource)
+  // console.log('dataSource',tagsList)
 
   const tableRef = useRef(null);
 
@@ -75,12 +75,17 @@ function WordsRender(props) {
         idKeys.push(item.id);
       });
     setSelectedKeys(idKeys);
+    
+    // 默认全部，设置为-1
+    if(tagsList === null || tagsList === undefined){
+      onChange(-1)
+    }
   }, [tagsList]);
 
   const modalProps = {
     title: `${label}列表`,
     footer: null,
-    width: 420,
+    width: 620,
     visible: modalVisible,
     bodyStyle: { padding: 0 },
     destroyOnClose: true,
@@ -106,7 +111,7 @@ function WordsRender(props) {
           handleClose(tag);
         }}
       >
-        {tag.word}
+        {tag.word || tag.name}
       </Tag>
     );
     return (
@@ -153,11 +158,11 @@ function WordsRender(props) {
 
     setModalVisible(false);
   };
-  console.log('tagsList', tagsList);
+  // console.log('tagsList', tagsList);
 
   return (
     <>
-      {!_.isEmpty(tagsList) && tagsList.map(forMapTagsRender)}
+      {!_.isEmpty(tagsList) ? tagsList.map(forMapTagsRender) : showType !== 'form' && <Tag>全部</Tag>}
 
       {showType === 'form' && (
         <>

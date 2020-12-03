@@ -1,8 +1,9 @@
+/* eslint-disable import/newline-after-import */
 /* eslint-disable global-require */
 // import { BASEURL } from '@/config';
 const BASEURL = '';
 // 上传文件路径
-export const UPLOAD_FILE_URL = `${BASEURL  }/audit/file/upload/image`;
+export const UPLOAD_FILE_URL = `${BASEURL}/audit/file/upload/image`;
 export const errorImg = require('@/assets/error.png');
 export const acceptType= ['jpg', 'png', 'jpeg', 'gif'];
 export const maxFileSize=  5;
@@ -86,6 +87,8 @@ export const auditResult = {
   PASS: '通过',
   REJECT: '删除',
 };
+// 审核结果
+export const auditResult1 = { '': '全部', '审核通过': '审核通过', '审核未通过': '审核未通过' };
 
 // 文章审核通过&未通过原因
 export const passReason = ['去杂不净', '广告'];

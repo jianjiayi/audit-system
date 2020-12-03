@@ -46,19 +46,19 @@ export default {
             dataSource: arr,
             yesterdaySource: [
               {
-                name: '昨日审核图文数',
+                name: '图文',
                 value: data.yesterdayAuditNews.toString(),
               },
               {
-                name: '昨日审核视频数',
+                name: '视频',
                 value: data.yesterdayAuditVideo.toString(),
               },
               {
-                name: '昨日审核音频数',
+                name: '音频',
                 value: data.yesterdayAuditAudio.toString(),
               },
               {
-                name: '昨日审核图集数',
+                name: '图集',
                 value: data.yesterdayAuditImage.toString(),
               },
             ],
@@ -82,19 +82,19 @@ export default {
             ],
             totalSource: [
               {
-                name: '待审图文数',
+                name: '图文',
                 value: data.notAuditNews.toString(),
               },
               {
-                name: '待审视频数',
+                name: '视频',
                 value: data.notAuditVideo.toString(),
               },
               {
-                name: '待审音频数',
+                name: '音频',
                 value: data.notAuditAudio.toString(),
               },
               {
-                name: '待审图集数',
+                name: '图集',
                 value: data.notAuditImage.toString(),
               },
             ],

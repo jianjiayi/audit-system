@@ -63,7 +63,6 @@ export default {
 
     // 获取人员明细列表
     *getPersoneDetailQuery({ payload }, { call, put, select }) {
-      console.log(payload);
       yield put({ type: 'reset' });
 
       const { query, pagination } = yield select(({ Statistics }) => Statistics);
@@ -94,6 +93,24 @@ export default {
         });
       }
     },
+
+    // 下载excel
+    *getPersoneExportExcel({ payload }, { call, put, select }){
+      const { query, pagination } = yield select(({ Statistics }) => Statistics);
+      // 合并参数
+      const params = {
+        ...query,
+        pageNum: 1,
+        pageSize: pagination.pageSize,
+        ...payload,
+      };
+      try{
+         yield call(api.getPersoneExportExcel, params);
+      }catch(e){
+        console.log(e)
+      }
+       
+    }
   },
 
   reducers: {

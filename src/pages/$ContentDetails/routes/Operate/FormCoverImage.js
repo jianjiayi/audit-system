@@ -33,11 +33,29 @@ function FormCoverImage(props) {
   //     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   //   },
   // ];
+  // 对象转数组方法
+  const objToArr = (arrObj)=>{
+    let arr = [];
+    if(_.isEmpty(arrObj)) return;
+    Object.keys(arrObj).map(key=>{
+      // console.log(arrObj[key]);
+      arrObj[key].uid = key;
+      arrObj[key].url = arrObj[key].originalUrl;
+      arr.push(arrObj[key])
+    });
+    // console.log(arr)
+    return arr;
+  }
+
   // 封面图原始数据
-  const list = curArt.coverInfo && curArt.coverInfo.imageInfos;
-  // console.log('list', list);
+  const list = objToArr(curArt.covers) || objToArr(curArt.picMessageMap);
+
+  useEffect(()=>{
+    setFileList(objToArr(curArt.covers));
+  },[curArt.covers])
+
   // 正文全图原始数据
-  const contentImages = curArt.images;
+  const contentImages = objToArr(curArt.picMessageMap);
 
   const [coverPictureVisible, setCoverPictureVisible] = useState(false);
   const [tabKey, setTabKey] = useState(0);
@@ -46,19 +64,27 @@ function FormCoverImage(props) {
   const [imagesValue, setImagesValue] = useState(3);
   // 用来共享组件内的封面图数据
   const [fileList, setFileList] = useState(list || []);
+  // 封面图
+  const [contentList, setContentList] = useState(contentImages || []);
   // 预览图片状态和图片地址
   const [previewVisible, setPreviewVisible] = useState(false);
+  const [imageSourceType, setImageSourceType] = useState('cover');
   const [previewImage, setPreviewImage] = useState('');
+  
 
   const handleOkSubmit = () => {};
 
   // 三图多图切换
   const setCoverImagesNumber = (number) => {
     setImagesValue(number);
-    if (!!_.isEmpty(fileList)) return;
-    if (number === 1) return setFileList([fileList[0]]);
-    setFileList(fileList);
+    // if (_.isEmpty(fileList)) return;
+    if (number === 1) {
+      return setFileList([fileList[0]])
+    };
+    setFileList(list);
   };
+
+  
 
   // 上传文件校验
   const beforeUpload = (file) => {
@@ -91,6 +117,8 @@ function FormCoverImage(props) {
         {
           uid: new Date(),
           url: info.file.response.data.fileUrl,
+          imageKey: info.file.response.data.fileUrl,
+          originalUrl: info.file.response.data.fileUrl,
           width: info.file.response.data.width,
           height: info.file.response.data.height,
         },
@@ -117,18 +145,21 @@ function FormCoverImage(props) {
 
   // console.log('fileList[0]',fileList[0])
 
+  
+
   return (
     <>
       <div className={styles.content}>
-        <img width={200} height={200} src={(!_.isEmpty(fileList) && fileList[0]&& fileList[0].url) || errorImg} />
+        <img width={240} height={180} src={(!_.isEmpty(fileList) && fileList[0]&& fileList[0].originalUrl) || errorImg} />
         <div className={styles.button_list}>
           <Button
             type="primary"
-            disabled={_.isEmpty(fileList) || (!_.isEmpty(fileList) && fileList.length < 3)}
+            disabled={_.isEmpty(fileList) || !fileList[2]}
             onClick={() => {
               setCoverPictureVisible(true);
               setTabKey(0);
               setFileList(list || []);
+              setImageSourceType('cover');
             }}
           >
             三图
@@ -148,7 +179,7 @@ function FormCoverImage(props) {
             onClick={() => {
               setCoverPictureVisible(true);
               setTabKey(2);
-              setFileList(contentImages || []);
+              setImageSourceType('contentImages')
             }}
           >
             正文全图
@@ -165,6 +196,7 @@ function FormCoverImage(props) {
         onOk={handleOkSubmit}
         onCancel={() => {
           setCoverPictureVisible(false);
+          setImageSourceType('cover');
           if (tabKey !== 2) {
             setFileList(...[list]);
           }
@@ -173,22 +205,43 @@ function FormCoverImage(props) {
       >
         {(tabKey === 0 || tabKey === 2) && (
           <div className={styles.images_list}>
-            {!_.isEmpty(fileList) ? (
-              fileList.map((item, index) => {
+
+            {/* 封面图 */}
+            {imageSourceType === 'cover' && !_.isEmpty(fileList) ? (
+              fileList.map((item,index)=>{
                 return (
                   <Image
                     className={styles.item}
                     key={index}
-                    width={104}
-                    height={104}
+                    width={120}
+                    height={90}
                     alt="封面图"
-                    src={item.url}
+                    src={item.originalUrl}
                     fallback={errorImg}
                   />
                 );
               })
             ) : (
-              <p>暂无数据</p>
+              imageSourceType === 'cover' && <p>暂无封面图</p>
+            )}
+
+            {/* 正文全图 */}
+            {imageSourceType === 'contentImages' && !_.isEmpty(contentList) ? (
+              contentList.map((item,index)=>{
+                return (
+                  <Image
+                    className={styles.item}
+                    key={index}
+                    width={120}
+                    height={90}
+                    alt="封面图"
+                    src={item.originalUrl}
+                    fallback={errorImg}
+                  />
+                );
+              })
+            ) : (
+              imageSourceType === 'contentImages' && <p>暂无内容图片</p>
             )}
           </div>
         )}
@@ -209,12 +262,12 @@ function FormCoverImage(props) {
               <Upload
                 action={UPLOAD_FILE_URL}
                 listType="picture-card"
-                fileList={fileList || []}
+                fileList={ objToArr(fileList) || []}
                 beforeUpload={beforeUpload}
                 onChange={onChange}
                 onPreview={onPreview}
               >
-                {!_.isEmpty(fileList) && fileList.length >= imagesValue ? null : (
+                {!_.isEmpty(fileList) && objToArr(fileList).length >= imagesValue ? null : (
                   <>
                     <PlusOutlined />
                     <div style={{ marginTop: 8 }}>Upload</div>

@@ -1,48 +1,91 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable no-return-assign */
+/* eslint-disable no-param-reassign */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable consistent-return */
+/* eslint-disable object-shorthand */
+/* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-func-assign */
 /* eslint-disable no-control-regex */
 
-import React, { useState, useRef } from 'react';
-import { message, Form, Checkbox, Radio, Input, Tag, Button, Row, Col, Icon } from 'antd';
+import React, { useState, useEffect, useRef } from 'react';
+import { message, Form, Checkbox, Radio, Select, Input, Tag, Button, Row, Col, Icon } from 'antd';
 import classNames from 'classnames';
 import { connect } from 'dva';
 import _ from 'lodash';
+import { RollbackOutlined } from '@ant-design/icons';
+
+import SelectModeTags from './SelectModeTags';
 import ThreeLevelClassification from './ThreeLevelClassification';
 
 import { passReason, rejectReason } from '@/pages/constants';
 
 import styles from './FormAction.module.less';
 
+
 const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 18 },
+  labelCol: { span: 8 },
+  wrapperCol: { span: 14 },
 };
 
 function FormAction(props) {
-  // 存储标签
-  const [tags, setTags] = useState([]);
-  const [inputVisible, setInputVisible] = useState(false);
-  const saveInputRef = useRef(null);
-
   const [selfForm] = Form.useForm();
 
   const {
     name = 'FormAction',
+    pForm,
     className,
     dispatch,
     CDetails: {
       curArt,
-      category,
+      auditState,
+      reason,
       queueContentId,
       newsDataType,
       forbiddenWordList, // 违禁词
       sensitiveWordList, // 敏感词
       hotWord, // 热词
       personalWord, // 人物词
-      tagsList,
     },
-    Global: { firstCategory, secondCategory, thirdCategory },
   } = props;
+
+  // console.log('curArt',curArt)
+
+  useEffect(()=>{
+    // console.log('22222', selfForm)
+    selfForm.setFieldsValue({
+      isDup: curArt.isDup || 0,
+      hotValue: [curArt.hotValue] || 0,
+      bigEvent: [curArt.bigEvent] || 0,
+      tags: curArt.tags || [],
+      auditState: auditState || '',
+      reason: reason || [],
+      categoryFirst: curArt.categoryFirst || null,
+      categorySecond: curArt.categorySecond || null,
+      categoryThird: curArt.categoryThird || null
+    });
+  },[JSON.stringify(curArt)])
+
+  const filterTags = (list = [])=>{
+    // console.log('222222222',list);
+    return list.map((item, index)=>{
+      return item = {
+        type: 0,
+        text: item,
+      }
+    })
+  }
+
+  const saveInputRef = useRef(null);
+  // 存储标签
+  const [tags, setTags] = useState([]);
+  const [inputVisible, setInputVisible] = useState(false);
+
+  useEffect(() => {
+    setTags(filterTags(curArt.tags))
+  }, [curArt.tags])
+
 
   const formItemLayout = {
     labelAlign: 'left',
@@ -51,10 +94,11 @@ function FormAction(props) {
   };
 
   // 删除标签tags
-  const deleteTagClose = (removedTag) => {
+  const deleteTagClose = (removedTag,index) => {
     const tagsList = _.cloneDeep(tags);
-    _.pull(tagsList, removedTag);
+    tagsList.splice(index,1);
     setTags(tagsList);
+    selfForm.setFieldsValue({ tags: [...tagsList] });
   };
   // 保存标签
   const handleInputConfirm = () => {
@@ -81,7 +125,7 @@ function FormAction(props) {
       callback: (data) => {
         setTags([...tags, { type: data ? 1 : 0, text: inputValue }]);
         // 设置表单项值
-        setFieldsValue({ labels: [...tags, { type: data ? 1 : 0, text: inputValue }] });
+        selfForm.setFieldsValue({ tags: [...tags, { type: data ? 1 : 0, text: inputValue }] });
         // 关闭输入框
         setInputVisible(false);
       },
@@ -100,56 +144,22 @@ function FormAction(props) {
     return s.replace(/[^\x00-\xff]/g, 'aa').length;
   };
 
-
-  const selectCategoryFun = (id, name)=>{
-    console.log('id, name',id, name)
-    if(name === 'firstCategoryId'){
-      selfForm.resetFields(['secondCategoryId', 'thirdCategoryId']);
-      selfForm.setFieldsValue({ secondCategoryId: null, thirdCategoryId: null });
-      dispatch({
-        type: 'Global/getSecondCategory',
-        payload: {
-          id: id || 0,
-          type: 0
-        },
-      });
-    }else{
-      selfForm.resetFields(['thirdCategoryId']);
-      selfForm.setFieldsValue({ thirdCategoryId: null });
-      if(!id) return;
-      dispatch({
-        type: 'Global/getThirdCategory',
-        payload: {
-          id,
-          type: 0
-        },
-      });
-    }
-  }
-
-  const moreSelectProps = {
-    firstCategory,
-    secondCategory,
-    thirdCategory,
-    onChange: (values, name) => {
-      selectCategoryFun(values[name], name)
-    },
+  const handleChange = (e)=>{
+    console.log(e)
   }
 
   const formProps = {
     name,
-    form: selfForm,
+    form: pForm || selfForm,
     ...formItemLayout,
     className: classNames(className, styles.container),
   };
 
   return (
     <Form {...formProps}>
-      <Form.Item label="分类">
-        <ThreeLevelClassification {...moreSelectProps}/>
-      </Form.Item>
+      <ThreeLevelClassification pForm={selfForm}/>
       <Form.Item label="违禁词">
-        <p className={styles}>
+        <p className={styles.p_text}>
           {!_.isEmpty(forbiddenWordList) ? (
             forbiddenWordList.map((item, index) => {
               return (
@@ -164,7 +174,7 @@ function FormAction(props) {
         </p>
       </Form.Item>
       <Form.Item label="敏感词">
-        <p className={styles}>
+        <p className={styles.p_text}>
           {!_.isEmpty(sensitiveWordList) ? (
             sensitiveWordList.map((item, index) => {
               return (
@@ -179,7 +189,7 @@ function FormAction(props) {
         </p>
       </Form.Item>
       <Form.Item label="热词">
-        <p className={styles}>
+        <p className={styles.p_text}>
           {!_.isEmpty(hotWord) ? (
             hotWord.map((item, index) => {
               return (
@@ -194,7 +204,7 @@ function FormAction(props) {
         </p>
       </Form.Item>
       <Form.Item label="人物词">
-        <p className={styles}>
+        <p className={styles.p_text}>
           {!_.isEmpty(personalWord) ? (
             personalWord.map((item, index) => {
               return (
@@ -212,30 +222,29 @@ function FormAction(props) {
       <Form.Item
         {...layout}
         label="是否可重复分发"
-        name="repeat_delivery"
-        initialValue={
-          (curArt.extra && curArt.extra.sourceExtra && curArt.extra.sourceExtra.repeat_delivery) ||
-          '0'
-        }
+        name="isDup"
       >
         <Radio.Group>
-          <Radio value="0">是</Radio>
-          <Radio value="1">否</Radio>
+          <Radio value={0}>是</Radio>
+          <Radio value={1}>否</Radio>
         </Radio.Group>
       </Form.Item>
       <Form.Item>
-        <Form.Item noStyle name="hotValue" initialValue={[curArt.hotValue] || 0}>
+        <Form.Item noStyle name="hotValue">
           <Checkbox.Group>
             <Checkbox value={1}>热点</Checkbox>
           </Checkbox.Group>
         </Form.Item>
-        <Form.Item noStyle name="bigEvent" initialValue={[curArt.bigEvent] || false}>
+        <Form.Item noStyle name="bigEvent">
           <Checkbox.Group>
-            <Checkbox value>大事件</Checkbox>
+            <Checkbox value={1}>大事件</Checkbox>
           </Checkbox.Group>
         </Form.Item>
       </Form.Item>
-      <Form.Item label="标签" name="labels" initialValue={curArt.labels || []}>
+      {/* <Form.Item label="标签" name="tags" help={'最多支持10个标签，单个50个字符'} >
+        <SelectModeTags></SelectModeTags>
+      </Form.Item> */}
+      <Form.Item label="标签" name="tags" help={'最多支持10个标签，单个50个字符'}>
         <>
           {tags.map((tag, index) => {
             const tagElem = (
@@ -243,7 +252,7 @@ function FormAction(props) {
                 key={index + tag.text}
                 closable
                 color={tag.type === 1 ? 'green' : ''}
-                onClose={() => deleteTagClose(tag)}
+                onClose={() => deleteTagClose(tag, index)}
               >
                 {tag.text}
               </Tag>
@@ -252,7 +261,7 @@ function FormAction(props) {
           })}
           {inputVisible && (
             <div>
-              <Input ref={saveInputRef} type="text" size="small" />
+              <Input ref={saveInputRef} type="text" size="small" onPressEnter={(e)=>{e.preventDefault()}} />
               <Button size="small" type="primary" onClick={() => handleInputConfirm()}>
                 保存
               </Button>
@@ -277,7 +286,8 @@ function FormAction(props) {
 
       <Form.Item
         label="审核结果"
-        name="resultStatus"
+        labelCol= {{ span: 6}}
+        name="auditState"
         rules={[{ required: true, message: `选择审核结果` }]}
       >
         <Radio.Group>
@@ -287,15 +297,15 @@ function FormAction(props) {
       </Form.Item>
       <Form.Item
         wrapperCol={{
-          xs: { span: 21, offset: 3 },
-          sm: { span: 21, offset: 3 },
+          xs: { span: 20, offset: 3 },
+          sm: { span: 20, offset: 3 },
         }}
         shouldUpdate={(prevValues, curValues) => {
-          return prevValues.resultStatus !== curValues.resultStatus;
+          return prevValues.auditState !== curValues.auditState;
         }}
       >
         {({ getFieldValue }) => {
-          const result = getFieldValue('resultStatus');
+          const result = getFieldValue('auditState');
           if (!result) return <></>;
 
           const getReasonTpl = (rules, data) => {
@@ -318,22 +328,26 @@ function FormAction(props) {
 
           return result === 'PASS'
             ? getReasonTpl(null, passReason)
-            : getReasonTpl([{ required: true, message: `选择审核未通过原因` }], rejectReason);
+            : (
+              result === 'REJECT' ? 
+              getReasonTpl([{ required: true, message: `选择审核未通过原因` }], rejectReason): 
+              null
+            );
         }}
       </Form.Item>
 
       <Form.Item>
-        <Row gutter={24} justify="space-between">
+        <div className={styles.button_group}>
           <Button type="primary" htmlType="submit">
             确定
           </Button>
-          <Button type="primary">
+          <Button>
             跳过
           </Button>
-          <Button type="primary">
+          <Button type="dashed" icon={<RollbackOutlined />}>
             退出
           </Button>
-        </Row>
+        </div>
       </Form.Item>
     </Form>
   );

@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable no-param-reassign */
 /* eslint-disable prefer-const */
 /* eslint-disable no-restricted-syntax */
@@ -43,6 +45,8 @@ const errorHandler = ({ showToast = true }) => (error) => {
     // console.log(error, 'error')
   }
   const { response } = err;
+
+  // console.log('response',response)
   if (response.code !== successCode && showToast) {
     const message = response.data || response.data.desc || codeMessage[response.code] || '';
     notification.error({
@@ -151,6 +155,36 @@ request.interceptors.request.use((url, { tokenName, credentials = 'include', ...
 }, { global: false });
 // eslint-disable-next-line consistent-return
 request.interceptors.response.use(async (response, { showToast = true }) => {
+  // 下载
+  if (response.headers.get('content-disposition')) {
+    const blb = await response.blob();
+    const blob = new Blob([blb]);
+    const blobURL = window.URL.createObjectURL(blob);
+    // 创建a标签，用于跳转至下载链接
+    const tempLink = document.createElement('a');
+    tempLink.style.display = 'none';
+    tempLink.href = blobURL;
+    tempLink.setAttribute(
+      'download',
+      decodeURI(escape(
+        response.headers
+          .get('content-disposition')
+          .replace('attachment;filename=', ''),
+      )),
+    );
+    // 兼容：某些浏览器不支持HTML5的download属性
+    if (typeof tempLink.download === 'undefined') {
+      tempLink.setAttribute('target', '_blank');
+    }
+    // 挂载a标签
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+    // 释放blob URL地址
+    window.URL.revokeObjectURL(blobURL);
+    return;
+  }
+
   if (response && response.status === 200) {
     const data = await response.clone().json();
     if (data.code !== successCode) {

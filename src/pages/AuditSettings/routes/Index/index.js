@@ -54,6 +54,7 @@ function AuditSettings(props) {
   const searchFormProps = {
     className: styles['form-contaner'],
     layout: 'inline',
+    resetShow: true,
     authProps: {
       pathUrl: '/setting/',
       perms: 'setting:select',
@@ -299,7 +300,7 @@ function AuditSettings(props) {
           text="创建队列"
           perms={'setting:add'}
           ghost
-          type="primary"
+          type="link"
           onClick={() => goDetails({ action: 'create' })}
         ></WrapAuthButton>
       </BaseForm>

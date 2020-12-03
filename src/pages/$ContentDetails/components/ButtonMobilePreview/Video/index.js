@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable @typescript-eslint/no-redeclare */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-var */
 /* eslint-disable consistent-return */
@@ -14,9 +16,10 @@ import styles from './index.module.less';
 function Video(props) {
   const { curArt = {} } = props;
   const videoProps = {
-    source: curArt.videoUrl,
-    poster: (curArt.coverInfo && curArt.coverInfo.imageInfos) || [],
-    duration: curArt.durationStr,
+    className:styles.video_container,
+    source: curArt.mediaInfo && curArt.mediaInfo.videos[1].src,
+    poster: (curArt.mediaInfo && curArt.mediaInfo.images) || [],
+    duration: curArt.mediaInfo && curArt.mediaInfo.videos[1].duration,
   };
 
   // 过滤富文本的样式

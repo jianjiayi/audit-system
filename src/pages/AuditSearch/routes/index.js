@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-underscore-dangle */
@@ -21,6 +22,7 @@ import { history, useModel } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
+import ViewLog from '../components/viewlog';
 // import { renderSelect } from '@components/BasicForm/BaseForm';
 
 import { ExObject } from '@utils/utils.js';
@@ -290,7 +292,7 @@ function AuditSearch(props) {
         align: 'center',
         width: '150px',
         render: (text) => (
-          <Tooltip title={text}>
+          <Tooltip title={text} destroyTooltipOnHide={true} getPopupContainer>
             <a>{text.length > 15 ? `${text.slice(0, 15)}...` : text}</a>
           </Tooltip>
         ),
@@ -411,7 +413,6 @@ function AuditSearch(props) {
 
   // 领审操作
   const goDetails = (data) => {
-    console.log(data);
     const { businessId, id, queues, type } = data;
     const { queueType, id: queue } = _.isEmpty(queues) ? '' : queues[0];
     const params = {
@@ -424,26 +425,32 @@ function AuditSearch(props) {
     };
 
     console.log(params);
-    dispatch({
-      type: 'CDetails/getNewsGetTask',
-      payload: params,
-      callback: (data) => {
-        if (_.isEmpty(data)) {
-          return message.error('当前文章不可以领取');
-        }
-
-        dispatch({ type: 'CDetails/save', payload: { query: params } });
-        // sessionStorage.setItem('$QUERY', params);
-        sessionStorage.setItem('$QUERY', JSON.stringify(params));
-        sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify(query));
-        history.push({
-          pathname: '/search/cdetails',
-          query: {
-            isBack: true,
-          },
-        });
-      },
-    });
+    try {
+      dispatch({
+        type: 'CDetails/getNewsGetTask',
+        payload: params,
+        callback: (data) => {
+          console.log('-----------------')
+          if (_.isEmpty(data)) {
+            return message.error('当前文章不可以领取');
+          }
+  
+          dispatch({ type: 'CDetails/save', payload: { query: params } });
+          // sessionStorage.setItem('$QUERY', params);
+          sessionStorage.setItem('$QUERY', JSON.stringify(params));
+          sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify(query));
+          history.push({
+            pathname: '/search/cdetails',
+            query: {
+              isBack: true,
+            },
+          });
+        },
+      });
+    }catch(e){
+      console.log('e',e)
+    }
+    
   };
 
   // 加队列操作
@@ -478,14 +485,10 @@ function AuditSearch(props) {
         id,
       },
       callback: (data) => {
-        viewRecordRef.current.setVisible(true);
+        viewRecordRef.current.setModalVisible(true);
         viewRecordRef.current.setDataSource(data);
       },
     });
-  };
-  const recordProps = {
-    footer: null,
-    dataSource: [],
   };
 
   // 批量审核操作
@@ -572,7 +575,7 @@ function AuditSearch(props) {
           />
         </div>
       </BaseTable>
-      {/* <ViewRecord {...recordProps} ref={viewRecordRef} /> */}
+      <ViewLog ref={viewRecordRef} />
     </>
   );
 }

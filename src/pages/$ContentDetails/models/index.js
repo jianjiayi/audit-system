@@ -35,7 +35,6 @@ export default {
     // 初始化
     *init({ payload }, { put }) {
       yield put({ type: 'save', payload: { loading: true } });
-      yield put({ type: 'Global/getFirstCategory',payload:{id: 0, type: payload.type}});
       yield put({ type: 'getNewsGetTask', payload });
     },
 
@@ -62,57 +61,71 @@ export default {
     },
 
     // 领取队列
-    *getNewsGetTask({ payload, callback }, { call, put, select }) {
-      const { query } = yield select(({ CDetails }) => CDetails);
-      // 合并参数
-      const params = {
-        ...query,
-        ...payload,
-      };
+    *getNewsGetTask({ payload, callback=()=>{} }, { call, put, select }) {
+      try{
+        const { query } = yield select(({ CDetails }) => CDetails);
+        // 合并参数
+        const params = {
+          ...query,
+          ...payload,
+        };
 
-      const { code, data } = yield call(api.getNewsGetTask, params);
+        const { code, data } = yield call(api.getNewsGetTask, params);
 
-      if (code === 200) {
-        if (data) {
-          // 处理标签
-          let list = [];
-          let tagsArr = data.labels;
-          // let tagsArr = ['as京东方','撒旦法'];
-          for (let i in tagsArr) {
-            let item = tagsArr[i];
-            const { code: c, data: d } = yield call(api.getCheckoutTags, { name: item });
-            if (c === 200) {
-              list.push({
-                type: 1,
-                text: item,
-              });
+        if (code === 200) {
+          if (data) {
+            // 处理标签
+            let list = [];
+            let tagsArr = data.labels;
+            // let tagsArr = ['as京东方','撒旦法'];
+            for (let i in tagsArr) {
+              let item = tagsArr[i];
+              const { code: c, data: d } = yield call(api.getCheckoutTags, { name: item });
+              if (c === 200) {
+                list.push({
+                  type: 1,
+                  text: item,
+                });
+              }
             }
+
+            // 获取分类
+            yield put({ 
+              type: 'Global/getFirstCategory',
+              payload:{
+                id: 0, 
+                type: data.feedMessage.articleType === 'VIDEO' ? 1 : 0
+              }
+            });
+
+            yield put({
+              type: 'save',
+              payload: {
+                loading: false,
+                isEdit: false,
+                actionLoading: false,
+                reason: data.reason,
+                auditState: data.auditState,
+                queueContentData: data,
+                curArt: data.feedMessage,
+                queueContentId: data.id,
+                // category: data.content.categoryIds,
+                newsDataType: data.feedMessage.articleType,
+                forbiddenWordList: data.forbiddenWordList || [], // 违禁词
+                sensitiveWordList: data.sensitiveWordList || [], // 敏感词
+                hotWord: data.hotWord || [], // 热词
+                personalWord: data.personalWord || [], //人物词
+
+                tagsList: list,
+              },
+            });
+            callback(data);
+          } else {
+            callback(null);
           }
-
-          yield put({
-            type: 'save',
-            payload: {
-              loading: false,
-              isEdit: false,
-              actionLoading: false,
-              queueContentData: data,
-              curArt: data.feedMessage,
-              queueContentId: data.id,
-              // category: data.content.categoryIds,
-              newsDataType: data.displayTemplate,
-              forbiddenWordList: data.forbiddenWordList || [], // 违禁词
-              sensitiveWordList: data.sensitiveWordList || [], // 敏感词
-              hotWord: data.hotWord || [], // 热词
-              personalWord: data.personalWord || [], //人物词
-
-              tagsList: list,
-            },
-          });
-          callback(data);
-        } else {
-          callback(null);
         }
-      }
+      }catch(e){console.log('e',e)}
+      
     },
 
     // 确认审核
@@ -137,7 +150,7 @@ export default {
             curArt: {},
           },
         });
-        yield put({ type: 'getNewsGetTask', payload: { ...query } });
+        yield put({ type: 'getNewsGetTask', payload: { ...query } ,callback});
         callback(data);
       }
     },
@@ -154,7 +167,7 @@ export default {
       };
       const { code, data } = yield call(api.getNewsSkip, params);
       if (code === 200) {
-        yield put({ type: 'getNewsGetTask', payload: { ...query } });
+        yield put({ type: 'getNewsGetTask', payload: { ...query }});
 
         callback(data);
       }

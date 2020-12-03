@@ -48,7 +48,7 @@ function AuditStatistics(props) {
       type: 'Statistics/init',
       payload: {
         type: 'person',
-        businessId: formRef.current.getFieldValue('businessId'),
+        ...formRef.current.getFieldsValue(),
       },
     });
   }, [dispatch]);
@@ -57,6 +57,7 @@ function AuditStatistics(props) {
   const searchFormProps = {
     className: styles['form-contaner'],
     layout: 'inline',
+    resetShow: true,
     authProps: {
       pathUrl: '/statistics/personnel/',
       perms: 'statistics:person:select',
@@ -182,7 +183,7 @@ function AuditStatistics(props) {
               type="primary"
               size="small"
               text="明细"
-              onClick={() => goDetails(r.id)}
+              onClick={() => goDetails(r.auditorId)}
             ></WrapAuthButton>
           );
         },
@@ -218,9 +219,28 @@ function AuditStatistics(props) {
     });
   };
 
+  
+  // 下载excel
+  const DownloadExcel = () => {
+    // run()
+    dispatch({
+      type: 'Statistics/getPersoneExportExcel',
+      payload:{}
+    })
+  }
+
   return (
     <>
-      <BaseForm {...searchFormProps} pRef={formRef}></BaseForm>
+      <BaseForm {...searchFormProps} pRef={formRef}>
+        <WrapAuthButton
+          pathUrl= '/statistics/personnel/'
+          perms= 'statistics:person:select'
+          text="导出"
+          ghost
+          type="primary"
+          onClick={() => DownloadExcel()}
+        ></WrapAuthButton>
+      </BaseForm>
       <BaseTable {...tableProps}></BaseTable>
     </>
   );

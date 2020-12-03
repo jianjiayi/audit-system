@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import { connect } from 'dva';
@@ -22,6 +23,7 @@ function ContentDetails(props) {
       payload: {
         type:0
       },
+      callback: ()=>{}
     });
   }, [dispatch]);
 
@@ -37,11 +39,12 @@ function ContentDetails(props) {
     className: styles.container,
   };
 
-  console.log('loading:', loading);
+  // console.log('loading:', loading);
 
   return (
     <div {...pageProps}>
       <Content {...contentProps} />
+      <div className={styles.line}></div>
       <Operate {...operateProps} />
       {actionLoading && (
         <div className={styles.loading}>

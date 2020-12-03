@@ -18,14 +18,27 @@ function IntervalValue(props) {
     max = 100,
     value = [],
     dataValues,
+    pForm,
     onChange = () => {},
   } = props;
-  // console.log('IntervalValue', dataValues);
+
+  
+  // const isStatus = async ()=>{
+  //   console.log(pForm)
+  //   try {
+  //     const values = await pForm.validateFields([5]);
+  //     console.log('Success:', values);
+  //   } catch (errorInfo) {
+  //     console.log('Failed:', errorInfo);
+  //   }
+  // }
+  // isStatus();
+  
 
   // const [minValue, setMinValue] = useState(showType === 'form' ? value[0]:dataValues[0]);
   // const [maxValue, setMaxValue] = useState(showType === 'form' ? value[1]:dataValues[1]);
-  const [minValue, setMinValue] = useState(value[0]);
-  const [maxValue, setMaxValue] = useState(value[1]);
+  const [minValue, setMinValue] = useState(value&&value[0]);
+  const [maxValue, setMaxValue] = useState(value&&value[1]);
 
   useEffect(() => {
     onChange([minValue, maxValue])

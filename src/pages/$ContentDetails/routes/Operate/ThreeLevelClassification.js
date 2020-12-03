@@ -1,98 +1,134 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Select } from 'antd';
+import { connect } from 'dva';
 import _ from 'lodash';
 
 const { Option } = Select;
 
-export default function multilevelCategories(props) {
+function multilevelCategories(props) {
+  
   const {
-    firstCategory = [],
-    secondCategory = [],
-    thirdCategory = [],
-    onChange,
-    value={},
-    ...rest
+    dispatch,
+    pForm,
+    CDetails: {
+      curArt = {}
+    },
+    Global: { firstCategory, secondCategory, thirdCategory },
   } = props;
 
   const selectProps = {
     allowClear: true,
     style: { width: '33%' },
-    ...rest,
   };
 
-  const { firstCategoryId = null, secondCategoryId = null, thirdCategoryId = null } = value;
+  // console.log('wwwwwwwwwwww',curArt.categoryFirst, curArt.categorySecond, curArt.categoryThird)
+  // console.log('pForm.getFieldsValue',pForm.getFieldsValue())
+
+  // console.log('pForm', pForm)
+
+  
+
+  const selectCategoryFun = (id, name)=>{
+    if(name === 'firstCategoryId'){
+      pForm.resetFields(['categorySecond', 'categoryThird']);
+      pForm.setFieldsValue({ categorySecond: null, categoryThird: null });
+      dispatch({
+        type: 'Global/getSecondCategory',
+        payload: {
+          id: id || 0,
+          type: 0
+        },
+      });
+    }else{
+      pForm.resetFields(['categoryThird']);
+      pForm.setFieldsValue({ categoryThird: null });
+      if(!id) return;
+      dispatch({
+        type: 'Global/getThirdCategory',
+        payload: {
+          id,
+          type: 0
+        },
+      });
+    }
+  }
 
   const selectChange = (e, id)=>{
-    value[id] = e;
-    onChange(value, id)
+    selectCategoryFun(e,id)
   }
 
   return (
-    <Input.Group compact>
-      <Form.Item  
-        key="firstCategoryId" 
-        name="firstCategoryId" 
-        noStyle 
-        initialValue={firstCategoryId}
-      >
-        <Select
-          placeholder="一级分类"
-          {...selectProps}
-          onChange={(e) => selectChange(e, 'firstCategoryId')}
+    <Form.Item label="分类" shouldUpdate>
+      <Input.Group compact>
+        <Form.Item  
+          key="categoryFirst" 
+          name="categoryFirst" 
+          noStyle 
         >
-          {!_.isEmpty(firstCategory) &&
-            firstCategory.map((item, index) => {
-              return (
-                <Option key={item.id} value={item.id.toString()}>
-                  {item.name}
-                </Option>
-              );
-            })}
-        </Select>
-      </Form.Item>
-      <Form.Item 
-        key="secondCategoryId" 
-        name="secondCategoryId" 
-        noStyle 
-        initialValue={secondCategoryId}
-      >
-        <Select
-          placeholder="二级分类"
-          {...selectProps}
-          onChange={(e) => selectChange(e, 'secondCategoryId')}
+          <Select
+            placeholder="一级分类"
+            {...selectProps}
+            onChange={(e) => selectChange(e, 'firstCategoryId')}
+          >
+            {!_.isEmpty(firstCategory) &&
+              firstCategory.map((item, index) => {
+                return (
+                  <Option key={item.id} value={item.id.toString()}>
+                    {item.name}
+                  </Option>
+                );
+              })}
+          </Select>
+        </Form.Item>
+        <Form.Item 
+          key="categorySecond" 
+          name="categorySecond" 
+          noStyle 
         >
-          {!_.isEmpty(secondCategory) &&
-            secondCategory.map((item, index) => {
-              return (
-                <Option key={item.id} value={item.id.toString()}>
-                  {item.name}
-                </Option>
-              );
-            })}
-        </Select>
-      </Form.Item>
-      <Form.Item 
-        key="thirdCategoryId" 
-        name="thirdCategoryId" 
-        noStyle 
-        initialValue={thirdCategoryId}
-      >
-        <Select 
-          placeholder="三级分类" 
-          {...selectProps} 
-          onChange={(e) => selectChange(e, 'thirdCategoryId')}
+          <Select
+            placeholder="二级分类"
+            {...selectProps}
+            onChange={(e) => selectChange(e, 'secondCategoryId')}
+          >
+            {!_.isEmpty(secondCategory) &&
+              secondCategory.map((item, index) => {
+                return (
+                  <Option key={item.id} value={item.id.toString()}>
+                    {item.name}
+                  </Option>
+                );
+              })}
+          </Select>
+        </Form.Item>
+        <Form.Item 
+          key="categoryThird" 
+          name="categoryThird" 
+          noStyle 
         >
-          {!_.isEmpty(thirdCategory) &&
-            thirdCategory.map((item, index) => {
-              return (
-                <Option key={item.id} value={item.id.toString()}>
-                  {item.name}
-                </Option>
-              );
-            })}
-        </Select>
-      </Form.Item>
-    </Input.Group>
+          <Select 
+            placeholder="三级分类" 
+            {...selectProps} 
+            onChange={(e) => selectChange(e, 'thirdCategoryId')}
+          >
+            {!_.isEmpty(thirdCategory) &&
+              thirdCategory.map((item, index) => {
+                return (
+                  <Option key={item.id} value={item.id.toString()}>
+                    {item.name}
+                  </Option>
+                );
+              })}
+          </Select>
+        </Form.Item>
+      </Input.Group>
+    </Form.Item>
   );
 }
+
+function mapStateToProps({ Global, CDetails }) {
+  return { Global, CDetails };
+}
+
+export default connect(mapStateToProps)(multilevelCategories);

@@ -1,8 +1,12 @@
+/* eslint-disable react/jsx-curly-brace-presence */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
+/* eslint-disable prefer-const */
+/* eslint-disable no-await-in-loop */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/no-array-index-key */
 import React, {useState, useEffect} from 'react';
-import _ from 'lodash';
-import { connect } from 'dva';
 import { Form } from 'antd';
 import CheckBoxRender from './CheckBoxRender';
 import * as api from '../../services/index.js';
@@ -22,14 +26,28 @@ function CascaderCheckBox(props) {
   // 媒体分类数据
   const [mediaType, setMediaType] = useState([]);
 
+  const ArrToObj = (data)=>{
+    let obj = {};
+    for(let i = 0; i < data.length; i++){
+      obj[data[i].value] = data[i].label
+    }
+    return obj;
+  }
+
   // 异步数据
   const  getAsyncMediaInfoData = async () => {
     const {code, data} = await api.getMediaInfo({type: 'rmw_media_type'});
-    console.log(code, data)
-  }
-  const  getAsyncMediaTypeData = async () => {
-    const {code, data} = await api.getMediaInfo({type: 'rmw_media_type'});
-    console.log(code, data)
+    setMediaInfo(ArrToObj(data));
+    if (code === 200) {
+      let mediaInfoObj = {};
+      for (let i in data) {
+        let { code: c, data: d } = await api.getMediaInfo({ type: data[i].value });
+        if (c === 200) {
+          mediaInfoObj[data[i].value] = ArrToObj(d)
+        }
+      }
+      setMediaType(mediaInfoObj);
+    }
   }
 
   useEffect(()=>{
@@ -39,7 +57,7 @@ function CascaderCheckBox(props) {
 
   const CheckBoxRenderProps = {
     showType,
-    map,
+    map: mediaInfo,
     value,
     onChange,
   };
@@ -49,7 +67,7 @@ function CascaderCheckBox(props) {
 
   return (
     <>
-      <Form.Item >
+      <Form.Item key={'wwwwwwwwww'}>
         <CheckBoxRender {...CheckBoxRenderProps}></CheckBoxRender>
       </Form.Item>
 
@@ -64,17 +82,17 @@ function CascaderCheckBox(props) {
           const mediaList = getFieldValue([parentName, itemName]) || [];
           return (
             <>
-              {mediaList.map((item,i) => {
+              {mediaList.map((item) => {
                 return (
                   <Form.Item
                     style={{ marginBottom: 0 }}
                     label={map[item]}
-                    key={item+i}
+                    key={item}
                     name={[parentName, `8_${type}`, `${item}`]}
                   >
                     <CheckBoxRender
                       showType = {showType}
-                      map={{ 1: '公众媒体', 2: '自媒体(机构)', 3: '自媒体(个人)' }}
+                      map={mediaType[item]}
                     ></CheckBoxRender>
                   </Form.Item>
                 );
