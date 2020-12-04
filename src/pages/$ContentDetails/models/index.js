@@ -102,13 +102,13 @@ export default {
               type: 'save',
               payload: {
                 loading: false,
-                isEdit: false,
-                actionLoading: false,
-                reason: data.reason,
-                auditState: data.auditState,
-                queueContentData: data,
-                curArt: data.feedMessage,
-                queueContentId: data.id,
+                isEdit: false, //  左侧编辑状态
+                actionLoading: false, // 页面操作loading
+                reason: data.reason, // 审核原因
+                auditState: data.auditState, //  审核状态
+                queueContentData: data, // 所有数据
+                curArt: data.feedMessage, // 文章详情
+                queueContentId: data.queues[0], // 队列id
                 // category: data.content.categoryIds,
                 newsDataType: data.feedMessage.articleType,
                 forbiddenWordList: data.forbiddenWordList || [], // 违禁词
@@ -140,19 +140,16 @@ export default {
       };
       const { code, data } = yield call(api.getAuditSave, params);
       if (code === 200) {
-        yield put({
-          type: 'save',
-          payload: {
-            loading: false,
-            isEdit: false,
-            actionLoading: false,
-            queueContentData: {},
-            curArt: {},
-          },
-        });
         yield put({ type: 'getNewsGetTask', payload: { ...query } ,callback});
-        callback(data);
       }
+
+      yield put({
+        type: 'save',
+        payload: {
+          loading: false,
+          actionLoading: false,
+        },
+      });
     },
 
     // 跳过当前待审文章

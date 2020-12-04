@@ -1,3 +1,5 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable react/no-danger */
 /* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -7,7 +9,7 @@
 /* eslint-disable no-eval */
 /* eslint-disable react/jsx-no-duplicate-props */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'dva';
 import classNames from 'classnames';
 import { Form, Input, DatePicker, Button } from 'antd';
@@ -15,7 +17,7 @@ import moment from 'moment';
 import _ from 'lodash';
 
 import { AudioPlayer, VideoPlayer } from '@components/MediaComponents';
-import Ueditor from '@components/Editor';
+import Ueditor from '@components/Editor/index2.js';
 
 import { ExTime } from '@utils/utils.js';
 
@@ -26,6 +28,7 @@ const dateFormat = 'YYYY-MM-DD HH:mm:ss';
 
 function Content(props) {
   const [selfForm] = Form.useForm();
+  const ueRef = useRef(null)
   // 临时保存编辑器修改后的文章详情
   const [editorText, setEditorText] = useState('');
 
@@ -45,6 +48,16 @@ function Content(props) {
   useEffect(() => {
     setEditorText(curArt.content);
   }, [curArt.content]);
+
+  const [config] = useState({
+    initialFrameWidth: '100%',
+    initialFrameHeight: 400
+  })
+  
+  // 富文本失焦就触发setContent函数设置表单的content内容
+  const setContent = (content)=>{
+    setEditorText(content);
+  }
 
   const changeIsEdit = (status) => {
     if (!status) {
@@ -213,13 +226,6 @@ function Content(props) {
 
   // 正文
   const textHtml = { __html: getContentHtml(curArt.content, list) };
-  const UeditorProps = {
-    initialContent: curArt.content || '',
-    onContentChange: (values) => {
-      // console.log(values)
-      setEditorText(values);
-    },
-  };
   // 音频
   const audioProps = {
     url: curArt.mediaInfo&&curArt.mediaInfo.audios
@@ -250,7 +256,13 @@ function Content(props) {
             <h3 className={styles.title}>正文详情 : </h3>
             {isEdit && (
               <div>
-                <Ueditor {...UeditorProps} />
+                <Ueditor 
+                  id="container" 
+                  ref={ueRef} 
+                  config={config} 
+                  initData={editorText} 
+                  setContent={(e)=>setContent(e)}>
+                  </Ueditor>
               </div>
             )}
             {!isEdit && (

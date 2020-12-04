@@ -11,16 +11,34 @@
 }
 
 .main {
-  width: 328px;
-  
-  .title{
-    text-align: center;
-    line-height: 60px;
-    font-size: 25px;
+  width: 388px;
+  padding: 30px;
+  background-color: #ffffff;
+
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo{
+      display: block;
+      width: 35px;
+      height: 35px;
+      margin-right: 20px;
+    }
+    .title{
+      text-align: center;
+      font-size: 25px;
+      line-height: 100px;
+      margin: 0;
+    }
   }
+  
+  
   @media screen and (max-width: @screen-sm) {
     width: 95%;
     max-width: 328px;
+    padding: 0;
+    background-color: transparent;
   }
 
   :global {

@@ -1,3 +1,10 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-const */
+/* eslint-disable react/sort-comp */
 import React, { Component } from 'react';
 import lodash from 'lodash';
 
@@ -87,7 +94,7 @@ class UEditor extends Component {
     }
   };
 
-  // 出事话后，添加监听事件，设置默认值
+  // 初始化后，添加监听事件，设置默认值
   onEditorReady = UE => {
     const props = this.props;
     const config = lodash.omit(props, ['id', 'width', 'height']);

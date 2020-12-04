@@ -21,7 +21,7 @@ const extraRoutes = () =>([
     layout: false,
     routes: [
       {
-        name: 'login',
+        name: '登录',
         path: PATH_USER_LOGIN,
         component: './user/login',
       },

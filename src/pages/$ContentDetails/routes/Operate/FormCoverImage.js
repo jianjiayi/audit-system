@@ -1,10 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
+/* eslint-disable no-param-reassign */
+/* eslint-disable prefer-const */
 /* eslint-disable no-func-assign */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 
-import React, { useState, useEffect, useImperativeHandle, forwardRef, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
-import { Image, Button, Modal, Upload, message, Radio } from 'antd';
+import { Form, Image, Button, Modal, Upload, message, Radio } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -19,40 +24,28 @@ import 'antd/es/slider/style';
 
 function FormCoverImage(props) {
   const {
+    pForm,
     CDetails: { curArt, newsDataType },
-    handleCoverImages = () => {},
   } = props;
 
-  // const list = [
-  //   {
-  //     uid: '-1',
-  //     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-  //   },
-  //   {
-  //     uid: '-2',
-  //     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-  //   },
-  // ];
   // 对象转数组方法
-  const objToArr = (arrObj)=>{
+  const objToArr = (arrObj) => {
     let arr = [];
-    if(_.isEmpty(arrObj)) return;
-    Object.keys(arrObj).map(key=>{
+    if (_.isEmpty(arrObj)) return;
+    Object.keys(arrObj).map((key) => {
       // console.log(arrObj[key]);
       arrObj[key].uid = key;
       arrObj[key].url = arrObj[key].originalUrl;
-      arr.push(arrObj[key])
+      arr.push(arrObj[key]);
     });
     // console.log(arr)
     return arr;
-  }
+  };
 
   // 封面图原始数据
   const list = objToArr(curArt.covers) || objToArr(curArt.picMessageMap);
 
-  useEffect(()=>{
-    setFileList(objToArr(curArt.covers));
-  },[curArt.covers])
+  
 
   // 正文全图原始数据
   const contentImages = objToArr(curArt.picMessageMap);
@@ -70,7 +63,16 @@ function FormCoverImage(props) {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [imageSourceType, setImageSourceType] = useState('cover');
   const [previewImage, setPreviewImage] = useState('');
-  
+
+
+  useEffect(() => {
+    // 设置封面图字段初始值
+    pForm.setFieldsValue({
+      covers: objToArr(curArt.covers),
+    });
+
+    setFileList(objToArr(curArt.covers));
+  }, [curArt.covers]);
 
   const handleOkSubmit = () => {};
 
@@ -79,12 +81,10 @@ function FormCoverImage(props) {
     setImagesValue(number);
     // if (_.isEmpty(fileList)) return;
     if (number === 1) {
-      return setFileList([fileList[0]])
-    };
+      return setFileList([fileList[0]]);
+    }
     setFileList(list);
   };
-
-  
 
   // 上传文件校验
   const beforeUpload = (file) => {
@@ -143,14 +143,14 @@ function FormCoverImage(props) {
     newsDataType,
   };
 
-  // console.log('fileList[0]',fileList[0])
-
-  
-
   return (
-    <>
+    <Form.Item name="covers" noStyle>
       <div className={styles.content}>
-        <img width={240} height={180} src={(!_.isEmpty(fileList) && fileList[0]&& fileList[0].originalUrl) || errorImg} />
+        <img
+          width={240}
+          height={180}
+          src={(!_.isEmpty(fileList) && fileList[0] && fileList[0].originalUrl) || errorImg}
+        />
         <div className={styles.button_list}>
           <Button
             type="primary"
@@ -179,7 +179,7 @@ function FormCoverImage(props) {
             onClick={() => {
               setCoverPictureVisible(true);
               setTabKey(2);
-              setImageSourceType('contentImages')
+              setImageSourceType('contentImages');
             }}
           >
             正文全图
@@ -205,44 +205,39 @@ function FormCoverImage(props) {
       >
         {(tabKey === 0 || tabKey === 2) && (
           <div className={styles.images_list}>
-
             {/* 封面图 */}
-            {imageSourceType === 'cover' && !_.isEmpty(fileList) ? (
-              fileList.map((item,index)=>{
-                return (
-                  <Image
-                    className={styles.item}
-                    key={index}
-                    width={120}
-                    height={90}
-                    alt="封面图"
-                    src={item.originalUrl}
-                    fallback={errorImg}
-                  />
-                );
-              })
-            ) : (
-              imageSourceType === 'cover' && <p>暂无封面图</p>
-            )}
+            {imageSourceType === 'cover' && !_.isEmpty(fileList)
+              ? fileList.map((item, index) => {
+                  return (
+                    <Image
+                      className={styles.item}
+                      key={index}
+                      width={120}
+                      height={90}
+                      alt="封面图"
+                      src={item.originalUrl}
+                      fallback={errorImg}
+                    />
+                  );
+                })
+              : imageSourceType === 'cover' && <p>暂无封面图</p>}
 
             {/* 正文全图 */}
-            {imageSourceType === 'contentImages' && !_.isEmpty(contentList) ? (
-              contentList.map((item,index)=>{
-                return (
-                  <Image
-                    className={styles.item}
-                    key={index}
-                    width={120}
-                    height={90}
-                    alt="封面图"
-                    src={item.originalUrl}
-                    fallback={errorImg}
-                  />
-                );
-              })
-            ) : (
-              imageSourceType === 'contentImages' && <p>暂无内容图片</p>
-            )}
+            {imageSourceType === 'contentImages' && !_.isEmpty(contentList)
+              ? contentList.map((item, index) => {
+                  return (
+                    <Image
+                      className={styles.item}
+                      key={index}
+                      width={120}
+                      height={90}
+                      alt="封面图"
+                      src={item.originalUrl}
+                      fallback={errorImg}
+                    />
+                  );
+                })
+              : imageSourceType === 'contentImages' && <p>暂无内容图片</p>}
           </div>
         )}
 
@@ -262,7 +257,7 @@ function FormCoverImage(props) {
               <Upload
                 action={UPLOAD_FILE_URL}
                 listType="picture-card"
-                fileList={ objToArr(fileList) || []}
+                fileList={objToArr(fileList) || []}
                 beforeUpload={beforeUpload}
                 onChange={onChange}
                 onPreview={onPreview}
@@ -298,7 +293,10 @@ function FormCoverImage(props) {
               <Button
                 type="primary"
                 onClick={() => {
-                  handleCoverImages(fileList);
+                  pForm.setFieldsValue({
+                    covers: fileList,
+                  });
+                  setCoverPictureVisible(false);
                 }}
               >
                 确定
@@ -309,7 +307,7 @@ function FormCoverImage(props) {
           </div>
         )}
       </Modal>
-    </>
+    </Form.Item>
   );
 }
 

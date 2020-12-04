@@ -13,6 +13,8 @@ import {
   useModel,
 } from 'umi';
 
+import logo from '@/assets/logo.svg';
+
 import proSettings from './../../../../config/defaultSettings';
 
 import userLogin from './models';
@@ -40,56 +42,59 @@ const Login = () => {
   return (
     <div className={styles.content}>
       <div className={styles.main}>
-      <h2 className={styles.title}>{proSettings.title}</h2>
-      <ProForm
-        initialValues={{
-          autoLogin: true,
-        }}
-        submitter={{
-          render: (_, dom) => dom.pop(),
-          submitButtonProps: {
-            // loading: submitting,
-            size: 'large',
-            style: {
-              width: '100%',
+        <div className={styles.header}>
+          <img className={styles.logo} src={logo}></img>
+          <h2 className={styles.title}>{proSettings.title}</h2>
+        </div>
+        <ProForm
+          initialValues={{
+            autoLogin: true,
+          }}
+          submitter={{
+            render: (_, dom) => dom.pop(),
+            submitButtonProps: {
+              // loading: submitting,
+              size: 'large',
+              style: {
+                width: '100%',
+              },
             },
-          },
-        }}
-        onFinish={async (values) => {
-          handleSubmit(values);
-        }}
-      >
-        <>
-          <ProFormText
-            name="username"
-            fieldProps={{
-              size: 'large',
-              prefix: <UserOutlined className={styles.prefixIcon} />,
-            }}
-            placeholder="用户名"
-            rules={[
-              {
-                required: true,
-                message: '请输入用户名',
-              },
-            ]}
-          />
-          <ProFormText.Password
-            name="password"
-            fieldProps={{
-              size: 'large',
-              prefix: <LockTwoTone className={styles.prefixIcon} />,
-            }}
-            placeholder="密码"
-            rules={[
-              {
-                required: true,
-                message: '请输入密码！',
-              },
-            ]}
-          />
-        </>
-      </ProForm>
+          }}
+          onFinish={async (values) => {
+            handleSubmit(values);
+          }}
+        >
+          <>
+            <ProFormText
+              name="username"
+              fieldProps={{
+                size: 'large',
+                prefix: <UserOutlined className={styles.prefixIcon} />,
+              }}
+              placeholder="用户名"
+              rules={[
+                {
+                  required: true,
+                  message: '请输入用户名',
+                },
+              ]}
+            />
+            <ProFormText.Password
+              name="password"
+              fieldProps={{
+                size: 'large',
+                prefix: <LockTwoTone className={styles.prefixIcon} />,
+              }}
+              placeholder="密码"
+              rules={[
+                {
+                  required: true,
+                  message: '请输入密码！',
+                },
+              ]}
+            />
+          </>
+        </ProForm>
       </div>
     </div>
   );

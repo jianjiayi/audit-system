@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/no-array-index-key */
@@ -16,7 +15,6 @@ import { connect } from 'dva';
 import _ from 'lodash';
 import { RollbackOutlined } from '@ant-design/icons';
 
-import SelectModeTags from './SelectModeTags';
 import ThreeLevelClassification from './ThreeLevelClassification';
 
 import { passReason, rejectReason } from '@/pages/constants';
@@ -30,11 +28,9 @@ const layout = {
 };
 
 function FormAction(props) {
-  const [selfForm] = Form.useForm();
-
   const {
     name = 'FormAction',
-    pForm,
+    pForm: selfForm, 
     className,
     dispatch,
     CDetails: {
@@ -53,13 +49,12 @@ function FormAction(props) {
   // console.log('curArt',curArt)
 
   useEffect(()=>{
-    // console.log('22222', selfForm)
     selfForm.setFieldsValue({
       isDup: curArt.isDup || 0,
       hotValue: [curArt.hotValue] || 0,
       bigEvent: [curArt.bigEvent] || 0,
       tags: curArt.tags || [],
-      auditState: auditState || '',
+      auditState: (auditState !== 'PASS' &&  auditState !== 'REJECT') ? null : auditState,
       reason: reason || [],
       categoryFirst: curArt.categoryFirst || null,
       categorySecond: curArt.categorySecond || null,
@@ -144,19 +139,15 @@ function FormAction(props) {
     return s.replace(/[^\x00-\xff]/g, 'aa').length;
   };
 
-  const handleChange = (e)=>{
-    console.log(e)
-  }
-
   const formProps = {
     name,
-    form: pForm || selfForm,
+    form: selfForm,
     ...formItemLayout,
     className: classNames(className, styles.container),
   };
 
   return (
-    <Form {...formProps}>
+    <Form {...formProps} from={selfForm}>
       <ThreeLevelClassification pForm={selfForm}/>
       <Form.Item label="违禁词">
         <p className={styles.p_text}>
@@ -334,20 +325,6 @@ function FormAction(props) {
               null
             );
         }}
-      </Form.Item>
-
-      <Form.Item>
-        <div className={styles.button_group}>
-          <Button type="primary" htmlType="submit">
-            确定
-          </Button>
-          <Button>
-            跳过
-          </Button>
-          <Button type="dashed" icon={<RollbackOutlined />}>
-            退出
-          </Button>
-        </div>
       </Form.Item>
     </Form>
   );

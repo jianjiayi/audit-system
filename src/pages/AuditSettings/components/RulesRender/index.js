@@ -104,22 +104,23 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
       </Form.Item>
     ),
     11: () => (
-      <Form.Item {...itemProps} initialValue="涉黄">
+      <Form.Item {...itemProps} initialValue={"涉黄"}>
         <span>涉黄</span>
+        
       </Form.Item>
     ),
     12: () => (
-      <Form.Item {...itemProps} initialValue="政暴恐">
+      <Form.Item {...itemProps} initialValue={"政暴恐"}>
         <span>政暴恐</span>
       </Form.Item>
     ),
     13: () => (
-      <Form.Item {...itemProps} initialValue="二维码">
+      <Form.Item {...itemProps} initialValue={"二维码"}>
         <span>二维码</span>
       </Form.Item>
     ),
     14: () => (
-      <Form.Item {...itemProps} initialValue="广告">
+      <Form.Item {...itemProps} initialValue={"广告"}>
         <span>广告</span>
       </Form.Item>
     ),

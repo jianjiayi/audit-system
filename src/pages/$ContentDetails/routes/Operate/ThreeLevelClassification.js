@@ -23,11 +23,6 @@ function multilevelCategories(props) {
     style: { width: '33%' },
   };
 
-  // console.log('wwwwwwwwwwww',curArt.categoryFirst, curArt.categorySecond, curArt.categoryThird)
-  // console.log('pForm.getFieldsValue',pForm.getFieldsValue())
-
-  // console.log('pForm', pForm)
-
   
 
   const selectCategoryFun = (id, name)=>{
