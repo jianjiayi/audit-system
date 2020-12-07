@@ -22,13 +22,16 @@ export async function getInitialState() {
     try {
       const { data: user, code: code1 } = await getCurrentUser();
       const { data: business, code: code2 } = await getBusiness();
-      const { data: {permissions, roles}, code: code3 } = await getRoleAndPermission();
+      const {
+        data: { permissions, roles },
+        code: code3,
+      } = await getRoleAndPermission();
       // console.log(currentUser, 'currentUser')
       if (code1 === 200 && code2 === 200 && code3 === 200) {
         // 处理业务线
         let mapList = {};
         !_.isEmpty(business) &&
-          business.map(item => {
+          business.map((item) => {
             mapList[item.id] = item.coorpName;
           });
 
@@ -46,8 +49,9 @@ export async function getInitialState() {
     }
     return undefined;
   };
-  const currentUser = await fetchUserInfo();
-  console.log('currentUser',currentUser)
+  let currentUser = {};
+  currentUser = await fetchUserInfo();
+  console.log('currentUser', currentUser);
   // 如果是登录页面，不执行
   // if (history.location.pathname !== '/user/login') {
   //   const currentUser = await fetchUserInfo();
@@ -64,9 +68,7 @@ export async function getInitialState() {
   };
 }
 
-export const layout = ({
-  initialState,
-}) => ({
+export const layout = ({ initialState }) => ({
   logo,
   headerContentRender: (props) => <HeaderContent {...props} />,
   rightContentRender: () => <RightContent />,
