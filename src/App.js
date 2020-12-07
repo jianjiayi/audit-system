@@ -146,7 +146,7 @@ export const request = {
 // 比如用于渲染之前做权限校验
 
 // export function render() {
-//   fetch('/api/routes').then((res) => { extraRoutes = res.routes })
+//   // fetch('/api/routes').then((res) => { extraRoutes = res.routes })
 // }
 
 // 在初始加载和路由切换时做一些事情。
