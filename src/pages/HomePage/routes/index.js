@@ -22,7 +22,7 @@ import { colorList } from '../constants';
 import styles from './index.module.less';
 
 function HomePage(props) {
-  const { initialState } = useModel('@@initialState');
+  const { initialState = {} } = useModel('@@initialState');
 
   const { currentUser = {} } = initialState;
 
