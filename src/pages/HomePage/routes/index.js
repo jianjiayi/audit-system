@@ -22,9 +22,9 @@ import { colorList } from '../constants';
 import styles from './index.module.less';
 
 function HomePage(props) {
-  const {
-    initialState: { currentUser = {} },
-  } = useModel('@@initialState');
+  const { initialState } = useModel('@@initialState');
+
+  const { currentUser = {} } = initialState || {};
 
   const formRef = useRef(null);
 
@@ -132,7 +132,7 @@ function HomePage(props) {
   return (
     <>
       <BaseForm {...searchFormProps} pRef={formRef}></BaseForm>
-      
+
       <div className={styles.container}>
         <div className={styles.piebox}>
           <h3 className={styles.title}>昨日审核量</h3>
