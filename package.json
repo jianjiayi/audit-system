@@ -132,7 +132,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "eslint src/ -c .eslintrc.js"
+      "pre-commit": "lint-staged"
     }
   }
 }
