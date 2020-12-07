@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';

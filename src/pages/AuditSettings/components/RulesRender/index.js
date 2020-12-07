@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable no-unneeded-ternary */
 /* eslint-disable consistent-return */
 /* eslint-disable no-restricted-syntax */

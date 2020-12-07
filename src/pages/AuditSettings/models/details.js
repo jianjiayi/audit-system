@@ -7,7 +7,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable array-callback-return */
 import * as api from '../services/index.js';
-import { ExObject } from '@utils/utils.js';
 
 export default {
   namespace: 'QDetails',

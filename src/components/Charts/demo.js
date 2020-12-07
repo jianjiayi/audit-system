@@ -1,3 +1,5 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 
 import Bar from '@components/Charts/Bar';

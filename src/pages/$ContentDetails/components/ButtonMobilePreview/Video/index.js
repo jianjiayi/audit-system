@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable react/no-danger */
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-redeclare */
 /* eslint-disable react/self-closing-comp */

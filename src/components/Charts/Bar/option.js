@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable object-shorthand */
 import echarts from 'echarts/lib/echarts';
 
 export default {

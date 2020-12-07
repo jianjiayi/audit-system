@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */

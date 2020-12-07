@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable import/no-unresolved */
 import request from '@http';
 
 export async function queryArt(params) {

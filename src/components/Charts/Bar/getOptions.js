@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable object-shorthand */
 export default function(option, data) {
   return {
     tooltip: {

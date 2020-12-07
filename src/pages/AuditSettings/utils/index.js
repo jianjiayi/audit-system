@@ -1,3 +1,7 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-return-assign */
+/* eslint-disable no-else-return */
+/* eslint-disable spaced-comment */
 /* eslint-disable array-callback-return */
 /* eslint-disable eqeqeq */
 
@@ -105,9 +109,12 @@
 //   },
 // ]
 
-/**格式化敏感词规则*/
+/**
+ * 格式化敏感词规则
+ * @param {*} name
+ */
 
-export const getDenyWordsKey = name => {
+export const getDenyWordsKey = (name) => {
   const words = [
     {
       key: 'sensitive',
@@ -126,13 +133,13 @@ export const getDenyWordsKey = name => {
       value: '人物词',
     },
   ];
-  return words.find(item => {
+  return words.find((item) => {
     return item.value == name;
   });
 };
 
 /**是否展示包含选项*/
-export const isShowInclude = key => {
+export const isShowInclude = (key) => {
   // console.log('222222222',key)
   const arr = ['1', '2', '3', '4', '7', '8', '9', '10', '15', '16', '17', '18', '19'];
   if (arr.includes(key)) {
@@ -142,13 +149,12 @@ export const isShowInclude = key => {
   }
 };
 
-
 /**格式化配置规则*/
 
 export const getRulesItem = (key, configRule) => {
   let obj = {};
   if (key == 0) return obj;
-  configRule.map(item => {
+  configRule.map((item) => {
     if (key == item.id) {
       return (obj = item);
     }
@@ -157,12 +163,12 @@ export const getRulesItem = (key, configRule) => {
 };
 
 /** 输出配置规则下来选择项*/
-export const getRules = configRule => {
-  let obj = {};
-  configRule.map(item => {
+export const getRules = (configRule) => {
+  const obj = {};
+  configRule.map((item) => {
     if (item.id != 8) {
-      let key = item.id,
-        value = item.name;
+      const key = item.id;
+        const value = item.name;
       obj[key] = value;
     }
   });

@@ -1,3 +1,6 @@
+/* eslint-disable prefer-template */
+/* eslint-disable func-names */
+/* eslint-disable object-shorthand */
 /* eslint-disable no-useless-concat */
 
 const chartList = [

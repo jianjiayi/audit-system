@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * 格式化分类数据：treeCode => key; treeName => title;
  * @param {*} data 

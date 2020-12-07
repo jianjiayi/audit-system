@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 import React, { useRef } from 'react';
 import useECharts from '../lib/useECharts';
 

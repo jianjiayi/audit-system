@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable object-shorthand */
 const list = [
   { name: '中国', value: '1686' },
   { name: '美国', value: '1232' },

@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React, { useEffect, useImperativeHandle, forwardRef } from 'react';

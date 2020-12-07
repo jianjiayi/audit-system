@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as api from '../services/index.js';
 

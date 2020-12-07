@@ -1,3 +1,6 @@
+/* eslint-disable import/order */
+/* eslint-disable react/jsx-curly-brace-presence */
+/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/no-array-index-key */
@@ -9,11 +12,10 @@
 /* eslint-disable no-control-regex */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { message, Form, Checkbox, Radio, Select, Input, Tag, Button, Row, Col, Icon } from 'antd';
+import { message, Form, Checkbox, Radio, Input, Tag, Button, Row, Col, Icon } from 'antd';
 import classNames from 'classnames';
 import { connect } from 'dva';
 import _ from 'lodash';
-import { RollbackOutlined } from '@ant-design/icons';
 
 import ThreeLevelClassification from './ThreeLevelClassification';
 
@@ -37,8 +39,6 @@ function FormAction(props) {
       curArt,
       auditState,
       reason,
-      queueContentId,
-      newsDataType,
       forbiddenWordList, // 违禁词
       sensitiveWordList, // 敏感词
       hotWord, // 热词
@@ -64,7 +64,7 @@ function FormAction(props) {
 
   const filterTags = (list = [])=>{
     // console.log('222222222',list);
-    return list.map((item, index)=>{
+    return list.map((item)=>{
       return item = {
         type: 0,
         text: item,

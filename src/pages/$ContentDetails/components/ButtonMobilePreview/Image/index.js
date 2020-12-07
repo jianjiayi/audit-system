@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable import/no-unresolved */

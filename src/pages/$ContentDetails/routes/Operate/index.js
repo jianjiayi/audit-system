@@ -1,3 +1,6 @@
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-console */
 /* eslint-disable consistent-return */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */

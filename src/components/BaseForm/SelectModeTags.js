@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/self-closing-comp */
 import React, {useState, useEffect} from 'react';
 import { Select } from 'antd';
