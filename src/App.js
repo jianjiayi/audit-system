@@ -18,7 +18,6 @@ import { getCurrentUser, getBusiness, getRoleAndPermission } from './services/us
 import defaultSettings from '../config/defaultSettings';
 
 export async function getInitialState() {
-  alert('app');
   const fetchUserInfo = async () => {
     try {
       const { data: user, code: code1 } = await getCurrentUser();

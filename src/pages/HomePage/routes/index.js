@@ -24,7 +24,7 @@ import styles from './index.module.less';
 function HomePage(props) {
   const { initialState } = useModel('@@initialState');
 
-  const { currentUser = {} } = initialState || {};
+  const { currentUser = {} } = initialState;
 
   const formRef = useRef(null);
 
