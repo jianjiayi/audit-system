@@ -18,9 +18,9 @@ import { getCurrentUser, getBusiness, getRoleAndPermission } from './services/us
 import defaultSettings from '../config/defaultSettings';
 
 export async function getInitialState() {
-  console.log(getInitialState, 'getInitialState');
+  // console.log(getInitialState, 'getInitialState');
   const fetchUserInfo = async () => {
-    console.log(1, 'fetchUserInfo');
+    // console.log(1, 'fetchUserInfo');
     try {
       const { data: user, code: code1 } = await getCurrentUser();
       const { data: business, code: code2 } = await getBusiness();
@@ -57,7 +57,7 @@ export async function getInitialState() {
   // 如果是登录页面，不执行
   if (history.location.pathname !== '/user/login') {
     const currentUser = await fetchUserInfo();
-    console.log('currentUser', currentUser);
+    // console.log('currentUser', currentUser);
     return {
       fetchUserInfo,
       currentUser,
