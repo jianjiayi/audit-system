@@ -95,10 +95,8 @@ function Content(props) {
     dispatch({
       type: 'CDetails/getNewsSaveContent',
       payload: {
-        data: {
-          content: rest,
-          id: queueContentId,
-        },
+        content: rest,
+        id: queueContentId,
       },
     });
     changeIsEdit(false);

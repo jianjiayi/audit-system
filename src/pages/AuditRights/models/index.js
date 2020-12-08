@@ -65,7 +65,7 @@ export default {
     },
 
     // 根据id获取角色详情
-    *getRuleDetailsById({ payload }, { call, put }) {
+    *getRuleDetailsById({ payload, callback }, { call, put }) {
       const { code, data } = yield call(api.getRuleDetailsById, payload);
       if (code === 200) {
         // console.log(data)
@@ -82,6 +82,7 @@ export default {
             permissionIds: arr,
           },
         });
+        callback(arr)
       }
     },
 

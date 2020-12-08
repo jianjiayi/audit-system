@@ -41,12 +41,25 @@ export default {
 
     // 保存当前文章
     *getNewsSaveContent({ payload }, { call, put, select }) {
-      const { query } = yield select(({ CDetails }) => CDetails);
+      const { query, queueContentData } = yield select(({ CDetails }) => CDetails);
+
+      console.log(queueContentData)
+      console.log(payload)
+
+      let feedMessage = {...queueContentData.feedMessage, ...payload.content};
       // 合并参数
       const params = {
         info: query,
-        ...payload,
+        data:{
+          ...queueContentData,
+          feedMessage: {
+            ...feedMessage
+          },
+        }
       };
+
+      console.log(params)
+
       const { code } = yield call(api.getNewsSaveContent, params);
       if (code === 200) {
         yield put({ type: 'getNewsGetTask', payload: { ...query } });

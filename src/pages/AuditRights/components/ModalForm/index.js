@@ -33,13 +33,12 @@ function ModalForm(props, ref) {
   };
 
   // 更新表单状态
-  const updateFormValues = (item, value) => {
+  const updateFormValues = (value) => {
+    // console.log('+++value',value)
     const { setFieldsValue } = formRef.current;
     // 设置form中的name值
-    let obj = {};
-    obj[item] = value;
 
-    setFieldsValue(obj);
+    setFieldsValue(value);
   };
 
   const modalProps = {

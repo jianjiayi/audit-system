@@ -187,6 +187,7 @@ function UserRights(props) {
         align: 'center',
         render(r) {
           return (
+            r.username !== 'system' ?
             <div className={styles.tableaction}>
               <WrapAuthButton
                 pathUrl="/rights/user"
@@ -203,7 +204,7 @@ function UserRights(props) {
                 text={r.state !== 2 ? '注销' : '重启'}
                 onClick={() => updateUserOrRoleStatus('user', r.state, r.username)}
               ></WrapAuthButton>
-            </div>
+            </div> : null
           );
         },
       },
@@ -272,35 +273,9 @@ function UserRights(props) {
     setTitle(type === 'create' ? '创建' : '编辑');
     modalFormRef.current.setVisible(true);
     if (!values) return;
-
-    // 处理编辑用户回显逻辑
-    values.businesses = values.businesses.map((item) => {
-      return (item = item.id.toString());
-    });
+  
     let options = [];
-    values.roles.map((item) => {
-      values[item.businessId] = item.id.toString();
-      dispatch({
-        type: 'Rights/getRuleListByBusiness',
-        payload: {
-          id: item.businessId,
-        },
-        callback: (data) => {
-          options.push({
-            label: business[item.businessId] + '角色',
-            type: 'SELECT',
-            name: item.businessId.toString(),
-            required: true,
-            placeholder: '请选择',
-            map: data,
-          });
-
-          console.log(options);
-          setItemOptions([...options]);
-        },
-      });
-    });
-
+    values.roles = (values.roles[0] && values.roles[0].roleName) || null;
     console.log(values);
     setFormValues(values);
   };

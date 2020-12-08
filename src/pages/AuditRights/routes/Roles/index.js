@@ -154,6 +154,7 @@ function RolePage(props) {
         align: 'center',
         render(r) {
           return (
+            r.roleName !== 'system' ?
             <div className={styles.tableaction}>
               <WrapAuthButton
                 pathUrl="/rights/role"
@@ -170,7 +171,7 @@ function RolePage(props) {
                 text={r.state !== 1 ? '注销' : '重启'}
                 onClick={() => updateUserOrRoleStatus('role', r.state, r.id)}
               ></WrapAuthButton>
-            </div>
+            </div> : null
           );
         },
       },
@@ -247,19 +248,22 @@ function RolePage(props) {
       type: 'Rights/getRuleDetailsById',
       payload: {
         id: values.id,
+      },
+      callback:(res)=>{
+        console.log(values);
+        values.permissionIds = res || [];
+        setFormValues(values);
+        // console.log('modalFormRef',modalFormRef.current)
+        modalFormRef.current.updateFormValues(values);
       }
     });
-
-    // values.businessId = values.businessId.toString();
-    console.log(values);
-    setFormValues(values);
   };
 
   // 处理tree选中问题
   const onCheckTree = (checkedKeys) => {
     console.log(checkedKeys);
 
-    modalFormRef.current.updateFormValues('permissionIds', checkedKeys);
+    modalFormRef.current.updateFormValues({...formValues,'permissionIds': checkedKeys});
   };
 
   // 创建modal配置
@@ -286,37 +290,29 @@ function RolePage(props) {
           showCount:true,
           maxLength:200 
         },
-        // {
-        //   label: '业务线',
-        //   type: 'SELECT',
-        //   name: 'businessId',
-        //   required: true,
-        //   map: business,
-        // },
         {
           label: '分配权限',
           name: 'permissionIds',
           itemRender: (
-            <>
-              <TreeSelectComponent
-                onCheckTreeFun={onCheckTree}
-                permissionDataList={permissionDataList}
-                userPermission={permissionIds}
-              ></TreeSelectComponent>
-            </>
+            <TreeSelectComponent
+              onCheckTreeFun={onCheckTree}
+              permissionDataList={permissionDataList}
+              userPermission={permissionIds}
+            ></TreeSelectComponent>
           ),
         },
       ],
       formValues: formValues,
-      onSubmit: (formValues) => {
-        // console.log('formValues', formValues)
+      onSubmit: (Values) => {
+        console.log('Values', Values)
         // 处理路由权限判断选择的路由权限是否
 
         setBtnLoading(true);
         dispatch({
           type: 'Rights/addUserOrRole',
           payload: {
-            ...formValues,
+            id: formValues.id,
+            ...Values,
             pathname: 'role',
             type: title === '创建' ? 'add' : 'edit',
           },
@@ -355,8 +351,6 @@ function RolePage(props) {
                   payload: { dataSource: tableList },
                 });
               }
-
-              
             }
           },
         });

@@ -8,10 +8,13 @@ import _ from 'lodash';
 const { Option } = Select;
 
 function multilevelCategories(props) {
-  
   const {
     dispatch,
-    pForm,
+    pForm:{
+      resetFields,
+      setFieldsValue,
+      getFieldsValue,
+    },
     Global: { firstCategory, secondCategory, thirdCategory },
   } = props;
 
@@ -20,12 +23,33 @@ function multilevelCategories(props) {
     style: { width: '33%' },
   };
 
+  useEffect(()=>{
+    dispatch({
+      type: 'Global/getSecondCategory',
+      payload: {
+        id: getFieldsValue().categoryFirst,
+        type: 0
+      },
+    });
+
+  }, [getFieldsValue().categoryFirst])
+
+  useEffect(()=>{
+    dispatch({
+      type: 'Global/getThirdCategory',
+      payload: {
+        id: getFieldsValue().categorySecond,
+        type: 0
+      },
+    });
+
+  }, [getFieldsValue().categorySecond]);
   
 
   const selectCategoryFun = (id, name)=>{
     if(name === 'firstCategoryId'){
-      pForm.resetFields(['categorySecond', 'categoryThird']);
-      pForm.setFieldsValue({ categorySecond: null, categoryThird: null });
+      resetFields(['categorySecond', 'categoryThird']);
+      setFieldsValue({ categorySecond: null, categoryThird: null });
       dispatch({
         type: 'Global/getSecondCategory',
         payload: {
@@ -34,8 +58,8 @@ function multilevelCategories(props) {
         },
       });
     }else{
-      pForm.resetFields(['categoryThird']);
-      pForm.setFieldsValue({ categoryThird: null });
+      resetFields(['categoryThird']);
+      setFieldsValue({ categoryThird: null });
       if(!id) return;
       dispatch({
         type: 'Global/getThirdCategory',

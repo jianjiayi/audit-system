@@ -44,7 +44,7 @@ function HomePage(props) {
   } = props;
 
   // console.log('initialState', currentUser.business)
-  console.log('dispatch', dispatch);
+  // console.log('dispatch', dispatch);
   console.log('business', business);
   useEffect(() => {
     let businessId = formRef.current.getFieldValue('businessId');
@@ -57,7 +57,7 @@ function HomePage(props) {
         businessId,
       },
     });
-  }, [dispatch, business]);
+  }, [business]);
 
   // 多条件搜索配置
   const searchFormProps = {

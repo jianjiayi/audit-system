@@ -92,7 +92,7 @@ function TreeCom(props, ref) {
     compareList(getTreeData(copyList || []), getTreeData(permissionDataList || []));
   };
 
-  console.log('userdata',userdata)
+  // console.log('userdata',userdata)
 
   return (
     <div className={styles.treeBox}>

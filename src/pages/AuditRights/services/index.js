@@ -38,7 +38,7 @@ export async function getUserOrRoleQuery(params) {
 
 // 根绝业务线查询角色列表
 export async function getRuleListByBusiness(params) {
-  return request(`/audit/role/listByBusiness/${params.id}`, {
+  return request(`/audit/role/listByBusiness`, {
     method: 'GET',
   });
 }
