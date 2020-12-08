@@ -12,9 +12,6 @@ function multilevelCategories(props) {
   const {
     dispatch,
     pForm,
-    CDetails: {
-      curArt = {}
-    },
     Global: { firstCategory, secondCategory, thirdCategory },
   } = props;
 

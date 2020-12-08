@@ -49,6 +49,14 @@ function Content(props) {
     setEditorText(curArt.content);
   }, [curArt.content]);
 
+  useEffect(() => {
+    selfForm.setFieldsValue({
+      title: curArt.title,
+      originName: curArt.originName,
+      datetime: moment(curArt.pubTime),
+    });
+  }, [isEdit]);
+
   const [config] = useState({
     initialFrameWidth: '100%',
     initialFrameHeight: 400
@@ -105,6 +113,7 @@ function Content(props) {
             label="标题"
             name="title"
             initialValue={curArt.title}
+            shouldUpdate
             rules={[{ required: true, message: `请输入标题` }]}
           >
             {isEdit ? (
@@ -119,13 +128,13 @@ function Content(props) {
           <Form.Item
             label="来源"
             name='originName'
-            initialValue={curArt.originName || curArt.sourceName}
+            initialValue={curArt.originName}
             rules={[{ required: true, message: `请输入来源` }]}
           >
             {isEdit ? (
               <Input placeholder="请输入来源" />
             ) : (
-              <span className={styles.title}>{curArt.originName || curArt.sourceName}</span>
+              <span className={styles.title}>{curArt.originName}</span>
             )}
           </Form.Item>
           <Form.Item

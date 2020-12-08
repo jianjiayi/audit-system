@@ -32,7 +32,7 @@ function FormCoverImage(props) {
   // 对象转数组方法
   const objToArr = (arrObj) => {
     let arr = [];
-    if (_.isEmpty(arrObj)) return;
+    if (_.isEmpty(arrObj)) return [];
     Object.keys(arrObj).map((key) => {
       // console.log(arrObj[key]);
       arrObj[key].uid = key;
@@ -44,8 +44,7 @@ function FormCoverImage(props) {
   };
 
   // 封面图原始数据
-  const list = objToArr(curArt.covers) || objToArr(curArt.picMessageMap);
-
+  const list = objToArr(curArt.covers) || objToArr(curArt.picMessageMap) || [];
   
 
   // 正文全图原始数据
@@ -57,9 +56,9 @@ function FormCoverImage(props) {
   // 单图和三图的切换
   const [imagesValue, setImagesValue] = useState(3);
   // 用来共享组件内的封面图数据
-  const [fileList, setFileList] = useState(list || []);
+  const [fileList, setFileList] = useState(list);
   // 封面图
-  const [contentList, setContentList] = useState(contentImages || []);
+  const [contentList] = useState(contentImages || []);
   // 预览图片状态和图片地址
   const [previewVisible, setPreviewVisible] = useState(false);
   const [imageSourceType, setImageSourceType] = useState('cover');
@@ -74,8 +73,6 @@ function FormCoverImage(props) {
 
     setFileList(objToArr(curArt.covers));
   }, [curArt.covers]);
-
-  const handleOkSubmit = () => {};
 
   // 三图多图切换
   const setCoverImagesNumber = (number) => {
@@ -159,7 +156,7 @@ function FormCoverImage(props) {
             onClick={() => {
               setCoverPictureVisible(true);
               setTabKey(0);
-              setFileList(list || []);
+              // setFileList(list || []);
               setImageSourceType('cover');
             }}
           >
@@ -170,7 +167,7 @@ function FormCoverImage(props) {
             onClick={() => {
               setCoverPictureVisible(true);
               setTabKey(1);
-              setFileList(list || []);
+              // setFileList(list || []);
             }}
           >
             修改封面图
@@ -194,7 +191,6 @@ function FormCoverImage(props) {
         centered
         destroyOnClose
         visible={coverPictureVisible}
-        onOk={handleOkSubmit}
         onCancel={() => {
           setCoverPictureVisible(false);
           setImageSourceType('cover');
