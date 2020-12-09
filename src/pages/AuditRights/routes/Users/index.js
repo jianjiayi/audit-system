@@ -21,8 +21,7 @@
 /* eslint-disable array-callback-return */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { connect } from 'dva';
-import { useModel } from 'umi';
+import { useModel, connect } from 'umi';
 import _ from 'lodash';
 import { Modal, message, Select, Input, Tag } from 'antd';
 
@@ -161,7 +160,7 @@ function UserRights(props) {
         },
       },
       {
-        title: '最近一次登陆时间',
+        title: '最近一次登录时间',
         align: 'center',
         dataIndex: 'loginTime',
       },
@@ -315,18 +314,10 @@ function UserRights(props) {
           showCount:true,
           maxLength:100
         },
-        // {
-        //   label: '角色',
-        //   type: 'SELECT',
-        //   name: 'roles',
-        //   required: true,
-        //   showSearch: true,
-        //   placeholder: '请选择',
-        //   map: roleList,
-        // },
         {
           label: '角色',
           name: 'roles',
+          required: true,
           itemRender: (
             <Select
               showSearch

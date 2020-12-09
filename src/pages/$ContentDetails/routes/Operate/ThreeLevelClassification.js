@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Select } from 'antd';
-import { connect } from 'dva';
+import { connect } from 'umi';
 import _ from 'lodash';
 
 const { Option } = Select;

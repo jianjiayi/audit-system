@@ -2,7 +2,7 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
-import { connect } from 'dva';
+import { connect } from 'umi';
 import { Spin } from 'antd';
 
 import Content from '../leftContent';

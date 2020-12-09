@@ -45,7 +45,7 @@ export async function getRuleListByBusiness(params) {
 
 // 获取所有角色列表
 export async function getRuleListAll(params) {
-  return request(`/audit/role/listAll`, {
+  return request(`/audit/role/listAll?state=${params.state}`, {
     method: 'GET',
   });
 }

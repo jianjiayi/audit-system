@@ -24758,22 +24758,20 @@ UE.plugin.register('simpleupload', function (){
                 me.execCommand('inserthtml', '<img class="loadingclass" id="' + loadingId + '" src="' + me.options.themePath + me.options.theme +'/images/spacer.gif" title="' + (me.getLang('simpleupload.loading') || '') + '" >');
 
                 function callback(){
-                    console.log('33333333333333333=============')
-                    console.log('iframe',iframe)
                     // var link, json, loader,
                     //         body = (iframe.contentDocument || iframe.contentWindow.document).body,
                     //         result = body.innerText || body.textContent || '';
-                    console.log(link, json, loader,body, result)
+                    // console.log(link, json, loader,body, result)
                     try{
                         var link, json, loader,
                             body = (iframe.contentDocument || iframe.contentWindow.document).body,
                             result = body.innerText || body.textContent || '';
-                        console.log('rrrrrrrrrrrrrrrr',result)
+                        // console.log('rrrrrrrrrrrrrrrr',result)
                         json = (new Function("return " + result))();
                         link = me.options.imageUrlPrefix + json.url;
                         console.log('json',json)
                         if(json.state == 'SUCCESS' && json.url) {
-                          console.log('eeeeeeeeeeeeeeeeee')
+                          // console.log('eeeeeeeeeeeeeeeeee')
                             loader = me.document.getElementById(loadingId);
                             loader.setAttribute('src', link);
                             loader.setAttribute('_src', link);
@@ -24782,11 +24780,11 @@ UE.plugin.register('simpleupload', function (){
                             loader.removeAttribute('id');
                             domUtils.removeClasses(loader, 'loadingclass');
                         } else {
-                          console.log('wwwwwwwwwwwwwwww')
+                          // console.log('wwwwwwwwwwwwwwww')
                             showErrorLoader && showErrorLoader(json.state);
                         }
                     }catch(er){
-                      console.log('qqqqqqqqqqqqqqqqqqq')
+                      // console.log('qqqqqqqqqqqqqqqqqqq')
                         showErrorLoader && showErrorLoader(me.getLang('simpleupload.loadError'));
                     }
                     form.reset();

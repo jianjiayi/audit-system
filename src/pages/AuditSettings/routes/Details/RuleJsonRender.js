@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { message, Button, Form, Select, Input } from 'antd';
 import { PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import _ from 'lodash';
-import { connect } from 'dva';
+import { connect } from 'umi';
 
 import RulesRender from '../../components/RulesRender';
 

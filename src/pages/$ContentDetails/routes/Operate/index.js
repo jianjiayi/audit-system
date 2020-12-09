@@ -7,10 +7,9 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useRef } from 'react';
-import { connect } from 'dva';
 import { Form, Button, message, Modal } from 'antd';
 import _ from 'lodash';
-import { history } from 'umi';
+import { history, connect } from 'umi';
 import classNames from 'classnames';
 import { RollbackOutlined } from '@ant-design/icons';
 
@@ -56,6 +55,12 @@ function Operate(props) {
 
     selfForm.validateFields().then(values=>{
       console.log('values',values);
+      // 处理封面图
+      if(_.isEmpty(values.covers)) {
+        values.covers = {}
+      }else{
+        values.covers = Object.fromEntries(values.covers.map((item,index) => [index, item]));
+      }
 
       const copyArt = _.cloneDeep(curArt);
       // 处理大事件和热点
@@ -67,7 +72,7 @@ function Operate(props) {
       dispatch({
         type: 'CDetails/getAuditSave',
         payload: {
-          typename: curArt.articleType !== 'VIDEO' ? 'news' : 'video',
+          typename: 'news',
           data: {
             ...queueContentData,
             feedMessage: {

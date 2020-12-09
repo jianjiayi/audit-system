@@ -55,13 +55,13 @@ function AuditQueue(props) {
       perms: 'statistics:classify:select',
     },
     dataSource: [
-      {
-        label: '业务线',
-        type: 'SELECT',
-        name: 'bid',
-        initialValue: ExObject.getFirstValue(business),
-        map: business,
-      },
+      // {
+      //   label: '业务线',
+      //   type: 'SELECT',
+      //   name: 'bid',
+      //   initialValue: ExObject.getFirstValue(business),
+      //   map: business,
+      // },
       {
         label: '内容类型',
         type: 'SELECT',
@@ -69,13 +69,13 @@ function AuditQueue(props) {
         initialValue: 'NEWS',
         map: contentType,
       },
-      {
-        label: '队列机制',
-        type: 'SELECT',
-        name: 'queueType',
-        initialValue: '',
-        map: { ...queueType },
-      },
+      // {
+      //   label: '队列机制',
+      //   type: 'SELECT',
+      //   name: 'queueType',
+      //   initialValue: '',
+      //   map: { ...queueType },
+      // },
     ],
     onSubmit: (formValues) => {
       console.log('formValues', formValues);

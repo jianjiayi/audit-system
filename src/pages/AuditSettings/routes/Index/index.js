@@ -9,10 +9,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 import React, { useState, useEffect } from 'react';
-import { connect } from 'dva';
 import { Modal, Form } from 'antd';
 import _ from 'lodash';
-import { history, useModel } from 'umi';
+import { history, useModel, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';

@@ -14,7 +14,7 @@ import { Form, Image, Button, Modal, Upload, message, Radio } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import { PlusOutlined } from '@ant-design/icons';
 
-import { connect } from 'dva';
+import { connect } from 'umi';
 
 import { UPLOAD_FILE_URL, acceptType, maxFileSize, errorImg } from '@/pages/constants';
 import ButtonMobilePreview from '../../components/ButtonMobilePreview';

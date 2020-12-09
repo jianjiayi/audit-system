@@ -16,10 +16,9 @@
 /* eslint-disable array-callback-return */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { connect } from 'dva';
 import { message, Modal, Tag, Tooltip, Form, Select, Input } from 'antd';
 import _ from 'lodash';
-import { history, useModel } from 'umi';
+import { history, useModel, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';

@@ -55,6 +55,7 @@ const Login = () => {
             render: (_, dom) => dom.pop(),
             submitButtonProps: {
               // loading: submitting,
+              children: <span>哈哈哈</span>,
               size: 'large',
               style: {
                 width: '100%',

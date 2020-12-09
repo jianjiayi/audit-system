@@ -10,7 +10,7 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { connect } from 'dva';
+import { connect } from 'umi';
 import classNames from 'classnames';
 import { Form, Input, DatePicker, Button } from 'antd';
 import moment from 'moment';

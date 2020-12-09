@@ -13,8 +13,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { message, Form, Checkbox, Radio, Input, Tag, Button, Row, Col, Icon } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { connect } from 'dva';
+import { connect } from 'umi';
 import _ from 'lodash';
 
 import ThreeLevelClassification from './ThreeLevelClassification';
@@ -97,6 +98,10 @@ function FormAction(props) {
   };
   // 保存标签
   const handleInputConfirm = () => {
+    if(tags.length>=10) {
+      return message.error('最多支持10个标签')
+    }
+
     const inputValue = saveInputRef.current.state.value;
     if (!inputValue) return false;
 
@@ -251,7 +256,7 @@ function FormAction(props) {
             return tagElem;
           })}
           {inputVisible && (
-            <div>
+            <div className={styles.tags_input}>
               <Input ref={saveInputRef} type="text" size="small" onPressEnter={(e)=>{e.preventDefault()}} />
               <Button size="small" type="primary" onClick={() => handleInputConfirm()}>
                 保存
@@ -263,14 +268,16 @@ function FormAction(props) {
             </div>
           )}
           {!inputVisible && (
-            <Tag
+            <Button
+              type="primary"
+              size="small"
               onClick={() => {
                 setInputVisible(true);
+                // saveInputRef.current.focus();
               }}
-              style={{ background: '#fff', borderStyle: 'dashed' }}
-            >
-              <Icon type="plus" /> 新增
-            </Tag>
+              style={{margin: '5px'}}
+              icon={<PlusOutlined />}
+            >新增</Button>
           )}
         </>
       </Form.Item>

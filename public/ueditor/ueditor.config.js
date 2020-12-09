@@ -1,3 +1,15 @@
+/* eslint-disable func-names */
+/* eslint-disable no-useless-escape */
+/* eslint-disable object-shorthand */
+/* eslint-disable no-cond-assign */
+/* eslint-disable no-param-reassign */
+/* eslint-disable one-var */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable prefer-template */
+/* eslint-disable vars-on-top */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable no-var */
+/* eslint-disable spaced-comment */
 /**
  * ueditor完整配置项
  * 可以在这里配置整个编辑器的特性

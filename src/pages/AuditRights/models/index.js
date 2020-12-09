@@ -36,7 +36,7 @@ export default {
     // 初始化
     *init({ payload }, { put }) {
       yield put({ type: 'reset' });
-      yield put({ type: 'getRuleListAll' });
+      yield put({ type: 'getRuleListAll', payload:{state: 0} });
       yield put({ type: 'getUserOrRoleQuery', payload });
     },
 
