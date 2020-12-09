@@ -24,25 +24,27 @@ function multilevelCategories(props) {
   };
 
   useEffect(()=>{
-    dispatch({
-      type: 'Global/getSecondCategory',
-      payload: {
-        id: getFieldsValue().categoryFirst,
-        type: 0
-      },
-    });
-
+    if(getFieldsValue().categoryFirst){
+      dispatch({
+        type: 'Global/getSecondCategory',
+        payload: {
+          id: getFieldsValue().categoryFirst,
+          type: 0
+        },
+      });
+    }
   }, [getFieldsValue().categoryFirst])
 
   useEffect(()=>{
-    dispatch({
-      type: 'Global/getThirdCategory',
-      payload: {
-        id: getFieldsValue().categorySecond,
-        type: 0
-      },
-    });
-
+    if(getFieldsValue().categorySecond){
+      dispatch({
+        type: 'Global/getThirdCategory',
+        payload: {
+          id: getFieldsValue().categorySecond,
+          type: 0
+        },
+      });
+    }
   }, [getFieldsValue().categorySecond]);
   
 
@@ -91,7 +93,7 @@ function multilevelCategories(props) {
             {!_.isEmpty(firstCategory) &&
               firstCategory.map((item, index) => {
                 return (
-                  <Option key={item.id} value={item.id.toString()}>
+                  <Option key={item.code} value={item.code.toString()}>
                     {item.name}
                   </Option>
                 );
@@ -111,7 +113,7 @@ function multilevelCategories(props) {
             {!_.isEmpty(secondCategory) &&
               secondCategory.map((item, index) => {
                 return (
-                  <Option key={item.id} value={item.id.toString()}>
+                  <Option key={item.code} value={item.code.toString()}>
                     {item.name}
                   </Option>
                 );
@@ -131,7 +133,7 @@ function multilevelCategories(props) {
             {!_.isEmpty(thirdCategory) &&
               thirdCategory.map((item, index) => {
                 return (
-                  <Option key={item.id} value={item.id.toString()}>
+                  <Option key={item.code} value={item.code.toString()}>
                     {item.name}
                   </Option>
                 );

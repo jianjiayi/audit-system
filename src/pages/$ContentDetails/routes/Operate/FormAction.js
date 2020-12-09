@@ -287,10 +287,6 @@ function FormAction(props) {
         </Radio.Group>
       </Form.Item>
       <Form.Item
-        wrapperCol={{
-          xs: { span: 20, offset: 3 },
-          sm: { span: 20, offset: 3 },
-        }}
         shouldUpdate={(prevValues, curValues) => {
           return prevValues.auditState !== curValues.auditState;
         }}
@@ -301,7 +297,13 @@ function FormAction(props) {
 
           const getReasonTpl = (rules, data) => {
             return (
-              <Form.Item name="reason" rules={rules}>
+              <Form.Item 
+                wrapperCol={{
+                  xs: { span: 20, offset: 3 },
+                  sm: { span: 20, offset: 3 },
+                }} 
+                name="reason" 
+                rules={rules}>
                 <Checkbox.Group>
                   <Row gutter={24}>
                     {data.map((item,index) => {

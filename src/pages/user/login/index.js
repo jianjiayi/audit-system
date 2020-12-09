@@ -2,23 +2,22 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable import/no-useless-path-segments */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
+import React from 'react';
 import {
   LockTwoTone,
   UserOutlined,
 } from '@ant-design/icons';
-import { Alert, Space, message, Tabs } from 'antd';
-import React, { useState } from 'react';
-import ProForm, { ProFormCaptcha, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
+import { Alert } from 'antd';
+
+import ProForm, { ProFormText } from '@ant-design/pro-form';
 import {
-  useIntl,
-  // FormattedMessage,
   useModel,
 } from 'umi';
 
 import logo from '@/assets/logo.svg';
 
 import proSettings from './../../../../config/defaultSettings';
-
 import userLogin from './models';
 import styles from './index.less';
 

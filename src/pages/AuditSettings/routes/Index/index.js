@@ -299,7 +299,6 @@ function AuditSettings(props) {
           pathUrl="/setting/"
           text="创建队列"
           perms={'setting:add'}
-          ghost
           type="link"
           onClick={() => goDetails({ action: 'create' })}
         ></WrapAuthButton>
