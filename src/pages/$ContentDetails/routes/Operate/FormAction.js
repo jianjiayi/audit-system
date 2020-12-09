@@ -12,7 +12,7 @@
 /* eslint-disable no-control-regex */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { message, Form, Checkbox, Radio, Input, Tag, Button, Row, Col, Icon } from 'antd';
+import { message, Form, Checkbox, Radio, Input, Tag, Button, Row, Col } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { connect } from 'umi';

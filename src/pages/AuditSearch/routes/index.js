@@ -113,6 +113,7 @@ function AuditSearch(props) {
   const searchFormProps = {
     className: styles['form-contaner'],
     layout: 'inline',
+    resetShow: true,
     authProps: {
       pathUrl: '/search',
       perms: 'news:select',

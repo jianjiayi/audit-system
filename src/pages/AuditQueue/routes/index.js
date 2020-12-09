@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable consistent-return */
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable react/self-closing-comp */
@@ -7,16 +8,14 @@
 /* eslint-disable import/order */
 /* eslint-disable import/no-unresolved */
 import React, { useEffect, useRef } from 'react';
-import { connect } from 'dva';
 import { message } from 'antd';
 import _ from 'lodash';
-import { history, useModel } from 'umi';
+import { history, useModel, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
 
-import { contentType, queueType } from '@/pages/constants';
-import { ExObject } from '@utils/utils.js';
+import { contentType } from '@/pages/constants';
 
 import styles from './index.module.less';
 
@@ -55,13 +54,6 @@ function AuditQueue(props) {
       perms: 'statistics:classify:select',
     },
     dataSource: [
-      // {
-      //   label: '业务线',
-      //   type: 'SELECT',
-      //   name: 'bid',
-      //   initialValue: ExObject.getFirstValue(business),
-      //   map: business,
-      // },
       {
         label: '内容类型',
         type: 'SELECT',
@@ -69,13 +61,6 @@ function AuditQueue(props) {
         initialValue: 'NEWS',
         map: contentType,
       },
-      // {
-      //   label: '队列机制',
-      //   type: 'SELECT',
-      //   name: 'queueType',
-      //   initialValue: '',
-      //   map: { ...queueType },
-      // },
     ],
     onSubmit: (formValues) => {
       console.log('formValues', formValues);

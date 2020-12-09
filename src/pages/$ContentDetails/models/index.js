@@ -164,6 +164,8 @@ export default {
           actionLoading: false,
         },
       });
+
+      callback(data);
     },
 
     // 跳过当前待审文章

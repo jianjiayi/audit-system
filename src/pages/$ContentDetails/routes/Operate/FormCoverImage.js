@@ -36,19 +36,17 @@ function FormCoverImage(props) {
     Object.keys(arrObj).map((key) => {
       // console.log(arrObj[key]);
       arrObj[key].uid = key;
-      arrObj[key].url = arrObj[key].originalUrl;
+      arrObj[key].url = arrObj[key].originalUrl || arrObj[key].src || arrObj[key].imageKey;
       arr.push(arrObj[key]);
     });
     // console.log(arr)
     return arr;
   };
 
-  // 封面图原始数据
-  const list = objToArr(curArt.covers) || objToArr(curArt.picMessageMap) || [];
-  
+  const [imgList, setImgList] = useState([]);
 
   // 正文全图原始数据
-  const contentImages = objToArr(curArt.picMessageMap);
+  const contentImages = curArt.mediaInfo && objToArr(curArt.mediaInfo.images) || [];
 
   const [coverPictureVisible, setCoverPictureVisible] = useState(false);
   const [tabKey, setTabKey] = useState(0);
@@ -56,15 +54,16 @@ function FormCoverImage(props) {
   // 单图和三图的切换
   const [imagesValue, setImagesValue] = useState(3);
   // 用来共享组件内的封面图数据
-  const [fileList, setFileList] = useState(list);
+  const [fileList, setFileList] = useState([]);
   // 封面图
-  const [contentList] = useState(contentImages || []);
+  const [contentList, setContentList] = useState(contentImages || []);
   // 预览图片状态和图片地址
   const [previewVisible, setPreviewVisible] = useState(false);
   const [imageSourceType, setImageSourceType] = useState('cover');
   const [previewImage, setPreviewImage] = useState('');
 
 
+  // 设置封面图
   useEffect(() => {
     // 设置封面图字段初始值
     pForm.setFieldsValue({
@@ -72,7 +71,27 @@ function FormCoverImage(props) {
     });
 
     setFileList(objToArr(curArt.covers));
+    setImgList(objToArr(curArt.covers))
   }, [curArt.covers]);
+
+  // 设置正文全图
+  useEffect(()=>{
+    if(curArt.mediaInfo){
+      setContentList(objToArr(curArt.mediaInfo.images))
+    }
+
+    // 没有封面图是时，取正文图作为封面图
+    if(_.isEmpty(curArt.covers) && curArt.mediaInfo){
+      pForm.setFieldsValue({
+        covers: objToArr(curArt.mediaInfo.images),
+      });
+  
+      setFileList(objToArr(curArt.mediaInfo.images));
+      setImgList(objToArr(curArt.mediaInfo.images))
+    }
+  },[curArt.mediaInfo])
+
+  
 
   // 三图多图切换
   const setCoverImagesNumber = (number) => {
@@ -81,7 +100,8 @@ function FormCoverImage(props) {
     if (number === 1) {
       return setFileList([fileList[0]]);
     }
-    setFileList(list);
+    
+    setFileList([...imgList]);
   };
 
   // 上传文件校验
@@ -147,7 +167,9 @@ function FormCoverImage(props) {
         <img
           width={240}
           height={180}
-          src={(!_.isEmpty(fileList) && fileList[0] && fileList[0].originalUrl) || errorImg}
+          src={(!_.isEmpty(fileList) && fileList[0] && fileList[0].originalUrl) || 
+                (!_.isEmpty(fileList) && fileList[0] && fileList[0].src) || 
+                errorImg}
         />
         <div className={styles.button_list}>
           <Button
@@ -195,7 +217,7 @@ function FormCoverImage(props) {
           setCoverPictureVisible(false);
           setImageSourceType('cover');
           if (tabKey !== 2) {
-            setFileList(...[list]);
+            setFileList([...fileList]);
           }
         }}
         footer={null}
@@ -229,7 +251,7 @@ function FormCoverImage(props) {
                       width={120}
                       height={90}
                       alt="封面图"
-                      src={item.originalUrl}
+                      src={item.src}
                       fallback={errorImg}
                     />
                   );
