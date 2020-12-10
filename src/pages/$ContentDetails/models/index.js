@@ -126,6 +126,9 @@ export default {
               }
             });
 
+            // 存储文章id
+            sessionStorage.setItem('$queueContentId', data.id);
+
             yield put({
               type: 'save',
               payload: {
