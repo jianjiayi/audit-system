@@ -7,7 +7,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable import/order */
 /* eslint-disable import/no-unresolved */
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { message } from 'antd';
 import _ from 'lodash';
 import { history, useModel, connect } from 'umi';
@@ -29,6 +29,8 @@ function AuditQueue(props) {
   } = useModel('@@initialState');
 
   const formRef = useRef(null);
+
+  const [current,setCurrent] = useState(1);
 
   const {
     dispatch,
@@ -64,6 +66,7 @@ function AuditQueue(props) {
     ],
     onSubmit: (formValues) => {
       console.log('formValues', formValues);
+      setCurrent(1)
       dispatch({
         type: 'Queue/init',
         payload: {
@@ -113,12 +116,12 @@ function AuditQueue(props) {
       {
         title: '名称',
         dataIndex: 'queueName',
-        width: 150,
+        width: 300,
         render: (text) => <b>{text}</b>,
       },
       {
         title: '数量',
-        dataIndex: 'queueLen',
+        dataIndex: 'count',
         align: 'center',
         width: 150,
       },
@@ -141,6 +144,13 @@ function AuditQueue(props) {
     ],
     loading,
     dataSource,
+    pagination:{
+      current,
+    },
+    onPageChg: (page) => {
+      // console.log(page)
+      setCurrent(page.current)
+    },
   };
 
   return (

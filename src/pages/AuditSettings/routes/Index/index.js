@@ -181,7 +181,7 @@ function AuditSettings(props) {
         align: 'center',
         width: '160px',
         dataIndex: 'status',
-        render: (text) => <span>{text === 0 ? '停用' : '启用'}</span>,
+        render: (text) => <span>{text === 0 ? '启用' : '停用'}</span>,
       },
       {
         title: '操作',
@@ -200,7 +200,7 @@ function AuditSettings(props) {
               ></WrapAuthButton>
               <WrapAuthButton
                 pathUrl="/setting/"
-                text={r.status === 1 ? '停用' : '开启'}
+                text={r.status === 0 ? '停用' : '开启'}
                 perms={'setting:edit'}
                 size="small"
                 onClick={() => updateQueueStatus(r)}
@@ -236,7 +236,7 @@ function AuditSettings(props) {
   const updateQueueStatus = (data) => {
     console.log(data);
     const { id, bid, queueType, name, type, keepDays, status } = data;
-    if (status === 0) {
+    if (status === 1) {
       confirm({
         title: '提示',
         content: '是否确认开启队列',

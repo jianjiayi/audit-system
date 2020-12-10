@@ -7,7 +7,9 @@ import React from 'react';
 import { Form, Input, Button,} from 'antd';
 import { useModel } from 'umi';
 
-import logo from '@/assets/logo.svg';
+import Particles from '@/components/Particles';
+
+import logo from '@/assets/logo.png';
 
 import proSettings from './../../../../config/defaultSettings';
 import userLogin from './models';
@@ -24,6 +26,7 @@ const Login = () => {
 
   return (
     <div className={styles.content}>
+      <Particles />
       <div className={styles.main}>
         <div className={styles.header}>
           <img className={styles.logo} src={logo}></img>

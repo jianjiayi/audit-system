@@ -98,7 +98,8 @@ function FormCoverImage(props) {
     setImagesValue(number);
     // if (_.isEmpty(fileList)) return;
     if (number === 1) {
-      return setFileList([fileList[0]]);
+      console.log('fileList[0]',fileList[0])
+      return setFileList([imgList[0]]);
     }
     
     setFileList([...imgList]);

@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
@@ -77,14 +78,27 @@ export default {
     // 领取队列
     *getNewsGetTask({ payload, callback=()=>{} }, { call, put, select }) {
       try{
-        const { query } = yield select(({ CDetails }) => CDetails);
-        // 合并参数
-        const params = {
-          ...query,
-          ...payload,
-        };
+        let code = 0;
+        let data = {};
 
-        const { code, data } = yield call(api.getNewsGetTask, params);
+        // 领取 单独处理
+        if(!payload.queueSubmitType){
+          const { query, queueContentId } = yield select(({ CDetails }) => CDetails);
+          // 合并参数
+          const params = {
+            ...query,
+            ...payload,
+            id: queueContentId
+          };
+
+          const res = yield call(api.getNewsGetTask, params);
+          code = res.code;
+          data = res.data;
+        }else{
+          code = 200;
+          data = payload.data;
+        }
+        
 
         if (code === 200) {
           if (data) {
@@ -122,7 +136,7 @@ export default {
                 auditState: data.auditState, //  审核状态
                 queueContentData: data, // 所有数据
                 curArt: data.feedMessage, // 文章详情
-                queueContentId: data.queues[0], // 队列id
+                queueContentId: data.id, // 队列id
                 // category: data.content.categoryIds,
                 newsDataType: data.feedMessage.articleType,
                 forbiddenWordList: data.forbiddenWordList || [], // 违禁词
@@ -154,18 +168,8 @@ export default {
       };
       const { code, data } = yield call(api.getAuditSave, params);
       if (code === 200) {
-        yield put({ type: 'getNewsGetTask', payload: { ...query } ,callback});
+        yield put({ type: 'getNewsGetTask', payload: {queueSubmitType: 'save', data: data} ,callback});
       }
-
-      yield put({
-        type: 'save',
-        payload: {
-          loading: false,
-          actionLoading: false,
-        },
-      });
-
-      callback(data);
     },
 
     // 跳过当前待审文章
@@ -175,14 +179,13 @@ export default {
       const { query } = yield select(({ CDetails }) => CDetails);
       // 合并参数
       const params = {
-        info: query,
-        ...payload,
+        info: {...query, ...payload}
       };
       const { code, data } = yield call(api.getNewsSkip, params);
       if (code === 200) {
-        yield put({ type: 'getNewsGetTask', payload: { ...query }});
+        yield put({ type: 'getNewsGetTask', payload: {queueSubmitType: 'save', data: data}});
 
-        callback(data);
+        // callback(data);
       }
     },
 

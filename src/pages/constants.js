@@ -53,7 +53,7 @@ export const keepDays = {
 };
 
 // 队列状态
-export const queueStatus = { '': '全部', 0: '暂停', 1: '启用' };
+export const queueStatus = { '': '全部', 0: '启用', 1: '停用' };
 
 // 权限状态
 export const rightStatus = { '': '全部', 0: '离线', 1: '在线', 2: '注销' };

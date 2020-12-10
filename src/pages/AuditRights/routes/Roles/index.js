@@ -20,7 +20,7 @@ import { roleStatus, dateFormat } from '@/pages/constants';
 import WrapAuthButton from '@components/WrapAuth';
 import ModalForm from '../../components/ModalForm';
 
-import TreeSelectComponent from '../../components/TreeSelect';
+import TreeSelectComponent from '../../components/TreeSelect/index2';
 
 
 import styles from './index.module.less';

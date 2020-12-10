@@ -134,8 +134,8 @@ function WordsRender(props) {
       {
         title: '名称',
         align: 'center',
-        dataIndex: 'word',
-        render: (text) => <a>{text}</a>,
+        // dataIndex: 'word',
+        render: (r) => <a>{r.word || r.name}</a>,
       },
     ],
     dataSource,

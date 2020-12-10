@@ -9,7 +9,7 @@ import { history } from 'umi';
 import HeaderContent from '@/components/HeaderContent';
 import RightContent from '@/components/RightContent';
 import Footer from '@/components/Footer';
-import logo from '@/assets/logo.svg';
+import logo from '@/assets/logo.png';
 import _ from 'lodash';
 
 // import { ResponseError } from 'umi-request';
