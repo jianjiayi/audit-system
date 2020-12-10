@@ -64,8 +64,8 @@ function Operate(props) {
 
       const copyArt = _.cloneDeep(curArt);
       // 处理大事件和热点
-      values.hotValue = values.hotValue[0];
-      values.bigEvent = values.bigEvent[0];
+      values.hotValue = values.hotValue ? values.hotValue[0] : 0;
+      values.bigEvent = values.bigEvent ? values.bigEvent[0] : 0;
 
       const {auditState, reason, ...rest} = values;
 

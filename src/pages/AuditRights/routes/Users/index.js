@@ -271,10 +271,9 @@ function UserRights(props) {
     setTitle(type === 'create' ? '创建' : '编辑');
     modalFormRef.current.setVisible(true);
     if (!values) return;
-
-    let options = [];
     values.roles = (values.roles[0] && values.roles[0].roleName) || null;
     console.log(values);
+    
     setFormValues(values);
   };
 

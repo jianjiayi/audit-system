@@ -5,8 +5,8 @@
  * For details, please see
  * https://pro.ant.design/docs/deploy
  */
-const domain = 'http://10.50.162.153:8180';
-// const domain = 'http://172.30.4.48:8180'; //gxp
+// const domain = 'http://10.50.162.153:8180';
+const domain = 'http://172.30.4.48:8180'; //gxp
 // const domain = 'http://172.30.4.88:8180'; //zb
 
 export default {

@@ -221,19 +221,19 @@ function FormAction(props) {
         name="isDup"
       >
         <Radio.Group>
-          <Radio value={0}>是</Radio>
-          <Radio value={1}>否</Radio>
+          <Radio value={'0'}>是</Radio>
+          <Radio value={'1'}>否</Radio>
         </Radio.Group>
       </Form.Item>
       <Form.Item>
         <Form.Item noStyle name="hotValue">
           <Checkbox.Group>
-            <Checkbox value={1}>热点</Checkbox>
+            <Checkbox value={'1'}>热点</Checkbox>
           </Checkbox.Group>
         </Form.Item>
         <Form.Item noStyle name="bigEvent">
           <Checkbox.Group>
-            <Checkbox value={1}>大事件</Checkbox>
+            <Checkbox value={'1'}>大事件</Checkbox>
           </Checkbox.Group>
         </Form.Item>
       </Form.Item>
