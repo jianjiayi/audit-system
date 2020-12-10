@@ -185,8 +185,7 @@ function UserRights(props) {
         width: '150px',
         align: 'center',
         render(r) {
-          return (
-            r.username !== 'system' ?
+          return r.username !== 'system' ? (
             <div className={styles.tableaction}>
               <WrapAuthButton
                 pathUrl="/rights/user"
@@ -203,8 +202,8 @@ function UserRights(props) {
                 text={r.state !== 2 ? '注销' : '重启'}
                 onClick={() => updateUserOrRoleStatus('user', r.state, r.username)}
               ></WrapAuthButton>
-            </div> : null
-          );
+            </div>
+          ) : null;
         },
       },
     ],
@@ -272,7 +271,7 @@ function UserRights(props) {
     setTitle(type === 'create' ? '创建' : '编辑');
     modalFormRef.current.setVisible(true);
     if (!values) return;
-  
+
     let options = [];
     values.roles = (values.roles[0] && values.roles[0].roleName) || null;
     console.log(values);
@@ -297,68 +296,68 @@ function UserRights(props) {
       submitText: '保存',
       loading: btnLoading,
       dataSource: [
-        { 
-          label: '用户名', 
-          name: 'username', 
-          required: true, 
+        {
+          label: '用户名',
+          name: 'username',
+          required: true,
           disabled: title !== '创建' && true,
           type: 'TextArea',
-          showCount:true,
-          maxLength:100
+          showCount: true,
+          maxLength: 100,
         },
-        { 
-          label: '密码', 
-          name: title === '创建' ? 'password' : null, 
+        {
+          label: '密码',
+          name: title === '创建' ? 'password' : null,
           required: true,
           type: 'TextArea',
-          showCount:true,
-          maxLength:100
+          showCount: true,
+          maxLength: 100,
         },
         {
           label: '角色',
           name: 'roles',
           required: true,
           itemRender: (
-            <Select
-              showSearch
-              placeholder="请选择角色"
-            >
-              {
-                !_.isEmpty(roleAllLIst) && roleAllLIst.map((item,index)=>{
-                  return <Option key={index} value={item.roleName}>{item.roleName}</Option>
-                })
-              }
+            <Select showSearch placeholder="请选择角色">
+              {!_.isEmpty(roleAllLIst) &&
+                roleAllLIst.map((item, index) => {
+                  return (
+                    <Option key={index} value={item.roleName}>
+                      {item.roleName}
+                    </Option>
+                  );
+                })}
             </Select>
           ),
         },
 
-        { 
-          label: '真实姓名', 
-          name: 'name', 
+        {
+          label: '真实姓名',
+          name: 'name',
           required: true,
           type: 'TextArea',
-          showCount:true,
-          maxLength:100 
+          showCount: true,
+          maxLength: 100,
         },
 
         {
           label: '备注',
           name: 'remarks',
           type: 'TextArea',
-          showCount:true,
-          maxLength:200,
+          showCount: true,
+          maxLength: 200,
         },
       ],
       formValues: formValues,
       onSubmit: (formValues) => {
         console.log('formValues', formValues);
         // 处理角色
-        if(!_.isEmpty(formValues.roles)){
+        if (!_.isEmpty(formValues.roles)) {
           let list = [];
-          let item = roleAllLIst.filter(v=>{
+          let item = roleAllLIst.filter((v) => {
             return v.roleName === formValues.roles;
-          })
-          console.log(item)
+          });
+          console.log(item);
           list.push(item[0].id);
           formValues.roles = list;
         }

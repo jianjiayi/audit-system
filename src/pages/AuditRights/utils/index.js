@@ -9,6 +9,7 @@ import _ from 'lodash';
 export function getTreeData(dataPermissions) {
   // 深拷贝权限
   let permissions = _.cloneDeep(dataPermissions);
+  if(_.isEmpty(permissions)) return;
   // 获取顶层路由
   let treeData = permissions.filter(item => item.parentId === 0) || [];
 

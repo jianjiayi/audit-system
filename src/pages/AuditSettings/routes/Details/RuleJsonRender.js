@@ -51,12 +51,12 @@ function RuleJsonRender(props) {
 
   // 删除配置项
   const delJsonItem = (key) => {
-    console.log(key)
+    console.log(key);
     let arr = _.clone(jsonArray);
     delete arr[key];
     setJsonArray({ ...arr });
-    onChange(arr)
-  }
+    onChange(arr);
+  };
 
   return (
     <>

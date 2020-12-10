@@ -1,116 +1,65 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable spaced-comment */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-var */
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-use-before-define */
-/* eslint-disable no-console */
-/* eslint-disable no-func-assign */
+/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable array-callback-return */
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable consistent-return */
+/* eslint-disable no-param-reassign */
+/* eslint-disable @typescript-eslint/dot-notation */
+/* eslint-disable prefer-const */
 
-import React, { useState, useEffect, forwardRef } from 'react';
-import { Tree, TreeSelect } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Tree } from 'antd';
 import _ from 'lodash';
 
-import { getTreeData } from '../../utils/index';
+const getTreeData = (dataPermissions) => {
+  // 深拷贝权限
+  let permissions = _.cloneDeep(dataPermissions);
+  if (_.isEmpty(permissions)) return;
+  // 获取顶层路由
+  let treeData = permissions.filter((item) => item.parentId === 0) || [];
 
-import styles from './index.module.less';
+  // 生成权限树
+  const getPermissionsTree = (routes, data) => {
+    if (routes.length === 0) return [];
+    routes.map((item) => {
+      item['title'] = item.permissionName;
+      item['value'] = item.permissionId;
+      item['key'] = item.permissionId;
+      // item['checked'] = 'true';
 
-function TreeCom(props, ref) {
-  // 存放勾选的节点id
-  const [userdata, setUserData] = useState([]);
+      let children = data.filter((v) => v.parentId === item.permissionId);
+      if (children.length > 0) {
+        item.children = children;
+        getPermissionsTree(children, data);
+      }
+    });
+  };
 
-  const { onCheckTreeFun = () => {}, permissionDataList, userPermission = [] } = props;
-  // console.log('userPermission', userPermission)
+  getPermissionsTree(treeData, permissions);
 
-  let ownList = [];
+  return treeData;
+};
+
+function TreeClassification(props) {
+  const { permissionDataList, value = [], onChange = () => {} } = props;
+
+  const [treeData, setTreeData] = useState([]);
+  const [checkedKeys, setCheckedKeys] = useState(value);
 
   useEffect(() => {
-    // console.log(userPermission)
-    if (!_.isEmpty(userPermission)) {
-      // console.log('222')
-      setUserData(userPermission);
-      ownList = _.cloneDeep(userPermission);
-      filterNoCheckedParentNode(userPermission, permissionDataList);
-    }
-  }, [userPermission]);
+    setTreeData(getTreeData(permissionDataList));
+  }, [JSON.stringify(permissionDataList)]);
 
-  const onCheck = (checkedKeys, e) => {
-    // console.log('checkedKeys', checkedKeys, "e",e,);
-    //注意：halfCheckedKeys 是没有全部勾选状态下的父节点
-    let concatTreeData = checkedKeys.concat(e.halfCheckedKeys);
-    onCheckTreeFun(concatTreeData);
-    setUserData(checkedKeys);
+  useEffect(() => {
+    setCheckedKeys(value);
+  }, [JSON.stringify(value)]);
+
+  const onCheck = (checkedKeys) => {
+    setCheckedKeys(checkedKeys);
+    onChange(checkedKeys);
   };
-
-  // 克隆userData
-  // let ownList = _.cloneDeep(userdata);
-
-  // 对比判断是否权限节点
-  const compareList = (data, List) => {
-    if (_.isEmpty(data) || _.isEmpty(List)) return;
-    data.map((item, index) => {
-      if (item.children) {
-        // 获取元对象
-        const parObj = List.find(obj => obj.permissionId === item.permissionId);
-        // console.log(item.children.sort(), parObj.children.sort())
-        // console.log('isEqual',!_.isEqual(item.children.sort(), parObj.children.sort()))
-        // 比较children是否相同
-        if (!_.isEqual(item.children.sort(), parObj.children.sort())) {
-          // 删除父元素
-          deletePar(item.permissionId);
-        }
-        compareList(item.children, parObj.children);
-      }
-    });
-  };
-  // 删除父元素
-  const deletePar = id => {
-    // console.log(id)
-
-    var index = ownList.indexOf(id.toString());
-    // console.log(index)
-    if (index > -1) {
-      ownList.splice(index, 1);
-    }
-    // console.log('ownList',ownList)
-    setUserData([...ownList]);
-  };
-
-  // 过滤掉没有子节点没有被权限的父节点
-  const filterNoCheckedParentNode = (userList = [], dataList = []) => {
-    let list = _.cloneDeep(userList);
-    // 拷贝一个用户路由
-    let copyList = [];
-    list.map(item => {
-      let itemNode = dataList.filter(v => v.permissionId === item);
-      if (!_.isEmpty(itemNode)) {
-        copyList.push(itemNode[0]);
-      }
-    });
-    compareList(getTreeData(copyList || []), getTreeData(permissionDataList || []));
-  };
-
-  // console.log('userdata',userdata)
 
   return (
-    <div className={styles.treeBox}>
-      <Tree
-        checkable
-        autoExpandParent={true}
-        defaultExpandAll={true}
-        showCheckedStrategy={TreeSelect.SHOW_ALL}
-        placeholder="选择权限"
-        onCheck={onCheck}
-        treeData={getTreeData(permissionDataList || [])}
-        multiple={true}
-        checkedKeys={userdata}
-      />
-    </div>
+    <Tree height={400} checkable checkedKeys={checkedKeys} treeData={treeData} onCheck={onCheck} />
   );
 }
 
-TreeCom = forwardRef(TreeCom);
-
-export default TreeCom;
+export default TreeClassification;

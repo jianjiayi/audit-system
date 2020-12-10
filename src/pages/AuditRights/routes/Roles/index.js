@@ -20,11 +20,9 @@ import { roleStatus, dateFormat } from '@/pages/constants';
 import WrapAuthButton from '@components/WrapAuth';
 import ModalForm from '../../components/ModalForm';
 
-import TreeSelectComponent from '../../components/TreeSelect/index2';
-
+import TreeSelectComponent from '../../components/TreeSelect';
 
 import styles from './index.module.less';
-
 
 const { confirm } = Modal;
 
@@ -152,8 +150,7 @@ function RolePage(props) {
         width: '150px',
         align: 'center',
         render(r) {
-          return (
-            r.roleName !== 'system' ?
+          return r.roleName !== 'system' ? (
             <div className={styles.tableaction}>
               <WrapAuthButton
                 pathUrl="/rights/role"
@@ -170,8 +167,8 @@ function RolePage(props) {
                 text={r.state !== 1 ? '注销' : '重启'}
                 onClick={() => updateUserOrRoleStatus('role', r.state, r.id)}
               ></WrapAuthButton>
-            </div> : null
-          );
+            </div>
+          ) : null;
         },
       },
     ],
@@ -239,7 +236,7 @@ function RolePage(props) {
   const openUserModal = (type, values) => {
     setTitle(type === 'create' ? '创建' : '编辑');
     dispatch({ type: 'Rights/save', payload: { permissionIds: [] } });
-    
+
     modalFormRef.current.setVisible(true);
     if (!values) return;
     // 处理编辑用户回显逻辑
@@ -248,21 +245,14 @@ function RolePage(props) {
       payload: {
         id: values.id,
       },
-      callback:(res)=>{
-        console.log(values);
+      callback: (res) => {
+        // console.log(values,res);
         values.permissionIds = res || [];
         setFormValues(values);
         // console.log('modalFormRef',modalFormRef.current)
         modalFormRef.current.updateFormValues(values);
-      }
+      },
     });
-  };
-
-  // 处理tree选中问题
-  const onCheckTree = (checkedKeys) => {
-    console.log(checkedKeys);
-
-    modalFormRef.current.updateFormValues({...formValues,'permissionIds': checkedKeys});
   };
 
   // 创建modal配置
@@ -281,29 +271,25 @@ function RolePage(props) {
       layout: 'horizontal',
       submitText: '保存',
       dataSource: [
-        { 
-          label: '角色名', 
-          name: 'roleName', 
+        {
+          label: '角色名',
+          name: 'roleName',
           required: true,
           type: 'TextArea',
-          showCount:true,
-          maxLength:200 
+          showCount: true,
+          maxLength: 200,
         },
         {
           label: '分配权限',
           name: 'permissionIds',
           itemRender: (
-            <TreeSelectComponent
-              onCheckTreeFun={onCheckTree}
-              permissionDataList={permissionDataList}
-              userPermission={permissionIds}
-            ></TreeSelectComponent>
+            <TreeSelectComponent permissionDataList={permissionDataList}></TreeSelectComponent>
           ),
         },
       ],
       formValues: formValues,
       onSubmit: (Values) => {
-        console.log('Values', Values)
+        // console.log('Values', Values)
         // 处理路由权限判断选择的路由权限是否
 
         setBtnLoading(true);
