@@ -83,12 +83,14 @@ export default {
 
         // 领取 单独处理
         if(!payload.queueSubmitType){
-          const { query, queueContentId } = yield select(({ CDetails }) => CDetails);
+          const { query } = yield select(({ CDetails }) => CDetails);
+
+          console.log('query',query,payload)
           // 合并参数
           const params = {
+            id: sessionStorage.getItem('$queueContentId'),
             ...query,
             ...payload,
-            id: queueContentId
           };
 
           const res = yield call(api.getNewsGetTask, params);

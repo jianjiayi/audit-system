@@ -21,9 +21,7 @@ function ContentDetails(props) {
   useEffect(() => {
     dispatch({
       type: 'CDetails/init',
-      payload: {
-        type:0
-      },
+      payload: {},
       callback: ()=>{}
     });
   }, [dispatch]);

@@ -38,6 +38,7 @@ function FormAction(props) {
     dispatch,
     CDetails: {
       curArt,
+      newsDataType,
       auditState,
       reason,
       forbiddenWordList, // 违禁词
@@ -63,8 +64,8 @@ function FormAction(props) {
     });
   },[JSON.stringify(curArt)])
 
-  const filterTags = (list = [])=>{
-    // console.log('222222222',list);
+  const filterTags = (list)=>{
+    if(_.isEmpty(list)) return [];
     return list.map((item)=>{
       return item = {
         type: 0,
@@ -117,19 +118,26 @@ function FormAction(props) {
       return message.error('该标签已存在，请不要重复创建');
     }
 
-    dispatch({
-      type: 'CDetails/getCheckoutTags',
-      payload: {
-        name: inputValue,
-      },
-      callback: (data) => {
-        setTags([...tags, { type: data ? 1 : 0, text: inputValue }]);
-        // 设置表单项值
-        selfForm.setFieldsValue({ tags: [...tags, { type: data ? 1 : 0, text: inputValue }] });
-        // 关闭输入框
-        setInputVisible(false);
-      },
-    });
+
+    setTags([...tags, { text: inputValue }]);
+    // 设置表单项值
+    selfForm.setFieldsValue({ tags: [...tags, { type: 0, text: inputValue }] });
+    // 关闭输入框
+    setInputVisible(false);
+
+    // dispatch({
+    //   type: 'CDetails/getCheckoutTags',
+    //   payload: {
+    //     name: inputValue,
+    //   },
+    //   callback: (data) => {
+    //     setTags([...tags, { type: data ? 1 : 0, text: inputValue }]);
+    //     // 设置表单项值
+    //     selfForm.setFieldsValue({ tags: [...tags, { type: data ? 1 : 0, text: inputValue }] });
+    //     // 关闭输入框
+    //     setInputVisible(false);
+    //   },
+    // });
   };
   // 取消
   const handleInputCancel = () => {
@@ -153,7 +161,7 @@ function FormAction(props) {
 
   return (
     <Form {...formProps} from={selfForm}>
-      <ThreeLevelClassification pForm={selfForm}/>
+      <ThreeLevelClassification pForm={selfForm} type={newsDataType}/>
       <Form.Item label="违禁词">
         <p className={styles.p_text}>
           {!_.isEmpty(forbiddenWordList) ? (
@@ -221,8 +229,8 @@ function FormAction(props) {
         name="isDup"
       >
         <Radio.Group>
-          <Radio value={'0'}>是</Radio>
-          <Radio value={'1'}>否</Radio>
+          <Radio value={0}>是</Radio>
+          <Radio value={1}>否</Radio>
         </Radio.Group>
       </Form.Item>
       <Form.Item>

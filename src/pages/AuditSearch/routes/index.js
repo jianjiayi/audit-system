@@ -431,7 +431,6 @@ function AuditSearch(props) {
         type: 'CDetails/getNewsGetTask',
         payload: params,
         callback: (data) => {
-          console.log('-----------------')
           if (_.isEmpty(data)) {
             return message.error('当前文章不可以领取');
           }

@@ -10,6 +10,7 @@ const { Option } = Select;
 function multilevelCategories(props) {
   const {
     dispatch,
+    type,
     pForm:{
       resetFields,
       setFieldsValue,
@@ -17,6 +18,8 @@ function multilevelCategories(props) {
     },
     Global: { firstCategory, secondCategory, thirdCategory },
   } = props;
+
+  console.log('------------------',type)
 
   const selectProps = {
     allowClear: true,
@@ -29,7 +32,7 @@ function multilevelCategories(props) {
         type: 'Global/getSecondCategory',
         payload: {
           id: getFieldsValue().categoryFirst,
-          type: 0
+          type
         },
       });
     }
@@ -41,7 +44,7 @@ function multilevelCategories(props) {
         type: 'Global/getThirdCategory',
         payload: {
           id: getFieldsValue().categorySecond,
-          type: 0
+          type
         },
       });
     }
@@ -56,7 +59,7 @@ function multilevelCategories(props) {
         type: 'Global/getSecondCategory',
         payload: {
           id: id || 0,
-          type: 0
+          type
         },
       });
     }else{
@@ -67,7 +70,7 @@ function multilevelCategories(props) {
         type: 'Global/getThirdCategory',
         payload: {
           id,
-          type: 0
+          type
         },
       });
     }

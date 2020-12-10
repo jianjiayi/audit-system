@@ -34,12 +34,10 @@ function FormCoverImage(props) {
     let arr = [];
     if (_.isEmpty(arrObj)) return [];
     Object.keys(arrObj).map((key) => {
-      // console.log(arrObj[key]);
       arrObj[key].uid = key;
       arrObj[key].url = arrObj[key].originalUrl || arrObj[key].src || arrObj[key].imageKey;
       arr.push(arrObj[key]);
     });
-    // console.log(arr)
     return arr;
   };
 
@@ -98,8 +96,7 @@ function FormCoverImage(props) {
     setImagesValue(number);
     // if (_.isEmpty(fileList)) return;
     if (number === 1) {
-      console.log('fileList[0]',fileList[0])
-      return setFileList([imgList[0]]);
+      return setFileList(imgList[0] ? [imgList[0]] : []);
     }
     
     setFileList([...imgList]);

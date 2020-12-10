@@ -10,7 +10,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { message } from 'antd';
 import _ from 'lodash';
-import { history, useModel, connect } from 'umi';
+import { history, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
@@ -24,27 +24,23 @@ import WrapAuthButton from '@components/WrapAuth';
 delete contentType[''];
 
 function AuditQueue(props) {
-  const {
-    initialState: { currentUser = {} },
-  } = useModel('@@initialState');
-
-  const formRef = useRef(null);
-
-  const [current,setCurrent] = useState(1);
+  // 当前页面
+  const [current, setCurrent] = useState(1);
+  const [type, setType] = useState('NEWS');
 
   const {
     dispatch,
-    business = currentUser.business || {},
     Queue: { loading, dataSource },
   } = props;
 
   useEffect(() => {
-    let payload = formRef.current.getFieldsValue();
     dispatch({
       type: 'Queue/init',
-      payload,
+      payload:{
+        type
+      }
     });
-  }, [business, dispatch, formRef.current]);
+  }, [dispatch]);
 
   // 多条件搜索配置
   const searchFormProps = {
@@ -60,12 +56,13 @@ function AuditQueue(props) {
         label: '内容类型',
         type: 'SELECT',
         name: 'type',
-        initialValue: 'NEWS',
+        initialValue: type,
         map: contentType,
       },
     ],
     onSubmit: (formValues) => {
       console.log('formValues', formValues);
+      setType(formValues.type);
       setCurrent(1)
       dispatch({
         type: 'Queue/init',
@@ -78,12 +75,10 @@ function AuditQueue(props) {
 
   // 领审
   const goDetails = (name, id) => {
-    let formValues = formRef.current.getFieldsValue();
     let params = {
-      businessId: formValues.bid,
       queue: id,
       queueName: name,
-      type: formValues.type,
+      type,
       routersource: 'queue',
     };
     dispatch({
@@ -97,6 +92,7 @@ function AuditQueue(props) {
 
         dispatch({ type: 'CDetails/save', payload: { query: params } });
         sessionStorage.setItem('$QUERY', JSON.stringify(params));
+        
         history.push({
           pathname: '/queue/cdetails',
           query: {
@@ -155,7 +151,7 @@ function AuditQueue(props) {
 
   return (
     <>
-      <BaseForm {...searchFormProps} pRef={formRef} />
+      <BaseForm {...searchFormProps}/>
       <BaseTable {...tableProps}></BaseTable>
     </>
   );
