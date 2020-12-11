@@ -85,7 +85,7 @@ export default {
         if(!payload.queueSubmitType){
           const { query } = yield select(({ CDetails }) => CDetails);
 
-          console.log('query',query,payload)
+          // console.log('query',query,payload)
           // 合并参数
           const params = {
             id: sessionStorage.getItem('$queueContentId'),
@@ -144,10 +144,10 @@ export default {
                 queueContentId: sessionStorage.getItem('$queueContentId'), // 队列id
                 // category: data.content.categoryIds,
                 newsDataType: data.feedMessage.articleType,
-                forbiddenWordList: data.forbiddenWordList || [], // 违禁词
-                sensitiveWordList: data.sensitiveWordList || [], // 敏感词
-                hotWord: data.hotWord || [], // 热词
-                personalWord: data.personalWord || [], //人物词
+                forbiddenWordList: data.feedMessage.extra.forbiddenwords || [], // 违禁词
+                sensitiveWordList: data.feedMessage.extra.sensitivewords || [], // 敏感词
+                hotWord: data.feedMessage.extra.hotwords || [], // 热词
+                personalWord: data.feedMessage.extra.personagewords  || [], //人物词
 
                 tagsList: list,
               },

@@ -41,12 +41,12 @@ function ButtonMobilePreview(props) {
       <Modal {...mobileProps}>
         <div className={styles.container}>
           <div
-            className={classNames(styles.bg_box, newsDataType === 'IMAGE' ? styles.dark : '')}
+            className={classNames(styles.bg_box, newsDataType === 'ATLAS' ? styles.dark : '')}
           ></div>
           <div className={styles.mobile} style={{ backgroundImage: 'url(' + iphoneBg + ')' }}>
             <div className={styles['body-box']}>
               {(newsDataType === 'NEWS' ||  newsDataType === 'TEXT')&& <Normal curArt={curArt}></Normal>}
-              {newsDataType === 'IMAGE' && <Image images={curArt.oppoPics}></Image>}
+              {newsDataType === 'ATLAS' && <Image curArt={curArt}></Image>}
               {newsDataType === 'VIDEO' && <Video curArt={curArt}></Video>}
             </div>
           </div>

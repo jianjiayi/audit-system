@@ -130,34 +130,45 @@ export default {
     // 获取用户或角色列表
     *getUserOrRoleQuery({ payload }, { call, put, select }) {
       yield put({ type: 'save', payload: { query: {}, loading: true } });
+      try{
+        const { query, pagination } = yield select(({ Rights }) => Rights);
+        // 合并参数
+        const params = {
+          ...query,
+          pageNum: 1,
+          pageSize: pagination.pageSize,
+          ...payload,
+        };
 
-      const { query, pagination } = yield select(({ Rights }) => Rights);
-      // 合并参数
-      const params = {
-        ...query,
-        pageNum: 1,
-        pageSize: pagination.pageSize,
-        ...payload,
-      };
+        const { code, data } = yield call(api.getUserOrRoleQuery, params);
 
-      const { code, data } = yield call(api.getUserOrRoleQuery, params);
-
-      if (code === 200 && data) {
+        if (code === 200 && data) {
+          yield put({
+            type: 'save',
+            payload: {
+              loading: false,
+              query: params,
+              dataSource: data.data || [],
+              pagination: {
+                ...pagination,
+                total: data.totalSize,
+                current: data.pageNum,
+                pageSize: params.pageSize,
+              },
+            },
+          });
+        }
+      }catch(e){
+        console.log('eeeeee',e)
         yield put({
           type: 'save',
           payload: {
-            loading: false,
-            query: params,
-            dataSource: data.data || [],
-            pagination: {
-              ...pagination,
-              total: data.totalSize,
-              current: data.pageNum,
-              pageSize: params.pageSize,
-            },
+            loading: true,
           },
         });
       }
+
+      
     },
 
     // 获取系统所有的用户权限

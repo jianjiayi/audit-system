@@ -295,7 +295,7 @@ function AuditSearch(props) {
         align: 'center',
         width: '150px',
         render: (text) => (
-          <Tooltip title={text} destroyTooltipOnHide={true} getPopupContainer>
+          <Tooltip title={text}>
             <a>{text.length > 15 ? `${text.slice(0, 15)}...` : text}</a>
           </Tooltip>
         ),

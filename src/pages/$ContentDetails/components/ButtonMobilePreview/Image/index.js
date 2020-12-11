@@ -14,8 +14,9 @@ import 'swiper/swiper.less';
 import styles from './index.module.less';
 
 function ImagePage(props) {
-  const { images = [] } = props;
+  const { curArt:{mediaInfo,title} } = props;
   const [showImgDesc, setShowImgDesc] = useState(false);
+  const [images, setImages] = useState([]);
 
   const initSwiper = () => {
     new Swiper('.swiper-container', {
@@ -27,6 +28,12 @@ function ImagePage(props) {
   useEffect(() => {
     initSwiper();
   }, []);
+
+  useEffect(()=>{
+    console.log('mediaInfo.images',mediaInfo.images)
+    setImages(mediaInfo.images);
+    initSwiper();
+  },[JSON.stringify(mediaInfo)])
 
   return (
     <div className={classNames('swiper-container', styles.container)}>
@@ -40,13 +47,13 @@ function ImagePage(props) {
           images.map((item, index) => {
             return (
               <div key={index} className={classNames('swiper-slide', styles.slider)}>
-                <img src={item.pic_url} />
+                <img src={item.src} />
               </div>
             );
           })}
       </div>
       <div className={styles['content-text']}>
-        {showImgDesc && <p className={styles.text}>{'111111'}</p>}
+        {showImgDesc && <p className={styles.text}>{title}</p>}
         {!showImgDesc && <p className={styles.number}>1/5</p>}
       </div>
       {/* 如果需要分页器 */}

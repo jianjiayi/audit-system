@@ -81,11 +81,11 @@ function FormCoverImage(props) {
     // 没有封面图是时，取正文图作为封面图
     if(_.isEmpty(curArt.covers) && curArt.mediaInfo){
       pForm.setFieldsValue({
-        covers: objToArr(curArt.mediaInfo.images),
+        covers: objToArr(curArt.mediaInfo.images).slice(0,3),
       });
   
-      setFileList(objToArr(curArt.mediaInfo.images));
-      setImgList(objToArr(curArt.mediaInfo.images))
+      setFileList(objToArr(curArt.mediaInfo.images).slice(0,3));
+      setImgList(objToArr(curArt.mediaInfo.images).slice(0,3))
     }
   },[curArt.mediaInfo])
 

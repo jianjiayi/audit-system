@@ -33,7 +33,7 @@ export const contentType = {
   NEWS: '图文',
   VIDEO: '视频',
   AUDIO: '音频',
-  IMAGE: '图集',
+  ATLAS: '图集',
   TEXT: '纯文本',
 };
 
@@ -82,10 +82,10 @@ export const orderTypeMap = { desc: '降序', asc: '升序' };
 // 审核结果
 export const auditResult = {
   '': '全部',
-  INIT: '待审',
-  PENDING: '已领取',
-  PASS: '通过',
-  REJECT: '删除',
+  INIT: '待审核',
+  // PENDING: '已领取',
+  PASS: '审核通过',
+  REJECT: '审核未通过',
 };
 // 审核结果
 export const auditResult1 = { '': '全部', '审核通过': '审核通过', '审核未通过': '审核未通过' };

@@ -39,15 +39,26 @@ function BaseTable(props, ref) {
   } = props;
 
   useEffect(() => {
-    setSelectedRowKeys(selectedKeys);
-  }, [selectedKeys]);
+    // console.log('selectedKeys',selectedKeys)
+    if(!_.isEmpty(selectedKeys)){
+      setSelectedRowKeys(selectedKeys);
+    }
+  }, [JSON.stringify(selectedKeys)]);
 
+
+  // 获取选中元素
+  const getSelectedRowKeys = () =>{
+    if(!_.isEmpty(selectedRowKeys)){
+      return {selectedRowKeys}
+    }
+    return {};
+  } 
   // table 单选、多选配置
   const rowSelection = {
     type: 'checkbox',
-    selectedRowKeys,
+    ...getSelectedRowKeys(),
     onChange: (selectedRowKeys, selectedRows) => {
-      // console.log(selectedRowKeys, selectedRows)
+      console.log(selectedRowKeys, selectedRows)
       setSelectedRowKeys(selectedRowKeys);
       setSelectedRows(selectedRows);
     },

@@ -6,10 +6,9 @@
 /* eslint-disable prefer-const */
 /* eslint-disable import/no-unresolved */
 import React, { useEffect, useRef } from 'react';
-import { connect } from 'dva';
 import _ from 'lodash';
 import { Button } from 'antd';
-import { history, useModel } from 'umi';
+import { history, useModel, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';

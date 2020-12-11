@@ -32,6 +32,7 @@ function RolePage(props) {
   } = useModel('@@initialState');
 
   const modalFormRef = useRef(null);
+  const treeRef = useRef(null)
   // modal标题
   const [title, setTitle] = useState('');
   // 临时存储用户信息
@@ -283,14 +284,18 @@ function RolePage(props) {
           label: '分配权限',
           name: 'permissionIds',
           itemRender: (
-            <TreeSelectComponent permissionDataList={permissionDataList}></TreeSelectComponent>
+            <TreeSelectComponent 
+              permissionDataList={permissionDataList} 
+              ref={treeRef}
+            ></TreeSelectComponent>
           ),
         },
       ],
       formValues: formValues,
       onSubmit: (Values) => {
         // console.log('Values', Values)
-        // 处理路由权限判断选择的路由权限是否
+        // 获取权限，该处处理
+        const treeData = treeRef.current.concatTreeData;
 
         setBtnLoading(true);
         dispatch({
@@ -298,6 +303,8 @@ function RolePage(props) {
           payload: {
             id: formValues.id,
             ...Values,
+            // 处理权限
+            permissionIds: _.isEmpty(treeData) ? Values.permissionIds : treeData,
             pathname: 'role',
             type: title === '创建' ? 'add' : 'edit',
           },

@@ -19,7 +19,7 @@ function multilevelCategories(props) {
     Global: { firstCategory, secondCategory, thirdCategory },
   } = props;
 
-  console.log('------------------',type)
+  // console.log('------------------',type)
 
   const selectProps = {
     allowClear: true,
