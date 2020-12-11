@@ -81,6 +81,10 @@ function AuditQueue(props) {
       type,
       routersource: 'queue',
     };
+
+    sessionStorage.setItem('$queueContentId', '');
+    sessionStorage.setItem('$QUERY', JSON.stringify({}));
+
     dispatch({
       type: 'CDetails/getNewsGetTask',
       payload: params,
@@ -92,7 +96,7 @@ function AuditQueue(props) {
 
         dispatch({ type: 'CDetails/save', payload: { query: params } });
         sessionStorage.setItem('$QUERY', JSON.stringify(params));
-        
+
         history.push({
           pathname: '/queue/cdetails',
           query: {

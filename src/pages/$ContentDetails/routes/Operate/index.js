@@ -104,7 +104,7 @@ function Operate(props) {
     dispatch({
       type: 'CDetails/getNewsSkip',
       payload: {
-        id: queueContentId,
+        skipId: queueContentId,
       },
       callback: () => {
         setSkipBtnLoading(false);

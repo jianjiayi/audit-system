@@ -184,7 +184,7 @@ export default {
       const { query } = yield select(({ CDetails }) => CDetails);
       // 合并参数
       const params = {
-        info: {...query, ...payload, skipId:sessionStorage.getItem('$queueContentId')}
+        info: {...query, ...payload}
       };
       const { code, data } = yield call(api.getNewsSkip, params);
       if (code === 200) {
