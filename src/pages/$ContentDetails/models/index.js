@@ -124,7 +124,7 @@ export default {
               type: 'Global/getFirstCategory',
               payload:{
                 id: 0, 
-                type: data.feedMessage.articleType === 'VIDEO' ? 1 : 0
+                type: data.feedMessage.articleType
               }
             });
 

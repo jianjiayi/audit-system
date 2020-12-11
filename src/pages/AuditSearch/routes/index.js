@@ -33,6 +33,8 @@ import styles from './index.module.less';
 
 const { Option } = Select;
 
+delete contentType[''];
+
 function AuditSearch(props) {
   const {
     initialState: { currentUser = {} },
@@ -59,6 +61,9 @@ function AuditSearch(props) {
     const params = formRef.current.getFieldsValue();
     const query = JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH')) || {}; // 获取缓存中查询条件
     console.log('query', query);
+    formRef.current.setFieldsValue({
+      ...query
+    })
 
     dispatch({
       type: 'Search/init',
@@ -78,9 +83,6 @@ function AuditSearch(props) {
     queue: '',
     resultStatus: '',
     status: '',
-    // category:{
-    //   firstCategoryId: '2',
-    // }
   };
 
   // console.log(updateFormValues, _.isEmpty(JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH'))))

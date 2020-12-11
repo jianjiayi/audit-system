@@ -24,6 +24,7 @@ export default {
     },
     // 获取一级分类
     *getFirstCategory({ payload }, { call, put }) {
+      console.log('payload----getFirstCategory',payload)
       const { code, data } = yield call(api.getFirstCategory, payload);
       if (code === 200) {
         yield put({
@@ -38,6 +39,7 @@ export default {
     },
     // 获取二级分类
     *getSecondCategory({ payload }, { call, put }) {
+      console.log('payload++++getSecondCategory',payload)
       const { code, data } = yield call(api.getSecondCategory, payload);
       if (code === 200) {
         yield put({

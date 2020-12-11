@@ -35,7 +35,6 @@ function FormAction(props) {
     name = 'FormAction',
     pForm: selfForm, 
     className,
-    dispatch,
     CDetails: {
       curArt,
       newsDataType,
