@@ -1,1 +1,72 @@
-.container___1pF8t{overflow:hidden;padding:24px 10px 0;background-color:#fff}.button-group___r4vDn{display:flex;width:100%;justify-content:space-between;height:100%;height:40px}.button-group___r4vDn button:first-child{margin-left:20px}.button-group-center___2Bbzj{display:flex;width:100%;justify-content:center;height:100%;height:40px}.button-group-center___2Bbzj button{margin:0 20px}.container___2X4q8{display:flex;flex-wrap:wrap;justify-content:space-between}.container___2X4q8 .item___11Qd9{flex:1 1;width:250px;display:flex;height:50px;align-items:center;margin-bottom:20px;border-radius:3px}.container___2X4q8 .item___11Qd9 .content___3R-KH{display:flex;align-items:center;border:1px dashed #d9d9d9;min-width:250px;border-radius:5px}.container___2X4q8 .item___11Qd9 span{margin:0 20px}.container___2X4q8 .item___11Qd9 .countup___OAa-M{font-size:20px}.form-contaner___3xvCj{margin-bottom:10px}.container___2jiK-{padding:20px;background-color:#fff}.container___2jiK- .title___28ebp{line-height:50px;border-bottom:1px solid #d9d9d9;margin-bottom:20px}.echarts___faRYe{display:flex;margin:50px 10px;flex-wrap:wrap}
+.container___1pF8t {
+  overflow: hidden;
+  padding: 24px 10px 0;
+  background-color: #ffffff;
+}
+.button-group___r4vDn {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 100%;
+  height: 40px;
+}
+.button-group___r4vDn button:first-child {
+  margin-left: 20px;
+}
+.button-group-center___2Bbzj {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 100%;
+  height: 40px;
+}
+.button-group-center___2Bbzj button {
+  margin: 0 20px;
+}
+
+.container___2X4q8 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.container___2X4q8 .item___11Qd9 {
+  flex: 1 1;
+  width: 250px;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+.container___2X4q8 .item___11Qd9 .content___3R-KH {
+  display: flex;
+  align-items: center;
+  border: 1px dashed #d9d9d9;
+  min-width: 250px;
+  border-radius: 5px;
+}
+.container___2X4q8 .item___11Qd9 span {
+  margin: 0 20px;
+}
+.container___2X4q8 .item___11Qd9 .countup___OAa-M {
+  font-size: 20px;
+}
+
+.form-contaner___3xvCj {
+  margin-bottom: 10px;
+}
+.container___2jiK- {
+  padding: 20px;
+  background-color: #ffffff;
+}
+.container___2jiK- .title___28ebp {
+  line-height: 50px;
+  border-bottom: 1px solid #d9d9d9;
+  margin-bottom: 20px;
+}
+.echarts___faRYe {
+  display: flex;
+  margin: 50px 10px;
+  flex-wrap: wrap;
+}
+
