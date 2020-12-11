@@ -141,7 +141,7 @@ export default {
                 auditState: data.auditState, //  审核状态
                 queueContentData: data, // 所有数据
                 curArt: data.feedMessage, // 文章详情
-                queueContentId: data.id, // 队列id
+                queueContentId: sessionStorage.getItem('$queueContentId'), // 队列id
                 // category: data.content.categoryIds,
                 newsDataType: data.feedMessage.articleType,
                 forbiddenWordList: data.forbiddenWordList || [], // 违禁词
