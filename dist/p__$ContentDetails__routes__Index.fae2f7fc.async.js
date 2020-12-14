@@ -424,7 +424,7 @@ var contentType = {
   NEWS: '图文',
   VIDEO: '视频',
   AUDIO: '音频',
-  IMAGE: '图集',
+  ATLAS: '图集',
   TEXT: '纯文本'
 }; // 队列机制
 
@@ -493,10 +493,10 @@ var orderTypeMap = {
 
 var auditResult = {
   '': '全部',
-  INIT: '待审',
-  PENDING: '已领取',
-  PASS: '通过',
-  REJECT: '删除'
+  INIT: '待审核',
+  // PENDING: '已领取',
+  PASS: '审核通过',
+  REJECT: '审核未通过'
 }; // 审核结果
 
 var auditResult1 = {
@@ -1141,13 +1141,19 @@ var Image_index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(Image
 
 
 function ImagePage(props) {
-  var _props$images = props.images,
-      images = _props$images === void 0 ? [] : _props$images;
+  var _props$curArt = props.curArt,
+      mediaInfo = _props$curArt.mediaInfo,
+      title = _props$curArt.title;
 
   var _useState = Object(react["useState"])(false),
       _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
       showImgDesc = _useState2[0],
       setShowImgDesc = _useState2[1];
+
+  var _useState3 = Object(react["useState"])([]),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
+      images = _useState4[0],
+      setImages = _useState4[1];
 
   var initSwiper = function initSwiper() {
     new core_class["a" /* default */]('.swiper-container', {
@@ -1161,6 +1167,11 @@ function ImagePage(props) {
   Object(react["useEffect"])(function () {
     initSwiper();
   }, []);
+  Object(react["useEffect"])(function () {
+    console.log('mediaInfo.images', mediaInfo.images);
+    setImages(mediaInfo.images);
+    initSwiper();
+  }, [JSON.stringify(mediaInfo)]);
   return /*#__PURE__*/react_default.a.createElement("div", {
     className: classnames_default()('swiper-container', Image_index_modulemodules_default.a.container)
   }, /*#__PURE__*/react_default.a.createElement("div", {
@@ -1173,13 +1184,13 @@ function ImagePage(props) {
       key: index,
       className: classnames_default()('swiper-slide', Image_index_modulemodules_default.a.slider)
     }, /*#__PURE__*/react_default.a.createElement("img", {
-      src: item.pic_url
+      src: item.src
     }));
   })), /*#__PURE__*/react_default.a.createElement("div", {
     className: Image_index_modulemodules_default.a['content-text']
   }, showImgDesc && /*#__PURE__*/react_default.a.createElement("p", {
     className: Image_index_modulemodules_default.a.text
-  }, '111111'), !showImgDesc && /*#__PURE__*/react_default.a.createElement("p", {
+  }, title), !showImgDesc && /*#__PURE__*/react_default.a.createElement("p", {
     className: Image_index_modulemodules_default.a.number
   }, "1/5")), /*#__PURE__*/react_default.a.createElement("div", {
     className: classnames_default()('swiper-pagination')
@@ -1323,7 +1334,7 @@ function ButtonMobilePreview(props) {
   }, title), /*#__PURE__*/react_default.a.createElement(modal["a" /* default */], mobileProps, /*#__PURE__*/react_default.a.createElement("div", {
     className: ButtonMobilePreview_index_modulemodules_default.a.container
   }, /*#__PURE__*/react_default.a.createElement("div", {
-    className: classnames_default()(ButtonMobilePreview_index_modulemodules_default.a.bg_box, newsDataType === 'IMAGE' ? ButtonMobilePreview_index_modulemodules_default.a.dark : '')
+    className: classnames_default()(ButtonMobilePreview_index_modulemodules_default.a.bg_box, newsDataType === 'ATLAS' ? ButtonMobilePreview_index_modulemodules_default.a.dark : '')
   }), /*#__PURE__*/react_default.a.createElement("div", {
     className: ButtonMobilePreview_index_modulemodules_default.a.mobile,
     style: {
@@ -1333,8 +1344,8 @@ function ButtonMobilePreview(props) {
     className: ButtonMobilePreview_index_modulemodules_default.a['body-box']
   }, (newsDataType === 'NEWS' || newsDataType === 'TEXT') && /*#__PURE__*/react_default.a.createElement(ButtonMobilePreview_Normal, {
     curArt: curArt
-  }), newsDataType === 'IMAGE' && /*#__PURE__*/react_default.a.createElement(Image, {
-    images: curArt.oppoPics
+  }), newsDataType === 'ATLAS' && /*#__PURE__*/react_default.a.createElement(Image, {
+    curArt: curArt
   }), newsDataType === 'VIDEO' && /*#__PURE__*/react_default.a.createElement(ButtonMobilePreview_Video, {
     curArt: curArt
   }))))));
@@ -1483,10 +1494,10 @@ function FormCoverImage(props) {
 
     if (lodash_default.a.isEmpty(curArt.covers) && curArt.mediaInfo) {
       pForm.setFieldsValue({
-        covers: objToArr(curArt.mediaInfo.images)
+        covers: objToArr(curArt.mediaInfo.images).slice(0, 3)
       });
-      setFileList(objToArr(curArt.mediaInfo.images));
-      setImgList(objToArr(curArt.mediaInfo.images));
+      setFileList(objToArr(curArt.mediaInfo.images).slice(0, 3));
+      setImgList(objToArr(curArt.mediaInfo.images).slice(0, 3));
     }
   }, [curArt.mediaInfo]); // 三图多图切换
 
@@ -1825,8 +1836,8 @@ function multilevelCategories(props) {
       _props$Global = props.Global,
       firstCategory = _props$Global.firstCategory,
       secondCategory = _props$Global.secondCategory,
-      thirdCategory = _props$Global.thirdCategory;
-  console.log('------------------', type);
+      thirdCategory = _props$Global.thirdCategory; // console.log('------------------',type)
+
   var selectProps = {
     allowClear: true,
     style: {
@@ -2470,7 +2481,7 @@ function Operate(props) {
     dispatch({
       type: 'CDetails/getNewsSkip',
       payload: {
-        id: queueContentId
+        skipId: queueContentId
       },
       callback: function callback() {
         setSkipBtnLoading(false);

@@ -632,14 +632,28 @@ function BaseTable(props, ref) {
       rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
 
   Object(react__WEBPACK_IMPORTED_MODULE_5__["useEffect"])(function () {
-    setSelectedRowKeys(selectedKeys);
-  }, [selectedKeys]); // table 单选、多选配置
+    // console.log('selectedKeys',selectedKeys)
+    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(selectedKeys)) {
+      setSelectedRowKeys(selectedKeys);
+    }
+  }, [JSON.stringify(selectedKeys)]); // 获取选中元素
 
-  var rowSelection = {
-    type: 'checkbox',
-    selectedRowKeys: selectedRowKeys,
+  var getSelectedRowKeys = function getSelectedRowKeys() {
+    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(selectedRowKeys)) {
+      return {
+        selectedRowKeys: selectedRowKeys
+      };
+    }
+
+    return {};
+  }; // table 单选、多选配置
+
+
+  var rowSelection = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({
+    type: 'checkbox'
+  }, getSelectedRowKeys()), {}, {
     onChange: function onChange(selectedRowKeys, selectedRows) {
-      // console.log(selectedRowKeys, selectedRows)
+      console.log(selectedRowKeys, selectedRows);
       setSelectedRowKeys(selectedRowKeys);
       setSelectedRows(selectedRows);
     },
@@ -648,7 +662,8 @@ function BaseTable(props, ref) {
 
       setSelectedRows(selectedRows);
     }
-  };
+  });
+
   var rowSelections = Boolean;
 
   if (selectionType === false || selectionType === null) {
@@ -763,7 +778,7 @@ var contentType = {
   NEWS: '图文',
   VIDEO: '视频',
   AUDIO: '音频',
-  IMAGE: '图集',
+  ATLAS: '图集',
   TEXT: '纯文本'
 }; // 队列机制
 
@@ -832,10 +847,10 @@ var orderTypeMap = {
 
 var auditResult = {
   '': '全部',
-  INIT: '待审',
-  PENDING: '已领取',
-  PASS: '通过',
-  REJECT: '删除'
+  INIT: '待审核',
+  // PENDING: '已领取',
+  PASS: '审核通过',
+  REJECT: '审核未通过'
 }; // 审核结果
 
 var auditResult1 = {
@@ -6994,6 +7009,8 @@ function multilevelCategories(props) {
       value = _props$value === void 0 ? {} : _props$value,
       rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value"]);
 
+  console.log('3333333', value);
+
   var selectProps = Object(objectSpread2["a" /* default */])({
     allowClear: true,
     style: {
@@ -7001,14 +7018,8 @@ function multilevelCategories(props) {
     }
   }, rest);
 
-  var _value$firstCategoryI = value.firstCategoryId,
-      firstCategoryId = _value$firstCategoryI === void 0 ? null : _value$firstCategoryI,
-      _value$secondCategory = value.secondCategoryId,
-      secondCategoryId = _value$secondCategory === void 0 ? null : _value$secondCategory,
-      _value$thirdCategoryI = value.thirdCategoryId,
-      thirdCategoryId = _value$thirdCategoryI === void 0 ? null : _value$thirdCategoryI;
-
   var selectChange = function selectChange(e, id) {
+    console.log('e, id', e, id);
     value[id] = e;
     onChange(value, id);
   };
@@ -7018,8 +7029,7 @@ function multilevelCategories(props) {
   }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "firstCategoryId",
     name: "firstCategoryId",
-    noStyle: true,
-    initialValue: firstCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E00\u7EA7\u5206\u7C7B"
   }, selectProps, {
@@ -7034,8 +7044,7 @@ function multilevelCategories(props) {
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "secondCategoryId",
     name: "secondCategoryId",
-    noStyle: true,
-    initialValue: secondCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
   }, selectProps, {
@@ -7050,8 +7059,7 @@ function multilevelCategories(props) {
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "thirdCategoryId",
     name: "thirdCategoryId",
-    noStyle: true,
-    initialValue: thirdCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E09\u7EA7\u5206\u7C7B"
   }, selectProps, {

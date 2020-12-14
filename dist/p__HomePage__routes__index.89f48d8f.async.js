@@ -1,18 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[13],{
-
-/***/ "3k04":
-/*!************************************************************!*\
-  !*** ./src/components/BaseTable/index.module.less?modules ***!
-  \************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"container":"container___9kxO4"};
-
-/***/ }),
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[17],{
 
 /***/ "5H4c":
 /*!***********************************************************!*\
@@ -28,360 +14,334 @@ module.exports = {"container":"container___1pF8t","button-group":"button-group__
 
 /***/ }),
 
-/***/ "5KP8":
-/*!*******************************************!*\
-  !*** ./src/components/BaseTable/index.js ***!
-  \*******************************************/
+/***/ "75RJ":
+/*!********************************************************!*\
+  !*** ./src/pages/HomePage/routes/index.js + 5 modules ***!
+  \********************************************************/
 /*! exports provided: default */
-/*! exports used: default */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/components/TextCountUp/index.module.less?modules (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/HomePage/routes/index.module.less?modules (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/HomePage/constants.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/utils.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/classnames/index.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/count-up-react/dist/index.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-redux/es/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/echarts/lib/echarts.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var antd_es_table_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/es/table/style */ "g9YV");
-/* harmony import */ var antd_es_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/table */ "wCAj");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "PpiC");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray */ "tJVT");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "q1tI");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "TSYQ");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./index.module.less?modules */ "3k04");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "LvDl");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js
+var esm_extends = __webpack_require__("0Owb");
+
+// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("k1fw");
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__("q1tI");
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 22 modules
+var es = __webpack_require__("/MKj");
+
+// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
+var lodash = __webpack_require__("LvDl");
+var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
+
+// EXTERNAL MODULE: ./src/.umi-production/core/umiExports.ts + 19 modules
+var umiExports = __webpack_require__("9kvl");
+
+// EXTERNAL MODULE: ./src/components/BaseForm/index.js + 4 modules
+var BaseForm = __webpack_require__("zLEZ");
+
+// EXTERNAL MODULE: ./node_modules/count-up-react/dist/index.js
+var dist = __webpack_require__("Mcei");
+
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__("TSYQ");
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// EXTERNAL MODULE: ./src/components/TextCountUp/index.module.less?modules
+var index_modulemodules = __webpack_require__("IKXg");
+var index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(index_modulemodules);
+
+// CONCATENATED MODULE: ./src/components/TextCountUp/index.js
+
+
+/* eslint-disable react/no-array-index-key */
 
 
 
 
 
 
-/* eslint-disable import/order */
-
-/* eslint-disable object-shorthand */
-
-/* eslint-disable no-param-reassign */
-
-/* eslint-disable spaced-comment */
-
-/* eslint-disable no-console */
-
-/* eslint-disable @typescript-eslint/no-shadow */
-
-/* eslint-disable no-func-assign */
-
-
-
-
-
-function BaseTable(props, ref) {
-  // 存储选中元素
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])([]),
-      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState, 2),
-      selectedRowKeys = _useState2[0],
-      setSelectedRowKeys = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])([]),
-      _useState4 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState3, 2),
-      selectedRows = _useState4[0],
-      setSelectedRows = _useState4[1]; // 向父组件暴露的方法
-
-
-  Object(react__WEBPACK_IMPORTED_MODULE_5__["useImperativeHandle"])(ref, function () {
-    return {
-      selectedRowKeys: selectedRowKeys,
-      setSelectedRowKeys: setSelectedRowKeys,
-      selectedRows: selectedRows,
-      setSelectedRows: setSelectedRows
-    };
-  });
-
+function TextCountUp(props) {
+  var countupProps = {
+    className: index_modulemodules_default.a.countup,
+    itemHeight: 40,
+    symbol: ',',
+    scrollTime: 2000,
+    initStatus: true
+  };
   var className = props.className,
-      columns = props.columns,
-      dataSource = props.dataSource,
-      selectionType = props.selectionType,
-      pagination = props.pagination,
-      onPageChg = props.onPageChg,
-      children = props.children,
-      selectedKeys = props.selectedKeys,
-      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
-
-  Object(react__WEBPACK_IMPORTED_MODULE_5__["useEffect"])(function () {
-    setSelectedRowKeys(selectedKeys);
-  }, [selectedKeys]); // table 单选、多选配置
-
-  var rowSelection = {
-    type: 'checkbox',
-    selectedRowKeys: selectedRowKeys,
-    onChange: function onChange(selectedRowKeys, selectedRows) {
-      // console.log(selectedRowKeys, selectedRows)
-      setSelectedRowKeys(selectedRowKeys);
-      setSelectedRows(selectedRows);
-    },
-    onSelectAll: function onSelectAll(selected, selectedRows) {
-      console.log(selected, selectedRows); // setSelectedRowKeys(selectedRows);
-
-      setSelectedRows(selectedRows);
-    }
-  };
-  var rowSelections = Boolean;
-
-  if (selectionType === false || selectionType === null) {
-    rowSelections = false;
-  } else if (selectionType === 'checkbox') {
-    rowSelection.type = 'checkbox';
-  } else {
-    rowSelection.type = 'radio';
-  } //table 合并数组单元格
-
-
-  var createNewArr = function createNewArr(data) {
-    if (!data || data.length === 0) return [];
-    return data.reduce(function (result, item) {
-      //首先将name字段作为新数组result取出
-      if (result.indexOf(item.name) < 0) {
-        result.push(item.name);
-      }
-
-      return result;
-    }, []).reduce(function (result, name) {
-      //将name相同的数据作为新数组取出，并在其内部添加新字段**rowSpan**
-      var children = data.filter(function (item) {
-        return item.name === name;
-      });
-      result = result.concat(children.map(function (item, index) {
-        return Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, item), {}, {
-          rowSpan: index === 0 ? children.length : 0 //将第一行数据添加rowSpan字段
-
-        });
-      }));
-      return result;
-    }, []);
-  };
-
-  var footer = function footer() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-      className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default.a['right-btn']
-    }, children);
-  }; // table配置
-
-
-  var tableProps = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({
-    columns: columns,
-    // dataSource,
-    dataSource: createNewArr(dataSource),
-    pagination: pagination,
-    rowKey: function rowKey(record, index) {
-      return record.id || index;
-    },
-    rowSelection: rowSelections ? rowSelection : null,
-    onChange: onPageChg,
-    footer: children && !lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(dataSource) ? footer : null
-  }, rest);
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default.a.container, className)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(antd_es_table__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], tableProps));
+      dataSource = props.dataSource;
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: classnames_default()(className, index_modulemodules_default.a.container)
+  }, !lodash_default.a.isEmpty(dataSource) && dataSource.map(function (item, index) {
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      key: index,
+      className: index_modulemodules_default.a.item
+    }, /*#__PURE__*/react_default.a.createElement("div", {
+      className: index_modulemodules_default.a.content
+    }, /*#__PURE__*/react_default.a.createElement("span", null, item.name), /*#__PURE__*/react_default.a.createElement(dist["Countup"], Object(esm_extends["a" /* default */])({
+      number: item.value
+    }, countupProps))));
+  }));
 }
 
-BaseTable = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_5__["forwardRef"])(BaseTable);
-/* harmony default export */ __webpack_exports__["a"] = (BaseTable);
+/* harmony default export */ var components_TextCountUp = (TextCountUp);
+// EXTERNAL MODULE: ./node_modules/echarts/map/js/china.js
+var china = __webpack_require__("MTm3");
 
-/***/ }),
+// EXTERNAL MODULE: ./node_modules/echarts/lib/echarts.js
+var echarts = __webpack_require__("ProS");
+var echarts_default = /*#__PURE__*/__webpack_require__.n(echarts);
 
-/***/ "6ZGt":
-/*!********************************!*\
-  !*** ./src/pages/constants.js ***!
-  \********************************/
-/*! exports provided: UPLOAD_FILE_URL, errorImg, acceptType, maxFileSize, colorList, dateFormat, contentType, queueType, keepDays, queueStatus, rightStatus, roleStatus, auditStatus, runningStatus, orderFieldMap, orderTypeMap, auditResult, auditResult1, passReason, rejectReason */
-/*! exports used: UPLOAD_FILE_URL, acceptType, auditResult, auditResult1, contentType, dateFormat, errorImg, keepDays, maxFileSize, orderFieldMap, orderTypeMap, passReason, queueStatus, queueType, rejectReason, rightStatus, roleStatus, runningStatus */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+// EXTERNAL MODULE: ./node_modules/echarts-wordcloud/index.js
+var echarts_wordcloud = __webpack_require__("h6EL");
 
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UPLOAD_FILE_URL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return errorImg; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return acceptType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return maxFileSize; });
-/* unused harmony export colorList */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return dateFormat; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return contentType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return queueType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return keepDays; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return queueStatus; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return rightStatus; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return roleStatus; });
-/* unused harmony export auditStatus */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return runningStatus; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return orderFieldMap; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return orderTypeMap; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return auditResult; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return auditResult1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return passReason; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return rejectReason; });
-/* eslint-disable import/newline-after-import */
+// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/bar.js
+var bar = __webpack_require__("lLGD");
 
-/* eslint-disable global-require */
-// import { BASEURL } from '@/config';
-var BASEURL = ''; // 上传文件路径
+// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/pie.js
+var pie = __webpack_require__("wDdD");
 
-var UPLOAD_FILE_URL = "".concat(BASEURL, "/audit/file/upload/image");
-var errorImg = __webpack_require__(/*! @/assets/error.png */ "H+gj");
-var acceptType = ['jpg', 'png', 'jpeg', 'gif'];
-var maxFileSize = 5; // 系统使用的随机颜色
+// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/line.js
+var line = __webpack_require__("75ce");
 
-var colorList = ['#7eacea', '#e15777', '#95ea71', '#ea9b4f', '#7577df', '#be72d8', '#6633FF', '#6600CC', '#006633', '#993333', '#FF9900', '#9999FF']; // 时间类型
+// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/lines.js
+var lines = __webpack_require__("p+If");
 
-var dateFormat = 'YYYY-MM-DD HH:mm:ss'; // 内容类型
+// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/map.js
+var map = __webpack_require__("Z1wy");
 
-var contentType = {
-  '': '全部',
-  NEWS: '图文',
-  VIDEO: '视频',
-  AUDIO: '音频',
-  IMAGE: '图集',
-  TEXT: '纯文本'
-}; // 队列机制
+// EXTERNAL MODULE: ./node_modules/echarts/lib/component/title.js
+var title = __webpack_require__("Ynxi");
 
-var queueType = {
-  '': '全部',
-  1: '先审后发',
-  2: '先发后审',
-  3: '免审'
-}; // 队列保存时长
+// CONCATENATED MODULE: ./src/components/Charts/lib/useECharts.js
+/* eslint-disable no-useless-return */
 
-var keepDays = {
-  '': '全部',
-  1: '1天',
-  3: '3天',
-  7: '7天',
-  15: '15天',
-  30: '30天',
-  60: '60天',
-  90: '90天'
-}; // 队列状态
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-var queueStatus = {
-  '': '全部',
-  0: '启用',
-  1: '停用'
-}; // 权限状态
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 
-var rightStatus = {
-  '': '全部',
-  0: '离线',
-  1: '在线',
-  2: '注销'
-}; // 角色状态
+/* eslint-disable no-unused-vars */
 
-var roleStatus = {
-  '': '全部',
-  0: '有效',
-  1: '注销'
-}; // 审核状态
+/* eslint-disable react-hooks/exhaustive-deps */
 
-var auditStatus = {
-  '': '全部',
-  1: '待审核',
-  2: '审核通过',
-  3: '审核未通过'
-}; // 上架状态
 
-var runningStatus = {
-  '': '全部',
-  ONLINE: '上架',
-  OFFLINE: '下架'
-}; // 统计排序
+ // 词云
 
-var orderFieldMap = {
-  '': '全部',
-  dt: '时间',
-  entry_queue_count: '入审量',
-  audit_count: '审核量',
-  audit_passed_count: '审核通过量'
-}; // 统计排序
+ // 柱状图
 
-var orderTypeMap = {
-  desc: '降序',
-  asc: '升序'
-}; // 审核结果
+ // 饼状图
 
-var auditResult = {
-  '': '全部',
-  INIT: '待审',
-  PENDING: '已领取',
-  PASS: '通过',
-  REJECT: '删除'
-}; // 审核结果
+ // 线图
 
-var auditResult1 = {
-  '': '全部',
-  '审核通过': '审核通过',
-  '审核未通过': '审核未通过'
-}; // 文章审核通过&未通过原因
 
-var passReason = ['去杂不净', '广告'];
-var rejectReason = ['文章质量差', '广告', '软文', '封图', '去杂不净', '抓取不全/错误', '版权问题', '其他'];
+ // 地图
 
-/***/ }),
-
-/***/ "H+gj":
-/*!******************************!*\
-  !*** ./src/assets/error.png ***!
-  \******************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ "pQwi":
-/*!*********************************************************************!*\
-  !*** ./src/pages/AuditStatistics/routes/Personnel/Details/index.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./src/.umi-production/core/routes.ts (referenced with import()) */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends */ "0Owb");
-/* harmony import */ var antd_es_button_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/button/style */ "+L6B");
-/* harmony import */ var antd_es_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/es/button */ "2/Rp");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "q1tI");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var dva__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! dva */ "/MKj");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "LvDl");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! umi */ "9kvl");
-/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
-/* harmony import */ var _components_BaseTable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @components/BaseTable */ "5KP8");
-/* harmony import */ var _pages_constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/pages/constants */ "6ZGt");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./index.module.less?modules */ "s9YE");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_11__);
+ // 标题
 
 
 
+function useECharts(chartRef, config) {
+  var option = config.option,
+      getOption = config.getOption,
+      data = config.data;
+  var chartIS = null; // 渲染charts
+
+  var renderChart = function renderChart() {
+    var renderIS = echarts_default.a.getInstanceByDom(chartRef.current);
+
+    if (renderIS) {
+      chartIS = renderIS;
+    } else {
+      chartIS = echarts_default.a.init(chartRef.current);
+    }
+
+    var finalOption = getOption(option, data); // console.log(finalOption)
+
+    chartIS.setOption(finalOption);
+  };
+
+  Object(react["useEffect"])(function () {
+    renderChart();
+    return function () {
+      chartIS && chartIS.dispose();
+    };
+  }, [chartIS, config, renderChart]);
+  return;
+}
+
+/* harmony default export */ var lib_useECharts = (useECharts);
+// CONCATENATED MODULE: ./src/components/Charts/Pie/option.js
+/* harmony default export */ var Pie_option = ({
+  title: {
+    text: '666',
+    left: 'center',
+    top: '49%',
+    textStyle: {
+      fontSize: 16,
+      color: '#3C4353',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontFamily: 'PingFangSC-Regular,PingFang SC;'
+    }
+  },
+  color: ['#7eacea', '#e15777', '#95ea71', '#ea9b4f', '#7577df', '#be72d8', '#fff'],
+  tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b} : {c} ({d}%)'
+  },
+  series: [{
+    name: '统计',
+    type: 'pie',
+    radius: [30, 110],
+    center: ['50%', '50%'],
+    roseType: 'radius',
+    label: {
+      show: true,
+      formatter: '{d}%'
+    },
+    emphasis: {
+      label: {
+        show: true
+      }
+    },
+    data: [{
+      value: 25,
+      name: 'rose1'
+    }, {
+      value: 20,
+      name: 'rose2'
+    }, {
+      value: 15,
+      name: 'rose3'
+    }, {
+      value: 10,
+      name: 'rose4'
+    }, {
+      value: 8,
+      name: 'rose5'
+    }, {
+      value: 3,
+      name: 'rose6'
+    }]
+  }, {
+    name: '占位',
+    type: 'pie',
+    silent: true,
+    center: ['50%', '50%'],
+    radius: 30,
+    hoverAnimation: false,
+    label: {
+      show: false,
+      position: 'center'
+    },
+    data: [{
+      value: 1,
+      name: '占位2'
+    }],
+    itemStyle: {
+      normal: {
+        color: '#fff',
+        shadowColor: 'rgba(0, 0, 0, 0.5)',
+        shadowBlur: 10
+      }
+    }
+  }]
+});
+// CONCATENATED MODULE: ./src/components/Charts/Pie/getOption.js
 
 
-/* eslint-disable react/self-closing-comp */
+/* eslint-disable func-names */
 
-/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable object-shorthand */
+/* harmony default export */ var Pie_getOption = (function (option, data) {
+  return Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({
+    tooltip: Object(objectSpread2["a" /* default */])({}, option.tooltip),
+    animationDelayUpdate: function animationDelayUpdate(idx) {
+      return idx * 5;
+    }
+  }, option), data);
+});
+// CONCATENATED MODULE: ./src/components/Charts/Pie/index.js
+/* eslint-disable object-shorthand */
 
-/* eslint-disable spaced-comment */
 
-/* eslint-disable no-console */
 
-/* eslint-disable no-param-reassign */
 
-/* eslint-disable prefer-const */
+
+function PieChart(props) {
+  var _props$option = props.option,
+      option = _props$option === void 0 ? Pie_option : _props$option,
+      _props$width = props.width,
+      width = _props$width === void 0 ? '300px' : _props$width,
+      _props$height = props.height,
+      height = _props$height === void 0 ? '200px' : _props$height; // console.log(data)
+
+  var chartRef = Object(react["useRef"])(null);
+  var config = {
+    option: option,
+    getOption: Pie_getOption,
+    props: props
+  };
+  lib_useECharts(chartRef, config);
+  return /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("div", {
+    style: {
+      width: width,
+      height: height
+    },
+    ref: chartRef
+  }));
+}
+
+/* harmony default export */ var Pie = (PieChart);
+// EXTERNAL MODULE: ./src/utils/utils.js
+var utils = __webpack_require__("+n12");
+
+// EXTERNAL MODULE: ./src/pages/HomePage/constants.js
+var constants = __webpack_require__("5nQ6");
+
+// EXTERNAL MODULE: ./src/pages/HomePage/routes/index.module.less?modules
+var routes_index_modulemodules = __webpack_require__("axU+");
+var routes_index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(routes_index_modulemodules);
+
+// CONCATENATED MODULE: ./src/pages/HomePage/routes/index.js
+
+
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 /* eslint-disable import/no-unresolved */
 
+/* eslint-disable prefer-const */
+
+/* eslint-disable react/self-closing-comp */
+
+/* eslint-disable import/no-extraneous-dependencies */
+
+/* eslint-disable no-unused-vars */
 
 
 
@@ -390,181 +350,157 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function AuditStatistics(props) {
-  var _useModel = Object(umi__WEBPACK_IMPORTED_MODULE_7__[/* useModel */ "k"])('@@initialState'),
-      _useModel$initialStat = _useModel.initialState.currentUser,
-      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
 
-  var formRef = Object(react__WEBPACK_IMPORTED_MODULE_4__["useRef"])(null);
+
+
+function HomePage(props) {
+  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
+      _useModel$initialStat = _useModel.initialState,
+      initialState = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
+
+  var _initialState$current = initialState.currentUser,
+      currentUser = _initialState$current === void 0 ? {} : _initialState$current;
+  var formRef = Object(react["useRef"])(null);
   var dispatch = props.dispatch,
-      location = props.location,
       _props$business = props.business,
       business = _props$business === void 0 ? currentUser.business || {} : _props$business,
-      _props$Statistics = props.Statistics,
-      loading = _props$Statistics.loading,
-      dataSource = _props$Statistics.dataSource,
-      pagination = _props$Statistics.pagination;
-  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
-    var formValues = formRef.current.getFieldsValue();
-
-    if (!lodash__WEBPACK_IMPORTED_MODULE_6___default.a.isEmpty(formValues.datatime)) {
-      formValues.startTime = formValues.datatime[0].format(_pages_constants__WEBPACK_IMPORTED_MODULE_10__[/* dateFormat */ "f"]);
-      formValues.endTime = formValues.datatime[1].format(_pages_constants__WEBPACK_IMPORTED_MODULE_10__[/* dateFormat */ "f"]);
-    }
-
-    delete formValues.datatime;
+      _props$DataView = props.DataView,
+      loading = _props$DataView.loading,
+      dataSource = _props$DataView.dataSource,
+      yesterdaySource = _props$DataView.yesterdaySource,
+      newAddSource = _props$DataView.newAddSource,
+      totalSource = _props$DataView.totalSource;
+  Object(react["useEffect"])(function () {
+    var businessId = formRef.current.getFieldValue('businessId');
+    if (!businessId) return;
     dispatch({
-      type: 'Statistics/getPersoneDetailQuery',
-      payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({
-        userId: location.query.id
-      }, formValues)
+      type: 'DataView/init',
+      payload: {
+        businessId: businessId
+      }
     });
-  }, [dispatch, location.query]); // 多条件搜索配置
+  }, [dispatch]); // 多条件搜索配置
 
   var searchFormProps = {
-    className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_11___default.a['form-contaner'],
+    className: routes_index_modulemodules_default.a['form-contaner'],
     layout: 'inline',
     dataSource: [{
       label: '业务线',
       type: 'SELECT',
       name: 'businessId',
-      // initialValue: ExObject.getFirstValue(business),
+      initialValue: utils["a" /* ExObject */].getFirstValue(business),
       map: business
-    }, {
-      label: '审核时间',
-      name: 'datatime',
-      type: 'DateTimeStartEnd'
-    }, {
-      label: '内容类型',
-      type: 'SELECT',
-      name: 'newsType',
-      map: _pages_constants__WEBPACK_IMPORTED_MODULE_10__[/* contentType */ "e"]
-    }, {
-      label: '审核结果',
-      type: 'SELECT',
-      name: 'auditStatus',
-      initialValue: '',
-      map: _pages_constants__WEBPACK_IMPORTED_MODULE_10__[/* auditResult1 */ "d"]
-    }, {
-      label: '标题',
-      name: 'title'
     }],
-    formValues: location.query,
-    onReset: function onReset() {
-      dispatch({
-        type: 'Statistics/getPersoneDetailQuery',
-        payload: {
-          userId: location.query.id,
-          businessId: formRef.current.getFieldValue('businessId')
-        }
-      });
-    },
+    onReset: function onReset() {},
     onSubmit: function onSubmit(formValues) {
-      if (!lodash__WEBPACK_IMPORTED_MODULE_6___default.a.isEmpty(formValues.datatime)) {
-        formValues.startTime = formValues.datatime[0].format(_pages_constants__WEBPACK_IMPORTED_MODULE_10__[/* dateFormat */ "f"]);
-        formValues.endTime = formValues.datatime[1].format(_pages_constants__WEBPACK_IMPORTED_MODULE_10__[/* dateFormat */ "f"]);
-      }
-
-      delete formValues.datatime;
-      console.log('formValues', formValues);
       dispatch({
-        type: 'Statistics/getPersoneDetailQuery',
-        payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValues), {}, {
-          userId: location.query.id
-        })
-      });
-    }
-  }; // 列表配置
-
-  var tableProps = {
-    bordered: true,
-    // 类型
-    selectionType: null,
-    //checkbox or radio or null||false
-    // 表头
-    columns: [{
-      title: '人名',
-      dataIndex: 'auditorName',
-      key: 'auditorName',
-      align: 'center',
-      className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_11___default.a.tdmiddle,
-      render: function render(_, row) {
-        return {
-          children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("span", null, row.auditorName),
-          props: {
-            rowSpan: row.rowSpan
-          }
-        };
-      }
-    }, {
-      title: '队列',
-      align: 'center',
-      dataIndex: 'queue',
-      key: 'queue'
-    }, {
-      title: '标题',
-      align: 'center',
-      dataIndex: 'title'
-    }, {
-      title: '审核时间',
-      align: 'center',
-      dataIndex: 'finishAuditDatetime'
-    }, {
-      title: '审核结果',
-      align: 'center',
-      width: '260px',
-      dataIndex: 'auditStatus',
-      render: function render(text) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("span", null, text);
-      }
-    }],
-    loading: loading,
-    dataSource: dataSource,
-    pagination: pagination,
-    onPageChg: function onPageChg(page) {
-      // console.log(page)
-      dispatch({
-        type: 'Statistics/getPersoneDetailQuery',
-        payload: {
-          user: location.query.user,
-          pageNum: page.current,
-          pageSize: page.pageSize,
-          businessId: formRef.current.getFieldValue('businessId')
-        }
+        type: 'DataView/getStatisticCount',
+        payload: Object(objectSpread2["a" /* default */])({}, formValues)
       });
     }
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({}, searchFormProps, {
+  var TextCountUpProps = {
+    dataSource: dataSource
+  };
+
+  var getOptions = function getOptions() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    return {
+      color: constants["a" /* colorList */],
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+      },
+      series: [{
+        name: '统计',
+        type: 'pie',
+        // radius: [30, 110],
+        center: ['50%', '50%'],
+        // roseType: 'radius',
+        label: {
+          show: true,
+          formatter: '{b} : {c} ({d}%)'
+        },
+        emphasis: {
+          label: {
+            show: true
+          }
+        },
+        data: data
+      }]
+    };
+  };
+
+  var pieChartsProps1 = {
+    option: getOptions(yesterdaySource),
+    width: '800px',
+    height: '500px'
+  };
+  var pieChartsProps2 = {
+    option: getOptions(newAddSource),
+    width: '800px',
+    height: '500px'
+  };
+  var pieChartsProps3 = {
+    option: getOptions(totalSource),
+    width: '800px',
+    height: '500px'
+  };
+  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], Object(esm_extends["a" /* default */])({}, searchFormProps, {
     pRef: formRef
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"], {
-    onClick: function onClick() {
-      umi__WEBPACK_IMPORTED_MODULE_7__[/* history */ "f"].go(-1);
-    }
-  }, "\u8FD4\u56DE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_components_BaseTable__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"], tableProps));
+  })), /*#__PURE__*/react_default.a.createElement("div", {
+    className: routes_index_modulemodules_default.a.container
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: routes_index_modulemodules_default.a.piebox
+  }, /*#__PURE__*/react_default.a.createElement("h3", {
+    className: routes_index_modulemodules_default.a.title
+  }, "\u6628\u65E5\u5BA1\u6838\u91CF"), /*#__PURE__*/react_default.a.createElement(components_TextCountUp, {
+    dataSource: yesterdaySource
+  }), /*#__PURE__*/react_default.a.createElement(Pie, pieChartsProps1)), /*#__PURE__*/react_default.a.createElement("div", {
+    className: routes_index_modulemodules_default.a.piebox
+  }, /*#__PURE__*/react_default.a.createElement("h3", {
+    className: routes_index_modulemodules_default.a.title
+  }, "\u5F85\u5BA1\u6838\u91CF"), /*#__PURE__*/react_default.a.createElement(components_TextCountUp, {
+    dataSource: totalSource
+  }), /*#__PURE__*/react_default.a.createElement(Pie, pieChartsProps3))));
 }
 
 function mapStateToProps(_ref) {
-  var Statistics = _ref.Statistics;
+  var DataView = _ref.DataView;
   return {
-    Statistics: Statistics
+    DataView: DataView
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(dva__WEBPACK_IMPORTED_MODULE_5__[/* connect */ "c"])(mapStateToProps)(AuditStatistics));
+/* harmony default export */ var routes = __webpack_exports__["default"] = (Object(es["c" /* connect */])(mapStateToProps)(HomePage));
 
 /***/ }),
 
-/***/ "s9YE":
-/*!**************************************************************************************!*\
-  !*** ./src/pages/AuditStatistics/routes/Personnel/Details/index.module.less?modules ***!
-  \**************************************************************************************/
+/***/ "IKXg":
+/*!**************************************************************!*\
+  !*** ./src/components/TextCountUp/index.module.less?modules ***!
+  \**************************************************************/
 /*! no static exports found */
 /*! exports used: default */
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"tableaction":"tableaction___2brJu","tdmiddle":"tdmiddle___2r-Cc"};
+module.exports = {"container":"container___2X4q8","item":"item___11Qd9","content":"content___3R-KH","countup":"countup___OAa-M"};
+
+/***/ }),
+
+/***/ "axU+":
+/*!*************************************************************!*\
+  !*** ./src/pages/HomePage/routes/index.module.less?modules ***!
+  \*************************************************************/
+/*! no static exports found */
+/*! exports used: default */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"form-contaner":"form-contaner___3xvCj","container":"container___2jiK-","title":"title___28ebp","echarts":"echarts___faRYe"};
 
 /***/ }),
 
@@ -853,6 +789,8 @@ function multilevelCategories(props) {
       value = _props$value === void 0 ? {} : _props$value,
       rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value"]);
 
+  console.log('3333333', value);
+
   var selectProps = Object(objectSpread2["a" /* default */])({
     allowClear: true,
     style: {
@@ -860,14 +798,8 @@ function multilevelCategories(props) {
     }
   }, rest);
 
-  var _value$firstCategoryI = value.firstCategoryId,
-      firstCategoryId = _value$firstCategoryI === void 0 ? null : _value$firstCategoryI,
-      _value$secondCategory = value.secondCategoryId,
-      secondCategoryId = _value$secondCategory === void 0 ? null : _value$secondCategory,
-      _value$thirdCategoryI = value.thirdCategoryId,
-      thirdCategoryId = _value$thirdCategoryI === void 0 ? null : _value$thirdCategoryI;
-
   var selectChange = function selectChange(e, id) {
+    console.log('e, id', e, id);
     value[id] = e;
     onChange(value, id);
   };
@@ -877,8 +809,7 @@ function multilevelCategories(props) {
   }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "firstCategoryId",
     name: "firstCategoryId",
-    noStyle: true,
-    initialValue: firstCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E00\u7EA7\u5206\u7C7B"
   }, selectProps, {
@@ -893,8 +824,7 @@ function multilevelCategories(props) {
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "secondCategoryId",
     name: "secondCategoryId",
-    noStyle: true,
-    initialValue: secondCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
   }, selectProps, {
@@ -909,8 +839,7 @@ function multilevelCategories(props) {
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "thirdCategoryId",
     name: "thirdCategoryId",
-    noStyle: true,
-    initialValue: thirdCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E09\u7EA7\u5206\u7C7B"
   }, selectProps, {

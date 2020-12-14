@@ -245,7 +245,7 @@ exports.default = _default;
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/toConsumableArray.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/typeof.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/_util/devWarning.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/_util/hooks/useForceUpdate.js because of ./node_modules/antd/es/upload/Upload.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/_util/hooks/useForceUpdate.js because of ./node_modules/antd/es/_util/hooks/useSyncState.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/_util/reactNode.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/_util/type.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/config-provider/SizeContext.js */

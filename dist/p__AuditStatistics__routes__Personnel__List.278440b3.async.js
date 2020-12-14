@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
 
 /***/ "3k04":
 /*!************************************************************!*\
@@ -107,14 +107,28 @@ function BaseTable(props, ref) {
       rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
 
   Object(react__WEBPACK_IMPORTED_MODULE_5__["useEffect"])(function () {
-    setSelectedRowKeys(selectedKeys);
-  }, [selectedKeys]); // table 单选、多选配置
+    // console.log('selectedKeys',selectedKeys)
+    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(selectedKeys)) {
+      setSelectedRowKeys(selectedKeys);
+    }
+  }, [JSON.stringify(selectedKeys)]); // 获取选中元素
 
-  var rowSelection = {
-    type: 'checkbox',
-    selectedRowKeys: selectedRowKeys,
+  var getSelectedRowKeys = function getSelectedRowKeys() {
+    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(selectedRowKeys)) {
+      return {
+        selectedRowKeys: selectedRowKeys
+      };
+    }
+
+    return {};
+  }; // table 单选、多选配置
+
+
+  var rowSelection = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({
+    type: 'checkbox'
+  }, getSelectedRowKeys()), {}, {
     onChange: function onChange(selectedRowKeys, selectedRows) {
-      // console.log(selectedRowKeys, selectedRows)
+      console.log(selectedRowKeys, selectedRows);
       setSelectedRowKeys(selectedRowKeys);
       setSelectedRows(selectedRows);
     },
@@ -123,7 +137,8 @@ function BaseTable(props, ref) {
 
       setSelectedRows(selectedRows);
     }
-  };
+  });
+
   var rowSelections = Boolean;
 
   if (selectionType === false || selectionType === null) {
@@ -238,7 +253,7 @@ var contentType = {
   NEWS: '图文',
   VIDEO: '视频',
   AUDIO: '音频',
-  IMAGE: '图集',
+  ATLAS: '图集',
   TEXT: '纯文本'
 }; // 队列机制
 
@@ -307,10 +322,10 @@ var orderTypeMap = {
 
 var auditResult = {
   '': '全部',
-  INIT: '待审',
-  PENDING: '已领取',
-  PASS: '通过',
-  REJECT: '删除'
+  INIT: '待审核',
+  // PENDING: '已领取',
+  PASS: '审核通过',
+  REJECT: '审核未通过'
 }; // 审核结果
 
 var auditResult1 = {
@@ -337,24 +352,24 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 
 /***/ }),
 
-/***/ "KcF0":
-/*!*****************************************************************************!*\
-  !*** ./src/pages/AuditStatistics/routes/Classify/index.module.less?modules ***!
-  \*****************************************************************************/
+/***/ "NilG":
+/*!***********************************************************************************!*\
+  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.module.less?modules ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /*! exports used: default */
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"tableaction":"tableaction___2Pp41"};
+module.exports = {"tableaction":"tableaction___2qm3g"};
 
 /***/ }),
 
-/***/ "hpMx":
-/*!************************************************************!*\
-  !*** ./src/pages/AuditStatistics/routes/Classify/index.js ***!
-  \************************************************************/
+/***/ "mAEq":
+/*!******************************************************************!*\
+  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.js ***!
+  \******************************************************************/
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./src/.umi-production/core/routes.ts (referenced with import()) */
@@ -366,23 +381,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_es_form_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/form/style */ "y8nQ");
 /* harmony import */ var antd_es_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/es/form */ "Vl3Y");
 /* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray */ "tJVT");
-/* harmony import */ var antd_es_select_style__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd/es/select/style */ "OaEy");
-/* harmony import */ var antd_es_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/es/select */ "2fM7");
-/* harmony import */ var antd_es_input_style__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd/es/input/style */ "5NDa");
-/* harmony import */ var antd_es_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd/es/input */ "5rEg");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "q1tI");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var dva__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! dva */ "/MKj");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lodash */ "LvDl");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! umi */ "9kvl");
-/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
-/* harmony import */ var _components_BaseTable__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @components/BaseTable */ "5KP8");
-/* harmony import */ var _utils_utils_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @utils/utils.js */ "+n12");
-/* harmony import */ var _pages_constants__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @/pages/constants */ "6ZGt");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./index.module.less?modules */ "KcF0");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var antd_es_select_style__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/es/select/style */ "OaEy");
+/* harmony import */ var antd_es_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd/es/select */ "2fM7");
+/* harmony import */ var antd_es_input_style__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/es/input/style */ "5NDa");
+/* harmony import */ var antd_es_input__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd/es/input */ "5rEg");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "q1tI");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var dva__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! dva */ "/MKj");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lodash */ "LvDl");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! umi */ "9kvl");
+/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
+/* harmony import */ var _components_BaseTable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @components/BaseTable */ "5KP8");
+/* harmony import */ var _utils_utils_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @utils/utils.js */ "+n12");
+/* harmony import */ var _pages_constants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/pages/constants */ "6ZGt");
+/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./index.module.less?modules */ "NilG");
+/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @components/WrapAuth */ "yAXW");
 
 
 
@@ -392,16 +407,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/* eslint-disable spaced-comment */
 
-/* eslint-disable no-console */
-
-/* eslint-disable no-param-reassign */
+/* eslint-disable import/order */
 
 /* eslint-disable import/no-unresolved */
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-param-reassign */
 
-/* eslint-disable array-callback-return */
+/* eslint-disable no-console */
+
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
+/* eslint-disable object-shorthand */
+
+/* eslint-disable no-undef */
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable react/jsx-curly-brace-presence */
+
+/* eslint-disable react/self-closing-comp */
 
 /* eslint-disable no-unused-vars */
 
@@ -413,58 +439,45 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var InputGroup = antd_es_input__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"].Group;
-var Option = antd_es_select__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"].Option; // const dateFormat = 'YYYY-MM-DD';
+
+var InputGroup = antd_es_input__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"].Group;
+var Option = antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].Option;
 
 function AuditStatistics(props) {
-  var _useModel = Object(umi__WEBPACK_IMPORTED_MODULE_12__[/* useModel */ "k"])('@@initialState'),
+  var _useModel = Object(umi__WEBPACK_IMPORTED_MODULE_11__[/* useModel */ "k"])('@@initialState'),
       _useModel$initialStat = _useModel.initialState.currentUser,
       currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
 
-  var formRef = Object(react__WEBPACK_IMPORTED_MODULE_9__["useRef"])(null); // 存放分类
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_9__["useState"])({}),
-      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState, 2),
-      categoryMap = _useState2[0],
-      setCategoryMap = _useState2[1];
-
+  var formRef = Object(react__WEBPACK_IMPORTED_MODULE_8__["useRef"])(null);
   var dispatch = props.dispatch,
       _props$business = props.business,
       business = _props$business === void 0 ? currentUser.business || {} : _props$business,
-      firstCategory = props.Global.firstCategory,
       _props$Statistics = props.Statistics,
       loading = _props$Statistics.loading,
       dataSource = _props$Statistics.dataSource,
       pagination = _props$Statistics.pagination;
-  Object(react__WEBPACK_IMPORTED_MODULE_9__["useEffect"])(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
     dispatch({
       type: 'Statistics/init',
       payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({
-        type: 'category'
+        type: 'person'
       }, formRef.current.getFieldsValue())
     });
-  }, [dispatch]);
-  Object(react__WEBPACK_IMPORTED_MODULE_9__["useEffect"])(function () {
-    var mapObj = {};
-    firstCategory.map(function (item) {
-      mapObj[item.id.toString()] = item.name;
-    });
-    setCategoryMap(mapObj);
-  }, [firstCategory]); // 多条件搜索配置
+  }, [dispatch]); // 多条件搜索配置
 
   var searchFormProps = {
-    className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_17___default.a['form-contaner'],
+    className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16___default.a['form-contaner'],
     layout: 'inline',
     resetShow: true,
     authProps: {
-      pathUrl: '/statistics/classify',
-      perms: 'statistics:classify:select'
+      pathUrl: '/statistics/personnel/',
+      perms: 'statistics:person:select'
     },
     dataSource: [{
       label: '业务线',
       type: 'SELECT',
       name: 'businessId',
-      initialValue: _utils_utils_js__WEBPACK_IMPORTED_MODULE_15__[/* ExObject */ "a"].getFirstValue(business),
+      initialValue: _utils_utils_js__WEBPACK_IMPORTED_MODULE_14__[/* ExObject */ "a"].getFirstValue(business),
       map: business
     }, {
       label: '时间',
@@ -475,74 +488,56 @@ function AuditStatistics(props) {
       type: 'SELECT',
       name: 'newsType',
       initialValue: 'NEWS',
-      map: _pages_constants__WEBPACK_IMPORTED_MODULE_16__[/* contentType */ "e"],
-      onChange: function onChange(e) {
-        console.log(e);
-        formRef.current.setFieldsValue({
-          categoryId: ''
-        });
-        dispatch({
-          type: 'Global/getFirstCategory',
-          payload: {
-            id: 0,
-            type: e
-          }
-        });
-      }
+      map: _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* contentType */ "e"]
     }, {
-      label: '分类',
-      type: 'SELECT',
-      name: 'categoryId',
-      initialValue: '',
-      map: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({
-        '': '全部'
-      }, categoryMap)
+      label: '人员',
+      name: 'user'
     }, {
       label: '排序',
       name: 'params11',
-      itemRender: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(InputGroup, {
+      itemRender: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(InputGroup, {
         compact: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(antd_es_form__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].Item, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_form__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].Item, {
         name: "orderField",
         initialValue: "",
         noStyle: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"], {
         style: {
           width: '50%'
         }
-      }, Object.keys(_pages_constants__WEBPACK_IMPORTED_MODULE_16__[/* orderFieldMap */ "j"]).map(function (item) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Option, {
+      }, Object.keys(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderFieldMap */ "j"]).map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Option, {
           key: item,
           value: item
-        }, _pages_constants__WEBPACK_IMPORTED_MODULE_16__[/* orderFieldMap */ "j"][item]);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(antd_es_form__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].Item, {
+        }, _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderFieldMap */ "j"][item]);
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_form__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].Item, {
         name: "orderType",
         initialValue: "desc",
         noStyle: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"], {
         style: {
           width: '50%'
         }
-      }, Object.keys(_pages_constants__WEBPACK_IMPORTED_MODULE_16__[/* orderTypeMap */ "k"]).map(function (item) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Option, {
+      }, Object.keys(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderTypeMap */ "k"]).map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Option, {
           key: item,
           value: item
-        }, _pages_constants__WEBPACK_IMPORTED_MODULE_16__[/* orderTypeMap */ "k"][item]);
+        }, _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderTypeMap */ "k"][item]);
       }))))
     }],
     onReset: function onReset() {
       dispatch({
         type: 'Statistics/init',
         payload: {
-          type: 'category',
+          type: 'person',
           businessId: formRef.current.getFieldValue('businessId')
         }
       });
     },
     onSubmit: function onSubmit(formValues) {
-      if (!lodash__WEBPACK_IMPORTED_MODULE_11___default.a.isEmpty(formValues.datatime)) {
-        formValues.startTime = formValues.datatime[0].format(_pages_constants__WEBPACK_IMPORTED_MODULE_16__[/* dateFormat */ "f"]);
-        formValues.endTime = formValues.datatime[1].format(_pages_constants__WEBPACK_IMPORTED_MODULE_16__[/* dateFormat */ "f"]);
+      if (!lodash__WEBPACK_IMPORTED_MODULE_10___default.a.isEmpty(formValues.datatime)) {
+        formValues.startTime = formValues.datatime[0].format(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* dateFormat */ "f"]);
+        formValues.endTime = formValues.datatime[1].format(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* dateFormat */ "f"]);
       }
 
       delete formValues.datatime;
@@ -550,7 +545,7 @@ function AuditStatistics(props) {
       dispatch({
         type: 'Statistics/getStatisticQuery',
         payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValues), {}, {
-          type: 'category'
+          type: 'person'
         })
       });
     }
@@ -559,22 +554,22 @@ function AuditStatistics(props) {
   var tableProps = {
     // 类型
     selectionType: null,
-    // checkbox or radio or null||false
+    //checkbox or radio or null||false
     // 表头
     columns: [{
       title: '时间',
       dataIndex: 'dt',
       render: function render(text) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("span", null, text);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", null, text);
       }
     }, {
-      title: '分类',
+      title: '人员',
       align: 'center',
-      dataIndex: 'categoryName'
+      dataIndex: 'auditorName'
     }, {
-      title: '入审量',
+      title: '领审量',
       align: 'center',
-      dataIndex: 'entryQueueCount'
+      dataIndex: 'takeCount'
     }, {
       title: '审核量',
       align: 'center',
@@ -582,8 +577,23 @@ function AuditStatistics(props) {
     }, {
       title: '审核通过量',
       align: 'center',
-      width: '160px',
       dataIndex: 'auditPassedCount'
+    }, {
+      title: '操作',
+      width: '100px',
+      align: 'center',
+      render: function render(r) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"], {
+          pathUrl: "/statistics/personnel/",
+          perms: 'statistics:person:select',
+          type: "primary",
+          size: "small",
+          text: "\u660E\u7EC6",
+          onClick: function onClick() {
+            return goDetails(r.auditorId);
+          }
+        });
+      }
     }],
     loading: loading,
     dataSource: dataSource,
@@ -593,29 +603,57 @@ function AuditStatistics(props) {
       dispatch({
         type: 'Statistics/getStatisticQuery',
         payload: {
-          type: 'category',
+          type: 'person',
           pageNum: page.current,
           pageSize: page.pageSize,
           businessId: formRef.current.getFieldValue('businessId')
         }
       });
     }
+  }; // 审核详情页
+
+  var goDetails = function goDetails(id) {
+    var formValue = formRef.current.getFieldsValue();
+    umi__WEBPACK_IMPORTED_MODULE_11__[/* history */ "f"].push({
+      pathname: '/statistics/personnel/details',
+      query: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValue), {}, {
+        id: id,
+        isBack: true
+      })
+    });
+  }; // 下载excel
+
+
+  var DownloadExcel = function DownloadExcel() {
+    // run()
+    dispatch({
+      type: 'Statistics/getPersoneExportExcel',
+      payload: {}
+    });
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_9___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({}, searchFormProps, {
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({}, searchFormProps, {
     pRef: formRef
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_BaseTable__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"], tableProps));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"], {
+    pathUrl: "/statistics/personnel/",
+    perms: "statistics:person:select",
+    text: "\u5BFC\u51FA",
+    ghost: true,
+    type: "primary",
+    onClick: function onClick() {
+      return DownloadExcel();
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseTable__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"], tableProps));
 }
 
 function mapStateToProps(_ref) {
-  var Global = _ref.Global,
-      Statistics = _ref.Statistics;
+  var Statistics = _ref.Statistics;
   return {
-    Global: Global,
     Statistics: Statistics
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(dva__WEBPACK_IMPORTED_MODULE_10__[/* connect */ "c"])(mapStateToProps)(AuditStatistics));
+/* harmony default export */ __webpack_exports__["default"] = (Object(dva__WEBPACK_IMPORTED_MODULE_9__[/* connect */ "c"])(mapStateToProps)(AuditStatistics));
 
 /***/ }),
 
@@ -904,6 +942,8 @@ function multilevelCategories(props) {
       value = _props$value === void 0 ? {} : _props$value,
       rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value"]);
 
+  console.log('3333333', value);
+
   var selectProps = Object(objectSpread2["a" /* default */])({
     allowClear: true,
     style: {
@@ -911,14 +951,8 @@ function multilevelCategories(props) {
     }
   }, rest);
 
-  var _value$firstCategoryI = value.firstCategoryId,
-      firstCategoryId = _value$firstCategoryI === void 0 ? null : _value$firstCategoryI,
-      _value$secondCategory = value.secondCategoryId,
-      secondCategoryId = _value$secondCategory === void 0 ? null : _value$secondCategory,
-      _value$thirdCategoryI = value.thirdCategoryId,
-      thirdCategoryId = _value$thirdCategoryI === void 0 ? null : _value$thirdCategoryI;
-
   var selectChange = function selectChange(e, id) {
+    console.log('e, id', e, id);
     value[id] = e;
     onChange(value, id);
   };
@@ -928,8 +962,7 @@ function multilevelCategories(props) {
   }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "firstCategoryId",
     name: "firstCategoryId",
-    noStyle: true,
-    initialValue: firstCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E00\u7EA7\u5206\u7C7B"
   }, selectProps, {
@@ -944,8 +977,7 @@ function multilevelCategories(props) {
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "secondCategoryId",
     name: "secondCategoryId",
-    noStyle: true,
-    initialValue: secondCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
   }, selectProps, {
@@ -960,8 +992,7 @@ function multilevelCategories(props) {
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "thirdCategoryId",
     name: "thirdCategoryId",
-    noStyle: true,
-    initialValue: thirdCategoryId
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E09\u7EA7\u5206\u7C7B"
   }, selectProps, {
