@@ -31,7 +31,7 @@ export default function multilevelCategories(props) {
 
   return (
     <Input.Group compact>
-      <Form.Item key="firstCategoryId" name="firstCategoryId" noStyle>
+      <Form.Item key="firstCategoryId" name="category1" noStyle>
         <Select
           placeholder="一级分类"
           {...selectProps}
@@ -47,7 +47,7 @@ export default function multilevelCategories(props) {
             })}
         </Select>
       </Form.Item>
-      <Form.Item key="secondCategoryId" name="secondCategoryId" noStyle>
+      <Form.Item key="secondCategoryId" name="category2" noStyle>
         <Select
           placeholder="二级分类"
           {...selectProps}
@@ -63,7 +63,7 @@ export default function multilevelCategories(props) {
             })}
         </Select>
       </Form.Item>
-      <Form.Item key="thirdCategoryId" name="thirdCategoryId" noStyle>
+      <Form.Item key="thirdCategoryId" name="category3" noStyle>
         <Select
           placeholder="三级分类"
           {...selectProps}

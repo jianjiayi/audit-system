@@ -175,7 +175,7 @@ function AuditSearch(props) {
       },
       {
         label: '内容分类',
-        name: 'category',
+        // name: 'category',
         type: 'MultilevelCategories',
         firstCategory,
         secondCategory,
@@ -242,11 +242,11 @@ function AuditSearch(props) {
       tableRef.current.setSelectedRowKeys(null);
 
       // 格式化分类
-      if (!_.isEmpty(formValues.category)) {
-        let arr = Object.values(formValues.category);
-        arr = arr.filter((item) => item !== undefined);
-        formValues.category = arr.join('/');
-      }
+      // if (!_.isEmpty(formValues.category)) {
+      //   let arr = Object.values(formValues.category);
+      //   arr = arr.filter((item) => item !== undefined);
+      //   formValues.category = arr.join('/');
+      // }
 
       // 整理时间
       if (!_.isEmpty(formValues.datatime)) {
