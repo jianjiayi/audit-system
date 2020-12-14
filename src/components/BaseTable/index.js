@@ -1,3 +1,5 @@
+/* eslint-disable prefer-template */
+/* eslint-disable no-bitwise */
 /* eslint-disable import/order */
 /* eslint-disable object-shorthand */
 /* eslint-disable no-param-reassign */
@@ -11,6 +13,19 @@ import classNames from 'classnames';
 import { Table } from 'antd';
 import styles from './index.module.less';
 import _ from 'lodash';
+
+/**
+ * 生成uuid，取此值作为唯一key
+ *
+ * @return {*}
+ */
+function guid() {
+  function S4() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
 
 function BaseTable(props, ref) {
   // 存储选中元素
@@ -112,7 +127,7 @@ function BaseTable(props, ref) {
     // dataSource,
     dataSource: createNewArr(dataSource),
     pagination: pagination,
-    rowKey: (record, index) => record.id || index,
+    rowKey: (record) => record.id || guid(),
     rowSelection: rowSelections ? rowSelection : null,
     onChange: onPageChg,
     footer: children && !_.isEmpty(dataSource) ? footer : null,

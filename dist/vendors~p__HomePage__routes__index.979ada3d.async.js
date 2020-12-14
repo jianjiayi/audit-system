@@ -32504,12 +32504,15 @@ module.exports = _default;
 /*!******************************************************!*\
   !*** ./node_modules/count-up-react/dist/Countup.css ***!
   \******************************************************/
-/*! no static exports found */
+/*! no exports provided */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
+/*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./node_modules/count-up-react/dist/Countup.js (referenced with cjs require) */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
+
 
 /***/ }),
 

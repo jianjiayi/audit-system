@@ -35,6 +35,8 @@ export default function access(initialState) {
 
   return {
     canAdmin: (routes) => {
+      // console.log('routes.path',routes.path)
+      // console.log(getRouteOrButtonPermissions(permissions, 0))
       // console.log(routes.path, getRoutePath(permissions), getRoutePath(permissions).includes(routes.path))
       // 一步获取的路由集合包含正访问的路由返回true；否则返回false；
       return  getRouteOrButtonPermissions(permissions, 0).includes(routes.path);

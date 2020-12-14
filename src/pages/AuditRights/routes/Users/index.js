@@ -21,9 +21,9 @@
 /* eslint-disable array-callback-return */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useModel, connect } from 'umi';
+import { connect } from 'umi';
 import _ from 'lodash';
-import { Modal, message, Select, Input, Tag } from 'antd';
+import { Modal, Select, Tag } from 'antd';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
@@ -35,29 +35,20 @@ import styles from './index.module.less';
 
 import WrapAuthButton from '@components/WrapAuth';
 
-const { TextArea } = Input;
 const { Option } = Select;
 
 const { confirm } = Modal;
 
 function UserRights(props) {
-  const {
-    initialState: { currentUser = {} },
-  } = useModel('@@initialState');
 
   const modalFormRef = useRef(null);
   // modal标题
   const [title, setTitle] = useState('');
   // 临时存储用户信息
   const [formValues, setFormValues] = useState({});
-  // 保存由业务线创建出来的角色列表
-  const [ItemOptions, setItemOptions] = useState([]);
-  // 表单按钮状态
-  const [btnLoading, setBtnLoading] = useState(false);
 
   const {
     dispatch,
-    business = currentUser.business || {},
     Rights: { loading, query, roleList, roleAllLIst, dataSource, pagination },
   } = props;
 
@@ -169,11 +160,6 @@ function UserRights(props) {
         align: 'center',
         dataIndex: 'loginIp',
       },
-      // {
-      //   title: '登出时间',
-      //   align: 'center',
-      //   dataIndex: 'logoutTime',
-      // },
       {
         title: '状态',
         align: 'center',
@@ -283,7 +269,6 @@ function UserRights(props) {
     footer: null,
     onCancel: () => {
       modalFormRef.current.setModalStatus(false, () => {
-        setItemOptions([]);
         setFormValues({});
       });
     },
@@ -293,7 +278,6 @@ function UserRights(props) {
       className: styles['form-contaner'],
       layout: 'vertical',
       submitText: '保存',
-      loading: btnLoading,
       dataSource: [
         {
           label: '用户名',
@@ -360,8 +344,6 @@ function UserRights(props) {
           list.push(item[0].id);
           formValues.roles = list;
         }
-        // 设置按钮状态
-        setBtnLoading(true);
 
         dispatch({
           type: 'Rights/addUserOrRole',
@@ -371,11 +353,9 @@ function UserRights(props) {
             type: title === '创建' ? 'add' : 'edit',
           },
           callback: (res) => {
-            setBtnLoading(false);
 
             if (res === 200) {
               modalFormRef.current.setModalStatus(false, () => {
-                setItemOptions([]);
                 setFormValues({});
               });
 

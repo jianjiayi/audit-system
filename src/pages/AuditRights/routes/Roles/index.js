@@ -12,7 +12,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Modal, Tag } from 'antd';
 import _ from 'lodash';
-import { useModel, connect } from 'umi';
+import { connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
@@ -27,25 +27,16 @@ import styles from './index.module.less';
 const { confirm } = Modal;
 
 function RolePage(props) {
-  const {
-    initialState: { currentUser = {} },
-  } = useModel('@@initialState');
 
   const modalFormRef = useRef(null);
-  const treeRef = useRef(null)
   // modal标题
   const [title, setTitle] = useState('');
   // 临时存储用户信息
   const [formValues, setFormValues] = useState({});
-  // 保存由业务线创建出来的角色列表
-  const [ItemOptions, setItemOptions] = useState([]);
-  // 表单按钮状态
-  const [btnLoading, setBtnLoading] = useState(false);
 
   const {
     dispatch,
-    business = currentUser.business || {},
-    Rights: { loading, permissionIds, permissionDataList, dataSource, pagination },
+    Rights: { loading, permissionDataList, dataSource, pagination },
   } = props;
 
   useEffect(() => {
@@ -71,13 +62,6 @@ function RolePage(props) {
       perms: 'role:select',
     },
     dataSource: [
-      // {
-      //   label: '业务线',
-      //   type: 'SELECT',
-      //   name: 'businessId',
-      //   initialValue: '',
-      //   map: { '': '全部', ...business },
-      // },
       {
         label: '角色',
         name: 'roleName',
@@ -262,7 +246,6 @@ function RolePage(props) {
     footer: null,
     onCancel: () => {
       modalFormRef.current.setModalStatus(false, () => {
-        setItemOptions([]);
         setFormValues({});
       });
     },
@@ -286,7 +269,6 @@ function RolePage(props) {
           itemRender: (
             <TreeSelectComponent 
               permissionDataList={permissionDataList} 
-              ref={treeRef}
             ></TreeSelectComponent>
           ),
         },
@@ -294,25 +276,17 @@ function RolePage(props) {
       formValues: formValues,
       onSubmit: (Values) => {
         // console.log('Values', Values)
-        // 获取权限，该处处理
-        const treeData = treeRef.current.concatTreeData;
-
-        setBtnLoading(true);
         dispatch({
           type: 'Rights/addUserOrRole',
           payload: {
             id: formValues.id,
             ...Values,
-            // 处理权限
-            permissionIds: _.isEmpty(treeData) ? Values.permissionIds : treeData,
             pathname: 'role',
             type: title === '创建' ? 'add' : 'edit',
           },
           callback: (res) => {
-            setBtnLoading(false);
             if (res === 200) {
               modalFormRef.current.setModalStatus(false, () => {
-                setItemOptions([]);
                 setFormValues({});
               });
 

@@ -7,7 +7,7 @@
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable prefer-const */
 
-import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tree } from 'antd';
 import _ from 'lodash';
 
@@ -40,19 +40,11 @@ const getTreeData = (dataPermissions) => {
   return treeData;
 };
 
-function TreeClassification(props, ref) {
+function TreeClassification(props) {
   const { permissionDataList, value = [], onChange = () => {} } = props;
 
   const [treeData, setTreeData] = useState([]);
   const [checkedKeys, setCheckedKeys] = useState(value);
-  const [concatTreeData, setcConcatTreeData] = useState([]);
-
-  // 向父组件暴露的方法
-  useImperativeHandle(ref, () => {
-    return {
-      concatTreeData
-    };
-  });
 
   useEffect(() => {
     setTreeData(getTreeData(permissionDataList));
@@ -62,19 +54,26 @@ function TreeClassification(props, ref) {
     setCheckedKeys(value);
   }, [JSON.stringify(value)]);
 
-  const onCheck = (checkedKeys,e) => {
+  const onCheck = (checkedKeys) => {
     //注意：halfCheckedKeys 是没有全部勾选状态下的父节点
-    setcConcatTreeData(checkedKeys.concat(e.halfCheckedKeys))
+    console.log(checkedKeys)
+    // setcConcatTreeData(checkedKeys.concat(e.halfCheckedKeys))
 
-    setCheckedKeys(concatTreeData);
-    onChange(checkedKeys);
+    // setCheckedKeys(concatTreeData);
+    onChange(checkedKeys.checked);
   };
 
   return (
-    <Tree height={400} checkable checkedKeys={checkedKeys} treeData={treeData} onCheck={onCheck} />
+    <Tree 
+      height={400} 
+      checkable  
+      checkStrictly
+      expandedKeys={checkedKeys}
+      checkedKeys={checkedKeys} 
+      treeData={treeData} 
+      onCheck={onCheck} 
+    />
   );
 }
-
-TreeClassification = forwardRef(TreeClassification);
 
 export default TreeClassification;

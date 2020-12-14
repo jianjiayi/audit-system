@@ -159,7 +159,6 @@ export default {
           });
         }
       }catch(e){
-        console.log('eeeeee',e)
         yield put({
           type: 'save',
           payload: {

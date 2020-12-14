@@ -11,19 +11,15 @@
 "use strict";
 /* harmony import */ var antd_es_modal_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/es/modal/style */ "2qtc");
 /* harmony import */ var antd_es_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/modal */ "kLXV");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends */ "0Owb");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/extends */ "wx14");
 /* harmony import */ var antd_es_button_style__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/es/button/style */ "+L6B");
 /* harmony import */ var antd_es_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/es/button */ "2/Rp");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "PpiC");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray */ "tJVT");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "VTBJ");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "Ff2n");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "ODXe");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "q1tI");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! classnames */ "TSYQ");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./index.module.less?modules */ "2Pnk");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
 
 
 
@@ -45,13 +41,11 @@
 
 
 
-
-
 function ModalForm(props, ref) {
   var formRef = Object(react__WEBPACK_IMPORTED_MODULE_8__["useRef"])(null);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_8__["useState"])(false),
-      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(_useState, 2),
+      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(_useState, 2),
       visible = _useState2[0],
       setVisible = _useState2[1];
 
@@ -59,7 +53,7 @@ function ModalForm(props, ref) {
       formProps = props.formProps,
       disabled = props.disabled,
       onCancel = props.onCancel,
-      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(props, ["title", "formProps", "disabled", "onCancel"]); // 向父组件暴露的方法
+      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(props, ["title", "formProps", "disabled", "onCancel"]); // 向父组件暴露的方法
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_8__["useImperativeHandle"])(ref, function () {
@@ -85,7 +79,7 @@ function ModalForm(props, ref) {
     setFieldsValue(value);
   };
 
-  var modalProps = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])({
+  var modalProps = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])({
     title: title,
     visible: visible,
     centered: true,
@@ -96,15 +90,13 @@ function ModalForm(props, ref) {
     onCancel: onCancel
   }, rest);
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_11___default.a.container)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_modal__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], modalProps, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, formProps, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_modal__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], modalProps, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, formProps, {
     pRef: formRef
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"], {
     onClick: function onClick() {
       return onCancel();
     }
-  }, "\u53D6\u6D88"))));
+  }, "\u53D6\u6D88")));
 }
 
 ModalForm = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_8__["forwardRef"])(ModalForm);
@@ -561,62 +553,31 @@ var PortalWrapper_PortalWrapper = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "1wcP":
-/*!*****************************************************!*\
-  !*** ./node_modules/antd/es/modal/style/index.less ***!
-  \*****************************************************/
-/*! no static exports found */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "2Pnk":
-/*!******************************************************************************!*\
-  !*** ./src/pages/AuditRights/components/ModalForm/index.module.less?modules ***!
-  \******************************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "2qtc":
-/*!***************************************************!*\
-  !*** ./node_modules/antd/es/modal/style/index.js ***!
-  \***************************************************/
+/*!***************************************************************!*\
+  !*** ./node_modules/antd/es/modal/style/index.js + 1 modules ***!
+  \***************************************************************/
 /*! no exports provided */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/style/index.less */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _style_index_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../style/index.less */ "cIOH");
-/* harmony import */ var _style_index_less__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_index_less__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.less */ "1wcP");
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _button_style__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../button/style */ "+L6B");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/style/index.less
+var style = __webpack_require__("cIOH");
+
+// CONCATENATED MODULE: ./node_modules/antd/es/modal/style/index.less
+// extracted by mini-css-extract-plugin
+
+// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js + 1 modules
+var button_style = __webpack_require__("+L6B");
+
+// CONCATENATED MODULE: ./node_modules/antd/es/modal/style/index.js
 
  // style dependencies
 
 
-
-/***/ }),
-
-/***/ "3k04":
-/*!************************************************************!*\
-  !*** ./src/components/BaseTable/index.module.less?modules ***!
-  \************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"container":"container___9kxO4"};
 
 /***/ }),
 
@@ -664,47 +625,64 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "5H4c":
-/*!***********************************************************!*\
-  !*** ./src/components/BaseForm/index.module.less?modules ***!
-  \***********************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"container":"container___1pF8t","button-group":"button-group___r4vDn","button-group-center":"button-group-center___2Bbzj"};
-
-/***/ }),
-
 /***/ "5KP8":
-/*!*******************************************!*\
-  !*** ./src/components/BaseTable/index.js ***!
-  \*******************************************/
+/*!*******************************************************!*\
+  !*** ./src/components/BaseTable/index.js + 1 modules ***!
+  \*******************************************************/
 /*! exports provided: default */
 /*! exports used: default */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/table/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/table/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/classnames/index.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var antd_es_table_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/es/table/style */ "g9YV");
-/* harmony import */ var antd_es_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/table */ "wCAj");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "PpiC");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray */ "tJVT");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "q1tI");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "TSYQ");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./index.module.less?modules */ "3k04");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "LvDl");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
+
+// EXTERNAL MODULE: ./node_modules/antd/es/table/style/index.js + 1 modules
+var style = __webpack_require__("g9YV");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/table/index.js + 54 modules
+var table = __webpack_require__("wCAj");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__("Ff2n");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__("q1tI");
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__("TSYQ");
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// CONCATENATED MODULE: ./src/components/BaseTable/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"container":"container___9kxO4"});
+// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
+var lodash = __webpack_require__("LvDl");
+var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
+
+// CONCATENATED MODULE: ./src/components/BaseTable/index.js
 
 
 
 
 
+
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-bitwise */
 
 /* eslint-disable import/order */
 
@@ -723,21 +701,34 @@ module.exports = {"container":"container___1pF8t","button-group":"button-group__
 
 
 
+/**
+ * 生成uuid，取此值作为唯一key
+ *
+ * @return {*}
+ */
+
+function guid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
 
 function BaseTable(props, ref) {
   // 存储选中元素
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])([]),
-      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState, 2),
+  var _useState = Object(react["useState"])([]),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
       selectedRowKeys = _useState2[0],
       setSelectedRowKeys = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])([]),
-      _useState4 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState3, 2),
+  var _useState3 = Object(react["useState"])([]),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
       selectedRows = _useState4[0],
       setSelectedRows = _useState4[1]; // 向父组件暴露的方法
 
 
-  Object(react__WEBPACK_IMPORTED_MODULE_5__["useImperativeHandle"])(ref, function () {
+  Object(react["useImperativeHandle"])(ref, function () {
     return {
       selectedRowKeys: selectedRowKeys,
       setSelectedRowKeys: setSelectedRowKeys,
@@ -754,17 +745,17 @@ function BaseTable(props, ref) {
       onPageChg = props.onPageChg,
       children = props.children,
       selectedKeys = props.selectedKeys,
-      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
+      rest = Object(objectWithoutProperties["a" /* default */])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
 
-  Object(react__WEBPACK_IMPORTED_MODULE_5__["useEffect"])(function () {
+  Object(react["useEffect"])(function () {
     // console.log('selectedKeys',selectedKeys)
-    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(selectedKeys)) {
+    if (!lodash_default.a.isEmpty(selectedKeys)) {
       setSelectedRowKeys(selectedKeys);
     }
   }, [JSON.stringify(selectedKeys)]); // 获取选中元素
 
   var getSelectedRowKeys = function getSelectedRowKeys() {
-    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(selectedRowKeys)) {
+    if (!lodash_default.a.isEmpty(selectedRowKeys)) {
       return {
         selectedRowKeys: selectedRowKeys
       };
@@ -774,7 +765,7 @@ function BaseTable(props, ref) {
   }; // table 单选、多选配置
 
 
-  var rowSelection = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({
+  var rowSelection = Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({
     type: 'checkbox'
   }, getSelectedRowKeys()), {}, {
     onChange: function onChange(selectedRowKeys, selectedRows) {
@@ -815,7 +806,7 @@ function BaseTable(props, ref) {
         return item.name === name;
       });
       result = result.concat(children.map(function (item, index) {
-        return Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, item), {}, {
+        return Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, item), {}, {
           rowSpan: index === 0 ? children.length : 0 //将第一行数据添加rowSpan字段
 
         });
@@ -825,32 +816,32 @@ function BaseTable(props, ref) {
   };
 
   var footer = function footer() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-      className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default.a['right-btn']
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      className: index_modulemodules['right-btn']
     }, children);
   }; // table配置
 
 
-  var tableProps = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({
+  var tableProps = Object(objectSpread2["a" /* default */])({
     columns: columns,
     // dataSource,
     dataSource: createNewArr(dataSource),
     pagination: pagination,
-    rowKey: function rowKey(record, index) {
-      return record.id || index;
+    rowKey: function rowKey(record) {
+      return record.id || guid();
     },
     rowSelection: rowSelections ? rowSelection : null,
     onChange: onPageChg,
-    footer: children && !lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(dataSource) ? footer : null
+    footer: children && !lodash_default.a.isEmpty(dataSource) ? footer : null
   }, rest);
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default.a.container, className)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(antd_es_table__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], tableProps));
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: classnames_default()(index_modulemodules.container, className)
+  }, /*#__PURE__*/react_default.a.createElement(table["a" /* default */], tableProps));
 }
 
-BaseTable = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_5__["forwardRef"])(BaseTable);
-/* harmony default export */ __webpack_exports__["a"] = (BaseTable);
+BaseTable = /*#__PURE__*/Object(react["forwardRef"])(BaseTable);
+/* harmony default export */ var components_BaseTable = __webpack_exports__["a"] = (BaseTable);
 
 /***/ }),
 
@@ -991,20 +982,19 @@ var rejectReason = ['文章质量差', '广告', '软文', '封图', '去杂不�
 
 /***/ "A33H":
 /*!*****************************************************************!*\
-  !*** ./src/pages/AuditRights/routes/Roles/index.js + 1 modules ***!
+  !*** ./src/pages/AuditRights/routes/Roles/index.js + 2 modules ***!
   \*****************************************************************/
 /*! exports provided: default */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/AuditRights/routes/Roles/index.module.less?modules (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/AuditRights/components/ModalForm/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/modal/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/modal/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tree/index.js */
@@ -1017,16 +1007,16 @@ var rejectReason = ['文章质量差', '广告', '软文', '封图', '去杂不�
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js
-var esm_extends = __webpack_require__("0Owb");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+var esm_extends = __webpack_require__("wx14");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-var objectSpread2 = __webpack_require__("k1fw");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
-var slicedToArray = __webpack_require__("tJVT");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/modal/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/modal/style/index.js + 1 modules
 var style = __webpack_require__("2qtc");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/modal/index.js + 7 modules
@@ -1043,10 +1033,10 @@ var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
 // EXTERNAL MODULE: ./src/.umi-production/core/umiExports.ts + 19 modules
 var umiExports = __webpack_require__("9kvl");
 
-// EXTERNAL MODULE: ./src/components/BaseForm/index.js + 4 modules
+// EXTERNAL MODULE: ./src/components/BaseForm/index.js + 5 modules
 var BaseForm = __webpack_require__("zLEZ");
 
-// EXTERNAL MODULE: ./src/components/BaseTable/index.js
+// EXTERNAL MODULE: ./src/components/BaseTable/index.js + 1 modules
 var BaseTable = __webpack_require__("5KP8");
 
 // EXTERNAL MODULE: ./src/pages/constants.js
@@ -1058,7 +1048,7 @@ var WrapAuth = __webpack_require__("yAXW");
 // EXTERNAL MODULE: ./src/pages/AuditRights/components/ModalForm/index.js
 var ModalForm = __webpack_require__("+Q71");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/tree/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/tree/style/index.js + 1 modules
 var tree_style = __webpack_require__("ozfa");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/tree/index.js + 9 modules
@@ -1119,7 +1109,7 @@ var TreeSelect_getTreeData = function getTreeData(dataPermissions) {
   return treeData;
 };
 
-function TreeClassification(props, ref) {
+function TreeClassification(props) {
   var permissionDataList = props.permissionDataList,
       _props$value = props.value,
       value = _props$value === void 0 ? [] : _props$value,
@@ -1136,17 +1126,6 @@ function TreeClassification(props, ref) {
       checkedKeys = _useState4[0],
       setCheckedKeys = _useState4[1];
 
-  var _useState5 = Object(react["useState"])([]),
-      _useState6 = Object(slicedToArray["a" /* default */])(_useState5, 2),
-      concatTreeData = _useState6[0],
-      setcConcatTreeData = _useState6[1]; // 向父组件暴露的方法
-
-
-  Object(react["useImperativeHandle"])(ref, function () {
-    return {
-      concatTreeData: concatTreeData
-    };
-  });
   Object(react["useEffect"])(function () {
     setTreeData(TreeSelect_getTreeData(permissionDataList));
   }, [JSON.stringify(permissionDataList)]);
@@ -1154,28 +1133,29 @@ function TreeClassification(props, ref) {
     setCheckedKeys(value);
   }, [JSON.stringify(value)]);
 
-  var onCheck = function onCheck(checkedKeys, e) {
+  var onCheck = function onCheck(checkedKeys) {
     //注意：halfCheckedKeys 是没有全部勾选状态下的父节点
-    setcConcatTreeData(checkedKeys.concat(e.halfCheckedKeys));
-    setCheckedKeys(concatTreeData);
-    onChange(checkedKeys);
+    console.log(checkedKeys); // setcConcatTreeData(checkedKeys.concat(e.halfCheckedKeys))
+    // setCheckedKeys(concatTreeData);
+
+    onChange(checkedKeys.checked);
   };
 
   return /*#__PURE__*/react_default.a.createElement(tree["a" /* default */], {
     height: 400,
     checkable: true,
+    checkStrictly: true,
+    expandedKeys: checkedKeys,
     checkedKeys: checkedKeys,
     treeData: treeData,
     onCheck: onCheck
   });
 }
 
-TreeClassification = /*#__PURE__*/Object(react["forwardRef"])(TreeClassification);
 /* harmony default export */ var TreeSelect = (TreeClassification);
-// EXTERNAL MODULE: ./src/pages/AuditRights/routes/Roles/index.module.less?modules
-var index_modulemodules = __webpack_require__("b4If");
-var index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(index_modulemodules);
-
+// CONCATENATED MODULE: ./src/pages/AuditRights/routes/Roles/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___1pDq2"});
 // CONCATENATED MODULE: ./src/pages/AuditRights/routes/Roles/index.js
 
 
@@ -1215,12 +1195,7 @@ var index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(index_modul
 var Roles_confirm = modal["a" /* default */].confirm;
 
 function RolePage(props) {
-  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
-      _useModel$initialStat = _useModel.initialState.currentUser,
-      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
-
-  var modalFormRef = Object(react["useRef"])(null);
-  var treeRef = Object(react["useRef"])(null); // modal标题
+  var modalFormRef = Object(react["useRef"])(null); // modal标题
 
   var _useState = Object(react["useState"])(''),
       _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
@@ -1231,26 +1206,11 @@ function RolePage(props) {
   var _useState3 = Object(react["useState"])({}),
       _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
       formValues = _useState4[0],
-      setFormValues = _useState4[1]; // 保存由业务线创建出来的角色列表
-
-
-  var _useState5 = Object(react["useState"])([]),
-      _useState6 = Object(slicedToArray["a" /* default */])(_useState5, 2),
-      ItemOptions = _useState6[0],
-      setItemOptions = _useState6[1]; // 表单按钮状态
-
-
-  var _useState7 = Object(react["useState"])(false),
-      _useState8 = Object(slicedToArray["a" /* default */])(_useState7, 2),
-      btnLoading = _useState8[0],
-      setBtnLoading = _useState8[1];
+      setFormValues = _useState4[1];
 
   var dispatch = props.dispatch,
-      _props$business = props.business,
-      business = _props$business === void 0 ? currentUser.business || {} : _props$business,
       _props$Rights = props.Rights,
       loading = _props$Rights.loading,
-      permissionIds = _props$Rights.permissionIds,
       permissionDataList = _props$Rights.permissionDataList,
       dataSource = _props$Rights.dataSource,
       pagination = _props$Rights.pagination;
@@ -1268,21 +1228,14 @@ function RolePage(props) {
   }, [dispatch]); // 多条件搜索配置
 
   var searchFormProps = {
-    className: index_modulemodules_default.a['form-contaner'],
+    className: index_modulemodules['form-contaner'],
     layout: 'inline',
     resetShow: true,
     authProps: {
       pathUrl: '/rights/role',
       perms: 'role:select'
     },
-    dataSource: [// {
-    //   label: '业务线',
-    //   type: 'SELECT',
-    //   name: 'businessId',
-    //   initialValue: '',
-    //   map: { '': '全部', ...business },
-    // },
-    {
+    dataSource: [{
       label: '角色',
       name: 'roleName'
     }, {
@@ -1357,7 +1310,7 @@ function RolePage(props) {
       align: 'center',
       render: function render(r) {
         return r.roleName !== 'system' ? /*#__PURE__*/react_default.a.createElement("div", {
-          className: index_modulemodules_default.a.tableaction
+          className: index_modulemodules.tableaction
         }, /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
           pathUrl: "/rights/role",
           perms: "role:edit",
@@ -1475,14 +1428,13 @@ function RolePage(props) {
     footer: null,
     onCancel: function onCancel() {
       modalFormRef.current.setModalStatus(false, function () {
-        setItemOptions([]);
         setFormValues({});
       });
     },
 
     /** 表单参数 */
     formProps: {
-      className: index_modulemodules_default.a['form-contaner'],
+      className: index_modulemodules['form-contaner'],
       layout: 'horizontal',
       submitText: '保存',
       dataSource: [{
@@ -1496,32 +1448,23 @@ function RolePage(props) {
         label: '分配权限',
         name: 'permissionIds',
         itemRender: /*#__PURE__*/react_default.a.createElement(TreeSelect, {
-          permissionDataList: permissionDataList,
-          ref: treeRef
+          permissionDataList: permissionDataList
         })
       }],
       formValues: formValues,
       onSubmit: function onSubmit(Values) {
         // console.log('Values', Values)
-        // 获取权限，该处处理
-        var treeData = treeRef.current.concatTreeData;
-        setBtnLoading(true);
         dispatch({
           type: 'Rights/addUserOrRole',
           payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({
             id: formValues.id
           }, Values), {}, {
-            // 处理权限
-            permissionIds: lodash_default.a.isEmpty(treeData) ? Values.permissionIds : treeData,
             pathname: 'role',
             type: title === '创建' ? 'add' : 'edit'
           }),
           callback: function callback(res) {
-            setBtnLoading(false);
-
             if (res === 200) {
               modalFormRef.current.setModalStatus(false, function () {
-                setItemOptions([]);
                 setFormValues({});
               }); // 创建成功，刷新当前列表
 
@@ -1701,18 +1644,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var FileOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z" } }] }, "name": "file", "theme": "outlined" };
 exports.default = FileOutlined;
 
-
-/***/ }),
-
-/***/ "KxFI":
-/*!****************************************************!*\
-  !*** ./node_modules/antd/es/tree/style/index.less ***!
-  \****************************************************/
-/*! no static exports found */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -4051,20 +3982,6 @@ exports.default = FolderOpenOutlined;
 
 /***/ }),
 
-/***/ "b4If":
-/*!**********************************************************************!*\
-  !*** ./src/pages/AuditRights/routes/Roles/index.module.less?modules ***!
-  \**********************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"tableaction":"tableaction___1pDq2"};
-
-/***/ }),
-
 /***/ "e5VY":
 /*!***********************************************************!*\
   !*** ./node_modules/@ant-design/icons/CaretDownFilled.js ***!
@@ -5472,17 +5389,22 @@ es_modal_Modal.config = globalConfig;
 /***/ }),
 
 /***/ "ozfa":
-/*!**************************************************!*\
-  !*** ./node_modules/antd/es/tree/style/index.js ***!
-  \**************************************************/
+/*!**************************************************************!*\
+  !*** ./node_modules/antd/es/tree/style/index.js + 1 modules ***!
+  \**************************************************************/
 /*! no exports provided */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/style/index.less */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _style_index_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../style/index.less */ "cIOH");
-/* harmony import */ var _style_index_less__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_index_less__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.less */ "KxFI");
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_1__);
+
+// EXTERNAL MODULE: ./node_modules/antd/es/style/index.less
+var style = __webpack_require__("cIOH");
+
+// CONCATENATED MODULE: ./node_modules/antd/es/tree/style/index.less
+// extracted by mini-css-extract-plugin
+
+// CONCATENATED MODULE: ./node_modules/antd/es/tree/style/index.js
 
 
 
@@ -5551,8 +5473,8 @@ es_modal_Modal.config = globalConfig;
 "use strict";
 /* harmony import */ var antd_es_button_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/es/button/style */ "+L6B");
 /* harmony import */ var antd_es_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/button */ "2/Rp");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends */ "0Owb");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "PpiC");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/extends */ "wx14");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "Ff2n");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "q1tI");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! umi */ "9kvl");
@@ -5582,12 +5504,12 @@ var wrapAuthButton = function wrapAuthButton(props) {
       _props$perms = props.perms,
       perms = _props$perms === void 0 ? '' : _props$perms,
       children = props.children,
-      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["text", "pathUrl", "perms", "children"]); // console.log('access.canReadFoo', access.canReadFoo())
+      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["text", "pathUrl", "perms", "children"]); // console.log('access.canReadFoo', access.canReadFoo())
 
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, perms ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(umi__WEBPACK_IMPORTED_MODULE_5__[/* Access */ "a"], {
     accessible: access.canReadButton(pathUrl, perms),
-    fallback: children ? '' : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, rest, {
+    fallback: children ? '' : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, rest, {
       disabled: true
     }), text)
   }, children ? children : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], rest, text)) : children ? children : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], rest, text));
@@ -5599,16 +5521,15 @@ var wrapAuthButton = function wrapAuthButton(props) {
 
 /***/ "zLEZ":
 /*!******************************************************!*\
-  !*** ./src/components/BaseForm/index.js + 4 modules ***!
+  !*** ./src/components/BaseForm/index.js + 5 modules ***!
   \******************************************************/
 /*! exports provided: fillFormItems, renderFormItem, renderGroupComponent, renderRadioGroup, renderCheckBoxGroup, renderSelect, default */
 /*! exports used: default */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.module.less?modules (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/checkbox/index.js */
@@ -5650,53 +5571,53 @@ var col_style = __webpack_require__("jCWc");
 // EXTERNAL MODULE: ./node_modules/antd/es/col/index.js
 var col = __webpack_require__("kPKH");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js
-var esm_extends = __webpack_require__("0Owb");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+var esm_extends = __webpack_require__("wx14");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js + 1 modules
 var button_style = __webpack_require__("+L6B");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/button/index.js
 var es_button = __webpack_require__("2/Rp");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-var objectSpread2 = __webpack_require__("k1fw");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js + 1 modules
-var objectWithoutProperties = __webpack_require__("PpiC");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__("Ff2n");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js + 1 modules
 var form_style = __webpack_require__("y8nQ");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/form/index.js + 14 modules
 var es_form = __webpack_require__("Vl3Y");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
-var slicedToArray = __webpack_require__("tJVT");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js + 1 modules
 var select_style = __webpack_require__("OaEy");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/select/index.js + 25 modules
 var es_select = __webpack_require__("2fM7");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/checkbox/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/checkbox/style/index.js + 1 modules
 var checkbox_style = __webpack_require__("sRBo");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/checkbox/index.js + 2 modules
 var es_checkbox = __webpack_require__("kaz8");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/radio/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/radio/style/index.js + 1 modules
 var radio_style = __webpack_require__("7Kak");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/radio/index.js + 4 modules
 var es_radio = __webpack_require__("9yH6");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js + 1 modules
 var input_style = __webpack_require__("5NDa");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/input/index.js + 3 modules
@@ -5706,13 +5627,13 @@ var input = __webpack_require__("5rEg");
 var lodash = __webpack_require__("LvDl");
 var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
 
-// EXTERNAL MODULE: ./node_modules/antd/es/input-number/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/input-number/style/index.js + 1 modules
 var input_number_style = __webpack_require__("giR+");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/input-number/index.js + 2 modules
 var input_number = __webpack_require__("fyUT");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/date-picker/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/date-picker/style/index.js + 1 modules
 var date_picker_style = __webpack_require__("iQDF");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/date-picker/index.js + 50 modules
@@ -6218,10 +6139,9 @@ function renderSelect(iterable, props) {
 var classnames = __webpack_require__("TSYQ");
 var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 
-// EXTERNAL MODULE: ./src/components/BaseForm/index.module.less?modules
-var index_modulemodules = __webpack_require__("5H4c");
-var index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(index_modulemodules);
-
+// CONCATENATED MODULE: ./src/components/BaseForm/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"container":"container___1pF8t","button-group":"button-group___r4vDn","button-group-center":"button-group-center___2Bbzj"});
 // EXTERNAL MODULE: ./src/components/WrapAuth/index.js
 var WrapAuth = __webpack_require__("yAXW");
 
@@ -6319,7 +6239,7 @@ function BaseForm(props) {
     onFinish: function onFinish(values) {
       return onSubmit(Object(objectSpread2["a" /* default */])({}, values), form);
     },
-    className: classnames_default()(className, index_modulemodules_default.a.container)
+    className: classnames_default()(className, index_modulemodules.container)
   });
 
   var submitProps = Object(objectSpread2["a" /* default */])({
@@ -6340,7 +6260,7 @@ function BaseForm(props) {
       padding: 0
     }
   }), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, null, /*#__PURE__*/react_default.a.createElement("div", {
-    className: layout === 'inline' ? index_modulemodules_default.a['button-group'] : index_modulemodules_default.a['button-group-center']
+    className: layout === 'inline' ? index_modulemodules['button-group'] : index_modulemodules['button-group-center']
   }, cancelShow && /*#__PURE__*/react_default.a.createElement(es_button["a" /* default */], {
     onClick: function onClick() {
       return reset();

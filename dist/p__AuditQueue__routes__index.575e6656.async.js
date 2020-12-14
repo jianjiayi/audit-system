@@ -1,60 +1,63 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
-
-/***/ "3k04":
-/*!************************************************************!*\
-  !*** ./src/components/BaseTable/index.module.less?modules ***!
-  \************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"container":"container___9kxO4"};
-
-/***/ }),
-
-/***/ "5H4c":
-/*!***********************************************************!*\
-  !*** ./src/components/BaseForm/index.module.less?modules ***!
-  \***********************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"container":"container___1pF8t","button-group":"button-group___r4vDn","button-group-center":"button-group-center___2Bbzj"};
-
-/***/ }),
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[6],{
 
 /***/ "5KP8":
-/*!*******************************************!*\
-  !*** ./src/components/BaseTable/index.js ***!
-  \*******************************************/
+/*!*******************************************************!*\
+  !*** ./src/components/BaseTable/index.js + 1 modules ***!
+  \*******************************************************/
 /*! exports provided: default */
 /*! exports used: default */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/table/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/table/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/classnames/index.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var antd_es_table_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/es/table/style */ "g9YV");
-/* harmony import */ var antd_es_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/table */ "wCAj");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "PpiC");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray */ "tJVT");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "q1tI");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "TSYQ");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./index.module.less?modules */ "3k04");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "LvDl");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
+
+// EXTERNAL MODULE: ./node_modules/antd/es/table/style/index.js + 1 modules
+var style = __webpack_require__("g9YV");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/table/index.js + 54 modules
+var table = __webpack_require__("wCAj");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__("Ff2n");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__("q1tI");
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__("TSYQ");
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// CONCATENATED MODULE: ./src/components/BaseTable/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"container":"container___9kxO4"});
+// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
+var lodash = __webpack_require__("LvDl");
+var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
+
+// CONCATENATED MODULE: ./src/components/BaseTable/index.js
 
 
 
 
 
+
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-bitwise */
 
 /* eslint-disable import/order */
 
@@ -73,21 +76,34 @@ module.exports = {"container":"container___1pF8t","button-group":"button-group__
 
 
 
+/**
+ * 生成uuid，取此值作为唯一key
+ *
+ * @return {*}
+ */
+
+function guid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
 
 function BaseTable(props, ref) {
   // 存储选中元素
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])([]),
-      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState, 2),
+  var _useState = Object(react["useState"])([]),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
       selectedRowKeys = _useState2[0],
       setSelectedRowKeys = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])([]),
-      _useState4 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState3, 2),
+  var _useState3 = Object(react["useState"])([]),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
       selectedRows = _useState4[0],
       setSelectedRows = _useState4[1]; // 向父组件暴露的方法
 
 
-  Object(react__WEBPACK_IMPORTED_MODULE_5__["useImperativeHandle"])(ref, function () {
+  Object(react["useImperativeHandle"])(ref, function () {
     return {
       selectedRowKeys: selectedRowKeys,
       setSelectedRowKeys: setSelectedRowKeys,
@@ -104,17 +120,17 @@ function BaseTable(props, ref) {
       onPageChg = props.onPageChg,
       children = props.children,
       selectedKeys = props.selectedKeys,
-      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
+      rest = Object(objectWithoutProperties["a" /* default */])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
 
-  Object(react__WEBPACK_IMPORTED_MODULE_5__["useEffect"])(function () {
+  Object(react["useEffect"])(function () {
     // console.log('selectedKeys',selectedKeys)
-    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(selectedKeys)) {
+    if (!lodash_default.a.isEmpty(selectedKeys)) {
       setSelectedRowKeys(selectedKeys);
     }
   }, [JSON.stringify(selectedKeys)]); // 获取选中元素
 
   var getSelectedRowKeys = function getSelectedRowKeys() {
-    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(selectedRowKeys)) {
+    if (!lodash_default.a.isEmpty(selectedRowKeys)) {
       return {
         selectedRowKeys: selectedRowKeys
       };
@@ -124,7 +140,7 @@ function BaseTable(props, ref) {
   }; // table 单选、多选配置
 
 
-  var rowSelection = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({
+  var rowSelection = Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({
     type: 'checkbox'
   }, getSelectedRowKeys()), {}, {
     onChange: function onChange(selectedRowKeys, selectedRows) {
@@ -165,7 +181,7 @@ function BaseTable(props, ref) {
         return item.name === name;
       });
       result = result.concat(children.map(function (item, index) {
-        return Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, item), {}, {
+        return Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, item), {}, {
           rowSpan: index === 0 ? children.length : 0 //将第一行数据添加rowSpan字段
 
         });
@@ -175,32 +191,32 @@ function BaseTable(props, ref) {
   };
 
   var footer = function footer() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-      className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default.a['right-btn']
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      className: index_modulemodules['right-btn']
     }, children);
   }; // table配置
 
 
-  var tableProps = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({
+  var tableProps = Object(objectSpread2["a" /* default */])({
     columns: columns,
     // dataSource,
     dataSource: createNewArr(dataSource),
     pagination: pagination,
-    rowKey: function rowKey(record, index) {
-      return record.id || index;
+    rowKey: function rowKey(record) {
+      return record.id || guid();
     },
     rowSelection: rowSelections ? rowSelection : null,
     onChange: onPageChg,
-    footer: children && !lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(dataSource) ? footer : null
+    footer: children && !lodash_default.a.isEmpty(dataSource) ? footer : null
   }, rest);
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_7___default.a.container, className)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(antd_es_table__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], tableProps));
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: classnames_default()(index_modulemodules.container, className)
+  }, /*#__PURE__*/react_default.a.createElement(table["a" /* default */], tableProps));
 }
 
-BaseTable = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_5__["forwardRef"])(BaseTable);
-/* harmony default export */ __webpack_exports__["a"] = (BaseTable);
+BaseTable = /*#__PURE__*/Object(react["forwardRef"])(BaseTable);
+/* harmony default export */ var components_BaseTable = __webpack_exports__["a"] = (BaseTable);
 
 /***/ }),
 
@@ -352,84 +368,90 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 
 /***/ }),
 
-/***/ "NilG":
-/*!***********************************************************************************!*\
-  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.module.less?modules ***!
-  \***********************************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"tableaction":"tableaction___2qm3g"};
-
-/***/ }),
-
-/***/ "mAEq":
-/*!******************************************************************!*\
-  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.js ***!
-  \******************************************************************/
+/***/ "gIUF":
+/*!**********************************************************!*\
+  !*** ./src/pages/AuditQueue/routes/index.js + 1 modules ***!
+  \**********************************************************/
 /*! exports provided: default */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./src/.umi-production/core/routes.ts (referenced with import()) */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends */ "0Owb");
-/* harmony import */ var antd_es_form_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/form/style */ "y8nQ");
-/* harmony import */ var antd_es_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/es/form */ "Vl3Y");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
-/* harmony import */ var antd_es_select_style__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/es/select/style */ "OaEy");
-/* harmony import */ var antd_es_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd/es/select */ "2fM7");
-/* harmony import */ var antd_es_input_style__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/es/input/style */ "5NDa");
-/* harmony import */ var antd_es_input__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd/es/input */ "5rEg");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "q1tI");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var dva__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! dva */ "/MKj");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lodash */ "LvDl");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! umi */ "9kvl");
-/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
-/* harmony import */ var _components_BaseTable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @components/BaseTable */ "5KP8");
-/* harmony import */ var _utils_utils_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @utils/utils.js */ "+n12");
-/* harmony import */ var _pages_constants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/pages/constants */ "6ZGt");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./index.module.less?modules */ "NilG");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @components/WrapAuth */ "yAXW");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/message/style/index.js + 1 modules
+var style = __webpack_require__("miYZ");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/message/index.js + 1 modules
+var message = __webpack_require__("tsqr");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__("q1tI");
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
+var lodash = __webpack_require__("LvDl");
+var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
+
+// EXTERNAL MODULE: ./src/.umi-production/core/umiExports.ts + 19 modules
+var umiExports = __webpack_require__("9kvl");
+
+// EXTERNAL MODULE: ./src/components/BaseForm/index.js + 5 modules
+var BaseForm = __webpack_require__("zLEZ");
+
+// EXTERNAL MODULE: ./src/components/BaseTable/index.js + 1 modules
+var BaseTable = __webpack_require__("5KP8");
+
+// EXTERNAL MODULE: ./src/pages/constants.js
+var constants = __webpack_require__("6ZGt");
+
+// CONCATENATED MODULE: ./src/pages/AuditQueue/routes/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"list":"list___325mz","item":"item___CGycI","text":"text___2BXpG"});
+// EXTERNAL MODULE: ./src/components/WrapAuth/index.js
+var WrapAuth = __webpack_require__("yAXW");
+
+// CONCATENATED MODULE: ./src/pages/AuditQueue/routes/index.js
 
 
 
 
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-
-
-
-/* eslint-disable spaced-comment */
-
-/* eslint-disable import/order */
-
-/* eslint-disable import/no-unresolved */
-
-/* eslint-disable no-param-reassign */
-
-/* eslint-disable no-console */
-
-/* eslint-disable @typescript-eslint/no-use-before-define */
-
-/* eslint-disable object-shorthand */
-
-/* eslint-disable no-undef */
-
-/* eslint-disable prefer-const */
+/* eslint-disable consistent-return */
 
 /* eslint-disable react/jsx-curly-brace-presence */
 
 /* eslint-disable react/self-closing-comp */
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable spaced-comment */
+
+/* eslint-disable no-console */
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable import/order */
+
+/* eslint-disable import/no-unresolved */
 
 
 
@@ -438,222 +460,150 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+delete constants["e" /* contentType */][''];
 
+function AuditQueue(props) {
+  // 当前页面
+  var _useState = Object(react["useState"])(1),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
+      current = _useState2[0],
+      setCurrent = _useState2[1];
 
-var InputGroup = antd_es_input__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"].Group;
-var Option = antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].Option;
+  var _useState3 = Object(react["useState"])('NEWS'),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
+      type = _useState4[0],
+      setType = _useState4[1];
 
-function AuditStatistics(props) {
-  var _useModel = Object(umi__WEBPACK_IMPORTED_MODULE_11__[/* useModel */ "k"])('@@initialState'),
-      _useModel$initialStat = _useModel.initialState.currentUser,
-      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
-
-  var formRef = Object(react__WEBPACK_IMPORTED_MODULE_8__["useRef"])(null);
   var dispatch = props.dispatch,
-      _props$business = props.business,
-      business = _props$business === void 0 ? currentUser.business || {} : _props$business,
-      _props$Statistics = props.Statistics,
-      loading = _props$Statistics.loading,
-      dataSource = _props$Statistics.dataSource,
-      pagination = _props$Statistics.pagination;
-  Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
+      _props$Queue = props.Queue,
+      loading = _props$Queue.loading,
+      dataSource = _props$Queue.dataSource;
+  Object(react["useEffect"])(function () {
     dispatch({
-      type: 'Statistics/init',
-      payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({
-        type: 'person'
-      }, formRef.current.getFieldsValue())
+      type: 'Queue/init',
+      payload: {
+        type: type
+      }
     });
   }, [dispatch]); // 多条件搜索配置
 
   var searchFormProps = {
-    className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16___default.a['form-contaner'],
+    className: index_modulemodules['form-contaner'],
     layout: 'inline',
-    resetShow: true,
+    submitText: '刷新',
     authProps: {
-      pathUrl: '/statistics/personnel/',
-      perms: 'statistics:person:select'
+      pathUrl: '/statistics/classify',
+      perms: 'statistics:classify:select'
     },
     dataSource: [{
-      label: '业务线',
+      label: '内容类型',
       type: 'SELECT',
-      name: 'businessId',
-      initialValue: _utils_utils_js__WEBPACK_IMPORTED_MODULE_14__[/* ExObject */ "a"].getFirstValue(business),
-      map: business
-    }, {
-      label: '时间',
-      name: 'datatime',
-      type: 'DateTimeStartEnd'
-    }, {
-      label: '类型',
-      type: 'SELECT',
-      name: 'newsType',
-      initialValue: 'NEWS',
-      map: _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* contentType */ "e"]
-    }, {
-      label: '人员',
-      name: 'user'
-    }, {
-      label: '排序',
-      name: 'params11',
-      itemRender: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(InputGroup, {
-        compact: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_form__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].Item, {
-        name: "orderField",
-        initialValue: "",
-        noStyle: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"], {
-        style: {
-          width: '50%'
-        }
-      }, Object.keys(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderFieldMap */ "j"]).map(function (item) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Option, {
-          key: item,
-          value: item
-        }, _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderFieldMap */ "j"][item]);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_form__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].Item, {
-        name: "orderType",
-        initialValue: "desc",
-        noStyle: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"], {
-        style: {
-          width: '50%'
-        }
-      }, Object.keys(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderTypeMap */ "k"]).map(function (item) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Option, {
-          key: item,
-          value: item
-        }, _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderTypeMap */ "k"][item]);
-      }))))
+      name: 'type',
+      initialValue: type,
+      map: constants["e" /* contentType */]
     }],
-    onReset: function onReset() {
-      dispatch({
-        type: 'Statistics/init',
-        payload: {
-          type: 'person',
-          businessId: formRef.current.getFieldValue('businessId')
-        }
-      });
-    },
     onSubmit: function onSubmit(formValues) {
-      if (!lodash__WEBPACK_IMPORTED_MODULE_10___default.a.isEmpty(formValues.datatime)) {
-        formValues.startTime = formValues.datatime[0].format(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* dateFormat */ "f"]);
-        formValues.endTime = formValues.datatime[1].format(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* dateFormat */ "f"]);
-      }
-
-      delete formValues.datatime;
       console.log('formValues', formValues);
+      setType(formValues.type);
+      setCurrent(1);
       dispatch({
-        type: 'Statistics/getStatisticQuery',
-        payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValues), {}, {
-          type: 'person'
-        })
+        type: 'Queue/init',
+        payload: Object(objectSpread2["a" /* default */])({}, formValues)
       });
     }
-  }; // 列表配置
+  }; // 领审
+
+  var goDetails = function goDetails(name, id) {
+    var params = {
+      queue: id,
+      queueName: name,
+      type: type,
+      routersource: 'queue'
+    };
+    sessionStorage.setItem('$queueContentId', '');
+    sessionStorage.setItem('$QUERY', JSON.stringify({}));
+    dispatch({
+      type: 'CDetails/getNewsGetTask',
+      payload: params,
+      callback: function callback(data) {
+        console.log('data', data);
+
+        if (lodash_default.a.isEmpty(data)) {
+          return message["b" /* default */].error('当前队列没有文章可以领取');
+        }
+
+        dispatch({
+          type: 'CDetails/save',
+          payload: {
+            query: params
+          }
+        });
+        sessionStorage.setItem('$QUERY', JSON.stringify(params));
+        umiExports["f" /* history */].push({
+          pathname: '/queue/cdetails',
+          query: {
+            isBack: true
+          }
+        });
+      }
+    });
+  };
 
   var tableProps = {
+    className: index_modulemodules.tablebox,
     // 类型
     selectionType: null,
     //checkbox or radio or null||false
     // 表头
     columns: [{
-      title: '时间',
-      dataIndex: 'dt',
+      title: '名称',
+      dataIndex: 'queueName',
+      width: 300,
       render: function render(text) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", null, text);
+        return /*#__PURE__*/react_default.a.createElement("b", null, text);
       }
     }, {
-      title: '人员',
+      title: '数量',
+      dataIndex: 'count',
       align: 'center',
-      dataIndex: 'auditorName'
-    }, {
-      title: '领审量',
-      align: 'center',
-      dataIndex: 'takeCount'
-    }, {
-      title: '审核量',
-      align: 'center',
-      dataIndex: 'auditCount'
-    }, {
-      title: '审核通过量',
-      align: 'center',
-      dataIndex: 'auditPassedCount'
+      width: 150
     }, {
       title: '操作',
-      width: '100px',
-      align: 'center',
       render: function render(r) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"], {
-          pathUrl: "/statistics/personnel/",
-          perms: 'statistics:person:select',
-          type: "primary",
-          size: "small",
-          text: "\u660E\u7EC6",
+        return /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
+          pathUrl: "/queue",
+          text: "\u9886\u53D6",
+          key: r.id,
+          perms: 'queue:receive',
           onClick: function onClick() {
-            return goDetails(r.auditorId);
+            goDetails(r.queueName, r.queueId);
           }
         });
       }
     }],
     loading: loading,
     dataSource: dataSource,
-    pagination: pagination,
+    pagination: {
+      current: current
+    },
     onPageChg: function onPageChg(page) {
       // console.log(page)
-      dispatch({
-        type: 'Statistics/getStatisticQuery',
-        payload: {
-          type: 'person',
-          pageNum: page.current,
-          pageSize: page.pageSize,
-          businessId: formRef.current.getFieldValue('businessId')
-        }
-      });
+      setCurrent(page.current);
     }
-  }; // 审核详情页
-
-  var goDetails = function goDetails(id) {
-    var formValue = formRef.current.getFieldsValue();
-    umi__WEBPACK_IMPORTED_MODULE_11__[/* history */ "f"].push({
-      pathname: '/statistics/personnel/details',
-      query: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValue), {}, {
-        id: id,
-        isBack: true
-      })
-    });
-  }; // 下载excel
-
-
-  var DownloadExcel = function DownloadExcel() {
-    // run()
-    dispatch({
-      type: 'Statistics/getPersoneExportExcel',
-      payload: {}
-    });
   };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({}, searchFormProps, {
-    pRef: formRef
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"], {
-    pathUrl: "/statistics/personnel/",
-    perms: "statistics:person:select",
-    text: "\u5BFC\u51FA",
-    ghost: true,
-    type: "primary",
-    onClick: function onClick() {
-      return DownloadExcel();
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseTable__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"], tableProps));
+  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], searchFormProps), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps));
 }
 
 function mapStateToProps(_ref) {
-  var Statistics = _ref.Statistics;
+  var Queue = _ref.Queue,
+      CDetails = _ref.CDetails;
   return {
-    Statistics: Statistics
+    Queue: Queue,
+    CDetails: CDetails
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(dva__WEBPACK_IMPORTED_MODULE_9__[/* connect */ "c"])(mapStateToProps)(AuditStatistics));
+/* harmony default export */ var routes = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(AuditQueue));
 
 /***/ }),
 
@@ -668,8 +618,8 @@ function mapStateToProps(_ref) {
 "use strict";
 /* harmony import */ var antd_es_button_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/es/button/style */ "+L6B");
 /* harmony import */ var antd_es_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/button */ "2/Rp");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends */ "0Owb");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "PpiC");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/extends */ "wx14");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "Ff2n");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "q1tI");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! umi */ "9kvl");
@@ -699,12 +649,12 @@ var wrapAuthButton = function wrapAuthButton(props) {
       _props$perms = props.perms,
       perms = _props$perms === void 0 ? '' : _props$perms,
       children = props.children,
-      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["text", "pathUrl", "perms", "children"]); // console.log('access.canReadFoo', access.canReadFoo())
+      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(props, ["text", "pathUrl", "perms", "children"]); // console.log('access.canReadFoo', access.canReadFoo())
 
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, perms ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(umi__WEBPACK_IMPORTED_MODULE_5__[/* Access */ "a"], {
     accessible: access.canReadButton(pathUrl, perms),
-    fallback: children ? '' : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, rest, {
+    fallback: children ? '' : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, rest, {
       disabled: true
     }), text)
   }, children ? children : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], rest, text)) : children ? children : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], rest, text));
@@ -716,16 +666,15 @@ var wrapAuthButton = function wrapAuthButton(props) {
 
 /***/ "zLEZ":
 /*!******************************************************!*\
-  !*** ./src/components/BaseForm/index.js + 4 modules ***!
+  !*** ./src/components/BaseForm/index.js + 5 modules ***!
   \******************************************************/
 /*! exports provided: fillFormItems, renderFormItem, renderGroupComponent, renderRadioGroup, renderCheckBoxGroup, renderSelect, default */
 /*! exports used: default */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.module.less?modules (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/checkbox/index.js */
@@ -767,53 +716,53 @@ var col_style = __webpack_require__("jCWc");
 // EXTERNAL MODULE: ./node_modules/antd/es/col/index.js
 var col = __webpack_require__("kPKH");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js
-var esm_extends = __webpack_require__("0Owb");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+var esm_extends = __webpack_require__("wx14");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js + 1 modules
 var button_style = __webpack_require__("+L6B");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/button/index.js
 var es_button = __webpack_require__("2/Rp");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-var objectSpread2 = __webpack_require__("k1fw");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js + 1 modules
-var objectWithoutProperties = __webpack_require__("PpiC");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__("Ff2n");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js + 1 modules
 var form_style = __webpack_require__("y8nQ");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/form/index.js + 14 modules
 var es_form = __webpack_require__("Vl3Y");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
-var slicedToArray = __webpack_require__("tJVT");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js + 1 modules
 var select_style = __webpack_require__("OaEy");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/select/index.js + 25 modules
 var es_select = __webpack_require__("2fM7");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/checkbox/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/checkbox/style/index.js + 1 modules
 var checkbox_style = __webpack_require__("sRBo");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/checkbox/index.js + 2 modules
 var es_checkbox = __webpack_require__("kaz8");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/radio/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/radio/style/index.js + 1 modules
 var radio_style = __webpack_require__("7Kak");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/radio/index.js + 4 modules
 var es_radio = __webpack_require__("9yH6");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js + 1 modules
 var input_style = __webpack_require__("5NDa");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/input/index.js + 3 modules
@@ -823,13 +772,13 @@ var input = __webpack_require__("5rEg");
 var lodash = __webpack_require__("LvDl");
 var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
 
-// EXTERNAL MODULE: ./node_modules/antd/es/input-number/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/input-number/style/index.js + 1 modules
 var input_number_style = __webpack_require__("giR+");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/input-number/index.js + 2 modules
 var input_number = __webpack_require__("fyUT");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/date-picker/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/date-picker/style/index.js + 1 modules
 var date_picker_style = __webpack_require__("iQDF");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/date-picker/index.js + 50 modules
@@ -1335,10 +1284,9 @@ function renderSelect(iterable, props) {
 var classnames = __webpack_require__("TSYQ");
 var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 
-// EXTERNAL MODULE: ./src/components/BaseForm/index.module.less?modules
-var index_modulemodules = __webpack_require__("5H4c");
-var index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(index_modulemodules);
-
+// CONCATENATED MODULE: ./src/components/BaseForm/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"container":"container___1pF8t","button-group":"button-group___r4vDn","button-group-center":"button-group-center___2Bbzj"});
 // EXTERNAL MODULE: ./src/components/WrapAuth/index.js
 var WrapAuth = __webpack_require__("yAXW");
 
@@ -1436,7 +1384,7 @@ function BaseForm(props) {
     onFinish: function onFinish(values) {
       return onSubmit(Object(objectSpread2["a" /* default */])({}, values), form);
     },
-    className: classnames_default()(className, index_modulemodules_default.a.container)
+    className: classnames_default()(className, index_modulemodules.container)
   });
 
   var submitProps = Object(objectSpread2["a" /* default */])({
@@ -1457,7 +1405,7 @@ function BaseForm(props) {
       padding: 0
     }
   }), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, null, /*#__PURE__*/react_default.a.createElement("div", {
-    className: layout === 'inline' ? index_modulemodules_default.a['button-group'] : index_modulemodules_default.a['button-group-center']
+    className: layout === 'inline' ? index_modulemodules['button-group'] : index_modulemodules['button-group-center']
   }, cancelShow && /*#__PURE__*/react_default.a.createElement(es_button["a" /* default */], {
     onClick: function onClick() {
       return reset();

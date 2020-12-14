@@ -2,21 +2,21 @@
 
 /***/ "PeeD":
 /*!******************************************************************!*\
-  !*** ./src/.umi-production/plugin-layout/Layout.tsx + 8 modules ***!
+  !*** ./src/.umi-production/plugin-layout/Layout.tsx + 9 modules ***!
   \******************************************************************/
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/es/icons/LogoutOutlined.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/pro-layout/es/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/classCallCheck.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/createClass.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/createSuper.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/inherits.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/createClass.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/createSuper.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/inherits.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/route-utils/es/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/runtime/dist/index.esm.js (<- Module is referenced from these modules with unsupported syntax: ./node_modules/@umijs/renderer-react/dist/index.js (referenced with cjs require)) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/avatar/index.js */
@@ -41,11 +41,11 @@
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-var objectSpread2 = __webpack_require__("k1fw");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
-var slicedToArray = __webpack_require__("tJVT");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
@@ -57,40 +57,40 @@ var umiExports = __webpack_require__("9kvl");
 // EXTERNAL MODULE: ./node_modules/@umijs/runtime/dist/index.esm.js
 var index_esm = __webpack_require__("LtsZ");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js
-var esm_extends = __webpack_require__("0Owb");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+var esm_extends = __webpack_require__("wx14");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js + 1 modules
-var objectWithoutProperties = __webpack_require__("PpiC");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__("Ff2n");
 
 // EXTERNAL MODULE: ./node_modules/react-router-dom/esm/react-router-dom.js
 var react_router_dom = __webpack_require__("55Ip");
 
-// EXTERNAL MODULE: ./node_modules/@ant-design/pro-layout/es/index.js + 103 modules
+// EXTERNAL MODULE: ./node_modules/@ant-design/pro-layout/es/index.js + 116 modules
 var es = __webpack_require__("Hx5s");
 
-// EXTERNAL MODULE: ./src/.umi-production/plugin-layout/layout/layout/style.less
-var style = __webpack_require__("rZaO");
+// CONCATENATED MODULE: ./src/.umi-production/plugin-layout/layout/layout/style.less
+// extracted by mini-css-extract-plugin
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/classCallCheck.js
-var classCallCheck = __webpack_require__("fWQN");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js
+var classCallCheck = __webpack_require__("1OyB");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/createClass.js
-var createClass = __webpack_require__("mtLc");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/createClass.js
+var createClass = __webpack_require__("vuIU");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/inherits.js + 1 modules
-var inherits = __webpack_require__("yKVA");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/inherits.js + 1 modules
+var inherits = __webpack_require__("Ji7U");
 
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/createSuper.js + 5 modules
-var createSuper = __webpack_require__("879j");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/createSuper.js + 1 modules
+var createSuper = __webpack_require__("LK+K");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/result/style/index.js
-var result_style = __webpack_require__("J+/v");
+// EXTERNAL MODULE: ./node_modules/antd/es/result/style/index.js + 1 modules
+var style = __webpack_require__("J+/v");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/result/index.js + 3 modules
 var result = __webpack_require__("MoRW");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/typography/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/typography/style/index.js + 1 modules
 var typography_style = __webpack_require__("tU7J");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/typography/index.js + 9 modules
@@ -140,7 +140,7 @@ function formatMessage(_ref) {
     id: id
   }, value) || localeMessages[id] || id;
 }
-// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js + 1 modules
 var button_style = __webpack_require__("+L6B");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/button/index.js
@@ -318,25 +318,25 @@ ErrorBoundary_ErrorBoundary.defaultProps = {
   onError: null
 };
 /* harmony default export */ var component_ErrorBoundary = (ErrorBoundary_ErrorBoundary);
-// EXTERNAL MODULE: ./node_modules/antd/es/dropdown/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/dropdown/style/index.js + 1 modules
 var dropdown_style = __webpack_require__("qVdP");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/dropdown/index.js
 var dropdown = __webpack_require__("jsC+");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/spin/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/spin/style/index.js + 1 modules
 var spin_style = __webpack_require__("T2oS");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/spin/index.js
 var spin = __webpack_require__("W9HT");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/avatar/style/index.js + 1 modules
+// EXTERNAL MODULE: ./node_modules/antd/es/avatar/style/index.js + 3 modules
 var avatar_style = __webpack_require__("Telt");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/avatar/index.js + 4 modules
 var es_avatar = __webpack_require__("Tckk");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/menu/style/index.js
+// EXTERNAL MODULE: ./node_modules/antd/es/menu/style/index.js + 1 modules
 var menu_style = __webpack_require__("lUTK");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/menu/index.js + 15 modules
@@ -712,18 +712,6 @@ var layout_BasicLayout = function BasicLayout(props) {
     userConfig: userConfig
   }, props));
 });
-
-/***/ }),
-
-/***/ "rZaO":
-/*!********************************************************************!*\
-  !*** ./src/.umi-production/plugin-layout/layout/layout/style.less ***!
-  \********************************************************************/
-/*! no static exports found */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ })
 

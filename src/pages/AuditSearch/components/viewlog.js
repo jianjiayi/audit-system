@@ -9,8 +9,6 @@ import { Modal } from 'antd';
 
 import BaseTable from '@components/BaseTable';
 
-import styles from './viewlog.module.less';
-
 function ViewLogRender(props, ref) {
   const [modalVisible, setModalVisible] = useState(false);
   const [dataSource, setDataSource] = useState([]);
@@ -36,7 +34,7 @@ function ViewLogRender(props, ref) {
   };
 
   const tableProps = {
-    className: styles['table-container'],
+    // className: styles['table-container'],
     // 类型
     selectionType: null,
     // 表头

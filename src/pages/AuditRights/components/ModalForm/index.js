@@ -6,11 +6,8 @@
 
 import React, { useState, useRef, useImperativeHandle, forwardRef } from 'react';
 import { Modal, Button } from 'antd';
-import classNames from 'classnames';
 
 import BaseForm from '@components/BaseForm';
-
-import styles from './index.module.less';
 
 function ModalForm(props, ref) {
   const formRef = useRef(null);
@@ -53,13 +50,11 @@ function ModalForm(props, ref) {
     ...rest,
   };
   return (
-    <div className={classNames(styles.container)}>
-      <Modal {...modalProps}>
-        <BaseForm {...formProps} pRef={formRef}>
-          <Button onClick={() => onCancel()}>取消</Button>
-        </BaseForm>
-      </Modal>
-    </div>
+    <Modal {...modalProps}>
+      <BaseForm {...formProps} pRef={formRef}>
+        <Button onClick={() => onCancel()}>取消</Button>
+      </BaseForm>
+    </Modal>
   );
 }
 
