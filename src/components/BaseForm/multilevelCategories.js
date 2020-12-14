@@ -11,9 +11,11 @@ export default function multilevelCategories(props) {
     secondCategory = [],
     thirdCategory = [],
     onChange,
-    value={},
+    value = {},
     ...rest
   } = props;
+
+  console.log('3333333', value);
 
   const selectProps = {
     allowClear: true,
@@ -21,16 +23,15 @@ export default function multilevelCategories(props) {
     ...rest,
   };
 
-  const { firstCategoryId = null, secondCategoryId = null, thirdCategoryId = null } = value;
-
-  const selectChange = (e, id)=>{
+  const selectChange = (e, id) => {
+    console.log('e, id', e, id);
     value[id] = e;
-    onChange(value, id)
-  }
+    onChange(value, id);
+  };
 
   return (
     <Input.Group compact>
-      <Form.Item key="firstCategoryId" name="firstCategoryId" noStyle initialValue={firstCategoryId}>
+      <Form.Item key="firstCategoryId" name="firstCategoryId" noStyle>
         <Select
           placeholder="一级分类"
           {...selectProps}
@@ -46,7 +47,7 @@ export default function multilevelCategories(props) {
             })}
         </Select>
       </Form.Item>
-      <Form.Item key="secondCategoryId" name="secondCategoryId" noStyle initialValue={secondCategoryId}>
+      <Form.Item key="secondCategoryId" name="secondCategoryId" noStyle>
         <Select
           placeholder="二级分类"
           {...selectProps}
@@ -62,8 +63,12 @@ export default function multilevelCategories(props) {
             })}
         </Select>
       </Form.Item>
-      <Form.Item key="thirdCategoryId" name="thirdCategoryId" noStyle initialValue={thirdCategoryId}>
-        <Select placeholder="三级分类" {...selectProps} onChange={(e) => selectChange(e, 'thirdCategoryId')}>
+      <Form.Item key="thirdCategoryId" name="thirdCategoryId" noStyle>
+        <Select
+          placeholder="三级分类"
+          {...selectProps}
+          onChange={(e) => selectChange(e, 'thirdCategoryId')}
+        >
           {!_.isEmpty(thirdCategory) &&
             thirdCategory.map((item, index) => {
               return (

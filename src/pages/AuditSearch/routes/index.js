@@ -45,7 +45,7 @@ function AuditSearch(props) {
   const viewRecordRef = useRef(null);
 
   // 内容类型
-  const [cType, setCType] = useState('')
+  const [cType, setCType] = useState('');
 
   // 搜索表单参数值
   const QUERY_FROM_SEARCH = JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH')) || {};
@@ -62,8 +62,8 @@ function AuditSearch(props) {
     const query = JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH')) || {}; // 获取缓存中查询条件
     console.log('query', query);
     formRef.current.setFieldsValue({
-      ...query
-    })
+      ...query,
+    });
 
     dispatch({
       type: 'Search/init',
@@ -74,7 +74,15 @@ function AuditSearch(props) {
     });
   }, [dispatch]);
 
-  
+  useEffect(() => {
+    dispatch({
+      type: 'Global/getSecondCategory',
+      payload: {
+        id: query.firstCategoryId,
+        type: cType,
+      },
+    });
+  }, [query.firstCategoryId]);
 
   // 表单默认值
   const staticFormValues = {
@@ -86,30 +94,29 @@ function AuditSearch(props) {
   };
 
   // console.log(updateFormValues, _.isEmpty(JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH'))))
-  const selectCategoryFun = (id, name)=>{
-    if(name === 'firstCategoryId'){
+  const selectCategoryFun = (id, name) => {
+    if (name === 'firstCategoryId') {
       formRef.current.resetFields(['secondCategoryId', 'thirdCategoryId']);
       formRef.current.setFieldsValue({ secondCategoryId: null, thirdCategoryId: null });
       dispatch({
         type: 'Global/getSecondCategory',
         payload: {
           id,
-          type: cType
+          type: cType,
         },
       });
-    }else{
+    } else {
       formRef.current.resetFields(['thirdCategoryId']);
       formRef.current.setFieldsValue({ thirdCategoryId: null });
       dispatch({
         type: 'Global/getThirdCategory',
         payload: {
           id,
-          type: cType
+          type: cType,
         },
       });
     }
-  }
-
+  };
 
   // 多条搜索表单配置
   const searchFormProps = {
@@ -148,25 +155,23 @@ function AuditSearch(props) {
         name: 'type',
         // initialValue: 'NEWS',
         map: contentType,
-        onChange: (e)=>{
+        onChange: (e) => {
           console.log(e);
-          setCType(e)
-          console.log(formRef.current)
-          formRef.current.setFieldsValue(
-            {
-              firstCategoryId: null,
-              secondCategoryId: null, 
-              thirdCategoryId:null
-            }
-          );
+          setCType(e);
+          console.log(formRef.current);
+          formRef.current.setFieldsValue({
+            firstCategoryId: null,
+            secondCategoryId: null,
+            thirdCategoryId: null,
+          });
           dispatch({
-            type: 'Global/getFirstCategory', 
-            payload:{
-              id: 0, 
-              type:e
-            }
-          })
-        }
+            type: 'Global/getFirstCategory',
+            payload: {
+              id: 0,
+              type: e,
+            },
+          });
+        },
       },
       {
         label: '内容分类',
@@ -176,7 +181,7 @@ function AuditSearch(props) {
         secondCategory,
         thirdCategory,
         onChange: (values, name) => {
-          selectCategoryFun(values[name], name)
+          selectCategoryFun(values[name], name);
         },
       },
       {
@@ -237,12 +242,12 @@ function AuditSearch(props) {
       tableRef.current.setSelectedRowKeys(null);
 
       // 格式化分类
-      if(!_.isEmpty(formValues.category)){
+      if (!_.isEmpty(formValues.category)) {
         let arr = Object.values(formValues.category);
         arr = arr.filter((item) => item !== undefined);
-        formValues.category= arr.join('/') 
-      };
-      
+        formValues.category = arr.join('/');
+      }
+
       // 整理时间
       if (!_.isEmpty(formValues.datatime)) {
         formValues.startTime = formValues.datatime[0].format(dateFormat);
@@ -436,10 +441,12 @@ function AuditSearch(props) {
           if (_.isEmpty(data)) {
             return message.error('当前文章不可以领取');
           }
-  
+
           dispatch({ type: 'CDetails/save', payload: { query: params } });
-          // sessionStorage.setItem('$QUERY', params);
+
           sessionStorage.setItem('$QUERY', JSON.stringify(params));
+
+          sessionStorage.setItem('$QUERY_FROM_SEARCH', query);
           sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify(query));
           history.push({
             pathname: '/search/cdetails',
@@ -449,10 +456,9 @@ function AuditSearch(props) {
           });
         },
       });
-    }catch(e){
-      console.log('e',e)
+    } catch (e) {
+      console.log('e', e);
     }
-    
   };
 
   // 加队列操作
