@@ -75,14 +75,28 @@ function AuditSearch(props) {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch({
-      type: 'Global/getSecondCategory',
-      payload: {
-        id: query.firstCategoryId,
-        type: cType,
-      },
-    });
-  }, [query.firstCategoryId]);
+    if(query.category1){
+      dispatch({
+        type: 'Global/getSecondCategory',
+        payload: {
+          id: query.category1,
+          type: cType,
+        },
+      });
+    }
+  }, [query.category1]);
+
+  useEffect(() => {
+    if(query.category2){
+      dispatch({
+        type: 'Global/getSecondCategory',
+        payload: {
+          id: query.category2,
+          type: cType,
+        },
+      });
+    }
+  }, [query.category2]);
 
   // 表单默认值
   const staticFormValues = {
@@ -96,8 +110,8 @@ function AuditSearch(props) {
   // console.log(updateFormValues, _.isEmpty(JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH'))))
   const selectCategoryFun = (id, name) => {
     if (name === 'firstCategoryId') {
-      formRef.current.resetFields(['secondCategoryId', 'thirdCategoryId']);
-      formRef.current.setFieldsValue({ secondCategoryId: null, thirdCategoryId: null });
+      formRef.current.resetFields(['category2', 'category3']);
+      formRef.current.setFieldsValue({ category2: null, category3: null });
       dispatch({
         type: 'Global/getSecondCategory',
         payload: {
@@ -106,8 +120,8 @@ function AuditSearch(props) {
         },
       });
     } else {
-      formRef.current.resetFields(['thirdCategoryId']);
-      formRef.current.setFieldsValue({ thirdCategoryId: null });
+      formRef.current.resetFields(['category3']);
+      formRef.current.setFieldsValue({ category3: null });
       dispatch({
         type: 'Global/getThirdCategory',
         payload: {
@@ -132,7 +146,6 @@ function AuditSearch(props) {
         label: '业务线',
         type: 'SELECT',
         name: 'businessId',
-        // initialValue: ExObject.getFirstValue(business),
         map: business,
         onChange: (e) => {
           console.log('e', e);
@@ -153,7 +166,6 @@ function AuditSearch(props) {
         label: '内容类型',
         type: 'SELECT',
         name: 'type',
-        // initialValue: 'NEWS',
         map: contentType,
         onChange: (e) => {
           console.log(e);
@@ -175,7 +187,6 @@ function AuditSearch(props) {
       },
       {
         label: '内容分类',
-        name: 'category',
         type: 'MultilevelCategories',
         firstCategory,
         secondCategory,
@@ -188,7 +199,6 @@ function AuditSearch(props) {
         label: '所属队列',
         type: 'SELECT',
         name: 'queue',
-        // initialValue: '',
         map: { '': '全部', ...queueMap },
       },
       {
@@ -210,17 +220,17 @@ function AuditSearch(props) {
       { label: '采集源', name: 'crawlSource' },
       {
         label: '筛选',
-        name: 'filter',
+        // name: 'filter',
         isSpecial: true,
         itemRender: (
           <Input.Group compact>
-            <Form.Item name={['filter', 'key']} noStyle initialValue="title">
+            <Form.Item name='key' noStyle initialValue="title">
               <Select style={{ width: '30%' }}>
                 <Option value="title">标题</Option>
                 <Option value="id">ID</Option>
               </Select>
             </Form.Item>
-            <Form.Item name={['filter', 'value']} noStyle>
+            <Form.Item name='value' noStyle>
               <Input placeholder="请输入" style={{ width: '70%' }} />
             </Form.Item>
           </Input.Group>
@@ -240,14 +250,6 @@ function AuditSearch(props) {
     onSubmit: (formValues) => {
       // 取消table选中的数据
       tableRef.current.setSelectedRowKeys(null);
-
-      // 格式化分类
-      if (!_.isEmpty(formValues.category)) {
-        let arr = Object.values(formValues.category);
-        arr = arr.filter((item) => item !== undefined);
-        formValues.category = arr.join('/');
-      }
-
       // 整理时间
       if (!_.isEmpty(formValues.datatime)) {
         formValues.startTime = formValues.datatime[0].format(dateFormat);
@@ -256,8 +258,7 @@ function AuditSearch(props) {
       delete formValues.datatime;
 
       // 格式化筛选条件
-      formValues[formValues.filter.key] = formValues.filter.value;
-      delete formValues.filter;
+      formValues[formValues.key] = formValues.value;
 
       console.log('formValues', formValues);
       dispatch({

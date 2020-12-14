@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { Form, Input, Select } from 'antd';
@@ -12,10 +13,11 @@ export default function multilevelCategories(props) {
     thirdCategory = [],
     onChange,
     value = {},
+    id,
     ...rest
   } = props;
 
-  console.log('3333333', value);
+  // console.log('3333333', rest);
 
   const selectProps = {
     allowClear: true,
@@ -24,14 +26,14 @@ export default function multilevelCategories(props) {
   };
 
   const selectChange = (e, id) => {
-    console.log('e, id', e, id);
+    // console.log('e, id', e, id);
     value[id] = e;
     onChange(value, id);
   };
 
   return (
     <Input.Group compact>
-      <Form.Item key="firstCategoryId" name="firstCategoryId" noStyle>
+      <Form.Item key="firstCategoryId" name="category1" noStyle>
         <Select
           placeholder="一级分类"
           {...selectProps}
@@ -40,14 +42,14 @@ export default function multilevelCategories(props) {
           {!_.isEmpty(firstCategory) &&
             firstCategory.map((item, index) => {
               return (
-                <Option key={item.id} value={item.id.toString()}>
+                <Option key={item.code} value={item.code.toString()}>
                   {item.name}
                 </Option>
               );
             })}
         </Select>
       </Form.Item>
-      <Form.Item key="secondCategoryId" name="secondCategoryId" noStyle>
+      <Form.Item key="secondCategoryId" name="category2" noStyle>
         <Select
           placeholder="二级分类"
           {...selectProps}
@@ -56,14 +58,14 @@ export default function multilevelCategories(props) {
           {!_.isEmpty(secondCategory) &&
             secondCategory.map((item, index) => {
               return (
-                <Option key={item.id} value={item.id.toString()}>
+                <Option key={item.code} value={item.code.toString()}>
                   {item.name}
                 </Option>
               );
             })}
         </Select>
       </Form.Item>
-      <Form.Item key="thirdCategoryId" name="thirdCategoryId" noStyle>
+      <Form.Item key="thirdCategoryId" name="category3" noStyle>
         <Select
           placeholder="三级分类"
           {...selectProps}
@@ -72,7 +74,7 @@ export default function multilevelCategories(props) {
           {!_.isEmpty(thirdCategory) &&
             thirdCategory.map((item, index) => {
               return (
-                <Option key={item.id} value={item.id.toString()}>
+                <Option key={item.code} value={item.code.toString()}>
                   {item.name}
                 </Option>
               );

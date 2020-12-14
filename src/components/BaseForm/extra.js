@@ -1,3 +1,5 @@
+/* eslint-disable prefer-template */
+/* eslint-disable no-bitwise */
 /* eslint-disable no-unneeded-ternary */
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-param-reassign */
@@ -10,6 +12,19 @@ import { Col, Form, Input, Radio, Checkbox, Select } from 'antd';
 import { isArray, isFunction, isPlainObject } from 'lodash';
 // eslint-disable-next-line import/no-cycle
 import { FormItem } from './config';
+
+/**
+ * 生成uuid，用来没有设置name时候，取此值作为唯一key
+ *
+ * @return {*}
+ */
+function guid() {
+  function S4() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
 
 /**
  * 对象转为entry数组
@@ -34,13 +49,17 @@ function entries(object, callback = (item) => item) {
 export function fillFormItems(items, formValues = {}) {
   // console.log(items)
   return items.map((item) => {
-    const { label, name, required = false, initialValue = formValues[name], help = null } = item;
+    const {
+      label,
+      name = guid(),
+      required = false,
+      initialValue = formValues[name],
+      help = null,
+    } = item;
 
     return {
       options: {
-        rules: required
-          ? [{ required: required, message: `请输入${label}` }]
-          : null,
+        rules: required ? [{ required: required, message: `请输入${label}` }] : null,
         initialValue,
         help,
       },
@@ -61,7 +80,7 @@ export function renderFormItem(item, formLayout, layout, mediaSpan) {
   // console.log('item', item)
   const {
     label,
-    name,
+    name = guid(),
     type = '',
     map = [],
     options,
@@ -111,6 +130,7 @@ export function renderFormItem(item, formLayout, layout, mediaSpan) {
   };
 
   mediaSpan = colSpan ? colSpan : mediaSpan;
+
   const colProps = {
     key: name,
     // style: layout === 'inline' ? { padding: 0 } : null,
