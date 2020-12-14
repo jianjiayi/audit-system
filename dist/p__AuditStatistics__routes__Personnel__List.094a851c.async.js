@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[6],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
 
 /***/ "3k04":
 /*!************************************************************!*\
@@ -339,20 +339,6 @@ var rejectReason = ['文章质量差', '广告', '软文', '封图', '去杂不�
 
 /***/ }),
 
-/***/ "Gekg":
-/*!***************************************************************!*\
-  !*** ./src/pages/AuditQueue/routes/index.module.less?modules ***!
-  \***************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"list":"list___325mz","item":"item___CGycI","text":"text___2BXpG"};
-
-/***/ }),
-
 /***/ "H+gj":
 /*!******************************!*\
   !*** ./src/assets/error.png ***!
@@ -366,10 +352,24 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 
 /***/ }),
 
-/***/ "gIUF":
-/*!**********************************************!*\
-  !*** ./src/pages/AuditQueue/routes/index.js ***!
-  \**********************************************/
+/***/ "NilG":
+/*!***********************************************************************************!*\
+  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.module.less?modules ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/*! exports used: default */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"tableaction":"tableaction___2qm3g"};
+
+/***/ }),
+
+/***/ "mAEq":
+/*!******************************************************************!*\
+  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.js ***!
+  \******************************************************************/
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./src/.umi-production/core/routes.ts (referenced with import()) */
@@ -377,44 +377,59 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var antd_es_message_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/es/message/style */ "miYZ");
-/* harmony import */ var antd_es_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/message */ "tsqr");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
-/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray */ "tJVT");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "q1tI");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "LvDl");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! umi */ "9kvl");
-/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
-/* harmony import */ var _components_BaseTable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @components/BaseTable */ "5KP8");
-/* harmony import */ var _pages_constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/pages/constants */ "6ZGt");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index.module.less?modules */ "Gekg");
-/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _components_WrapAuth__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @components/WrapAuth */ "yAXW");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends */ "0Owb");
+/* harmony import */ var antd_es_form_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/form/style */ "y8nQ");
+/* harmony import */ var antd_es_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/es/form */ "Vl3Y");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
+/* harmony import */ var antd_es_select_style__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/es/select/style */ "OaEy");
+/* harmony import */ var antd_es_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd/es/select */ "2fM7");
+/* harmony import */ var antd_es_input_style__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/es/input/style */ "5NDa");
+/* harmony import */ var antd_es_input__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd/es/input */ "5rEg");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "q1tI");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var dva__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! dva */ "/MKj");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lodash */ "LvDl");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! umi */ "9kvl");
+/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
+/* harmony import */ var _components_BaseTable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @components/BaseTable */ "5KP8");
+/* harmony import */ var _utils_utils_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @utils/utils.js */ "+n12");
+/* harmony import */ var _pages_constants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/pages/constants */ "6ZGt");
+/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./index.module.less?modules */ "NilG");
+/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @components/WrapAuth */ "yAXW");
 
 
 
 
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
-/* eslint-disable consistent-return */
 
-/* eslint-disable react/jsx-curly-brace-presence */
 
-/* eslint-disable react/self-closing-comp */
 
 /* eslint-disable spaced-comment */
-
-/* eslint-disable no-console */
-
-/* eslint-disable prefer-const */
 
 /* eslint-disable import/order */
 
 /* eslint-disable import/no-unresolved */
 
+/* eslint-disable no-param-reassign */
+
+/* eslint-disable no-console */
+
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
+/* eslint-disable object-shorthand */
+
+/* eslint-disable no-undef */
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable react/jsx-curly-brace-presence */
+
+/* eslint-disable react/self-closing-comp */
+
+/* eslint-disable no-unused-vars */
 
 
 
@@ -422,150 +437,223 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-delete _pages_constants__WEBPACK_IMPORTED_MODULE_9__[/* contentType */ "e"][''];
 
-function AuditQueue(props) {
-  // 当前页面
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(1),
-      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(_useState, 2),
-      current = _useState2[0],
-      setCurrent = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])('NEWS'),
-      _useState4 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(_useState3, 2),
-      type = _useState4[0],
-      setType = _useState4[1];
 
+var InputGroup = antd_es_input__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"].Group;
+var Option = antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].Option;
+
+function AuditStatistics(props) {
+  var _useModel = Object(umi__WEBPACK_IMPORTED_MODULE_11__[/* useModel */ "k"])('@@initialState'),
+      _useModel$initialStat = _useModel.initialState.currentUser,
+      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
+
+  var formRef = Object(react__WEBPACK_IMPORTED_MODULE_8__["useRef"])(null);
   var dispatch = props.dispatch,
-      _props$Queue = props.Queue,
-      loading = _props$Queue.loading,
-      dataSource = _props$Queue.dataSource;
-  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
+      _props$business = props.business,
+      business = _props$business === void 0 ? currentUser.business || {} : _props$business,
+      _props$Statistics = props.Statistics,
+      loading = _props$Statistics.loading,
+      dataSource = _props$Statistics.dataSource,
+      pagination = _props$Statistics.pagination;
+  Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
     dispatch({
-      type: 'Queue/init',
-      payload: {
-        type: type
-      }
+      type: 'Statistics/init',
+      payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({
+        type: 'person'
+      }, formRef.current.getFieldsValue())
     });
   }, [dispatch]); // 多条件搜索配置
 
   var searchFormProps = {
-    className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_10___default.a['form-contaner'],
+    className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_16___default.a['form-contaner'],
     layout: 'inline',
-    submitText: '刷新',
+    resetShow: true,
     authProps: {
-      pathUrl: '/statistics/classify',
-      perms: 'statistics:classify:select'
+      pathUrl: '/statistics/personnel/',
+      perms: 'statistics:person:select'
     },
     dataSource: [{
-      label: '内容类型',
+      label: '业务线',
       type: 'SELECT',
-      name: 'type',
-      initialValue: type,
-      map: _pages_constants__WEBPACK_IMPORTED_MODULE_9__[/* contentType */ "e"]
+      name: 'businessId',
+      initialValue: _utils_utils_js__WEBPACK_IMPORTED_MODULE_14__[/* ExObject */ "a"].getFirstValue(business),
+      map: business
+    }, {
+      label: '时间',
+      name: 'datatime',
+      type: 'DateTimeStartEnd'
+    }, {
+      label: '类型',
+      type: 'SELECT',
+      name: 'newsType',
+      initialValue: 'NEWS',
+      map: _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* contentType */ "e"]
+    }, {
+      label: '人员',
+      name: 'user'
+    }, {
+      label: '排序',
+      name: 'params11',
+      itemRender: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(InputGroup, {
+        compact: true
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_form__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].Item, {
+        name: "orderField",
+        initialValue: "",
+        noStyle: true
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"], {
+        style: {
+          width: '50%'
+        }
+      }, Object.keys(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderFieldMap */ "j"]).map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Option, {
+          key: item,
+          value: item
+        }, _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderFieldMap */ "j"][item]);
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_form__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].Item, {
+        name: "orderType",
+        initialValue: "desc",
+        noStyle: true
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"], {
+        style: {
+          width: '50%'
+        }
+      }, Object.keys(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderTypeMap */ "k"]).map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Option, {
+          key: item,
+          value: item
+        }, _pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* orderTypeMap */ "k"][item]);
+      }))))
     }],
-    onSubmit: function onSubmit(formValues) {
-      console.log('formValues', formValues);
-      setType(formValues.type);
-      setCurrent(1);
+    onReset: function onReset() {
       dispatch({
-        type: 'Queue/init',
-        payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, formValues)
+        type: 'Statistics/init',
+        payload: {
+          type: 'person',
+          businessId: formRef.current.getFieldValue('businessId')
+        }
+      });
+    },
+    onSubmit: function onSubmit(formValues) {
+      if (!lodash__WEBPACK_IMPORTED_MODULE_10___default.a.isEmpty(formValues.datatime)) {
+        formValues.startTime = formValues.datatime[0].format(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* dateFormat */ "f"]);
+        formValues.endTime = formValues.datatime[1].format(_pages_constants__WEBPACK_IMPORTED_MODULE_15__[/* dateFormat */ "f"]);
+      }
+
+      delete formValues.datatime;
+      console.log('formValues', formValues);
+      dispatch({
+        type: 'Statistics/getStatisticQuery',
+        payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValues), {}, {
+          type: 'person'
+        })
       });
     }
-  }; // 领审
-
-  var goDetails = function goDetails(name, id) {
-    var params = {
-      queue: id,
-      queueName: name,
-      type: type,
-      routersource: 'queue'
-    };
-    sessionStorage.setItem('$queueContentId', '');
-    sessionStorage.setItem('$QUERY', JSON.stringify({}));
-    dispatch({
-      type: 'CDetails/getNewsGetTask',
-      payload: params,
-      callback: function callback(data) {
-        console.log('data', data);
-
-        if (lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEmpty(data)) {
-          return antd_es_message__WEBPACK_IMPORTED_MODULE_1__[/* default */ "b"].error('当前队列没有文章可以领取');
-        }
-
-        dispatch({
-          type: 'CDetails/save',
-          payload: {
-            query: params
-          }
-        });
-        sessionStorage.setItem('$QUERY', JSON.stringify(params));
-        umi__WEBPACK_IMPORTED_MODULE_6__[/* history */ "f"].push({
-          pathname: '/queue/cdetails',
-          query: {
-            isBack: true
-          }
-        });
-      }
-    });
-  };
+  }; // 列表配置
 
   var tableProps = {
-    className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_10___default.a.tablebox,
     // 类型
     selectionType: null,
     //checkbox or radio or null||false
     // 表头
     columns: [{
-      title: '名称',
-      dataIndex: 'queueName',
-      width: 300,
+      title: '时间',
+      dataIndex: 'dt',
       render: function render(text) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("b", null, text);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", null, text);
       }
     }, {
-      title: '数量',
-      dataIndex: 'count',
+      title: '人员',
       align: 'center',
-      width: 150
+      dataIndex: 'auditorName'
+    }, {
+      title: '领审量',
+      align: 'center',
+      dataIndex: 'takeCount'
+    }, {
+      title: '审核量',
+      align: 'center',
+      dataIndex: 'auditCount'
+    }, {
+      title: '审核通过量',
+      align: 'center',
+      dataIndex: 'auditPassedCount'
     }, {
       title: '操作',
+      width: '100px',
+      align: 'center',
       render: function render(r) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"], {
-          pathUrl: "/queue",
-          text: "\u9886\u53D6",
-          key: r.id,
-          perms: 'queue:receive',
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"], {
+          pathUrl: "/statistics/personnel/",
+          perms: 'statistics:person:select',
+          type: "primary",
+          size: "small",
+          text: "\u660E\u7EC6",
           onClick: function onClick() {
-            goDetails(r.queueName, r.queueId);
+            return goDetails(r.auditorId);
           }
         });
       }
     }],
     loading: loading,
     dataSource: dataSource,
-    pagination: {
-      current: current
-    },
+    pagination: pagination,
     onPageChg: function onPageChg(page) {
       // console.log(page)
-      setCurrent(page.current);
+      dispatch({
+        type: 'Statistics/getStatisticQuery',
+        payload: {
+          type: 'person',
+          pageNum: page.current,
+          pageSize: page.pageSize,
+          businessId: formRef.current.getFieldValue('businessId')
+        }
+      });
     }
+  }; // 审核详情页
+
+  var goDetails = function goDetails(id) {
+    var formValue = formRef.current.getFieldsValue();
+    umi__WEBPACK_IMPORTED_MODULE_11__[/* history */ "f"].push({
+      pathname: '/statistics/personnel/details',
+      query: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValue), {}, {
+        id: id,
+        isBack: true
+      })
+    });
+  }; // 下载excel
+
+
+  var DownloadExcel = function DownloadExcel() {
+    // run()
+    dispatch({
+      type: 'Statistics/getPersoneExportExcel',
+      payload: {}
+    });
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"], searchFormProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_components_BaseTable__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"], tableProps));
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({}, searchFormProps, {
+    pRef: formRef
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"], {
+    pathUrl: "/statistics/personnel/",
+    perms: "statistics:person:select",
+    text: "\u5BFC\u51FA",
+    ghost: true,
+    type: "primary",
+    onClick: function onClick() {
+      return DownloadExcel();
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseTable__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"], tableProps));
 }
 
 function mapStateToProps(_ref) {
-  var Queue = _ref.Queue,
-      CDetails = _ref.CDetails;
+  var Statistics = _ref.Statistics;
   return {
-    Queue: Queue,
-    CDetails: CDetails
+    Statistics: Statistics
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(umi__WEBPACK_IMPORTED_MODULE_6__[/* connect */ "c"])(mapStateToProps)(AuditQueue));
+/* harmony default export */ __webpack_exports__["default"] = (Object(dva__WEBPACK_IMPORTED_MODULE_9__[/* connect */ "c"])(mapStateToProps)(AuditStatistics));
 
 /***/ }),
 
@@ -838,6 +926,8 @@ function numberRange(_ref) {
 
 
 
+/* eslint-disable @typescript-eslint/no-shadow */
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 
@@ -852,9 +942,9 @@ function multilevelCategories(props) {
       onChange = props.onChange,
       _props$value = props.value,
       value = _props$value === void 0 ? {} : _props$value,
-      rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value"]);
+      id = props.id,
+      rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value", "id"]); // console.log('3333333', rest);
 
-  console.log('3333333', value);
 
   var selectProps = Object(objectSpread2["a" /* default */])({
     allowClear: true,
@@ -864,7 +954,7 @@ function multilevelCategories(props) {
   }, rest);
 
   var selectChange = function selectChange(e, id) {
-    console.log('e, id', e, id);
+    // console.log('e, id', e, id);
     value[id] = e;
     onChange(value, id);
   };
@@ -873,7 +963,7 @@ function multilevelCategories(props) {
     compact: true
   }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "firstCategoryId",
-    name: "firstCategoryId",
+    name: "category1",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E00\u7EA7\u5206\u7C7B"
@@ -883,12 +973,12 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(firstCategory) && firstCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "secondCategoryId",
-    name: "secondCategoryId",
+    name: "category2",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
@@ -898,12 +988,12 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(secondCategory) && secondCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "thirdCategoryId",
-    name: "thirdCategoryId",
+    name: "category3",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E09\u7EA7\u5206\u7C7B"
@@ -913,8 +1003,8 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(thirdCategory) && thirdCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))));
 }
@@ -996,6 +1086,10 @@ var FormItem = {
 
 
 
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-bitwise */
+
 /* eslint-disable no-unneeded-ternary */
 
 /* eslint-disable no-constant-condition */
@@ -1012,12 +1106,26 @@ var FormItem = {
 
 
 /**
+ * 生成uuid，用来没有设置name时候，取此值作为唯一key
+ *
+ * @return {*}
+ */
+
+function guid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
+/**
  * 对象转为entry数组
  *
  * @param object   原对象
  * @param callback 转换方式
  * @returns {any}
  */
+
 
 function entries(object) {
   var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (item) {
@@ -1048,7 +1156,8 @@ function fillFormItems(items) {
   // console.log(items)
   return items.map(function (item) {
     var label = item.label,
-        name = item.name,
+        _item$name = item.name,
+        name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
         _item$initialValue = item.initialValue,
@@ -1079,7 +1188,8 @@ function fillFormItems(items) {
 function renderFormItem(item, formLayout, layout, mediaSpan) {
   // console.log('item', item)
   var label = item.label,
-      name = item.name,
+      _item$name2 = item.name,
+      name = _item$name2 === void 0 ? guid() : _item$name2,
       _item$type = item.type,
       type = _item$type === void 0 ? '' : _item$type,
       _item$map = item.map,

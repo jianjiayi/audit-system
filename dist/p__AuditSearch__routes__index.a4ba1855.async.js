@@ -1135,14 +1135,27 @@ function AuditSearch(props) {
     });
   }, [dispatch]);
   Object(react["useEffect"])(function () {
-    dispatch({
-      type: 'Global/getSecondCategory',
-      payload: {
-        id: query.firstCategoryId,
-        type: cType
-      }
-    });
-  }, [query.firstCategoryId]); // 表单默认值
+    if (query.category1) {
+      dispatch({
+        type: 'Global/getSecondCategory',
+        payload: {
+          id: query.category1,
+          type: cType
+        }
+      });
+    }
+  }, [query.category1]);
+  Object(react["useEffect"])(function () {
+    if (query.category2) {
+      dispatch({
+        type: 'Global/getSecondCategory',
+        payload: {
+          id: query.category2,
+          type: cType
+        }
+      });
+    }
+  }, [query.category2]); // 表单默认值
 
   var staticFormValues = {
     businessId: utils["a" /* ExObject */].getFirstValue(business),
@@ -1154,10 +1167,10 @@ function AuditSearch(props) {
 
   var selectCategoryFun = function selectCategoryFun(id, name) {
     if (name === 'firstCategoryId') {
-      formRef.current.resetFields(['secondCategoryId', 'thirdCategoryId']);
+      formRef.current.resetFields(['category2', 'category3']);
       formRef.current.setFieldsValue({
-        secondCategoryId: null,
-        thirdCategoryId: null
+        category2: null,
+        category3: null
       });
       dispatch({
         type: 'Global/getSecondCategory',
@@ -1167,9 +1180,9 @@ function AuditSearch(props) {
         }
       });
     } else {
-      formRef.current.resetFields(['thirdCategoryId']);
+      formRef.current.resetFields(['category3']);
       formRef.current.setFieldsValue({
-        thirdCategoryId: null
+        category3: null
       });
       dispatch({
         type: 'Global/getThirdCategory',
@@ -1194,7 +1207,6 @@ function AuditSearch(props) {
       label: '业务线',
       type: 'SELECT',
       name: 'businessId',
-      // initialValue: ExObject.getFirstValue(business),
       map: business,
       onChange: function onChange(e) {
         console.log('e', e);
@@ -1218,7 +1230,6 @@ function AuditSearch(props) {
       label: '内容类型',
       type: 'SELECT',
       name: 'type',
-      // initialValue: 'NEWS',
       map: constants["e" /* contentType */],
       onChange: function onChange(e) {
         console.log(e);
@@ -1239,7 +1250,6 @@ function AuditSearch(props) {
       }
     }, {
       label: '内容分类',
-      name: 'category',
       type: 'MultilevelCategories',
       firstCategory: firstCategory,
       secondCategory: secondCategory,
@@ -1251,7 +1261,6 @@ function AuditSearch(props) {
       label: '所属队列',
       type: 'SELECT',
       name: 'queue',
-      // initialValue: '',
       map: Object(objectSpread2["a" /* default */])({
         '': '全部'
       }, queueMap)
@@ -1278,12 +1287,12 @@ function AuditSearch(props) {
       name: 'crawlSource'
     }, {
       label: '筛选',
-      name: 'filter',
+      // name: 'filter',
       isSpecial: true,
       itemRender: /*#__PURE__*/react_default.a.createElement(input["a" /* default */].Group, {
         compact: true
       }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
-        name: ['filter', 'key'],
+        name: "key",
         noStyle: true,
         initialValue: "title"
       }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
@@ -1295,7 +1304,7 @@ function AuditSearch(props) {
       }, "\u6807\u9898"), /*#__PURE__*/react_default.a.createElement(Option, {
         value: "id"
       }, "ID"))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
-        name: ['filter', 'value'],
+        name: "value",
         noStyle: true
       }, /*#__PURE__*/react_default.a.createElement(input["a" /* default */], {
         placeholder: "\u8BF7\u8F93\u5165",
@@ -1314,16 +1323,7 @@ function AuditSearch(props) {
     },
     onSubmit: function onSubmit(formValues) {
       // 取消table选中的数据
-      tableRef.current.setSelectedRowKeys(null); // 格式化分类
-
-      if (!lodash_default.a.isEmpty(formValues.category)) {
-        var arr = Object.values(formValues.category);
-        arr = arr.filter(function (item) {
-          return item !== undefined;
-        });
-        formValues.category = arr.join('/');
-      } // 整理时间
-
+      tableRef.current.setSelectedRowKeys(null); // 整理时间
 
       if (!lodash_default.a.isEmpty(formValues.datatime)) {
         formValues.startTime = formValues.datatime[0].format(constants["f" /* dateFormat */]);
@@ -1332,8 +1332,7 @@ function AuditSearch(props) {
 
       delete formValues.datatime; // 格式化筛选条件
 
-      formValues[formValues.filter.key] = formValues.filter.value;
-      delete formValues.filter;
+      formValues[formValues.key] = formValues.value;
       console.log('formValues', formValues);
       dispatch({
         type: 'Search/getNewsList',
@@ -3306,6 +3305,8 @@ function numberRange(_ref) {
 
 
 
+/* eslint-disable @typescript-eslint/no-shadow */
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 
@@ -3320,9 +3321,9 @@ function multilevelCategories(props) {
       onChange = props.onChange,
       _props$value = props.value,
       value = _props$value === void 0 ? {} : _props$value,
-      rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value"]);
+      id = props.id,
+      rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value", "id"]); // console.log('3333333', rest);
 
-  console.log('3333333', value);
 
   var selectProps = Object(objectSpread2["a" /* default */])({
     allowClear: true,
@@ -3332,7 +3333,7 @@ function multilevelCategories(props) {
   }, rest);
 
   var selectChange = function selectChange(e, id) {
-    console.log('e, id', e, id);
+    // console.log('e, id', e, id);
     value[id] = e;
     onChange(value, id);
   };
@@ -3341,7 +3342,7 @@ function multilevelCategories(props) {
     compact: true
   }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "firstCategoryId",
-    name: "firstCategoryId",
+    name: "category1",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E00\u7EA7\u5206\u7C7B"
@@ -3351,12 +3352,12 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(firstCategory) && firstCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "secondCategoryId",
-    name: "secondCategoryId",
+    name: "category2",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
@@ -3366,12 +3367,12 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(secondCategory) && secondCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "thirdCategoryId",
-    name: "thirdCategoryId",
+    name: "category3",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E09\u7EA7\u5206\u7C7B"
@@ -3381,8 +3382,8 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(thirdCategory) && thirdCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))));
 }
@@ -3464,6 +3465,10 @@ var FormItem = {
 
 
 
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-bitwise */
+
 /* eslint-disable no-unneeded-ternary */
 
 /* eslint-disable no-constant-condition */
@@ -3480,12 +3485,26 @@ var FormItem = {
 
 
 /**
+ * 生成uuid，用来没有设置name时候，取此值作为唯一key
+ *
+ * @return {*}
+ */
+
+function guid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
+/**
  * 对象转为entry数组
  *
  * @param object   原对象
  * @param callback 转换方式
  * @returns {any}
  */
+
 
 function entries(object) {
   var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (item) {
@@ -3516,7 +3535,8 @@ function fillFormItems(items) {
   // console.log(items)
   return items.map(function (item) {
     var label = item.label,
-        name = item.name,
+        _item$name = item.name,
+        name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
         _item$initialValue = item.initialValue,
@@ -3547,7 +3567,8 @@ function fillFormItems(items) {
 function renderFormItem(item, formLayout, layout, mediaSpan) {
   // console.log('item', item)
   var label = item.label,
-      name = item.name,
+      _item$name2 = item.name,
+      name = _item$name2 === void 0 ? guid() : _item$name2,
       _item$type = item.type,
       type = _item$type === void 0 ? '' : _item$type,
       _item$map = item.map,

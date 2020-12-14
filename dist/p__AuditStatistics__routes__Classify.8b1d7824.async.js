@@ -903,6 +903,8 @@ function numberRange(_ref) {
 
 
 
+/* eslint-disable @typescript-eslint/no-shadow */
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 
@@ -917,9 +919,9 @@ function multilevelCategories(props) {
       onChange = props.onChange,
       _props$value = props.value,
       value = _props$value === void 0 ? {} : _props$value,
-      rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value"]);
+      id = props.id,
+      rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value", "id"]); // console.log('3333333', rest);
 
-  console.log('3333333', value);
 
   var selectProps = Object(objectSpread2["a" /* default */])({
     allowClear: true,
@@ -929,7 +931,7 @@ function multilevelCategories(props) {
   }, rest);
 
   var selectChange = function selectChange(e, id) {
-    console.log('e, id', e, id);
+    // console.log('e, id', e, id);
     value[id] = e;
     onChange(value, id);
   };
@@ -938,7 +940,7 @@ function multilevelCategories(props) {
     compact: true
   }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "firstCategoryId",
-    name: "firstCategoryId",
+    name: "category1",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E00\u7EA7\u5206\u7C7B"
@@ -948,12 +950,12 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(firstCategory) && firstCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "secondCategoryId",
-    name: "secondCategoryId",
+    name: "category2",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
@@ -963,12 +965,12 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(secondCategory) && secondCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "thirdCategoryId",
-    name: "thirdCategoryId",
+    name: "category3",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E09\u7EA7\u5206\u7C7B"
@@ -978,8 +980,8 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(thirdCategory) && thirdCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))));
 }
@@ -1061,6 +1063,10 @@ var FormItem = {
 
 
 
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-bitwise */
+
 /* eslint-disable no-unneeded-ternary */
 
 /* eslint-disable no-constant-condition */
@@ -1077,12 +1083,26 @@ var FormItem = {
 
 
 /**
+ * 生成uuid，用来没有设置name时候，取此值作为唯一key
+ *
+ * @return {*}
+ */
+
+function guid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
+/**
  * 对象转为entry数组
  *
  * @param object   原对象
  * @param callback 转换方式
  * @returns {any}
  */
+
 
 function entries(object) {
   var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (item) {
@@ -1113,7 +1133,8 @@ function fillFormItems(items) {
   // console.log(items)
   return items.map(function (item) {
     var label = item.label,
-        name = item.name,
+        _item$name = item.name,
+        name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
         _item$initialValue = item.initialValue,
@@ -1144,7 +1165,8 @@ function fillFormItems(items) {
 function renderFormItem(item, formLayout, layout, mediaSpan) {
   // console.log('item', item)
   var label = item.label,
-      name = item.name,
+      _item$name2 = item.name,
+      name = _item$name2 === void 0 ? guid() : _item$name2,
       _item$type = item.type,
       type = _item$type === void 0 ? '' : _item$type,
       _item$map = item.map,

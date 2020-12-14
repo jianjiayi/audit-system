@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[7],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
 
 /***/ "+Q71":
 /*!*************************************************************!*\
@@ -620,50 +620,6 @@ module.exports = {"container":"container___9kxO4"};
 
 /***/ }),
 
-/***/ "4vCz":
-/*!************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/lib/icons/PlusSquareOutlined.js ***!
-  \************************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "TqRt");
-
-var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "284h");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "q1tI"));
-
-var _PlusSquareOutlined = _interopRequireDefault(__webpack_require__(/*! @ant-design/icons-svg/lib/asn/PlusSquareOutlined */ "X2/X"));
-
-var _AntdIcon = _interopRequireDefault(__webpack_require__(/*! ../components/AntdIcon */ "KQxl"));
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-var PlusSquareOutlined = function PlusSquareOutlined(props, ref) {
-  return React.createElement(_AntdIcon.default, Object.assign({}, props, {
-    ref: ref,
-    icon: _PlusSquareOutlined.default
-  }));
-};
-
-PlusSquareOutlined.displayName = 'PlusSquareOutlined';
-
-var _default = React.forwardRef(PlusSquareOutlined);
-
-exports.default = _default;
-
-/***/ }),
-
 /***/ "5H4c":
 /*!***********************************************************!*\
   !*** ./src/components/BaseForm/index.module.less?modules ***!
@@ -989,219 +945,106 @@ var rejectReason = ['文章质量差', '广告', '软文', '封图', '去杂不�
 
 /***/ }),
 
-/***/ "A33H":
-/*!*****************************************************************!*\
-  !*** ./src/pages/AuditRights/routes/Roles/index.js + 1 modules ***!
-  \*****************************************************************/
+/***/ "H+gj":
+/*!******************************!*\
+  !*** ./src/assets/error.png ***!
+  \******************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "cfdY":
+/*!*****************************************************!*\
+  !*** ./src/pages/AuditRights/routes/Users/index.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/AuditRights/routes/Roles/index.module.less?modules (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/AuditRights/components/ModalForm/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/modal/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/modal/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tree/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tree/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./src/.umi-production/core/routes.ts (referenced with import()) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends.js
-var esm_extends = __webpack_require__("0Owb");
-
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-var objectSpread2 = __webpack_require__("k1fw");
-
-// EXTERNAL MODULE: ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
-var slicedToArray = __webpack_require__("tJVT");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/modal/style/index.js
-var style = __webpack_require__("2qtc");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/modal/index.js + 7 modules
-var modal = __webpack_require__("kLXV");
-
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__("q1tI");
-var react_default = /*#__PURE__*/__webpack_require__.n(react);
-
-// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
-var lodash = __webpack_require__("LvDl");
-var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
-
-// EXTERNAL MODULE: ./src/.umi-production/core/umiExports.ts + 19 modules
-var umiExports = __webpack_require__("9kvl");
-
-// EXTERNAL MODULE: ./src/components/BaseForm/index.js + 4 modules
-var BaseForm = __webpack_require__("zLEZ");
-
-// EXTERNAL MODULE: ./src/components/BaseTable/index.js
-var BaseTable = __webpack_require__("5KP8");
-
-// EXTERNAL MODULE: ./src/pages/constants.js
-var constants = __webpack_require__("6ZGt");
-
-// EXTERNAL MODULE: ./src/components/WrapAuth/index.js
-var WrapAuth = __webpack_require__("yAXW");
-
-// EXTERNAL MODULE: ./src/pages/AuditRights/components/ModalForm/index.js
-var ModalForm = __webpack_require__("+Q71");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/tree/style/index.js
-var tree_style = __webpack_require__("ozfa");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/tree/index.js + 9 modules
-var tree = __webpack_require__("MJZm");
-
-// CONCATENATED MODULE: ./src/pages/AuditRights/components/TreeSelect/index.js
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/extends */ "0Owb");
+/* harmony import */ var antd_es_tag_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/tag/style */ "+BJd");
+/* harmony import */ var antd_es_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/es/tag */ "mr32");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "k1fw");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray */ "tJVT");
+/* harmony import */ var antd_es_modal_style__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd/es/modal/style */ "2qtc");
+/* harmony import */ var antd_es_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/es/modal */ "kLXV");
+/* harmony import */ var antd_es_select_style__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd/es/select/style */ "OaEy");
+/* harmony import */ var antd_es_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd/es/select */ "2fM7");
+/* harmony import */ var antd_es_input_style__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd/es/input/style */ "5NDa");
+/* harmony import */ var antd_es_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd/es/input */ "5rEg");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react */ "q1tI");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var umi__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! umi */ "9kvl");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! lodash */ "LvDl");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
+/* harmony import */ var _components_BaseTable__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @components/BaseTable */ "5KP8");
+/* harmony import */ var _components_ModalForm__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../components/ModalForm */ "+Q71");
+/* harmony import */ var _pages_constants__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @/pages/constants */ "6ZGt");
+/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./index.module.less?modules */ "wJaQ");
+/* harmony import */ var _index_module_less_modules__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_index_module_less_modules__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _components_WrapAuth__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @components/WrapAuth */ "yAXW");
 
 
 
 
-/* eslint-disable spaced-comment */
 
-/* eslint-disable no-func-assign */
 
-/* eslint-disable @typescript-eslint/no-shadow */
 
-/* eslint-disable array-callback-return */
+
+
+
+
+
+/* eslint-disable react/no-array-index-key */
+
+/* eslint-disable no-useless-return */
 
 /* eslint-disable consistent-return */
 
-/* eslint-disable no-param-reassign */
-
-/* eslint-disable @typescript-eslint/dot-notation */
-
-/* eslint-disable prefer-const */
-
-
-
-var TreeSelect_getTreeData = function getTreeData(dataPermissions) {
-  // 深拷贝权限
-  var permissions = lodash_default.a.cloneDeep(dataPermissions);
-
-  if (lodash_default.a.isEmpty(permissions)) return; // 获取顶层路由
-
-  var treeData = permissions.filter(function (item) {
-    return item.parentId === 0;
-  }) || []; // 生成权限树
-
-  var getPermissionsTree = function getPermissionsTree(routes, data) {
-    if (routes.length === 0) return [];
-    routes.map(function (item) {
-      item['title'] = item.permissionName;
-      item['value'] = item.permissionId;
-      item['key'] = item.permissionId; // item['checked'] = 'true';
-
-      var children = data.filter(function (v) {
-        return v.parentId === item.permissionId;
-      });
-
-      if (children.length > 0) {
-        item.children = children;
-        getPermissionsTree(children, data);
-      }
-    });
-  };
-
-  getPermissionsTree(treeData, permissions);
-  return treeData;
-};
-
-function TreeClassification(props, ref) {
-  var permissionDataList = props.permissionDataList,
-      _props$value = props.value,
-      value = _props$value === void 0 ? [] : _props$value,
-      _props$onChange = props.onChange,
-      onChange = _props$onChange === void 0 ? function () {} : _props$onChange;
-
-  var _useState = Object(react["useState"])([]),
-      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
-      treeData = _useState2[0],
-      setTreeData = _useState2[1];
-
-  var _useState3 = Object(react["useState"])(value),
-      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
-      checkedKeys = _useState4[0],
-      setCheckedKeys = _useState4[1];
-
-  var _useState5 = Object(react["useState"])([]),
-      _useState6 = Object(slicedToArray["a" /* default */])(_useState5, 2),
-      concatTreeData = _useState6[0],
-      setcConcatTreeData = _useState6[1]; // 向父组件暴露的方法
-
-
-  Object(react["useImperativeHandle"])(ref, function () {
-    return {
-      concatTreeData: concatTreeData
-    };
-  });
-  Object(react["useEffect"])(function () {
-    setTreeData(TreeSelect_getTreeData(permissionDataList));
-  }, [JSON.stringify(permissionDataList)]);
-  Object(react["useEffect"])(function () {
-    setCheckedKeys(value);
-  }, [JSON.stringify(value)]);
-
-  var onCheck = function onCheck(checkedKeys, e) {
-    //注意：halfCheckedKeys 是没有全部勾选状态下的父节点
-    setcConcatTreeData(checkedKeys.concat(e.halfCheckedKeys));
-    setCheckedKeys(concatTreeData);
-    onChange(checkedKeys);
-  };
-
-  return /*#__PURE__*/react_default.a.createElement(tree["a" /* default */], {
-    height: 400,
-    checkable: true,
-    checkedKeys: checkedKeys,
-    treeData: treeData,
-    onCheck: onCheck
-  });
-}
-
-TreeClassification = /*#__PURE__*/Object(react["forwardRef"])(TreeClassification);
-/* harmony default export */ var TreeSelect = (TreeClassification);
-// EXTERNAL MODULE: ./src/pages/AuditRights/routes/Roles/index.module.less?modules
-var index_modulemodules = __webpack_require__("b4If");
-var index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(index_modulemodules);
-
-// CONCATENATED MODULE: ./src/pages/AuditRights/routes/Roles/index.js
-
-
-
-
-
-
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable spaced-comment */
 
-/* eslint-disable no-param-reassign */
+/* eslint-disable import/order */
 
 /* eslint-disable import/no-unresolved */
 
-/* eslint-disable no-console */
-
-/* eslint-disable prefer-template */
+/* eslint-disable import/newline-after-import */
 
 /* eslint-disable @typescript-eslint/no-shadow */
 
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
+/* eslint-disable no-return-assign */
+
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-console */
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable @typescript-eslint/dot-notation */
+
 /* eslint-disable object-shorthand */
+
+/* eslint-disable no-param-reassign */
+
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+
+/* eslint-disable react/jsx-curly-brace-presence */
 
 /* eslint-disable react/self-closing-comp */
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable array-callback-return */
 
 
 
@@ -1211,37 +1054,37 @@ var index_modulemodules_default = /*#__PURE__*/__webpack_require__.n(index_modul
 
 
 
+var TextArea = antd_es_input__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"].TextArea;
+var Option = antd_es_select__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"].Option;
+var confirm = antd_es_modal__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"].confirm;
 
-var Roles_confirm = modal["a" /* default */].confirm;
-
-function RolePage(props) {
-  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
+function UserRights(props) {
+  var _useModel = Object(umi__WEBPACK_IMPORTED_MODULE_12__[/* useModel */ "k"])('@@initialState'),
       _useModel$initialStat = _useModel.initialState.currentUser,
       currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
 
-  var modalFormRef = Object(react["useRef"])(null);
-  var treeRef = Object(react["useRef"])(null); // modal标题
+  var modalFormRef = Object(react__WEBPACK_IMPORTED_MODULE_11__["useRef"])(null); // modal标题
 
-  var _useState = Object(react["useState"])(''),
-      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_11__["useState"])(''),
+      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState, 2),
       title = _useState2[0],
       setTitle = _useState2[1]; // 临时存储用户信息
 
 
-  var _useState3 = Object(react["useState"])({}),
-      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_11__["useState"])({}),
+      _useState4 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState3, 2),
       formValues = _useState4[0],
       setFormValues = _useState4[1]; // 保存由业务线创建出来的角色列表
 
 
-  var _useState5 = Object(react["useState"])([]),
-      _useState6 = Object(slicedToArray["a" /* default */])(_useState5, 2),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_11__["useState"])([]),
+      _useState6 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState5, 2),
       ItemOptions = _useState6[0],
       setItemOptions = _useState6[1]; // 表单按钮状态
 
 
-  var _useState7 = Object(react["useState"])(false),
-      _useState8 = Object(slicedToArray["a" /* default */])(_useState7, 2),
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_11__["useState"])(false),
+      _useState8 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(_useState7, 2),
       btnLoading = _useState8[0],
       setBtnLoading = _useState8[1];
 
@@ -1250,43 +1093,38 @@ function RolePage(props) {
       business = _props$business === void 0 ? currentUser.business || {} : _props$business,
       _props$Rights = props.Rights,
       loading = _props$Rights.loading,
-      permissionIds = _props$Rights.permissionIds,
-      permissionDataList = _props$Rights.permissionDataList,
+      query = _props$Rights.query,
+      roleList = _props$Rights.roleList,
+      roleAllLIst = _props$Rights.roleAllLIst,
       dataSource = _props$Rights.dataSource,
       pagination = _props$Rights.pagination;
-  Object(react["useEffect"])(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_11__["useEffect"])(function () {
     dispatch({
       type: 'Rights/init',
       payload: {
-        type: 'role'
+        type: 'user'
       }
     });
-    dispatch({
-      type: 'Rights/getPermissionList',
-      payload: {}
-    });
-  }, [dispatch]); // 多条件搜索配置
+  }, [dispatch]); // 多条件搜索表单
 
   var searchFormProps = {
-    className: index_modulemodules_default.a['form-contaner'],
+    className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_18___default.a['form-contaner'],
     layout: 'inline',
     resetShow: true,
     authProps: {
-      pathUrl: '/rights/role',
-      perms: 'role:select'
+      pathUrl: '/rights/user',
+      perms: 'user:select'
     },
-    dataSource: [// {
-    //   label: '业务线',
-    //   type: 'SELECT',
-    //   name: 'businessId',
-    //   initialValue: '',
-    //   map: { '': '全部', ...business },
-    // },
-    {
+    dataSource: [{
       label: '角色',
-      name: 'roleName'
+      type: 'SELECT',
+      name: 'roleId',
+      initialValue: '',
+      map: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({
+        '': '全部'
+      }, roleList)
     }, {
-      label: '更新时间',
+      label: '时间',
       name: 'datatime',
       type: 'DateTimeStartEnd'
     }, {
@@ -1294,86 +1132,116 @@ function RolePage(props) {
       type: 'SELECT',
       name: 'state',
       initialValue: '',
-      map: constants["q" /* roleStatus */]
+      map: _pages_constants__WEBPACK_IMPORTED_MODULE_17__[/* rightStatus */ "p"]
     }, {
-      label: '更新人',
-      name: 'updateUser'
+      label: '真实姓名',
+      name: 'name'
+    }, {
+      label: 'ip',
+      name: 'loginIp'
+    }, {
+      label: '用户名',
+      name: 'username'
     }],
     onReset: function onReset() {
       dispatch({
         type: 'Rights/init',
         payload: {
-          type: 'role'
+          type: 'user'
         }
       });
     },
     onSubmit: function onSubmit(formValues) {
-      if (!lodash_default.a.isEmpty(formValues.datatime)) {
-        formValues.startTime = formValues.datatime[0].format(constants["f" /* dateFormat */]);
-        formValues.endTime = formValues.datatime[1].format(constants["f" /* dateFormat */]);
+      if (!lodash__WEBPACK_IMPORTED_MODULE_13___default.a.isEmpty(formValues.datatime)) {
+        formValues.startTime = formValues.datatime[0].format(_pages_constants__WEBPACK_IMPORTED_MODULE_17__[/* dateFormat */ "f"]);
+        formValues.endTime = formValues.datatime[1].format(_pages_constants__WEBPACK_IMPORTED_MODULE_17__[/* dateFormat */ "f"]);
       }
 
       delete formValues.datatime;
       console.log('formValues', formValues);
       dispatch({
         type: 'Rights/getUserOrRoleQuery',
-        payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValues), {}, {
-          type: 'role'
+        payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValues), {}, {
+          type: 'user'
         })
       });
     }
-  }; // 列表配置
+  }; // 分页table列表
 
   var tableProps = {
     // 类型
     selectionType: null,
-    // checkbox or radio or null||false
+    //checkbox or radio or null||false
     // 表头
     columns: [{
-      title: '角色名',
-      dataIndex: 'roleName',
+      title: '用户名',
+      dataIndex: 'username',
+      width: '100px',
       render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, text);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", null, text);
       }
     }, {
-      title: '更新时间',
+      title: '真实姓名',
       align: 'center',
-      dataIndex: 'updateTime'
+      dataIndex: 'name'
     }, {
-      title: '更新人',
+      title: '角色',
       align: 'center',
-      dataIndex: 'updateUser'
+      dataIndex: 'roles',
+      render: function render(data) {
+        return !lodash__WEBPACK_IMPORTED_MODULE_13___default.a.isEmpty(data) && data.map(function (item, index) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(antd_es_tag__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"], {
+            color: "#87d068",
+            style: {
+              marginBottom: '5px'
+            },
+            key: item.id
+          }, item.roleName);
+        });
+      }
     }, {
+      title: '最近一次登录时间',
+      align: 'center',
+      dataIndex: 'loginTime'
+    }, {
+      title: '登录IP',
+      align: 'center',
+      dataIndex: 'loginIp'
+    }, // {
+    //   title: '登出时间',
+    //   align: 'center',
+    //   dataIndex: 'logoutTime',
+    // },
+    {
       title: '状态',
       align: 'center',
-      width: '160px',
       dataIndex: 'state',
       render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, text === '' ? '全部' : constants["q" /* roleStatus */][text]);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("span", null, text === '' ? '全部' : _pages_constants__WEBPACK_IMPORTED_MODULE_17__[/* rightStatus */ "p"][text]);
       }
     }, {
       title: '操作',
       width: '150px',
       align: 'center',
       render: function render(r) {
-        return r.roleName !== 'system' ? /*#__PURE__*/react_default.a.createElement("div", {
-          className: index_modulemodules_default.a.tableaction
-        }, /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/rights/role",
-          perms: "role:edit",
+        return r.username !== 'system' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", {
+          className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_18___default.a.tableaction
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"], {
+          pathUrl: "/rights/user",
+          perms: 'user:edit',
           type: "primary",
           size: "small",
           text: "\u7F16\u8F91",
           onClick: function onClick() {
             return openUserModal('edit', r);
           }
-        }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/rights/role",
-          perms: "role:edit",
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"], {
+          pathUrl: "/rights/user",
+          perms: 'user:edit',
           size: "small",
-          text: r.state !== 1 ? '注销' : '重启',
+          text: r.state !== 2 ? '注销' : '重启',
           onClick: function onClick() {
-            return updateUserOrRoleStatus('role', r.state, r.id);
+            return updateUserOrRoleStatus('user', r.state, r.username);
           }
         })) : null;
       }
@@ -1386,7 +1254,7 @@ function RolePage(props) {
       dispatch({
         type: 'Rights/getUserOrRoleQuery',
         payload: {
-          type: 'role',
+          type: 'user',
           pageNum: page.current,
           pageSize: page.pageSize
         }
@@ -1394,43 +1262,42 @@ function RolePage(props) {
     }
   }; // 更新用户或角色状态
 
-  var updateUserOrRoleStatus = function updateUserOrRoleStatus(type, number, id) {
-    console.log(type, number, id);
+  var updateUserOrRoleStatus = function updateUserOrRoleStatus(type, number, username) {
+    console.log(type, number, username);
 
-    if (number !== 1) {
-      Roles_confirm({
+    if (number !== 2) {
+      confirm({
         title: '提示',
-        content: '是否确认注销该角色吗？',
+        content: '是否确认注销该用户吗？',
         onOk: function onOk() {
-          return updateUserOrRoleAsyncFun(type, number, id);
+          return updateUserOrRoleAsyncFun(type, number, username);
         },
         onCancel: function onCancel() {}
       });
     } else {
-      updateUserOrRoleAsyncFun(type, number, id);
+      updateUserOrRoleAsyncFun(type, number, username);
     }
-  }; // 更新角色状态
+  }; // 更新用户状态
 
 
-  var updateUserOrRoleAsyncFun = function updateUserOrRoleAsyncFun(type, number, id) {
-    // console.log(type, id)
+  var updateUserOrRoleAsyncFun = function updateUserOrRoleAsyncFun(type, number, username) {
     dispatch({
       type: 'Rights/updateUserOrRoleStatus',
       payload: {
         type: type,
-        name: number === 1 ? 'enable' : 'disable',
-        id: id
+        name: number === 2 ? 'enable' : 'disable',
+        username: username
       },
       callback: function callback() {
         // 更新当前列表状态
-        var tableList = lodash_default.a.cloneDeep(dataSource);
+        var tableList = lodash__WEBPACK_IMPORTED_MODULE_13___default.a.cloneDeep(dataSource);
 
         var index = tableList.findIndex(function (item) {
-          return id === item.id;
+          return username === item.username;
         });
         var item = tableList[index];
-        tableList.splice(index, 1, Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, item), {
-          state: number === 1 ? 0 : 1
+        tableList.splice(index, 1, Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, item), {
+          state: number === 2 ? 0 : 2
         }));
         dispatch({
           type: 'Rights/save',
@@ -1445,33 +1312,16 @@ function RolePage(props) {
 
   var openUserModal = function openUserModal(type, values) {
     setTitle(type === 'create' ? '创建' : '编辑');
-    dispatch({
-      type: 'Rights/save',
-      payload: {
-        permissionIds: []
-      }
-    });
     modalFormRef.current.setVisible(true);
-    if (!values) return; // 处理编辑用户回显逻辑
-
-    dispatch({
-      type: 'Rights/getRuleDetailsById',
-      payload: {
-        id: values.id
-      },
-      callback: function callback(res) {
-        // console.log(values,res);
-        values.permissionIds = res || [];
-        setFormValues(values); // console.log('modalFormRef',modalFormRef.current)
-
-        modalFormRef.current.updateFormValues(values);
-      }
-    });
-  }; // 创建modal配置
+    if (!values) return;
+    values.roles = values.roles[0] && values.roles[0].roleName || null;
+    console.log(values);
+    setFormValues(values);
+  }; // 创建用户moddal表
 
 
   var modalFormProps = {
-    title: title + '角色',
+    title: title + '用户',
     footer: null,
     onCancel: function onCancel() {
       modalFormRef.current.setModalStatus(false, function () {
@@ -1480,40 +1330,74 @@ function RolePage(props) {
       });
     },
 
-    /** 表单参数 */
+    /**表单参数*/
     formProps: {
-      className: index_modulemodules_default.a['form-contaner'],
-      layout: 'horizontal',
+      className: _index_module_less_modules__WEBPACK_IMPORTED_MODULE_18___default.a['form-contaner'],
+      layout: 'vertical',
       submitText: '保存',
+      loading: btnLoading,
       dataSource: [{
-        label: '角色名',
-        name: 'roleName',
+        label: '用户名',
+        name: 'username',
+        required: true,
+        disabled: title !== '创建' && true,
+        type: 'TextArea',
+        showCount: true,
+        maxLength: 100
+      }, {
+        label: '密码',
+        name: title === '创建' ? 'password' : null,
         required: true,
         type: 'TextArea',
         showCount: true,
-        maxLength: 200
+        maxLength: 100
       }, {
-        label: '分配权限',
-        name: 'permissionIds',
-        itemRender: /*#__PURE__*/react_default.a.createElement(TreeSelect, {
-          permissionDataList: permissionDataList,
-          ref: treeRef
-        })
+        label: '角色',
+        name: 'roles',
+        required: true,
+        itemRender: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(antd_es_select__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"], {
+          showSearch: true,
+          placeholder: "\u8BF7\u9009\u62E9\u89D2\u8272"
+        }, !lodash__WEBPACK_IMPORTED_MODULE_13___default.a.isEmpty(roleAllLIst) && roleAllLIst.map(function (item, index) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(Option, {
+            key: index,
+            value: item.roleName
+          }, item.roleName);
+        }))
+      }, {
+        label: '真实姓名',
+        name: 'name',
+        required: true,
+        type: 'TextArea',
+        showCount: true,
+        maxLength: 100
+      }, {
+        label: '备注',
+        name: 'remarks',
+        type: 'TextArea',
+        showCount: true,
+        maxLength: 200
       }],
       formValues: formValues,
-      onSubmit: function onSubmit(Values) {
-        // console.log('Values', Values)
-        // 获取权限，该处处理
-        var treeData = treeRef.current.concatTreeData;
+      onSubmit: function onSubmit(formValues) {
+        console.log('formValues', formValues); // 处理角色
+
+        if (!lodash__WEBPACK_IMPORTED_MODULE_13___default.a.isEmpty(formValues.roles)) {
+          var list = [];
+          var item = roleAllLIst.filter(function (v) {
+            return v.roleName === formValues.roles;
+          });
+          console.log(item);
+          list.push(item[0].id);
+          formValues.roles = list;
+        } // 设置按钮状态
+
+
         setBtnLoading(true);
         dispatch({
           type: 'Rights/addUserOrRole',
-          payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({
-            id: formValues.id
-          }, Values), {}, {
-            // 处理权限
-            permissionIds: lodash_default.a.isEmpty(treeData) ? Values.permissionIds : treeData,
-            pathname: 'role',
+          payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, formValues), {}, {
+            pathname: 'user',
             type: title === '创建' ? 'add' : 'edit'
           }),
           callback: function callback(res) {
@@ -1523,51 +1407,30 @@ function RolePage(props) {
               modalFormRef.current.setModalStatus(false, function () {
                 setItemOptions([]);
                 setFormValues({});
-              }); // 创建成功，刷新当前列表
+              });
+              console.log('query:', query); // 刷新当前列表
 
-              if (title === '创建') {
-                dispatch({
-                  type: 'Rights/init',
-                  payload: {
-                    type: 'role'
-                  }
-                });
-                dispatch({
-                  type: 'Rights/getPermissionList',
-                  payload: {}
-                });
-              } else {
-                // 更新当前列表状态
-                var tableList = lodash_default.a.cloneDeep(dataSource);
-
-                var index = tableList.findIndex(function (item) {
-                  return formValues.id === item.id;
-                });
-                var item = tableList[index];
-                tableList.splice(index, 1, Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, item), formValues));
-                dispatch({
-                  type: 'Rights/save',
-                  payload: {
-                    dataSource: tableList
-                  }
-                });
-              }
+              dispatch({
+                type: 'Rights/getUserOrRoleQuery',
+                payload: Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])({}, query)
+              });
+              return;
             }
           }
         });
       }
     }
   };
-  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], searchFormProps, /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-    pathUrl: "/rights/role",
-    perms: "role:add",
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_11___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"], searchFormProps, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_WrapAuth__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"], {
+    pathUrl: "/rights/user",
+    perms: "user:add",
     text: "\u65B0\u5EFA",
     ghost: true,
     type: "primary",
     onClick: function onClick() {
       return openUserModal('create');
     }
-  })), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps), /*#__PURE__*/react_default.a.createElement(ModalForm["a" /* default */], Object(esm_extends["a" /* default */])({}, modalFormProps, {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_BaseTable__WEBPACK_IMPORTED_MODULE_15__[/* default */ "a"], tableProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement(_components_ModalForm__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_umijs_babel_preset_umi_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({}, modalFormProps, {
     ref: modalFormRef
   })));
 }
@@ -1579,2515 +1442,7 @@ function mapStateToProps(_ref) {
   };
 }
 
-/* harmony default export */ var Roles = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(RolePage));
-
-/***/ }),
-
-/***/ "ABKa":
-/*!********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/lib/icons/FolderOutlined.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "TqRt");
-
-var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "284h");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "q1tI"));
-
-var _FolderOutlined = _interopRequireDefault(__webpack_require__(/*! @ant-design/icons-svg/lib/asn/FolderOutlined */ "Qs9O"));
-
-var _AntdIcon = _interopRequireDefault(__webpack_require__(/*! ../components/AntdIcon */ "KQxl"));
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-var FolderOutlined = function FolderOutlined(props, ref) {
-  return React.createElement(_AntdIcon.default, Object.assign({}, props, {
-    ref: ref,
-    icon: _FolderOutlined.default
-  }));
-};
-
-FolderOutlined.displayName = 'FolderOutlined';
-
-var _default = React.forwardRef(FolderOutlined);
-
-exports.default = _default;
-
-/***/ }),
-
-/***/ "Bqw1":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/lib/asn/MinusSquareOutlined.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// This icon file is generated automatically.
-Object.defineProperty(exports, "__esModule", { value: true });
-var MinusSquareOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z" } }, { "tag": "path", "attrs": { "d": "M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" } }] }, "name": "minus-square", "theme": "outlined" };
-exports.default = MinusSquareOutlined;
-
-
-/***/ }),
-
-/***/ "Csr3":
-/*!**************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/PlusSquareOutlined.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-  
-  var _PlusSquareOutlined = _interopRequireDefault(__webpack_require__(/*! ./lib/icons/PlusSquareOutlined */ "4vCz"));
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  var _default = _PlusSquareOutlined;
-  exports.default = _default;
-  module.exports = _default;
-
-/***/ }),
-
-/***/ "H+gj":
-/*!******************************!*\
-  !*** ./src/assets/error.png ***!
-  \******************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQvc6UAAABRWlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8LAwSDCIMogwMCcmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsis7PPOq3QdDFcvjV3jOD1boQVTPQrgSkktTgbSf4A4LbmgqISBgTEFyFYuLykAsTuAbJEioKOA7DkgdjqEvQHEToKwj4DVhAQ5A9k3gGyB5IxEoBmML4BsnSQk8XQkNtReEOBxcfXxUQg1Mjc0dyHgXNJBSWpFCYh2zi+oLMpMzyhRcASGUqqCZ16yno6CkYGRAQMDKMwhqj/fAIcloxgHQqxAjIHBEugw5sUIsSQpBobtQPdLciLEVJYzMPBHMDBsayhILEqEO4DxG0txmrERhM29nYGBddr//5/DGRjYNRkY/l7////39v///y4Dmn+LgeHANwDrkl1AuO+pmgAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAwqADAAQAAAABAAAAwwAAAAD9b/HnAAAHlklEQVR4Ae3dP3PTWBSGcbGzM6GCKqlIBRV0dHRJFarQ0eUT8LH4BnRU0NHR0UEFVdIlFRV7TzRksomPY8uykTk/zewQfKw/9znv4yvJynLv4uLiV2dBoDiBf4qP3/ARuCRABEFAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghgg0Aj8i0JO4OzsrPv69Wv+hi2qPHr0qNvf39+iI97soRIh4f3z58/u7du3SXX7Xt7Z2enevHmzfQe+oSN2apSAPj09TSrb+XKI/f379+08+A0cNRE2ANkupk+ACNPvkSPcAAEibACyXUyfABGm3yNHuAECRNgAZLuYPgEirKlHu7u7XdyytGwHAd8jjNyng4OD7vnz51dbPT8/7z58+NB9+/bt6jU/TI+AGWHEnrx48eJ/EsSmHzx40L18+fLyzxF3ZVMjEyDCiEDjMYZZS5wiPXnyZFbJaxMhQIQRGzHvWR7XCyOCXsOmiDAi1HmPMMQjDpbpEiDCiL358eNHurW/5SnWdIBbXiDCiA38/Pnzrce2YyZ4//59F3ePLNMl4PbpiL2J0L979+7yDtHDhw8vtzzvdGnEXdvUigSIsCLAWavHp/+qM0BcXMd/q25n1vF57TYBp0a3mUzilePj4+7k5KSLb6gt6ydAhPUzXnoPR0dHl79WGTNCfBnn1uvSCJdegQhLI1vvCk+fPu2ePXt2tZOYEV6/fn31dz+shwAR1sP1cqvLntbEN9MxA9xcYjsxS1jWR4AIa2Ibzx0tc44fYX/16lV6NDFLXH+YL32jwiACRBiEbf5KcXoTIsQSpzXx4N28Ja4BQoK7rgXiydbHjx/P25TaQAJEGAguWy0+2Q8PD6/Ki4R8EVl+bzBOnZY95fq9rj9zAkTI2SxdidBHqG9+skdw43borCXO/ZcJdraPWdv22uIEiLA4q7nvvCug8WTqzQveOH26fodo7g6uFe/a17W3+nFBAkRYENRdb1vkkz1CH9cPsVy/jrhr27PqMYvENYNlHAIesRiBYwRy0V+8iXP8+/fvX11Mr7L7ECueb/r48eMqm7FuI2BGWDEG8cm+7G3NEOfmdcTQw4h9/55lhm7DekRYKQPZF2ArbXTAyu4kDYB2YxUzwg0gi/41ztHnfQG26HbGel/crVrm7tNY+/1btkOEAZ2M05r4FB7r9GbAIdxaZYrHdOsgJ/wCEQY0J74TmOKnbxxT9n3FgGGWWsVdowHtjt9Nnvf7yQM2aZU/TIAIAxrw6dOnAWtZZcoEnBpNuTuObWMEiLAx1HY0ZQJEmHJ3HNvGCBBhY6jtaMoEiJB0Z29vL6ls58vxPcO8/zfrdo5qvKO+d3Fx8Wu8zf1dW4p/cPzLly/dtv9Ts/EbcvGAHhHyfBIhZ6NSiIBTo0LNNtScABFyNiqFCBChULMNNSdAhJyNSiECRCjUbEPNCRAhZ6NSiAARCjXbUHMCRMjZqBQiQIRCzTbUnAARcjYqhQgQoVCzDTUnQIScjUohAkQo1GxDzQkQIWejUogAEQo121BzAkTI2agUIkCEQs021JwAEXI2KoUIEKFQsw01J0CEnI1KIQJEKNRsQ80JECFno1KIABEKNdtQcwJEyNmoFCJAhELNNtScABFyNiqFCBChULMNNSdAhJyNSiECRCjUbEPNCRAhZ6NSiAARCjXbUHMCRMjZqBQiQIRCzTbUnAARcjYqhQgQoVCzDTUnQIScjUohAkQo1GxDzQkQIWejUogAEQo121BzAkTI2agUIkCEQs021JwAEXI2KoUIEKFQsw01J0CEnI1KIQJEKNRsQ80JECFno1KIABEKNdtQcwJEyNmoFCJAhELNNtScABFyNiqFCBChULMNNSdAhJyNSiECRCjUbEPNCRAhZ6NSiAARCjXbUHMCRMjZqBQiQIRCzTbUnAARcjYqhQgQoVCzDTUnQIScjUohAkQo1GxDzQkQIWejUogAEQo121BzAkTI2agUIkCEQs021JwAEXI2KoUIEKFQsw01J0CEnI1KIQJEKNRsQ80JECFno1KIABEKNdtQcwJEyNmoFCJAhELNNtScABFyNiqFCBChULMNNSdAhJyNSiEC/wGgKKC4YMA4TAAAAABJRU5ErkJggg=="
-
-/***/ }),
-
-/***/ "JgUQ":
-/*!********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/lib/asn/FileOutlined.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// This icon file is generated automatically.
-Object.defineProperty(exports, "__esModule", { value: true });
-var FileOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z" } }] }, "name": "file", "theme": "outlined" };
-exports.default = FileOutlined;
-
-
-/***/ }),
-
-/***/ "KxFI":
-/*!****************************************************!*\
-  !*** ./node_modules/antd/es/tree/style/index.less ***!
-  \****************************************************/
-/*! no static exports found */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "MJZm":
-/*!********************************************************!*\
-  !*** ./node_modules/antd/es/tree/index.js + 9 modules ***!
-  \********************************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/CaretDownFilled.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/FileOutlined.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/FolderOpenOutlined.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/FolderOutlined.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/LoadingOutlined.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/MinusSquareOutlined.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/PlusSquareOutlined.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/defineProperty.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/extends.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/slicedToArray.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/toConsumableArray.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/typeof.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/createClass.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/createSuper.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/inherits.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/_util/motion.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/_util/reactNode.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/config-provider/context.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/classnames/index.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-motion/es/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-tree/es/TreeNode.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-tree/es/contextTypes.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-tree/es/util.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-tree/es/utils/conductUtil.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-tree/es/utils/treeUtil.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-util/es/KeyCode.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-util/es/warning.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-virtual-list/es/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/debounce.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__("lSNA");
-var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
-var helpers_extends = __webpack_require__("pVnL");
-var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
-
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__("q1tI");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
-var esm_defineProperty = __webpack_require__("rePB");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-var objectSpread2 = __webpack_require__("VTBJ");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js + 2 modules
-var toConsumableArray = __webpack_require__("KQm4");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js
-var classCallCheck = __webpack_require__("1OyB");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/createClass.js
-var createClass = __webpack_require__("vuIU");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/inherits.js + 1 modules
-var inherits = __webpack_require__("Ji7U");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/createSuper.js + 1 modules
-var createSuper = __webpack_require__("LK+K");
-
-// EXTERNAL MODULE: ./node_modules/rc-util/es/KeyCode.js
-var KeyCode = __webpack_require__("4IlW");
-
-// EXTERNAL MODULE: ./node_modules/rc-util/es/warning.js
-var warning = __webpack_require__("Kwbf");
-
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__("TSYQ");
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
-
-// EXTERNAL MODULE: ./node_modules/rc-tree/es/contextTypes.js
-var contextTypes = __webpack_require__("sboe");
-
-// EXTERNAL MODULE: ./node_modules/rc-tree/es/util.js
-var util = __webpack_require__("OZM5");
-
-// EXTERNAL MODULE: ./node_modules/rc-tree/es/utils/treeUtil.js
-var treeUtil = __webpack_require__("815F");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
-var slicedToArray = __webpack_require__("ODXe");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
-var objectWithoutProperties = __webpack_require__("Ff2n");
-
-// EXTERNAL MODULE: ./node_modules/rc-virtual-list/es/index.js + 14 modules
-var es = __webpack_require__("+nKL");
-
-// EXTERNAL MODULE: ./node_modules/rc-motion/es/index.js + 12 modules
-var rc_motion_es = __webpack_require__("8XRh");
-
-// EXTERNAL MODULE: ./node_modules/rc-tree/es/TreeNode.js + 1 modules
-var TreeNode = __webpack_require__("WaYH");
-
-// CONCATENATED MODULE: ./node_modules/rc-tree/es/MotionTreeNode.js
-
-
-
-
-
-
-
-
-
-
-var MotionTreeNode_MotionTreeNode = function MotionTreeNode(_ref, ref) {
-  var className = _ref.className,
-      style = _ref.style,
-      motion = _ref.motion,
-      motionNodes = _ref.motionNodes,
-      motionType = _ref.motionType,
-      onOriginMotionStart = _ref.onMotionStart,
-      onOriginMotionEnd = _ref.onMotionEnd,
-      active = _ref.active,
-      treeNodeRequiredProps = _ref.treeNodeRequiredProps,
-      props = Object(objectWithoutProperties["a" /* default */])(_ref, ["className", "style", "motion", "motionNodes", "motionType", "onMotionStart", "onMotionEnd", "active", "treeNodeRequiredProps"]);
-
-  var _React$useState = react["useState"](true),
-      _React$useState2 = Object(slicedToArray["a" /* default */])(_React$useState, 2),
-      visible = _React$useState2[0],
-      setVisible = _React$useState2[1];
-
-  var _React$useContext = react["useContext"](contextTypes["a" /* TreeContext */]),
-      prefixCls = _React$useContext.prefixCls;
-
-  var motionedRef = react["useRef"](false);
-
-  var onMotionEnd = function onMotionEnd() {
-    if (!motionedRef.current) {
-      onOriginMotionEnd();
-    }
-
-    motionedRef.current = true;
-  };
-
-  Object(react["useEffect"])(function () {
-    if (motionNodes && motionType === 'hide' && visible) {
-      setVisible(false);
-    }
-  }, [motionNodes]);
-  Object(react["useEffect"])(function () {
-    // Trigger motion only when patched
-    if (motionNodes) {
-      onOriginMotionStart();
-    }
-
-    return function () {
-      if (motionNodes) {
-        onMotionEnd();
-      }
-    };
-  }, []);
-
-  if (motionNodes) {
-    return react["createElement"](rc_motion_es["b" /* default */], Object.assign({
-      ref: ref,
-      visible: visible
-    }, motion, {
-      motionAppear: motionType === 'show',
-      onAppearEnd: onMotionEnd,
-      onLeaveEnd: onMotionEnd
-    }), function (_ref2, motionRef) {
-      var motionClassName = _ref2.className,
-          motionStyle = _ref2.style;
-      return react["createElement"]("div", {
-        ref: motionRef,
-        className: classnames_default()("".concat(prefixCls, "-treenode-motion"), motionClassName),
-        style: motionStyle
-      }, motionNodes.map(function (treeNode) {
-        var _treeNode$data = treeNode.data,
-            key = _treeNode$data.key,
-            restProps = Object(objectWithoutProperties["a" /* default */])(_treeNode$data, ["key"]),
-            isStart = treeNode.isStart,
-            isEnd = treeNode.isEnd;
-
-        delete restProps.children;
-        var treeNodeProps = Object(treeUtil["f" /* getTreeNodeProps */])(key, treeNodeRequiredProps);
-        return react["createElement"](TreeNode["a" /* default */], Object.assign({}, restProps, treeNodeProps, {
-          active: active,
-          data: treeNode.data,
-          key: key,
-          isStart: isStart,
-          isEnd: isEnd
-        }));
-      }));
-    });
-  }
-
-  return react["createElement"](TreeNode["a" /* default */], Object.assign({
-    domRef: ref,
-    className: className,
-    style: style
-  }, props, {
-    active: active
-  }));
-};
-
-MotionTreeNode_MotionTreeNode.displayName = 'MotionTreeNode';
-var RefMotionTreeNode = react["forwardRef"](MotionTreeNode_MotionTreeNode);
-/* harmony default export */ var es_MotionTreeNode = (RefMotionTreeNode);
-// CONCATENATED MODULE: ./node_modules/rc-tree/es/utils/diffUtil.js
-function findExpandedKeys() {
-  var prev = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var next = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-  var prevLen = prev.length;
-  var nextLen = next.length;
-
-  if (Math.abs(prevLen - nextLen) !== 1) {
-    return {
-      add: false,
-      key: null
-    };
-  }
-
-  function find(shorter, longer) {
-    var cache = new Map();
-    shorter.forEach(function (key) {
-      cache.set(key, true);
-    });
-    var keys = longer.filter(function (key) {
-      return !cache.has(key);
-    });
-    return keys.length === 1 ? keys[0] : null;
-  }
-
-  if (prevLen < nextLen) {
-    return {
-      add: true,
-      key: find(prev, next)
-    };
-  }
-
-  return {
-    add: false,
-    key: find(next, prev)
-  };
-}
-function getExpandRange(shorter, longer, key) {
-  var shorterStartIndex = shorter.findIndex(function (_ref) {
-    var data = _ref.data;
-    return data.key === key;
-  });
-  var shorterEndNode = shorter[shorterStartIndex + 1];
-  var longerStartIndex = longer.findIndex(function (_ref2) {
-    var data = _ref2.data;
-    return data.key === key;
-  });
-
-  if (shorterEndNode) {
-    var longerEndIndex = longer.findIndex(function (_ref3) {
-      var data = _ref3.data;
-      return data.key === shorterEndNode.data.key;
-    });
-    return longer.slice(longerStartIndex + 1, longerEndIndex);
-  }
-
-  return longer.slice(longerStartIndex + 1);
-}
-// CONCATENATED MODULE: ./node_modules/rc-tree/es/NodeList.js
-
-
-/**
- * Handle virtual list of the TreeNodes.
- */
-
-
-
-
-
-
-var HIDDEN_STYLE = {
-  width: 0,
-  height: 0,
-  display: 'flex',
-  overflow: 'hidden',
-  opacity: 0,
-  border: 0,
-  padding: 0,
-  margin: 0
-};
-
-var noop = function noop() {};
-
-var MOTION_KEY = "RC_TREE_MOTION_".concat(Math.random());
-var MotionNode = {
-  key: MOTION_KEY
-};
-var MotionEntity = {
-  key: MOTION_KEY,
-  level: 0,
-  index: 0,
-  pos: '0',
-  node: MotionNode
-};
-var MotionFlattenData = {
-  parent: null,
-  children: [],
-  pos: MotionEntity.pos,
-  data: MotionNode,
-
-  /** Hold empty list here since we do not use it */
-  isStart: [],
-  isEnd: []
-};
-/**
- * We only need get visible content items to play the animation.
- */
-
-function getMinimumRangeTransitionRange(list, virtual, height, itemHeight) {
-  if (virtual === false || !height) {
-    return list;
-  }
-
-  return list.slice(0, Math.ceil(height / itemHeight) + 1);
-}
-
-function itemKey(item) {
-  var key = item.data.key,
-      pos = item.pos;
-  return Object(treeUtil["e" /* getKey */])(key, pos);
-}
-
-function getAccessibilityPath(item) {
-  var path = String(item.data.key);
-  var current = item;
-
-  while (current.parent) {
-    current = current.parent;
-    path = "".concat(current.data.key, " > ").concat(path);
-  }
-
-  return path;
-}
-
-var NodeList_RefNodeList = function RefNodeList(props, ref) {
-  var prefixCls = props.prefixCls,
-      data = props.data,
-      selectable = props.selectable,
-      checkable = props.checkable,
-      expandedKeys = props.expandedKeys,
-      selectedKeys = props.selectedKeys,
-      checkedKeys = props.checkedKeys,
-      loadedKeys = props.loadedKeys,
-      loadingKeys = props.loadingKeys,
-      halfCheckedKeys = props.halfCheckedKeys,
-      keyEntities = props.keyEntities,
-      disabled = props.disabled,
-      dragging = props.dragging,
-      dragOverNodeKey = props.dragOverNodeKey,
-      dropPosition = props.dropPosition,
-      motion = props.motion,
-      height = props.height,
-      itemHeight = props.itemHeight,
-      virtual = props.virtual,
-      focusable = props.focusable,
-      activeItem = props.activeItem,
-      focused = props.focused,
-      tabIndex = props.tabIndex,
-      onKeyDown = props.onKeyDown,
-      onFocus = props.onFocus,
-      onBlur = props.onBlur,
-      onActiveChange = props.onActiveChange,
-      onListChangeStart = props.onListChangeStart,
-      onListChangeEnd = props.onListChangeEnd,
-      domProps = Object(objectWithoutProperties["a" /* default */])(props, ["prefixCls", "data", "selectable", "checkable", "expandedKeys", "selectedKeys", "checkedKeys", "loadedKeys", "loadingKeys", "halfCheckedKeys", "keyEntities", "disabled", "dragging", "dragOverNodeKey", "dropPosition", "motion", "height", "itemHeight", "virtual", "focusable", "activeItem", "focused", "tabIndex", "onKeyDown", "onFocus", "onBlur", "onActiveChange", "onListChangeStart", "onListChangeEnd"]); // =============================== Ref ================================
-
-
-  var listRef = react["useRef"](null);
-  react["useImperativeHandle"](ref, function () {
-    return {
-      scrollTo: function scrollTo(scroll) {
-        listRef.current.scrollTo(scroll);
-      }
-    };
-  }); // ============================== Motion ==============================
-
-  var _React$useState = react["useState"](expandedKeys),
-      _React$useState2 = Object(slicedToArray["a" /* default */])(_React$useState, 2),
-      prevExpandedKeys = _React$useState2[0],
-      setPrevExpandedKeys = _React$useState2[1];
-
-  var _React$useState3 = react["useState"](data),
-      _React$useState4 = Object(slicedToArray["a" /* default */])(_React$useState3, 2),
-      prevData = _React$useState4[0],
-      setPrevData = _React$useState4[1];
-
-  var _React$useState5 = react["useState"](data),
-      _React$useState6 = Object(slicedToArray["a" /* default */])(_React$useState5, 2),
-      transitionData = _React$useState6[0],
-      setTransitionData = _React$useState6[1];
-
-  var _React$useState7 = react["useState"]([]),
-      _React$useState8 = Object(slicedToArray["a" /* default */])(_React$useState7, 2),
-      transitionRange = _React$useState8[0],
-      setTransitionRange = _React$useState8[1];
-
-  var _React$useState9 = react["useState"](null),
-      _React$useState10 = Object(slicedToArray["a" /* default */])(_React$useState9, 2),
-      motionType = _React$useState10[0],
-      setMotionType = _React$useState10[1];
-
-  function onMotionEnd() {
-    setPrevData(data);
-    setTransitionData(data);
-    setTransitionRange([]);
-    setMotionType(null);
-    onListChangeEnd();
-  } // Do animation if expanded keys changed
-
-
-  react["useEffect"](function () {
-    setPrevExpandedKeys(expandedKeys);
-    var diffExpanded = findExpandedKeys(prevExpandedKeys, expandedKeys);
-
-    if (diffExpanded.key !== null) {
-      if (diffExpanded.add) {
-        var keyIndex = prevData.findIndex(function (_ref) {
-          var key = _ref.data.key;
-          return key === diffExpanded.key;
-        });
-        var rangeNodes = getMinimumRangeTransitionRange(getExpandRange(prevData, data, diffExpanded.key), virtual, height, itemHeight);
-        var newTransitionData = prevData.slice();
-        newTransitionData.splice(keyIndex + 1, 0, MotionFlattenData);
-        setTransitionData(newTransitionData);
-        setTransitionRange(rangeNodes);
-        setMotionType('show');
-      } else {
-        var _keyIndex = data.findIndex(function (_ref2) {
-          var key = _ref2.data.key;
-          return key === diffExpanded.key;
-        });
-
-        var _rangeNodes = getMinimumRangeTransitionRange(getExpandRange(data, prevData, diffExpanded.key), virtual, height, itemHeight);
-
-        var _newTransitionData = data.slice();
-
-        _newTransitionData.splice(_keyIndex + 1, 0, MotionFlattenData);
-
-        setTransitionData(_newTransitionData);
-        setTransitionRange(_rangeNodes);
-        setMotionType('hide');
-      }
-    } else if (prevData !== data) {
-      // If whole data changed, we just refresh the list
-      setPrevData(data);
-      setTransitionData(data);
-    }
-  }, [expandedKeys, data]); // We should clean up motion if is changed by dragging
-
-  react["useEffect"](function () {
-    if (!dragging) {
-      onMotionEnd();
-    }
-  }, [dragging]);
-  var mergedData = motion ? transitionData : data;
-  var treeNodeRequiredProps = {
-    expandedKeys: expandedKeys,
-    selectedKeys: selectedKeys,
-    loadedKeys: loadedKeys,
-    loadingKeys: loadingKeys,
-    checkedKeys: checkedKeys,
-    halfCheckedKeys: halfCheckedKeys,
-    dragOverNodeKey: dragOverNodeKey,
-    dropPosition: dropPosition,
-    keyEntities: keyEntities
-  };
-  return react["createElement"](react["Fragment"], null, focused && activeItem && react["createElement"]("span", {
-    style: HIDDEN_STYLE,
-    "aria-live": "assertive"
-  }, getAccessibilityPath(activeItem)), react["createElement"]("div", {
-    role: "tree"
-  }, react["createElement"]("input", {
-    style: HIDDEN_STYLE,
-    disabled: focusable === false || disabled,
-    tabIndex: focusable !== false ? tabIndex : null,
-    onKeyDown: onKeyDown,
-    onFocus: onFocus,
-    onBlur: onBlur,
-    value: "",
-    onChange: noop
-  })), react["createElement"](es["a" /* default */], Object.assign({}, domProps, {
-    data: mergedData,
-    itemKey: itemKey,
-    height: height,
-    fullHeight: false,
-    virtual: virtual,
-    itemHeight: itemHeight,
-    prefixCls: "".concat(prefixCls, "-list"),
-    ref: listRef
-  }), function (treeNode) {
-    var pos = treeNode.pos,
-        _treeNode$data = treeNode.data,
-        key = _treeNode$data.key,
-        restProps = Object(objectWithoutProperties["a" /* default */])(_treeNode$data, ["key"]),
-        isStart = treeNode.isStart,
-        isEnd = treeNode.isEnd;
-
-    var mergedKey = Object(treeUtil["e" /* getKey */])(key, pos);
-    delete restProps.children;
-    var treeNodeProps = Object(treeUtil["f" /* getTreeNodeProps */])(mergedKey, treeNodeRequiredProps);
-    return react["createElement"](es_MotionTreeNode, Object.assign({}, restProps, treeNodeProps, {
-      active: activeItem && key === activeItem.data.key,
-      pos: pos,
-      data: treeNode.data,
-      isStart: isStart,
-      isEnd: isEnd,
-      motion: motion,
-      motionNodes: key === MOTION_KEY ? transitionRange : null,
-      motionType: motionType,
-      onMotionStart: onListChangeStart,
-      onMotionEnd: onMotionEnd,
-      treeNodeRequiredProps: treeNodeRequiredProps,
-      onMouseMove: function onMouseMove() {
-        onActiveChange(null);
-      }
-    }));
-  }));
-};
-
-var NodeList = react["forwardRef"](NodeList_RefNodeList);
-NodeList.displayName = 'NodeList';
-/* harmony default export */ var es_NodeList = (NodeList);
-// EXTERNAL MODULE: ./node_modules/rc-tree/es/utils/conductUtil.js
-var conductUtil = __webpack_require__("NvD2");
-
-// CONCATENATED MODULE: ./node_modules/rc-tree/es/Tree.js
-
-
-
-
-
-
- // TODO: https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/treeview/treeview-2/treeview-2a.html
-// Fully accessibility support
-
-
-
-
-
-
-
-
-
-
-
-
-var Tree_Tree = /*#__PURE__*/function (_React$Component) {
-  Object(inherits["a" /* default */])(Tree, _React$Component);
-
-  var _super = Object(createSuper["a" /* default */])(Tree);
-
-  function Tree() {
-    var _this;
-
-    Object(classCallCheck["a" /* default */])(this, Tree);
-
-    _this = _super.apply(this, arguments);
-    _this.destroyed = false;
-    _this.state = {
-      keyEntities: {},
-      selectedKeys: [],
-      checkedKeys: [],
-      halfCheckedKeys: [],
-      loadedKeys: [],
-      loadingKeys: [],
-      expandedKeys: [],
-      dragging: false,
-      dragNodesKeys: [],
-      dragOverNodeKey: null,
-      dropPosition: null,
-      treeData: [],
-      flattenNodes: [],
-      focused: false,
-      activeKey: null,
-      listChanging: false,
-      prevProps: null
-    };
-    _this.listRef = react["createRef"]();
-
-    _this.onNodeDragStart = function (event, node) {
-      var _this$state = _this.state,
-          expandedKeys = _this$state.expandedKeys,
-          keyEntities = _this$state.keyEntities;
-      var onDragStart = _this.props.onDragStart;
-      var eventKey = node.props.eventKey;
-      _this.dragNode = node;
-      var newExpandedKeys = Object(util["b" /* arrDel */])(expandedKeys, eventKey);
-
-      _this.setState({
-        dragging: true,
-        dragNodesKeys: Object(util["g" /* getDragNodesKeys */])(eventKey, keyEntities)
-      });
-
-      _this.setExpandedKeys(newExpandedKeys);
-
-      if (onDragStart) {
-        onDragStart({
-          event: event,
-          node: Object(treeUtil["b" /* convertNodePropsToEventData */])(node.props)
-        });
-      }
-    };
-    /**
-     * [Legacy] Select handler is less small than node,
-     * so that this will trigger when drag enter node or select handler.
-     * This is a little tricky if customize css without padding.
-     * Better for use mouse move event to refresh drag state.
-     * But let's just keep it to avoid event trigger logic change.
-     */
-
-
-    _this.onNodeDragEnter = function (event, node) {
-      var _this$state2 = _this.state,
-          expandedKeys = _this$state2.expandedKeys,
-          keyEntities = _this$state2.keyEntities,
-          dragNodesKeys = _this$state2.dragNodesKeys;
-      var onDragEnter = _this.props.onDragEnter;
-      var _node$props = node.props,
-          pos = _node$props.pos,
-          eventKey = _node$props.eventKey;
-      if (!_this.dragNode || dragNodesKeys.indexOf(eventKey) !== -1) return;
-      var dropPosition = Object(util["c" /* calcDropPosition */])(event, node); // Skip if drag node is self
-
-      if (_this.dragNode.props.eventKey === eventKey && dropPosition === 0) {
-        _this.setState({
-          dragOverNodeKey: '',
-          dropPosition: null
-        });
-
-        return;
-      } // Ref: https://github.com/react-component/tree/issues/132
-      // Add timeout to let onDragLevel fire before onDragEnter,
-      // so that we can clean drag props for onDragLeave node.
-      // Macro task for this:
-      // https://html.spec.whatwg.org/multipage/webappapis.html#clean-up-after-running-script
-
-
-      setTimeout(function () {
-        // Update drag over node
-        _this.setState({
-          dragOverNodeKey: eventKey,
-          dropPosition: dropPosition
-        }); // Side effect for delay drag
-
-
-        if (!_this.delayedDragEnterLogic) {
-          _this.delayedDragEnterLogic = {};
-        }
-
-        Object.keys(_this.delayedDragEnterLogic).forEach(function (key) {
-          clearTimeout(_this.delayedDragEnterLogic[key]);
-        });
-        _this.delayedDragEnterLogic[pos] = window.setTimeout(function () {
-          if (!_this.state.dragging) return;
-
-          var newExpandedKeys = Object(toConsumableArray["a" /* default */])(expandedKeys);
-
-          var entity = keyEntities[eventKey];
-
-          if (entity && (entity.children || []).length) {
-            newExpandedKeys = Object(util["a" /* arrAdd */])(expandedKeys, eventKey);
-          }
-
-          if (!('expandedKeys' in _this.props)) {
-            _this.setExpandedKeys(newExpandedKeys);
-          }
-
-          if (onDragEnter) {
-            onDragEnter({
-              event: event,
-              node: Object(treeUtil["b" /* convertNodePropsToEventData */])(node.props),
-              expandedKeys: newExpandedKeys
-            });
-          }
-        }, 400);
-      }, 0);
-    };
-
-    _this.onNodeDragOver = function (event, node) {
-      var dragNodesKeys = _this.state.dragNodesKeys;
-      var onDragOver = _this.props.onDragOver;
-      var eventKey = node.props.eventKey;
-
-      if (dragNodesKeys.indexOf(eventKey) !== -1) {
-        return;
-      } // Update drag position
-
-
-      if (_this.dragNode && eventKey === _this.state.dragOverNodeKey) {
-        var dropPosition = Object(util["c" /* calcDropPosition */])(event, node);
-        if (dropPosition === _this.state.dropPosition) return;
-
-        _this.setState({
-          dropPosition: dropPosition
-        });
-      }
-
-      if (onDragOver) {
-        onDragOver({
-          event: event,
-          node: Object(treeUtil["b" /* convertNodePropsToEventData */])(node.props)
-        });
-      }
-    };
-
-    _this.onNodeDragLeave = function (event, node) {
-      var onDragLeave = _this.props.onDragLeave;
-
-      _this.setState({
-        dragOverNodeKey: ''
-      });
-
-      if (onDragLeave) {
-        onDragLeave({
-          event: event,
-          node: Object(treeUtil["b" /* convertNodePropsToEventData */])(node.props)
-        });
-      }
-    };
-
-    _this.onNodeDragEnd = function (event, node) {
-      var onDragEnd = _this.props.onDragEnd;
-
-      _this.setState({
-        dragOverNodeKey: ''
-      });
-
-      _this.cleanDragState();
-
-      if (onDragEnd) {
-        onDragEnd({
-          event: event,
-          node: Object(treeUtil["b" /* convertNodePropsToEventData */])(node.props)
-        });
-      }
-
-      _this.dragNode = null;
-    };
-
-    _this.onNodeDrop = function (event, node) {
-      var _this$state3 = _this.state,
-          _this$state3$dragNode = _this$state3.dragNodesKeys,
-          dragNodesKeys = _this$state3$dragNode === void 0 ? [] : _this$state3$dragNode,
-          dropPosition = _this$state3.dropPosition;
-      var onDrop = _this.props.onDrop;
-      var _node$props2 = node.props,
-          eventKey = _node$props2.eventKey,
-          pos = _node$props2.pos;
-
-      _this.setState({
-        dragOverNodeKey: ''
-      });
-
-      _this.cleanDragState();
-
-      if (dragNodesKeys.indexOf(eventKey) !== -1) {
-        Object(warning["a" /* default */])(false, "Can not drop to dragNode(include it's children node)");
-        return;
-      }
-
-      var posArr = Object(util["k" /* posToArr */])(pos);
-      var dropResult = {
-        event: event,
-        node: Object(treeUtil["b" /* convertNodePropsToEventData */])(node.props),
-        dragNode: _this.dragNode ? Object(treeUtil["b" /* convertNodePropsToEventData */])(_this.dragNode.props) : null,
-        dragNodesKeys: dragNodesKeys.slice(),
-        dropPosition: dropPosition + Number(posArr[posArr.length - 1]),
-        dropToGap: false
-      };
-
-      if (dropPosition !== 0) {
-        dropResult.dropToGap = true;
-      }
-
-      if (onDrop) {
-        onDrop(dropResult);
-      }
-
-      _this.dragNode = null;
-    };
-
-    _this.cleanDragState = function () {
-      var dragging = _this.state.dragging;
-
-      if (dragging) {
-        _this.setState({
-          dragging: false
-        });
-      }
-    };
-
-    _this.onNodeClick = function (e, treeNode) {
-      var onClick = _this.props.onClick;
-
-      if (onClick) {
-        onClick(e, treeNode);
-      }
-    };
-
-    _this.onNodeDoubleClick = function (e, treeNode) {
-      var onDoubleClick = _this.props.onDoubleClick;
-
-      if (onDoubleClick) {
-        onDoubleClick(e, treeNode);
-      }
-    };
-
-    _this.onNodeSelect = function (e, treeNode) {
-      var selectedKeys = _this.state.selectedKeys;
-      var keyEntities = _this.state.keyEntities;
-      var _this$props = _this.props,
-          onSelect = _this$props.onSelect,
-          multiple = _this$props.multiple;
-      var selected = treeNode.selected,
-          key = treeNode.key;
-      var targetSelected = !selected; // Update selected keys
-
-      if (!targetSelected) {
-        selectedKeys = Object(util["b" /* arrDel */])(selectedKeys, key);
-      } else if (!multiple) {
-        selectedKeys = [key];
-      } else {
-        selectedKeys = Object(util["a" /* arrAdd */])(selectedKeys, key);
-      } // [Legacy] Not found related usage in doc or upper libs
-
-
-      var selectedNodes = selectedKeys.map(function (selectedKey) {
-        var entity = keyEntities[selectedKey];
-        if (!entity) return null;
-        return entity.node;
-      }).filter(function (node) {
-        return node;
-      });
-
-      _this.setUncontrolledState({
-        selectedKeys: selectedKeys
-      });
-
-      if (onSelect) {
-        onSelect(selectedKeys, {
-          event: 'select',
-          selected: targetSelected,
-          node: treeNode,
-          selectedNodes: selectedNodes,
-          nativeEvent: e.nativeEvent
-        });
-      }
-    };
-
-    _this.onNodeCheck = function (e, treeNode, checked) {
-      var _this$state4 = _this.state,
-          keyEntities = _this$state4.keyEntities,
-          oriCheckedKeys = _this$state4.checkedKeys,
-          oriHalfCheckedKeys = _this$state4.halfCheckedKeys;
-      var _this$props2 = _this.props,
-          checkStrictly = _this$props2.checkStrictly,
-          onCheck = _this$props2.onCheck;
-      var key = treeNode.key; // Prepare trigger arguments
-
-      var checkedObj;
-      var eventObj = {
-        event: 'check',
-        node: treeNode,
-        checked: checked,
-        nativeEvent: e.nativeEvent
-      };
-
-      if (checkStrictly) {
-        var checkedKeys = checked ? Object(util["a" /* arrAdd */])(oriCheckedKeys, key) : Object(util["b" /* arrDel */])(oriCheckedKeys, key);
-        var halfCheckedKeys = Object(util["b" /* arrDel */])(oriHalfCheckedKeys, key);
-        checkedObj = {
-          checked: checkedKeys,
-          halfChecked: halfCheckedKeys
-        };
-        eventObj.checkedNodes = checkedKeys.map(function (checkedKey) {
-          return keyEntities[checkedKey];
-        }).filter(function (entity) {
-          return entity;
-        }).map(function (entity) {
-          return entity.node;
-        });
-
-        _this.setUncontrolledState({
-          checkedKeys: checkedKeys
-        });
-      } else {
-        // Always fill first
-        var _conductCheck = Object(conductUtil["a" /* conductCheck */])([].concat(Object(toConsumableArray["a" /* default */])(oriCheckedKeys), [key]), true, keyEntities),
-            _checkedKeys = _conductCheck.checkedKeys,
-            _halfCheckedKeys = _conductCheck.halfCheckedKeys; // If remove, we do it again to correction
-
-
-        if (!checked) {
-          var keySet = new Set(_checkedKeys);
-          keySet.delete(key);
-
-          var _conductCheck2 = Object(conductUtil["a" /* conductCheck */])(Array.from(keySet), {
-            checked: false,
-            halfCheckedKeys: _halfCheckedKeys
-          }, keyEntities);
-
-          _checkedKeys = _conductCheck2.checkedKeys;
-          _halfCheckedKeys = _conductCheck2.halfCheckedKeys;
-        }
-
-        checkedObj = _checkedKeys; // [Legacy] This is used for `rc-tree-select`
-
-        eventObj.checkedNodes = [];
-        eventObj.checkedNodesPositions = [];
-        eventObj.halfCheckedKeys = _halfCheckedKeys;
-
-        _checkedKeys.forEach(function (checkedKey) {
-          var entity = keyEntities[checkedKey];
-          if (!entity) return;
-          var node = entity.node,
-              pos = entity.pos;
-          eventObj.checkedNodes.push(node);
-          eventObj.checkedNodesPositions.push({
-            node: node,
-            pos: pos
-          });
-        });
-
-        _this.setUncontrolledState({
-          checkedKeys: _checkedKeys
-        }, false, {
-          halfCheckedKeys: _halfCheckedKeys
-        });
-      }
-
-      if (onCheck) {
-        onCheck(checkedObj, eventObj);
-      }
-    };
-
-    _this.onNodeLoad = function (treeNode) {
-      return new Promise(function (resolve) {
-        // We need to get the latest state of loading/loaded keys
-        _this.setState(function (_ref) {
-          var _ref$loadedKeys = _ref.loadedKeys,
-              loadedKeys = _ref$loadedKeys === void 0 ? [] : _ref$loadedKeys,
-              _ref$loadingKeys = _ref.loadingKeys,
-              loadingKeys = _ref$loadingKeys === void 0 ? [] : _ref$loadingKeys;
-          var _this$props3 = _this.props,
-              loadData = _this$props3.loadData,
-              onLoad = _this$props3.onLoad;
-          var key = treeNode.key;
-
-          if (!loadData || loadedKeys.indexOf(key) !== -1 || loadingKeys.indexOf(key) !== -1) {
-            // react 15 will warn if return null
-            return {};
-          } // Process load data
-
-
-          var promise = loadData(treeNode);
-          promise.then(function () {
-            var _this$state5 = _this.state,
-                currentLoadedKeys = _this$state5.loadedKeys,
-                currentLoadingKeys = _this$state5.loadingKeys;
-            var newLoadedKeys = Object(util["a" /* arrAdd */])(currentLoadedKeys, key);
-            var newLoadingKeys = Object(util["b" /* arrDel */])(currentLoadingKeys, key); // onLoad should trigger before internal setState to avoid `loadData` trigger twice.
-            // https://github.com/ant-design/ant-design/issues/12464
-
-            if (onLoad) {
-              onLoad(newLoadedKeys, {
-                event: 'load',
-                node: treeNode
-              });
-            }
-
-            _this.setUncontrolledState({
-              loadedKeys: newLoadedKeys
-            });
-
-            _this.setState({
-              loadingKeys: newLoadingKeys
-            });
-
-            resolve();
-          });
-          return {
-            loadingKeys: Object(util["a" /* arrAdd */])(loadingKeys, key)
-          };
-        });
-      });
-    };
-
-    _this.onNodeMouseEnter = function (event, node) {
-      var onMouseEnter = _this.props.onMouseEnter;
-
-      if (onMouseEnter) {
-        onMouseEnter({
-          event: event,
-          node: node
-        });
-      }
-    };
-
-    _this.onNodeMouseLeave = function (event, node) {
-      var onMouseLeave = _this.props.onMouseLeave;
-
-      if (onMouseLeave) {
-        onMouseLeave({
-          event: event,
-          node: node
-        });
-      }
-    };
-
-    _this.onNodeContextMenu = function (event, node) {
-      var onRightClick = _this.props.onRightClick;
-
-      if (onRightClick) {
-        event.preventDefault();
-        onRightClick({
-          event: event,
-          node: node
-        });
-      }
-    };
-
-    _this.onFocus = function () {
-      var onFocus = _this.props.onFocus;
-
-      _this.setState({
-        focused: true
-      });
-
-      if (onFocus) {
-        onFocus.apply(void 0, arguments);
-      }
-    };
-
-    _this.onBlur = function () {
-      var onBlur = _this.props.onBlur;
-
-      _this.setState({
-        focused: false
-      });
-
-      _this.onActiveChange(null);
-
-      if (onBlur) {
-        onBlur.apply(void 0, arguments);
-      }
-    };
-
-    _this.getTreeNodeRequiredProps = function () {
-      var _this$state6 = _this.state,
-          expandedKeys = _this$state6.expandedKeys,
-          selectedKeys = _this$state6.selectedKeys,
-          loadedKeys = _this$state6.loadedKeys,
-          loadingKeys = _this$state6.loadingKeys,
-          checkedKeys = _this$state6.checkedKeys,
-          halfCheckedKeys = _this$state6.halfCheckedKeys,
-          dragOverNodeKey = _this$state6.dragOverNodeKey,
-          dropPosition = _this$state6.dropPosition,
-          keyEntities = _this$state6.keyEntities;
-      return {
-        expandedKeys: expandedKeys || [],
-        selectedKeys: selectedKeys || [],
-        loadedKeys: loadedKeys || [],
-        loadingKeys: loadingKeys || [],
-        checkedKeys: checkedKeys || [],
-        halfCheckedKeys: halfCheckedKeys || [],
-        dragOverNodeKey: dragOverNodeKey,
-        dropPosition: dropPosition,
-        keyEntities: keyEntities
-      };
-    }; // =========================== Expanded ===========================
-
-    /** Set uncontrolled `expandedKeys`. This will also auto update `flattenNodes`. */
-
-
-    _this.setExpandedKeys = function (expandedKeys) {
-      var treeData = _this.state.treeData;
-      var flattenNodes = Object(treeUtil["d" /* flattenTreeData */])(treeData, expandedKeys);
-
-      _this.setUncontrolledState({
-        expandedKeys: expandedKeys,
-        flattenNodes: flattenNodes
-      }, true);
-    };
-
-    _this.onNodeExpand = function (e, treeNode) {
-      var expandedKeys = _this.state.expandedKeys;
-      var listChanging = _this.state.listChanging;
-      var _this$props4 = _this.props,
-          onExpand = _this$props4.onExpand,
-          loadData = _this$props4.loadData;
-      var key = treeNode.key,
-          expanded = treeNode.expanded; // Do nothing when motion is in progress
-
-      if (listChanging) {
-        return;
-      } // Update selected keys
-
-
-      var index = expandedKeys.indexOf(key);
-      var targetExpanded = !expanded;
-      Object(warning["a" /* default */])(expanded && index !== -1 || !expanded && index === -1, 'Expand state not sync with index check');
-
-      if (targetExpanded) {
-        expandedKeys = Object(util["a" /* arrAdd */])(expandedKeys, key);
-      } else {
-        expandedKeys = Object(util["b" /* arrDel */])(expandedKeys, key);
-      }
-
-      _this.setExpandedKeys(expandedKeys);
-
-      if (onExpand) {
-        onExpand(expandedKeys, {
-          node: treeNode,
-          expanded: targetExpanded,
-          nativeEvent: e.nativeEvent
-        });
-      } // Async Load data
-
-
-      if (targetExpanded && loadData) {
-        var loadPromise = _this.onNodeLoad(treeNode);
-
-        if (loadPromise) {
-          loadPromise.then(function () {
-            // [Legacy] Refresh logic
-            var newFlattenTreeData = Object(treeUtil["d" /* flattenTreeData */])(_this.state.treeData, expandedKeys);
-
-            _this.setUncontrolledState({
-              flattenNodes: newFlattenTreeData
-            });
-          });
-        }
-      }
-    };
-
-    _this.onListChangeStart = function () {
-      _this.setUncontrolledState({
-        listChanging: true
-      });
-    };
-
-    _this.onListChangeEnd = function () {
-      setTimeout(function () {
-        _this.setUncontrolledState({
-          listChanging: false
-        });
-      });
-    }; // =========================== Keyboard ===========================
-
-
-    _this.onActiveChange = function (newActiveKey) {
-      var activeKey = _this.state.activeKey;
-      var onActiveChange = _this.props.onActiveChange;
-
-      if (activeKey === newActiveKey) {
-        return;
-      }
-
-      _this.setState({
-        activeKey: newActiveKey
-      });
-
-      if (newActiveKey !== null) {
-        _this.scrollTo({
-          key: newActiveKey
-        });
-      }
-
-      if (onActiveChange) {
-        onActiveChange(newActiveKey);
-      }
-    };
-
-    _this.getActiveItem = function () {
-      var _this$state7 = _this.state,
-          activeKey = _this$state7.activeKey,
-          flattenNodes = _this$state7.flattenNodes;
-
-      if (activeKey === null) {
-        return null;
-      }
-
-      return flattenNodes.find(function (_ref2) {
-        var key = _ref2.data.key;
-        return key === activeKey;
-      }) || null;
-    };
-
-    _this.offsetActiveKey = function (offset) {
-      var _this$state8 = _this.state,
-          flattenNodes = _this$state8.flattenNodes,
-          activeKey = _this$state8.activeKey;
-      var index = flattenNodes.findIndex(function (_ref3) {
-        var key = _ref3.data.key;
-        return key === activeKey;
-      }); // Align with index
-
-      if (index === -1 && offset < 0) {
-        index = flattenNodes.length;
-      }
-
-      index = (index + offset + flattenNodes.length) % flattenNodes.length;
-      var item = flattenNodes[index];
-
-      if (item) {
-        var key = item.data.key;
-
-        _this.onActiveChange(key);
-      } else {
-        _this.onActiveChange(null);
-      }
-    };
-
-    _this.onKeyDown = function (event) {
-      var _this$state9 = _this.state,
-          activeKey = _this$state9.activeKey,
-          expandedKeys = _this$state9.expandedKeys,
-          checkedKeys = _this$state9.checkedKeys;
-      var _this$props5 = _this.props,
-          onKeyDown = _this$props5.onKeyDown,
-          checkable = _this$props5.checkable,
-          selectable = _this$props5.selectable; // >>>>>>>>>> Direction
-
-      switch (event.which) {
-        case KeyCode["a" /* default */].UP:
-          {
-            _this.offsetActiveKey(-1);
-
-            event.preventDefault();
-            break;
-          }
-
-        case KeyCode["a" /* default */].DOWN:
-          {
-            _this.offsetActiveKey(1);
-
-            event.preventDefault();
-            break;
-          }
-      } // >>>>>>>>>> Expand & Selection
-
-
-      var activeItem = _this.getActiveItem();
-
-      if (activeItem && activeItem.data) {
-        var treeNodeRequiredProps = _this.getTreeNodeRequiredProps();
-
-        var expandable = activeItem.data.isLeaf === false || !!(activeItem.data.children || []).length;
-        var eventNode = Object(treeUtil["b" /* convertNodePropsToEventData */])(Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, Object(treeUtil["f" /* getTreeNodeProps */])(activeKey, treeNodeRequiredProps)), {}, {
-          data: activeItem.data,
-          active: true
-        }));
-
-        switch (event.which) {
-          // >>> Expand
-          case KeyCode["a" /* default */].LEFT:
-            {
-              // Collapse if possible
-              if (expandable && expandedKeys.includes(activeKey)) {
-                _this.onNodeExpand({}, eventNode);
-              } else if (activeItem.parent) {
-                _this.onActiveChange(activeItem.parent.data.key);
-              }
-
-              event.preventDefault();
-              break;
-            }
-
-          case KeyCode["a" /* default */].RIGHT:
-            {
-              // Expand if possible
-              if (expandable && !expandedKeys.includes(activeKey)) {
-                _this.onNodeExpand({}, eventNode);
-              } else if (activeItem.children && activeItem.children.length) {
-                _this.onActiveChange(activeItem.children[0].data.key);
-              }
-
-              event.preventDefault();
-              break;
-            }
-          // Selection
-
-          case KeyCode["a" /* default */].ENTER:
-          case KeyCode["a" /* default */].SPACE:
-            {
-              if (checkable && !eventNode.disabled && eventNode.checkable !== false && !eventNode.disableCheckbox) {
-                _this.onNodeCheck({}, eventNode, !checkedKeys.includes(activeKey));
-              } else if (!checkable && selectable && !eventNode.disabled && eventNode.selectable !== false) {
-                _this.onNodeSelect({}, eventNode);
-              }
-
-              break;
-            }
-        }
-      }
-
-      if (onKeyDown) {
-        onKeyDown(event);
-      }
-    };
-    /**
-     * Only update the value which is not in props
-     */
-
-
-    _this.setUncontrolledState = function (state) {
-      var atomic = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      var forceState = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-
-      if (_this.destroyed) {
-        return;
-      }
-
-      var needSync = false;
-      var allPassed = true;
-      var newState = {};
-      Object.keys(state).forEach(function (name) {
-        if (name in _this.props) {
-          allPassed = false;
-          return;
-        }
-
-        needSync = true;
-        newState[name] = state[name];
-      });
-
-      if (needSync && (!atomic || allPassed)) {
-        _this.setState(Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, newState), forceState));
-      }
-    };
-
-    _this.scrollTo = function (scroll) {
-      _this.listRef.current.scrollTo(scroll);
-    };
-
-    return _this;
-  }
-
-  Object(createClass["a" /* default */])(Tree, [{
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.destroyed = true;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _classNames;
-
-      var _this$state10 = this.state,
-          focused = _this$state10.focused,
-          flattenNodes = _this$state10.flattenNodes,
-          keyEntities = _this$state10.keyEntities,
-          dragging = _this$state10.dragging,
-          activeKey = _this$state10.activeKey;
-      var _this$props6 = this.props,
-          prefixCls = _this$props6.prefixCls,
-          className = _this$props6.className,
-          style = _this$props6.style,
-          showLine = _this$props6.showLine,
-          focusable = _this$props6.focusable,
-          _this$props6$tabIndex = _this$props6.tabIndex,
-          tabIndex = _this$props6$tabIndex === void 0 ? 0 : _this$props6$tabIndex,
-          selectable = _this$props6.selectable,
-          showIcon = _this$props6.showIcon,
-          icon = _this$props6.icon,
-          switcherIcon = _this$props6.switcherIcon,
-          draggable = _this$props6.draggable,
-          checkable = _this$props6.checkable,
-          checkStrictly = _this$props6.checkStrictly,
-          disabled = _this$props6.disabled,
-          motion = _this$props6.motion,
-          loadData = _this$props6.loadData,
-          filterTreeNode = _this$props6.filterTreeNode,
-          height = _this$props6.height,
-          itemHeight = _this$props6.itemHeight,
-          virtual = _this$props6.virtual,
-          titleRender = _this$props6.titleRender,
-          onContextMenu = _this$props6.onContextMenu;
-      var domProps = Object(util["f" /* getDataAndAria */])(this.props);
-      return react["createElement"](contextTypes["a" /* TreeContext */].Provider, {
-        value: {
-          prefixCls: prefixCls,
-          selectable: selectable,
-          showIcon: showIcon,
-          icon: icon,
-          switcherIcon: switcherIcon,
-          draggable: draggable,
-          checkable: checkable,
-          checkStrictly: checkStrictly,
-          disabled: disabled,
-          keyEntities: keyEntities,
-          loadData: loadData,
-          filterTreeNode: filterTreeNode,
-          titleRender: titleRender,
-          onNodeClick: this.onNodeClick,
-          onNodeDoubleClick: this.onNodeDoubleClick,
-          onNodeExpand: this.onNodeExpand,
-          onNodeSelect: this.onNodeSelect,
-          onNodeCheck: this.onNodeCheck,
-          onNodeLoad: this.onNodeLoad,
-          onNodeMouseEnter: this.onNodeMouseEnter,
-          onNodeMouseLeave: this.onNodeMouseLeave,
-          onNodeContextMenu: this.onNodeContextMenu,
-          onNodeDragStart: this.onNodeDragStart,
-          onNodeDragEnter: this.onNodeDragEnter,
-          onNodeDragOver: this.onNodeDragOver,
-          onNodeDragLeave: this.onNodeDragLeave,
-          onNodeDragEnd: this.onNodeDragEnd,
-          onNodeDrop: this.onNodeDrop
-        }
-      }, react["createElement"]("div", {
-        className: classnames_default()(prefixCls, className, (_classNames = {}, Object(esm_defineProperty["a" /* default */])(_classNames, "".concat(prefixCls, "-show-line"), showLine), Object(esm_defineProperty["a" /* default */])(_classNames, "".concat(prefixCls, "-focused"), focused), Object(esm_defineProperty["a" /* default */])(_classNames, "".concat(prefixCls, "-active-focused"), activeKey !== null), _classNames))
-      }, react["createElement"](es_NodeList, Object.assign({
-        ref: this.listRef,
-        prefixCls: prefixCls,
-        style: style,
-        data: flattenNodes,
-        disabled: disabled,
-        selectable: selectable,
-        checkable: !!checkable,
-        motion: motion,
-        dragging: dragging,
-        height: height,
-        itemHeight: itemHeight,
-        virtual: virtual,
-        focusable: focusable,
-        focused: focused,
-        tabIndex: tabIndex,
-        activeItem: this.getActiveItem(),
-        onFocus: this.onFocus,
-        onBlur: this.onBlur,
-        onKeyDown: this.onKeyDown,
-        onActiveChange: this.onActiveChange,
-        onListChangeStart: this.onListChangeStart,
-        onListChangeEnd: this.onListChangeEnd,
-        onContextMenu: onContextMenu
-      }, this.getTreeNodeRequiredProps(), domProps))));
-    }
-  }], [{
-    key: "getDerivedStateFromProps",
-    value: function getDerivedStateFromProps(props, prevState) {
-      var prevProps = prevState.prevProps;
-      var newState = {
-        prevProps: props
-      };
-
-      function needSync(name) {
-        return !prevProps && name in props || prevProps && prevProps[name] !== props[name];
-      } // ================== Tree Node ==================
-
-
-      var treeData; // Check if `treeData` or `children` changed and save into the state.
-
-      if (needSync('treeData')) {
-        treeData = props.treeData;
-      } else if (needSync('children')) {
-        Object(warning["a" /* default */])(false, '`children` of Tree is deprecated. Please use `treeData` instead.');
-        treeData = Object(treeUtil["c" /* convertTreeToData */])(props.children);
-      } // Save flatten nodes info and convert `treeData` into keyEntities
-
-
-      if (treeData) {
-        newState.treeData = treeData;
-        var entitiesMap = Object(treeUtil["a" /* convertDataToEntities */])(treeData);
-        newState.keyEntities = Object(objectSpread2["a" /* default */])(Object(esm_defineProperty["a" /* default */])({}, MOTION_KEY, MotionEntity), entitiesMap.keyEntities); // Warning if treeNode not provide key
-
-        if (false) {}
-      }
-
-      var keyEntities = newState.keyEntities || prevState.keyEntities; // ================ expandedKeys =================
-
-      if (needSync('expandedKeys') || prevProps && needSync('autoExpandParent')) {
-        newState.expandedKeys = props.autoExpandParent || !prevProps && props.defaultExpandParent ? Object(util["e" /* conductExpandParent */])(props.expandedKeys, keyEntities) : props.expandedKeys;
-      } else if (!prevProps && props.defaultExpandAll) {
-        var cloneKeyEntities = Object(objectSpread2["a" /* default */])({}, keyEntities);
-
-        delete cloneKeyEntities[MOTION_KEY];
-        newState.expandedKeys = Object.keys(cloneKeyEntities).map(function (key) {
-          return cloneKeyEntities[key].key;
-        });
-      } else if (!prevProps && props.defaultExpandedKeys) {
-        newState.expandedKeys = props.autoExpandParent || props.defaultExpandParent ? Object(util["e" /* conductExpandParent */])(props.defaultExpandedKeys, keyEntities) : props.defaultExpandedKeys;
-      }
-
-      if (!newState.expandedKeys) {
-        delete newState.expandedKeys;
-      } // ================ flattenNodes =================
-
-
-      if (treeData || newState.expandedKeys) {
-        var flattenNodes = Object(treeUtil["d" /* flattenTreeData */])(treeData || prevState.treeData, newState.expandedKeys || prevState.expandedKeys);
-        newState.flattenNodes = flattenNodes;
-      } // ================ selectedKeys =================
-
-
-      if (props.selectable) {
-        if (needSync('selectedKeys')) {
-          newState.selectedKeys = Object(util["d" /* calcSelectedKeys */])(props.selectedKeys, props);
-        } else if (!prevProps && props.defaultSelectedKeys) {
-          newState.selectedKeys = Object(util["d" /* calcSelectedKeys */])(props.defaultSelectedKeys, props);
-        }
-      } // ================= checkedKeys =================
-
-
-      if (props.checkable) {
-        var checkedKeyEntity;
-
-        if (needSync('checkedKeys')) {
-          checkedKeyEntity = Object(util["j" /* parseCheckedKeys */])(props.checkedKeys) || {};
-        } else if (!prevProps && props.defaultCheckedKeys) {
-          checkedKeyEntity = Object(util["j" /* parseCheckedKeys */])(props.defaultCheckedKeys) || {};
-        } else if (treeData) {
-          // If `treeData` changed, we also need check it
-          checkedKeyEntity = Object(util["j" /* parseCheckedKeys */])(props.checkedKeys) || {
-            checkedKeys: prevState.checkedKeys,
-            halfCheckedKeys: prevState.halfCheckedKeys
-          };
-        }
-
-        if (checkedKeyEntity) {
-          var _checkedKeyEntity = checkedKeyEntity,
-              _checkedKeyEntity$che = _checkedKeyEntity.checkedKeys,
-              checkedKeys = _checkedKeyEntity$che === void 0 ? [] : _checkedKeyEntity$che,
-              _checkedKeyEntity$hal = _checkedKeyEntity.halfCheckedKeys,
-              halfCheckedKeys = _checkedKeyEntity$hal === void 0 ? [] : _checkedKeyEntity$hal;
-
-          if (!props.checkStrictly) {
-            var conductKeys = Object(conductUtil["a" /* conductCheck */])(checkedKeys, true, keyEntities);
-            checkedKeys = conductKeys.checkedKeys;
-            halfCheckedKeys = conductKeys.halfCheckedKeys;
-          }
-
-          newState.checkedKeys = checkedKeys;
-          newState.halfCheckedKeys = halfCheckedKeys;
-        }
-      } // ================= loadedKeys ==================
-
-
-      if (needSync('loadedKeys')) {
-        newState.loadedKeys = props.loadedKeys;
-      }
-
-      return newState;
-    }
-  }]);
-
-  return Tree;
-}(react["Component"]);
-
-Tree_Tree.defaultProps = {
-  prefixCls: 'rc-tree',
-  showLine: false,
-  showIcon: true,
-  selectable: true,
-  multiple: false,
-  checkable: false,
-  disabled: false,
-  checkStrictly: false,
-  draggable: false,
-  defaultExpandParent: true,
-  autoExpandParent: false,
-  defaultExpandAll: false,
-  defaultExpandedKeys: [],
-  defaultCheckedKeys: [],
-  defaultSelectedKeys: []
-};
-Tree_Tree.TreeNode = TreeNode["a" /* default */];
-/* harmony default export */ var es_Tree = (Tree_Tree);
-// CONCATENATED MODULE: ./node_modules/rc-tree/es/index.js
-
-
-
-/* harmony default export */ var rc_tree_es = (es_Tree);
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/toConsumableArray.js
-var helpers_toConsumableArray = __webpack_require__("RIqP");
-var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(helpers_toConsumableArray);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/slicedToArray.js
-var helpers_slicedToArray = __webpack_require__("J4zp");
-var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(helpers_slicedToArray);
-
-// EXTERNAL MODULE: ./node_modules/lodash/debounce.js
-var debounce = __webpack_require__("sEfC");
-var debounce_default = /*#__PURE__*/__webpack_require__.n(debounce);
-
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/FileOutlined.js
-var FileOutlined = __webpack_require__("vk+C");
-var FileOutlined_default = /*#__PURE__*/__webpack_require__.n(FileOutlined);
-
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/FolderOpenOutlined.js
-var FolderOpenOutlined = __webpack_require__("Vy0f");
-var FolderOpenOutlined_default = /*#__PURE__*/__webpack_require__.n(FolderOpenOutlined);
-
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/FolderOutlined.js
-var FolderOutlined = __webpack_require__("kGiB");
-var FolderOutlined_default = /*#__PURE__*/__webpack_require__.n(FolderOutlined);
-
-// EXTERNAL MODULE: ./node_modules/antd/es/config-provider/context.js + 1 modules
-var context = __webpack_require__("H84U");
-
-// CONCATENATED MODULE: ./node_modules/antd/es/tree/utils/dictUtil.js
-
-var Record;
-
-(function (Record) {
-  Record[Record["None"] = 0] = "None";
-  Record[Record["Start"] = 1] = "Start";
-  Record[Record["End"] = 2] = "End";
-})(Record || (Record = {}));
-
-function traverseNodesKey(treeData, callback) {
-  function processNode(dataNode) {
-    var key = dataNode.key,
-        children = dataNode.children;
-
-    if (callback(key, dataNode) !== false) {
-      traverseNodesKey(children || [], callback);
-    }
-  }
-
-  treeData.forEach(processNode);
-}
-/** 计算选中范围，只考虑expanded情况以优化性能 */
-
-
-function calcRangeKeys(_ref) {
-  var treeData = _ref.treeData,
-      expandedKeys = _ref.expandedKeys,
-      startKey = _ref.startKey,
-      endKey = _ref.endKey;
-  var keys = [];
-  var record = Record.None;
-
-  if (startKey && startKey === endKey) {
-    return [startKey];
-  }
-
-  if (!startKey || !endKey) {
-    return [];
-  }
-
-  function matchKey(key) {
-    return key === startKey || key === endKey;
-  }
-
-  traverseNodesKey(treeData, function (key) {
-    if (record === Record.End) {
-      return false;
-    }
-
-    if (matchKey(key)) {
-      // Match test
-      keys.push(key);
-
-      if (record === Record.None) {
-        record = Record.Start;
-      } else if (record === Record.Start) {
-        record = Record.End;
-        return false;
-      }
-    } else if (record === Record.Start) {
-      // Append selection
-      keys.push(key);
-    }
-
-    if (expandedKeys.indexOf(key) === -1) {
-      return false;
-    }
-
-    return true;
-  });
-  return keys;
-}
-function convertDirectoryKeysToNodes(treeData, keys) {
-  var restKeys = toConsumableArray_default()(keys);
-
-  var nodes = [];
-  traverseNodesKey(treeData, function (key, node) {
-    var index = restKeys.indexOf(key);
-
-    if (index !== -1) {
-      nodes.push(node);
-      restKeys.splice(index, 1);
-    }
-
-    return !!restKeys.length;
-  });
-  return nodes;
-}
-// CONCATENATED MODULE: ./node_modules/antd/es/tree/DirectoryTree.js
-
-
-
-
-
-var __rest = undefined && undefined.__rest || function (s, e) {
-  var t = {};
-
-  for (var p in s) {
-    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-  }
-
-  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
-  }
-  return t;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-function getIcon(props) {
-  var isLeaf = props.isLeaf,
-      expanded = props.expanded;
-
-  if (isLeaf) {
-    return /*#__PURE__*/react["createElement"](FileOutlined_default.a, null);
-  }
-
-  return expanded ? /*#__PURE__*/react["createElement"](FolderOpenOutlined_default.a, null) : /*#__PURE__*/react["createElement"](FolderOutlined_default.a, null);
-}
-
-function getTreeData(_ref) {
-  var treeData = _ref.treeData,
-      children = _ref.children;
-  return treeData || Object(treeUtil["c" /* convertTreeToData */])(children);
-}
-
-var DirectoryTree_DirectoryTree = function DirectoryTree(_a, ref) {
-  var defaultExpandAll = _a.defaultExpandAll,
-      defaultExpandParent = _a.defaultExpandParent,
-      defaultExpandedKeys = _a.defaultExpandedKeys,
-      props = __rest(_a, ["defaultExpandAll", "defaultExpandParent", "defaultExpandedKeys"]); // Shift click usage
-
-
-  var lastSelectedKey = react["useRef"]();
-  var cachedSelectedKeys = react["useRef"]();
-  var treeRef = /*#__PURE__*/react["createRef"]();
-  react["useImperativeHandle"](ref, function () {
-    return treeRef.current;
-  });
-
-  var getInitExpandedKeys = function getInitExpandedKeys() {
-    var _convertDataToEntitie = Object(treeUtil["a" /* convertDataToEntities */])(getTreeData(props)),
-        keyEntities = _convertDataToEntitie.keyEntities;
-
-    var initExpandedKeys; // Expanded keys
-
-    if (defaultExpandAll) {
-      initExpandedKeys = Object.keys(keyEntities);
-    } else if (defaultExpandParent) {
-      initExpandedKeys = Object(util["e" /* conductExpandParent */])(props.expandedKeys || defaultExpandedKeys, keyEntities);
-    } else {
-      initExpandedKeys = props.expandedKeys || defaultExpandedKeys;
-    }
-
-    return initExpandedKeys;
-  };
-
-  var _React$useState = react["useState"](props.selectedKeys || props.defaultSelectedKeys || []),
-      _React$useState2 = slicedToArray_default()(_React$useState, 2),
-      selectedKeys = _React$useState2[0],
-      setSelectedKeys = _React$useState2[1];
-
-  var _React$useState3 = react["useState"](getInitExpandedKeys()),
-      _React$useState4 = slicedToArray_default()(_React$useState3, 2),
-      expandedKeys = _React$useState4[0],
-      setExpandedKeys = _React$useState4[1];
-
-  react["useEffect"](function () {
-    if ('selectedKeys' in props) {
-      setSelectedKeys(props.selectedKeys);
-    }
-  }, [props.selectedKeys]);
-  react["useEffect"](function () {
-    if ('expandedKeys' in props) {
-      setExpandedKeys(props.expandedKeys);
-    }
-  }, [props.expandedKeys]);
-
-  var expandFolderNode = function expandFolderNode(event, node) {
-    var isLeaf = node.isLeaf;
-
-    if (isLeaf || event.shiftKey || event.metaKey || event.ctrlKey) {
-      return;
-    } // Call internal rc-tree expand function
-    // https://github.com/ant-design/ant-design/issues/12567
-
-
-    treeRef.current.onNodeExpand(event, node);
-  };
-
-  var onDebounceExpand = debounce_default()(expandFolderNode, 200, {
-    leading: true
-  });
-
-  var onExpand = function onExpand(keys, info) {
-    if (!('expandedKeys' in props)) {
-      setExpandedKeys(keys);
-    } // Call origin function
-
-
-    if (props.onExpand) {
-      return props.onExpand(keys, info);
-    }
-
-    return undefined;
-  };
-
-  var onClick = function onClick(event, node) {
-    var expandAction = props.expandAction; // Expand the tree
-
-    if (expandAction === 'click') {
-      onDebounceExpand(event, node);
-    }
-
-    if (props.onClick) {
-      props.onClick(event, node);
-    }
-  };
-
-  var onDoubleClick = function onDoubleClick(event, node) {
-    var expandAction = props.expandAction; // Expand the tree
-
-    if (expandAction === 'doubleClick') {
-      onDebounceExpand(event, node);
-    }
-
-    if (props.onDoubleClick) {
-      props.onDoubleClick(event, node);
-    }
-  };
-
-  var onSelect = function onSelect(keys, event) {
-    var multiple = props.multiple;
-    var node = event.node,
-        nativeEvent = event.nativeEvent;
-    var _node$key = node.key,
-        key = _node$key === void 0 ? '' : _node$key;
-    var treeData = getTreeData(props); // const newState: DirectoryTreeState = {};
-    // We need wrap this event since some value is not same
-
-    var newEvent = extends_default()(extends_default()({}, event), {
-      selected: true
-    }); // Windows / Mac single pick
-
-
-    var ctrlPick = nativeEvent.ctrlKey || nativeEvent.metaKey;
-    var shiftPick = nativeEvent.shiftKey; // Generate new selected keys
-
-    var newSelectedKeys;
-
-    if (multiple && ctrlPick) {
-      // Control click
-      newSelectedKeys = keys;
-      lastSelectedKey.current = key;
-      cachedSelectedKeys.current = newSelectedKeys;
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
-    } else if (multiple && shiftPick) {
-      // Shift click
-      newSelectedKeys = Array.from(new Set([].concat(toConsumableArray_default()(cachedSelectedKeys.current || []), toConsumableArray_default()(calcRangeKeys({
-        treeData: treeData,
-        expandedKeys: expandedKeys,
-        startKey: key,
-        endKey: lastSelectedKey.current
-      })))));
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
-    } else {
-      // Single click
-      newSelectedKeys = [key];
-      lastSelectedKey.current = key;
-      cachedSelectedKeys.current = newSelectedKeys;
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
-    }
-
-    if (props.onSelect) {
-      props.onSelect(newSelectedKeys, newEvent);
-    }
-
-    if (!('selectedKeys' in props)) {
-      setSelectedKeys(newSelectedKeys);
-    }
-  };
-
-  var _React$useContext = react["useContext"](context["b" /* ConfigContext */]),
-      getPrefixCls = _React$useContext.getPrefixCls,
-      direction = _React$useContext.direction;
-
-  var customizePrefixCls = props.prefixCls,
-      className = props.className,
-      otherProps = __rest(props, ["prefixCls", "className"]);
-
-  var prefixCls = getPrefixCls('tree', customizePrefixCls);
-  var connectClassName = classnames_default()("".concat(prefixCls, "-directory"), defineProperty_default()({}, "".concat(prefixCls, "-directory-rtl"), direction === 'rtl'), className);
-  return /*#__PURE__*/react["createElement"](tree_Tree, extends_default()({
-    icon: getIcon,
-    ref: treeRef,
-    blockNode: true
-  }, otherProps, {
-    prefixCls: prefixCls,
-    className: connectClassName,
-    expandedKeys: expandedKeys,
-    selectedKeys: selectedKeys,
-    onSelect: onSelect,
-    onClick: onClick,
-    onDoubleClick: onDoubleClick,
-    onExpand: onExpand
-  }));
-};
-
-var ForwardDirectoryTree = /*#__PURE__*/react["forwardRef"](DirectoryTree_DirectoryTree);
-ForwardDirectoryTree.displayName = 'DirectoryTree';
-ForwardDirectoryTree.defaultProps = {
-  showIcon: true,
-  expandAction: 'click'
-};
-/* harmony default export */ var tree_DirectoryTree = (ForwardDirectoryTree);
-// EXTERNAL MODULE: ./node_modules/antd/es/_util/motion.js
-var _util_motion = __webpack_require__("EXcs");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/typeof.js
-var helpers_typeof = __webpack_require__("cDf5");
-var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
-
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/LoadingOutlined.js
-var LoadingOutlined = __webpack_require__("gZBC");
-var LoadingOutlined_default = /*#__PURE__*/__webpack_require__.n(LoadingOutlined);
-
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/MinusSquareOutlined.js
-var MinusSquareOutlined = __webpack_require__("pG52");
-var MinusSquareOutlined_default = /*#__PURE__*/__webpack_require__.n(MinusSquareOutlined);
-
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/PlusSquareOutlined.js
-var PlusSquareOutlined = __webpack_require__("Csr3");
-var PlusSquareOutlined_default = /*#__PURE__*/__webpack_require__.n(PlusSquareOutlined);
-
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/CaretDownFilled.js
-var CaretDownFilled = __webpack_require__("e5VY");
-var CaretDownFilled_default = /*#__PURE__*/__webpack_require__.n(CaretDownFilled);
-
-// EXTERNAL MODULE: ./node_modules/antd/es/_util/reactNode.js
-var reactNode = __webpack_require__("0n0R");
-
-// CONCATENATED MODULE: ./node_modules/antd/es/tree/utils/iconUtil.js
-
-
-
-
-
-
-
-
-
-function renderSwitcherIcon(prefixCls, switcherIcon, showLine, _ref) {
-  var isLeaf = _ref.isLeaf,
-      expanded = _ref.expanded,
-      loading = _ref.loading;
-
-  if (loading) {
-    return /*#__PURE__*/react["createElement"](LoadingOutlined_default.a, {
-      className: "".concat(prefixCls, "-switcher-loading-icon")
-    });
-  }
-
-  var showLeafIcon;
-
-  if (showLine && typeof_default()(showLine) === 'object') {
-    showLeafIcon = showLine.showLeafIcon;
-  }
-
-  if (isLeaf) {
-    if (showLine) {
-      if (typeof_default()(showLine) === 'object' && !showLeafIcon) {
-        return /*#__PURE__*/react["createElement"]("span", {
-          className: "".concat(prefixCls, "-switcher-leaf-line")
-        });
-      }
-
-      return /*#__PURE__*/react["createElement"](FileOutlined_default.a, {
-        className: "".concat(prefixCls, "-switcher-line-icon")
-      });
-    }
-
-    return null;
-  }
-
-  var switcherCls = "".concat(prefixCls, "-switcher-icon");
-
-  if (Object(reactNode["b" /* isValidElement */])(switcherIcon)) {
-    return Object(reactNode["a" /* cloneElement */])(switcherIcon, {
-      className: classnames_default()(switcherIcon.props.className || '', switcherCls)
-    });
-  }
-
-  if (switcherIcon) {
-    return switcherIcon;
-  }
-
-  if (showLine) {
-    return expanded ? /*#__PURE__*/react["createElement"](MinusSquareOutlined_default.a, {
-      className: "".concat(prefixCls, "-switcher-line-icon")
-    }) : /*#__PURE__*/react["createElement"](PlusSquareOutlined_default.a, {
-      className: "".concat(prefixCls, "-switcher-line-icon")
-    });
-  }
-
-  return /*#__PURE__*/react["createElement"](CaretDownFilled_default.a, {
-    className: switcherCls
-  });
-}
-// CONCATENATED MODULE: ./node_modules/antd/es/tree/Tree.js
-
-
-
-
-
-
-
-
-
-var tree_Tree_Tree = /*#__PURE__*/react["forwardRef"](function (props, ref) {
-  var _classNames;
-
-  var _React$useContext = react["useContext"](context["b" /* ConfigContext */]),
-      getPrefixCls = _React$useContext.getPrefixCls,
-      direction = _React$useContext.direction,
-      virtual = _React$useContext.virtual;
-
-  var customizePrefixCls = props.prefixCls,
-      className = props.className,
-      showIcon = props.showIcon,
-      showLine = props.showLine,
-      _switcherIcon = props.switcherIcon,
-      blockNode = props.blockNode,
-      children = props.children,
-      checkable = props.checkable;
-
-  var newProps = extends_default()(extends_default()({}, props), {
-    showLine: Boolean(showLine)
-  });
-
-  var prefixCls = getPrefixCls('tree', customizePrefixCls);
-  return /*#__PURE__*/react["createElement"](rc_tree_es, extends_default()({
-    itemHeight: 20,
-    ref: ref,
-    virtual: virtual
-  }, newProps, {
-    prefixCls: prefixCls,
-    className: classnames_default()((_classNames = {}, defineProperty_default()(_classNames, "".concat(prefixCls, "-icon-hide"), !showIcon), defineProperty_default()(_classNames, "".concat(prefixCls, "-block-node"), blockNode), defineProperty_default()(_classNames, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _classNames), className),
-    checkable: checkable ? /*#__PURE__*/react["createElement"]("span", {
-      className: "".concat(prefixCls, "-checkbox-inner")
-    }) : checkable,
-    switcherIcon: function switcherIcon(nodeProps) {
-      return renderSwitcherIcon(prefixCls, _switcherIcon, showLine, nodeProps);
-    }
-  }), children);
-});
-tree_Tree_Tree.TreeNode = TreeNode["a" /* default */];
-tree_Tree_Tree.DirectoryTree = tree_DirectoryTree;
-tree_Tree_Tree.defaultProps = {
-  checkable: false,
-  showIcon: false,
-  motion: extends_default()(extends_default()({}, _util_motion["a" /* default */]), {
-    motionAppear: false
-  }),
-  blockNode: false
-};
-/* harmony default export */ var tree_Tree = (tree_Tree_Tree);
-// CONCATENATED MODULE: ./node_modules/antd/es/tree/index.js
-
-/* harmony default export */ var tree = __webpack_exports__["a"] = (tree_Tree);
-
-/***/ }),
-
-/***/ "Qs9O":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/lib/asn/FolderOutlined.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// This icon file is generated automatically.
-Object.defineProperty(exports, "__esModule", { value: true });
-var FolderOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z" } }] }, "name": "folder", "theme": "outlined" };
-exports.default = FolderOutlined;
-
-
-/***/ }),
-
-/***/ "QyFq":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/lib/asn/CaretDownFilled.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// This icon file is generated automatically.
-Object.defineProperty(exports, "__esModule", { value: true });
-var CaretDownFilled = { "icon": { "tag": "svg", "attrs": { "viewBox": "0 0 1024 1024", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z" } }] }, "name": "caret-down", "theme": "filled" };
-exports.default = CaretDownFilled;
-
-
-/***/ }),
-
-/***/ "RZPm":
-/*!******************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/lib/icons/FileOutlined.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "TqRt");
-
-var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "284h");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "q1tI"));
-
-var _FileOutlined = _interopRequireDefault(__webpack_require__(/*! @ant-design/icons-svg/lib/asn/FileOutlined */ "JgUQ"));
-
-var _AntdIcon = _interopRequireDefault(__webpack_require__(/*! ../components/AntdIcon */ "KQxl"));
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-var FileOutlined = function FileOutlined(props, ref) {
-  return React.createElement(_AntdIcon.default, Object.assign({}, props, {
-    ref: ref,
-    icon: _FileOutlined.default
-  }));
-};
-
-FileOutlined.displayName = 'FileOutlined';
-
-var _default = React.forwardRef(FileOutlined);
-
-exports.default = _default;
-
-/***/ }),
-
-/***/ "Vy0f":
-/*!**************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/FolderOpenOutlined.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-  
-  var _FolderOpenOutlined = _interopRequireDefault(__webpack_require__(/*! ./lib/icons/FolderOpenOutlined */ "iYpf"));
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  var _default = _FolderOpenOutlined;
-  exports.default = _default;
-  module.exports = _default;
-
-/***/ }),
-
-/***/ "WXVj":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/lib/icons/MinusSquareOutlined.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "TqRt");
-
-var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "284h");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "q1tI"));
-
-var _MinusSquareOutlined = _interopRequireDefault(__webpack_require__(/*! @ant-design/icons-svg/lib/asn/MinusSquareOutlined */ "Bqw1"));
-
-var _AntdIcon = _interopRequireDefault(__webpack_require__(/*! ../components/AntdIcon */ "KQxl"));
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-var MinusSquareOutlined = function MinusSquareOutlined(props, ref) {
-  return React.createElement(_AntdIcon.default, Object.assign({}, props, {
-    ref: ref,
-    icon: _MinusSquareOutlined.default
-  }));
-};
-
-MinusSquareOutlined.displayName = 'MinusSquareOutlined';
-
-var _default = React.forwardRef(MinusSquareOutlined);
-
-exports.default = _default;
-
-/***/ }),
-
-/***/ "X2/X":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/lib/asn/PlusSquareOutlined.js ***!
-  \**************************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// This icon file is generated automatically.
-Object.defineProperty(exports, "__esModule", { value: true });
-var PlusSquareOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z" } }, { "tag": "path", "attrs": { "d": "M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" } }] }, "name": "plus-square", "theme": "outlined" };
-exports.default = PlusSquareOutlined;
-
-
-/***/ }),
-
-/***/ "YNAk":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/lib/icons/CaretDownFilled.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "TqRt");
-
-var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "284h");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "q1tI"));
-
-var _CaretDownFilled = _interopRequireDefault(__webpack_require__(/*! @ant-design/icons-svg/lib/asn/CaretDownFilled */ "QyFq"));
-
-var _AntdIcon = _interopRequireDefault(__webpack_require__(/*! ../components/AntdIcon */ "KQxl"));
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-var CaretDownFilled = function CaretDownFilled(props, ref) {
-  return React.createElement(_AntdIcon.default, Object.assign({}, props, {
-    ref: ref,
-    icon: _CaretDownFilled.default
-  }));
-};
-
-CaretDownFilled.displayName = 'CaretDownFilled';
-
-var _default = React.forwardRef(CaretDownFilled);
-
-exports.default = _default;
-
-/***/ }),
-
-/***/ "ZLWo":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/lib/asn/FolderOpenOutlined.js ***!
-  \**************************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// This icon file is generated automatically.
-Object.defineProperty(exports, "__esModule", { value: true });
-var FolderOpenOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2a8.15 8.15 0 00-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z" } }] }, "name": "folder-open", "theme": "outlined" };
-exports.default = FolderOpenOutlined;
-
-
-/***/ }),
-
-/***/ "b4If":
-/*!**********************************************************************!*\
-  !*** ./src/pages/AuditRights/routes/Roles/index.module.less?modules ***!
-  \**********************************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"tableaction":"tableaction___1pDq2"};
-
-/***/ }),
-
-/***/ "e5VY":
-/*!***********************************************************!*\
-  !*** ./node_modules/@ant-design/icons/CaretDownFilled.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-  
-  var _CaretDownFilled = _interopRequireDefault(__webpack_require__(/*! ./lib/icons/CaretDownFilled */ "YNAk"));
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  var _default = _CaretDownFilled;
-  exports.default = _default;
-  module.exports = _default;
+/* harmony default export */ __webpack_exports__["default"] = (Object(umi__WEBPACK_IMPORTED_MODULE_12__[/* connect */ "c"])(mapStateToProps)(UserRights));
 
 /***/ }),
 
@@ -4612,76 +1967,6 @@ DialogWrap_DialogWrap.displayName = 'Dialog';
 // CONCATENATED MODULE: ./node_modules/rc-dialog/es/index.js
 
 /* harmony default export */ var rc_dialog_es = __webpack_exports__["a"] = (es_DialogWrap);
-
-/***/ }),
-
-/***/ "iYpf":
-/*!************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/lib/icons/FolderOpenOutlined.js ***!
-  \************************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "TqRt");
-
-var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "284h");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "q1tI"));
-
-var _FolderOpenOutlined = _interopRequireDefault(__webpack_require__(/*! @ant-design/icons-svg/lib/asn/FolderOpenOutlined */ "ZLWo"));
-
-var _AntdIcon = _interopRequireDefault(__webpack_require__(/*! ../components/AntdIcon */ "KQxl"));
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-var FolderOpenOutlined = function FolderOpenOutlined(props, ref) {
-  return React.createElement(_AntdIcon.default, Object.assign({}, props, {
-    ref: ref,
-    icon: _FolderOpenOutlined.default
-  }));
-};
-
-FolderOpenOutlined.displayName = 'FolderOpenOutlined';
-
-var _default = React.forwardRef(FolderOpenOutlined);
-
-exports.default = _default;
-
-/***/ }),
-
-/***/ "kGiB":
-/*!**********************************************************!*\
-  !*** ./node_modules/@ant-design/icons/FolderOutlined.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-  
-  var _FolderOutlined = _interopRequireDefault(__webpack_require__(/*! ./lib/icons/FolderOutlined */ "ABKa"));
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  var _default = _FolderOutlined;
-  exports.default = _default;
-  module.exports = _default;
 
 /***/ }),
 
@@ -5471,72 +2756,17 @@ es_modal_Modal.config = globalConfig;
 
 /***/ }),
 
-/***/ "ozfa":
-/*!**************************************************!*\
-  !*** ./node_modules/antd/es/tree/style/index.js ***!
-  \**************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _style_index_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../style/index.less */ "cIOH");
-/* harmony import */ var _style_index_less__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_index_less__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.less */ "KxFI");
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-/***/ }),
-
-/***/ "pG52":
-/*!***************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/MinusSquareOutlined.js ***!
-  \***************************************************************/
+/***/ "wJaQ":
+/*!**********************************************************************!*\
+  !*** ./src/pages/AuditRights/routes/Users/index.module.less?modules ***!
+  \**********************************************************************/
 /*! no static exports found */
 /*! exports used: default */
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-  
-  var _MinusSquareOutlined = _interopRequireDefault(__webpack_require__(/*! ./lib/icons/MinusSquareOutlined */ "WXVj"));
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  var _default = _MinusSquareOutlined;
-  exports.default = _default;
-  module.exports = _default;
-
-/***/ }),
-
-/***/ "vk+C":
-/*!********************************************************!*\
-  !*** ./node_modules/@ant-design/icons/FileOutlined.js ***!
-  \********************************************************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-  
-  var _FileOutlined = _interopRequireDefault(__webpack_require__(/*! ./lib/icons/FileOutlined */ "RZPm"));
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  var _default = _FileOutlined;
-  exports.default = _default;
-  module.exports = _default;
+// extracted by mini-css-extract-plugin
+module.exports = {"tableaction":"tableaction___2y0Ej"};
 
 /***/ }),
 
@@ -5809,6 +3039,8 @@ function numberRange(_ref) {
 
 
 
+/* eslint-disable @typescript-eslint/no-shadow */
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 
@@ -5823,9 +3055,9 @@ function multilevelCategories(props) {
       onChange = props.onChange,
       _props$value = props.value,
       value = _props$value === void 0 ? {} : _props$value,
-      rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value"]);
+      id = props.id,
+      rest = Object(objectWithoutProperties["a" /* default */])(props, ["firstCategory", "secondCategory", "thirdCategory", "onChange", "value", "id"]); // console.log('3333333', rest);
 
-  console.log('3333333', value);
 
   var selectProps = Object(objectSpread2["a" /* default */])({
     allowClear: true,
@@ -5835,7 +3067,7 @@ function multilevelCategories(props) {
   }, rest);
 
   var selectChange = function selectChange(e, id) {
-    console.log('e, id', e, id);
+    // console.log('e, id', e, id);
     value[id] = e;
     onChange(value, id);
   };
@@ -5844,7 +3076,7 @@ function multilevelCategories(props) {
     compact: true
   }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "firstCategoryId",
-    name: "firstCategoryId",
+    name: "category1",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E00\u7EA7\u5206\u7C7B"
@@ -5854,12 +3086,12 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(firstCategory) && firstCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "secondCategoryId",
-    name: "secondCategoryId",
+    name: "category2",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
@@ -5869,12 +3101,12 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(secondCategory) && secondCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "thirdCategoryId",
-    name: "thirdCategoryId",
+    name: "category3",
     noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E09\u7EA7\u5206\u7C7B"
@@ -5884,8 +3116,8 @@ function multilevelCategories(props) {
     }
   }), !lodash_default.a.isEmpty(thirdCategory) && thirdCategory.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(Option, {
-      key: item.id,
-      value: item.id.toString()
+      key: item.code,
+      value: item.code.toString()
     }, item.name);
   }))));
 }
@@ -5967,6 +3199,10 @@ var FormItem = {
 
 
 
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-bitwise */
+
 /* eslint-disable no-unneeded-ternary */
 
 /* eslint-disable no-constant-condition */
@@ -5983,12 +3219,26 @@ var FormItem = {
 
 
 /**
+ * 生成uuid，用来没有设置name时候，取此值作为唯一key
+ *
+ * @return {*}
+ */
+
+function guid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
+/**
  * 对象转为entry数组
  *
  * @param object   原对象
  * @param callback 转换方式
  * @returns {any}
  */
+
 
 function entries(object) {
   var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (item) {
@@ -6019,7 +3269,8 @@ function fillFormItems(items) {
   // console.log(items)
   return items.map(function (item) {
     var label = item.label,
-        name = item.name,
+        _item$name = item.name,
+        name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
         _item$initialValue = item.initialValue,
@@ -6050,7 +3301,8 @@ function fillFormItems(items) {
 function renderFormItem(item, formLayout, layout, mediaSpan) {
   // console.log('item', item)
   var label = item.label,
-      name = item.name,
+      _item$name2 = item.name,
+      name = _item$name2 === void 0 ? guid() : _item$name2,
       _item$type = item.type,
       type = _item$type === void 0 ? '' : _item$type,
       _item$map = item.map,
