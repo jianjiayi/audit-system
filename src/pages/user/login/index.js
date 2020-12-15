@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable import/no-useless-path-segments */
@@ -15,13 +17,19 @@ import proSettings from './../../../../config/defaultSettings';
 import userLogin from './models';
 import styles from './index.less';
 
+import { encode } from '@utils/base64';
+
 
 const Login = () => {
   const { signin } = userLogin();
   const { setInitialState, refresh } = useModel('@@initialState');
 
   const onFinish = values => {
-    signin(values, setInitialState, refresh);
+    const password = encode(values.password);
+    console.log('password',password);
+    
+    signin({...values, password}, setInitialState, refresh);
+    // signin({...values}, setInitialState, refresh);
   };
 
   return (

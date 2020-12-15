@@ -107,6 +107,7 @@ function multilevelCategories(props) {
           key="categorySecond" 
           name="categorySecond" 
           noStyle 
+          shouldUpdate
         >
           <Select
             placeholder="二级分类"

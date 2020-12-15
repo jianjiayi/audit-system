@@ -2,7 +2,7 @@
 
 /***/ "191t":
 /*!***************************************************!*\
-  !*** ./src/pages/user/login/index.js + 3 modules ***!
+  !*** ./src/pages/user/login/index.js + 4 modules ***!
   \***************************************************/
 /*! exports provided: default */
 /*! all exports used */
@@ -10,6 +10,7 @@
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/user/login/models/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/index.js */
@@ -42,6 +43,9 @@ var input_style = __webpack_require__("5NDa");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/input/index.js + 3 modules
 var input = __webpack_require__("5rEg");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
@@ -197,6 +201,34 @@ var models = __webpack_require__("I2wH");
 // CONCATENATED MODULE: ./src/pages/user/login/index.less?modules
 // extracted by mini-css-extract-plugin
 /* harmony default export */ var loginmodules = ({"content":"content___232he","main":"main___oMoRI","header":"header___1G_uO","logo":"logo___2RIUt","title":"title___3xYCK","icon":"icon___1dSHb","other":"other___3ljbI","register":"register___1vN_i","prefixIcon":"prefixIcon___57iuX"});
+// CONCATENATED MODULE: ./src/utils/base64.js
+/* eslint-disable @typescript-eslint/no-shadow */
+
+/* eslint-disable prefer-const */
+
+/**
+ * 字符串转base64
+ * @param {*} str 
+ */
+var encode = function encode(str) {
+  // 对字符串进行编码
+  var encode = encodeURI(str); // 对编码的字符串转化base64
+
+  var base64 = btoa(encode);
+  return base64;
+};
+/**
+ * base64转字符串
+ * @param {*} base64 
+ */
+
+var decode = function decode(base64) {
+  // 对base64转编码
+  var decode = atob(base64); // 编码转字符串
+
+  var str = decodeURI(decode);
+  return str;
+};
 // CONCATENATED MODULE: ./src/pages/user/login/index.js
 
 
@@ -205,6 +237,11 @@ var models = __webpack_require__("I2wH");
 
 
 
+
+/* eslint-disable import/order */
+
+/* eslint-disable import/no-unresolved */
+
 /* eslint-disable jsx-a11y/alt-text */
 
 /* eslint-disable react/self-closing-comp */
@@ -212,6 +249,7 @@ var models = __webpack_require__("I2wH");
 /* eslint-disable import/no-useless-path-segments */
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
 
 
 
@@ -229,7 +267,11 @@ var login_Login = function Login() {
       refresh = _useModel.refresh;
 
   var onFinish = function onFinish(values) {
-    signin(values, setInitialState, refresh);
+    var password = encode(values.password);
+    console.log('password', password);
+    signin(Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, values), {}, {
+      password: password
+    }), setInitialState, refresh); // signin({...values}, setInitialState, refresh);
   };
 
   return /*#__PURE__*/react_default.a.createElement("div", {

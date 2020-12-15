@@ -27,7 +27,7 @@ const dateFormat = 'YYYY-MM-DD HH:mm:ss';
 
 const { confirm } = Modal;
 
-function AuditSettings(props) {
+function AuditSettings(props){
   const {
     initialState: { currentUser = {} },
   } = useModel('@@initialState');
@@ -234,7 +234,7 @@ function AuditSettings(props) {
 
   // 更新队列状态
   const updateQueueStatus = (data) => {
-    console.log(data);
+    // console.log(data);
     const { id, bid, queueType, name, type, keepDays, status } = data;
     if (status === 1) {
       confirm({
@@ -277,7 +277,7 @@ function AuditSettings(props) {
   // 查看队列规则
   const getViewRules = (data) => {
     setRulesVisible(true);
-    console.log('data', JSON.parse(data));
+    // console.log('data', JSON.parse(data));
     setJsonArray(JSON.parse(data));
   };
 

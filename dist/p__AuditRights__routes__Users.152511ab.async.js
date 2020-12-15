@@ -955,12 +955,14 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
   \*****************************************************************/
 /*! exports provided: default */
 /*! all exports used */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/regenerator/index.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/AuditRights/components/ModalForm/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
@@ -980,6 +982,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__("wx14");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/regenerator/index.js
+var regenerator = __webpack_require__("o0o1");
+var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
+var asyncToGenerator = __webpack_require__("HaE+");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/tag/style/index.js + 1 modules
 var style = __webpack_require__("+BJd");
@@ -1035,6 +1044,8 @@ var constants = __webpack_require__("6ZGt");
 var WrapAuth = __webpack_require__("yAXW");
 
 // CONCATENATED MODULE: ./src/pages/AuditRights/routes/Users/index.js
+
+
 
 
 
@@ -1363,9 +1374,42 @@ function UserRights(props) {
         label: '密码',
         name: title === '创建' ? 'password' : null,
         required: true,
-        type: 'TextArea',
-        showCount: true,
-        maxLength: 100
+        validator: function () {
+          var _validator = Object(asyncToGenerator["a" /* default */])( /*#__PURE__*/regenerator_default.a.mark(function _callee(rule, value, calaback) {
+            var pwdRegex;
+            return regenerator_default.a.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    console.log('rule, value', value);
+                    pwdRegex = new RegExp('(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{1,4}');
+                    console.log(pwdRegex.test(value));
+
+                    if (pwdRegex.test(value)) {
+                      _context.next = 5;
+                      break;
+                    }
+
+                    return _context.abrupt("return", calaback("\u5BC6\u7801\u4E2D\u5FC5\u987B\u5305\u542B\u5927\u5C0F\u5199 \u5B57\u6BCD\u3001\u6570\u5B57\u3001\u7279\u79F0\u5B57\u7B26\uFF0C\u81F3\u5C118\u4E2A\u5B57\u7B26\uFF0C\u6700\u591A30\u4E2A\u5B57\u7B26"));
+
+                  case 5:
+                    return _context.abrupt("return", callback());
+
+                  case 6:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+
+          function validator(_x, _x2, _x3) {
+            return _validator.apply(this, arguments);
+          }
+
+          return validator;
+        }(),
+        help: "\u5BC6\u7801\u4E2D\u5FC5\u987B\u5305\u542B\u5927\u5C0F\u5199 \u5B57\u6BCD\u3001\u6570\u5B57\u3001\u7279\u79F0\u5B57\u7B26\uFF0C\u81F3\u5C118\u4E2A\u5B57\u7B26\uFF0C\u6700\u591A30\u4E2A\u5B57\u7B26"
       }, {
         label: '角色',
         name: 'roles',
@@ -3268,6 +3312,7 @@ function fillFormItems(items) {
         name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
+        validator = item.validator,
         _item$initialValue = item.initialValue,
         initialValue = _item$initialValue === void 0 ? formValues[name] : _item$initialValue,
         _item$help = item.help,
@@ -3277,6 +3322,8 @@ function fillFormItems(items) {
         rules: required ? [{
           required: required,
           message: "\u8BF7\u8F93\u5165".concat(label)
+        }, {
+          validator: validator
         }] : null,
         initialValue: initialValue,
         help: help
@@ -3306,10 +3353,11 @@ function renderFormItem(item, formLayout, layout, mediaSpan) {
       initialValue = item.initialValue,
       itemRender = item.itemRender,
       placeholder = item.placeholder,
+      validator = item.validator,
       colSpan = item.colSpan,
       _item$isSpecial = item.isSpecial,
       isSpecial = _item$isSpecial === void 0 ? false : _item$isSpecial,
-      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "colSpan", "isSpecial"]);
+      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "validator", "colSpan", "isSpecial"]);
 
   if (!name) return; // 针对时间等长度的组件进行单独配置
 

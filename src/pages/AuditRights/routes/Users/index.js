@@ -23,7 +23,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'umi';
 import _ from 'lodash';
-import { Modal, Select, Tag } from 'antd';
+import { Form, Input,  Modal, Select, Tag } from 'antd';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
@@ -292,10 +292,18 @@ function UserRights(props) {
           label: '密码',
           name: title === '创建' ? 'password' : null,
           required: true,
-          type: 'TextArea',
-          showCount: true,
-          maxLength: 100,
+          validator: async (rule, value, calaback) => {
+            console.log('rule, value',value)
+            const pwdRegex = new RegExp('(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{1,4}');
+            console.log(pwdRegex.test(value))
+            if (!pwdRegex.test(value)) {
+              return calaback(`密码中必须包含大小写 字母、数字、特称字符，至少8个字符，最多30个字符`);
+            }
+            return callback();
+          },
+          help: `密码中必须包含大小写 字母、数字、特称字符，至少8个字符，最多30个字符`
         },
+        
         {
           label: '角色',
           name: 'roles',

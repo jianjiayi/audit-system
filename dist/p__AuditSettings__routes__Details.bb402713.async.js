@@ -5102,6 +5102,7 @@ function RuleJsonRender(props) {
     if (jsonArray[key] !== undefined) return message["b" /* default */].error('该表单项已被创建');
     jsonArray[key] = value;
     setJsonArray(Object(objectSpread2["a" /* default */])({}, jsonArray));
+    onChange(Object(objectSpread2["a" /* default */])({}, jsonArray));
   }; // 删除配置项
 
 
@@ -5111,8 +5112,9 @@ function RuleJsonRender(props) {
     var arr = lodash_default.a.clone(jsonArray);
 
     delete arr[key];
-    setJsonArray(Object(objectSpread2["a" /* default */])({}, arr));
-    onChange(arr);
+    setJsonArray(Object(objectSpread2["a" /* default */])({}, arr)); // console.log('arr',arr,_.isEmpty(arr))
+
+    onChange(lodash_default.a.isEmpty(arr) ? null : arr);
   };
 
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(input["a" /* default */].Group, {
@@ -5332,9 +5334,7 @@ function QueueContent(props) {
     }],
     formValues: {},
     onSubmit: function onSubmit(formValues) {
-      console.log('formValues.priority', formValues.priority);
-      var priority = formValues.priority;
-      console.log('formValues', formValues, priority);
+      // console.log('formValues', formValues);
       formValues.ruleJson = JSON.stringify(formValues.ruleJson); // 判断是否更新
 
       var _location$query = location.query,
@@ -5343,7 +5343,7 @@ function QueueContent(props) {
       if (action === 'update') formValues['id'] = id;
       dispatch({
         type: 'QDetails/saveQueue',
-        payload: formValues,
+        payload: Object(objectSpread2["a" /* default */])({}, formValues),
         callback: function callback(res) {
           if (res !== 200) {
             return;
@@ -5801,7 +5801,7 @@ function WordsRender(props) {
     });
     tableRef.current.setSelectedRowKeys(null);
     tableRef.current.setSelectedRows(null);
-    onChange(Object(toConsumableArray["a" /* default */])(data));
+    onChange(lodash_default.a.isEmpty(data) ? -1 : Object(toConsumableArray["a" /* default */])(data));
     setModalVisible(false);
   }; // console.log('tagsList', tagsList);
 
@@ -7169,6 +7169,7 @@ function fillFormItems(items) {
         name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
+        validator = item.validator,
         _item$initialValue = item.initialValue,
         initialValue = _item$initialValue === void 0 ? formValues[name] : _item$initialValue,
         _item$help = item.help,
@@ -7178,6 +7179,8 @@ function fillFormItems(items) {
         rules: required ? [{
           required: required,
           message: "\u8BF7\u8F93\u5165".concat(label)
+        }, {
+          validator: validator
         }] : null,
         initialValue: initialValue,
         help: help
@@ -7207,10 +7210,11 @@ function renderFormItem(item, formLayout, layout, mediaSpan) {
       initialValue = item.initialValue,
       itemRender = item.itemRender,
       placeholder = item.placeholder,
+      validator = item.validator,
       colSpan = item.colSpan,
       _item$isSpecial = item.isSpecial,
       isSpecial = _item$isSpecial === void 0 ? false : _item$isSpecial,
-      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "colSpan", "isSpecial"]);
+      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "validator", "colSpan", "isSpecial"]);
 
   if (!name) return; // 针对时间等长度的组件进行单独配置
 

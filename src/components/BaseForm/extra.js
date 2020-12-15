@@ -53,13 +53,14 @@ export function fillFormItems(items, formValues = {}) {
       label,
       name = guid(),
       required = false,
+      validator,
       initialValue = formValues[name],
       help = null,
     } = item;
 
     return {
       options: {
-        rules: required ? [{ required: required, message: `请输入${label}` }] : null,
+        rules: required ? [{ required: required, message: `请输入${label}` }, { validator }] : null,
         initialValue,
         help,
       },
@@ -87,6 +88,7 @@ export function renderFormItem(item, formLayout, layout, mediaSpan) {
     initialValue,
     itemRender,
     placeholder,
+    validator,
     colSpan,
     isSpecial = false,
     ...props

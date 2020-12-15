@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[13],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
 
 /***/ "5KP8":
 /*!*******************************************************!*\
@@ -368,20 +368,26 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 
 /***/ }),
 
-/***/ "pQwi":
-/*!*********************************************************************************!*\
-  !*** ./src/pages/AuditStatistics/routes/Personnel/Details/index.js + 1 modules ***!
-  \*********************************************************************************/
+/***/ "hpMx":
+/*!************************************************************************!*\
+  !*** ./src/pages/AuditStatistics/routes/Classify/index.js + 1 modules ***!
+  \************************************************************************/
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/utils.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -393,14 +399,29 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__("wx14");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js + 1 modules
-var style = __webpack_require__("+L6B");
+// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js + 1 modules
+var style = __webpack_require__("y8nQ");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/button/index.js
-var es_button = __webpack_require__("2/Rp");
+// EXTERNAL MODULE: ./node_modules/antd/es/form/index.js + 14 modules
+var es_form = __webpack_require__("Vl3Y");
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
 var objectSpread2 = __webpack_require__("VTBJ");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js + 1 modules
+var select_style = __webpack_require__("OaEy");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/select/index.js + 25 modules
+var es_select = __webpack_require__("2fM7");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js + 1 modules
+var input_style = __webpack_require__("5NDa");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/input/index.js + 3 modules
+var input = __webpack_require__("5rEg");
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
@@ -419,104 +440,167 @@ var BaseForm = __webpack_require__("zLEZ");
 // EXTERNAL MODULE: ./src/components/BaseTable/index.js + 1 modules
 var BaseTable = __webpack_require__("5KP8");
 
+// EXTERNAL MODULE: ./src/utils/utils.js
+var utils = __webpack_require__("+n12");
+
 // EXTERNAL MODULE: ./src/pages/constants.js
 var constants = __webpack_require__("6ZGt");
 
-// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Personnel/Details/index.module.less?modules
+// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Classify/index.module.less?modules
 // extracted by mini-css-extract-plugin
-/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___2brJu","tdmiddle":"tdmiddle___2r-Cc"});
-// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Personnel/Details/index.js
+/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___2Pp41"});
+// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Classify/index.js
 
 
 
 
 
-/* eslint-disable react/self-closing-comp */
 
-/* eslint-disable @typescript-eslint/no-shadow */
 
-/* eslint-disable spaced-comment */
+
+
 
 /* eslint-disable no-console */
 
 /* eslint-disable no-param-reassign */
 
-/* eslint-disable prefer-const */
-
 /* eslint-disable import/no-unresolved */
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable array-callback-return */
+
+/* eslint-disable no-unused-vars */
 
 
 
 
 
 
+
+
+var InputGroup = input["a" /* default */].Group;
+var Option = es_select["a" /* default */].Option; // const dateFormat = 'YYYY-MM-DD';
 
 function AuditStatistics(props) {
   var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
       _useModel$initialStat = _useModel.initialState.currentUser,
       currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
 
-  var formRef = Object(react["useRef"])(null);
+  var formRef = Object(react["useRef"])(null); // 存放分类
+
+  var _useState = Object(react["useState"])({}),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
+      categoryMap = _useState2[0],
+      setCategoryMap = _useState2[1];
+
   var dispatch = props.dispatch,
-      location = props.location,
       _props$business = props.business,
       business = _props$business === void 0 ? currentUser.business || {} : _props$business,
+      firstCategory = props.Global.firstCategory,
       _props$Statistics = props.Statistics,
       loading = _props$Statistics.loading,
       dataSource = _props$Statistics.dataSource,
       pagination = _props$Statistics.pagination;
   Object(react["useEffect"])(function () {
-    var formValues = formRef.current.getFieldsValue();
-
-    if (!lodash_default.a.isEmpty(formValues.datatime)) {
-      formValues.startTime = formValues.datatime[0].format(constants["f" /* dateFormat */]);
-      formValues.endTime = formValues.datatime[1].format(constants["f" /* dateFormat */]);
-    }
-
-    delete formValues.datatime;
     dispatch({
-      type: 'Statistics/getPersoneDetailQuery',
+      type: 'Statistics/init',
       payload: Object(objectSpread2["a" /* default */])({
-        userId: location.query.id
-      }, formValues)
+        type: 'category'
+      }, formRef.current.getFieldsValue())
     });
-  }, [dispatch, location.query]); // 多条件搜索配置
+  }, [dispatch]);
+  Object(react["useEffect"])(function () {
+    var mapObj = {};
+    firstCategory.map(function (item) {
+      mapObj[item.id.toString()] = item.name;
+    });
+    setCategoryMap(mapObj);
+  }, [firstCategory]); // 多条件搜索配置
 
   var searchFormProps = {
     className: index_modulemodules['form-contaner'],
     layout: 'inline',
+    resetShow: true,
+    authProps: {
+      pathUrl: '/statistics/classify',
+      perms: 'statistics:classify:select'
+    },
     dataSource: [{
       label: '业务线',
       type: 'SELECT',
       name: 'businessId',
-      // initialValue: ExObject.getFirstValue(business),
+      initialValue: utils["a" /* ExObject */].getFirstValue(business),
       map: business
     }, {
-      label: '审核时间',
+      label: '时间',
       name: 'datatime',
       type: 'DateTimeStartEnd'
     }, {
-      label: '内容类型',
+      label: '类型',
       type: 'SELECT',
       name: 'newsType',
-      map: constants["e" /* contentType */]
+      initialValue: 'NEWS',
+      map: constants["e" /* contentType */],
+      onChange: function onChange(e) {
+        console.log(e);
+        formRef.current.setFieldsValue({
+          categoryId: ''
+        });
+        dispatch({
+          type: 'Global/getFirstCategory',
+          payload: {
+            id: 0,
+            type: e
+          }
+        });
+      }
     }, {
-      label: '审核结果',
+      label: '分类',
       type: 'SELECT',
-      name: 'auditStatus',
+      name: 'categoryId',
       initialValue: '',
-      map: constants["d" /* auditResult1 */]
+      map: Object(objectSpread2["a" /* default */])({
+        '': '全部'
+      }, categoryMap)
     }, {
-      label: '标题',
-      name: 'title'
+      label: '排序',
+      name: 'params11',
+      itemRender: /*#__PURE__*/react_default.a.createElement(InputGroup, {
+        compact: true
+      }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+        name: "orderField",
+        initialValue: "",
+        noStyle: true
+      }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+        style: {
+          width: '50%'
+        }
+      }, Object.keys(constants["j" /* orderFieldMap */]).map(function (item) {
+        return /*#__PURE__*/react_default.a.createElement(Option, {
+          key: item,
+          value: item
+        }, constants["j" /* orderFieldMap */][item]);
+      }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+        name: "orderType",
+        initialValue: "desc",
+        noStyle: true
+      }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+        style: {
+          width: '50%'
+        }
+      }, Object.keys(constants["k" /* orderTypeMap */]).map(function (item) {
+        return /*#__PURE__*/react_default.a.createElement(Option, {
+          key: item,
+          value: item
+        }, constants["k" /* orderTypeMap */][item]);
+      }))))
     }],
-    formValues: location.query,
     onReset: function onReset() {
       dispatch({
-        type: 'Statistics/getPersoneDetailQuery',
+        type: 'Statistics/init',
         payload: {
-          userId: location.query.id,
+          type: 'category',
           businessId: formRef.current.getFieldValue('businessId')
         }
       });
@@ -530,55 +614,42 @@ function AuditStatistics(props) {
       delete formValues.datatime;
       console.log('formValues', formValues);
       dispatch({
-        type: 'Statistics/getPersoneDetailQuery',
+        type: 'Statistics/getStatisticQuery',
         payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValues), {}, {
-          userId: location.query.id
+          type: 'category'
         })
       });
     }
   }; // 列表配置
 
   var tableProps = {
-    bordered: true,
     // 类型
     selectionType: null,
-    //checkbox or radio or null||false
+    // checkbox or radio or null||false
     // 表头
     columns: [{
-      title: '人名',
-      dataIndex: 'auditorName',
-      key: 'auditorName',
-      align: 'center',
-      className: index_modulemodules.tdmiddle,
-      render: function render(_, row) {
-        return {
-          children: /*#__PURE__*/react_default.a.createElement("span", null, row.auditorName),
-          props: {
-            rowSpan: row.rowSpan
-          }
-        };
-      }
-    }, {
-      title: '队列',
-      align: 'center',
-      dataIndex: 'queue',
-      key: 'queue'
-    }, {
-      title: '标题',
-      align: 'center',
-      dataIndex: 'title'
-    }, {
-      title: '审核时间',
-      align: 'center',
-      dataIndex: 'finishAuditDatetime'
-    }, {
-      title: '审核结果',
-      align: 'center',
-      width: '260px',
-      dataIndex: 'auditStatus',
+      title: '时间',
+      dataIndex: 'dt',
       render: function render(text) {
         return /*#__PURE__*/react_default.a.createElement("span", null, text);
       }
+    }, {
+      title: '分类',
+      align: 'center',
+      dataIndex: 'categoryName'
+    }, {
+      title: '入审量',
+      align: 'center',
+      dataIndex: 'entryQueueCount'
+    }, {
+      title: '审核量',
+      align: 'center',
+      dataIndex: 'auditCount'
+    }, {
+      title: '审核通过量',
+      align: 'center',
+      width: '160px',
+      dataIndex: 'auditPassedCount'
     }],
     loading: loading,
     dataSource: dataSource,
@@ -586,9 +657,9 @@ function AuditStatistics(props) {
     onPageChg: function onPageChg(page) {
       // console.log(page)
       dispatch({
-        type: 'Statistics/getPersoneDetailQuery',
+        type: 'Statistics/getStatisticQuery',
         payload: {
-          user: location.query.user,
+          type: 'category',
           pageNum: page.current,
           pageSize: page.pageSize,
           businessId: formRef.current.getFieldValue('businessId')
@@ -598,21 +669,19 @@ function AuditStatistics(props) {
   };
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], Object(esm_extends["a" /* default */])({}, searchFormProps, {
     pRef: formRef
-  }), /*#__PURE__*/react_default.a.createElement(es_button["a" /* default */], {
-    onClick: function onClick() {
-      umiExports["f" /* history */].go(-1);
-    }
-  }, "\u8FD4\u56DE")), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps));
+  })), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps));
 }
 
 function mapStateToProps(_ref) {
-  var Statistics = _ref.Statistics;
+  var Global = _ref.Global,
+      Statistics = _ref.Statistics;
   return {
+    Global: Global,
     Statistics: Statistics
   };
 }
 
-/* harmony default export */ var Details = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(AuditStatistics));
+/* harmony default export */ var Classify = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(AuditStatistics));
 
 /***/ }),
 
@@ -1118,6 +1187,7 @@ function fillFormItems(items) {
         name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
+        validator = item.validator,
         _item$initialValue = item.initialValue,
         initialValue = _item$initialValue === void 0 ? formValues[name] : _item$initialValue,
         _item$help = item.help,
@@ -1127,6 +1197,8 @@ function fillFormItems(items) {
         rules: required ? [{
           required: required,
           message: "\u8BF7\u8F93\u5165".concat(label)
+        }, {
+          validator: validator
         }] : null,
         initialValue: initialValue,
         help: help
@@ -1156,10 +1228,11 @@ function renderFormItem(item, formLayout, layout, mediaSpan) {
       initialValue = item.initialValue,
       itemRender = item.itemRender,
       placeholder = item.placeholder,
+      validator = item.validator,
       colSpan = item.colSpan,
       _item$isSpecial = item.isSpecial,
       isSpecial = _item$isSpecial === void 0 ? false : _item$isSpecial,
-      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "colSpan", "isSpecial"]);
+      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "validator", "colSpan", "isSpecial"]);
 
   if (!name) return; // 针对时间等长度的组件进行单独配置
 

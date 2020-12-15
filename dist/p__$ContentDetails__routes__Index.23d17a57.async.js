@@ -1779,7 +1779,8 @@ function multilevelCategories(props) {
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "categorySecond",
     name: "categorySecond",
-    noStyle: true
+    noStyle: true,
+    shouldUpdate: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
   }, selectProps, {
@@ -2298,7 +2299,15 @@ function Operate(props) {
 
 
       values.hotValue = values.hotValue ? values.hotValue[0] : 0;
-      values.bigEvent = values.bigEvent ? values.bigEvent[0] : 0;
+      values.bigEvent = values.bigEvent ? values.bigEvent[0] : 0; // 处理分类，设置末级分类
+
+      if (values.categoryThird) {
+        values.lastCategory = values.categoryThird;
+      } else if (values.categorySecond) {
+        values.lastCategory = values.categorySecond;
+      } else if (values.categoryFirst) {
+        values.lastCategory = values.categoryFirst;
+      }
 
       var auditState = values.auditState,
           reason = values.reason,

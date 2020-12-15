@@ -1,20 +1,394 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[17],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
 
-/***/ "75RJ":
-/*!********************************************************!*\
-  !*** ./src/pages/HomePage/routes/index.js + 7 modules ***!
-  \********************************************************/
+/***/ "5KP8":
+/*!*******************************************************!*\
+  !*** ./src/components/BaseTable/index.js + 1 modules ***!
+  \*******************************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/table/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/table/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/classnames/index.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXTERNAL MODULE: ./node_modules/antd/es/table/style/index.js + 1 modules
+var style = __webpack_require__("g9YV");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/table/index.js + 54 modules
+var table = __webpack_require__("wCAj");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+var objectWithoutProperties = __webpack_require__("Ff2n");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__("q1tI");
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__("TSYQ");
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// CONCATENATED MODULE: ./src/components/BaseTable/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"container":"container___9kxO4"});
+// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
+var lodash = __webpack_require__("LvDl");
+var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
+
+// CONCATENATED MODULE: ./src/components/BaseTable/index.js
+
+
+
+
+
+
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-bitwise */
+
+/* eslint-disable import/order */
+
+/* eslint-disable object-shorthand */
+
+/* eslint-disable no-param-reassign */
+
+/* eslint-disable spaced-comment */
+
+/* eslint-disable no-console */
+
+/* eslint-disable @typescript-eslint/no-shadow */
+
+/* eslint-disable no-func-assign */
+
+
+
+
+/**
+ * 生成uuid，取此值作为唯一key
+ *
+ * @return {*}
+ */
+
+function guid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
+
+function BaseTable(props, ref) {
+  // 存储选中元素
+  var _useState = Object(react["useState"])([]),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
+      selectedRowKeys = _useState2[0],
+      setSelectedRowKeys = _useState2[1];
+
+  var _useState3 = Object(react["useState"])([]),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
+      selectedRows = _useState4[0],
+      setSelectedRows = _useState4[1]; // 向父组件暴露的方法
+
+
+  Object(react["useImperativeHandle"])(ref, function () {
+    return {
+      selectedRowKeys: selectedRowKeys,
+      setSelectedRowKeys: setSelectedRowKeys,
+      selectedRows: selectedRows,
+      setSelectedRows: setSelectedRows
+    };
+  });
+
+  var className = props.className,
+      columns = props.columns,
+      dataSource = props.dataSource,
+      selectionType = props.selectionType,
+      pagination = props.pagination,
+      onPageChg = props.onPageChg,
+      children = props.children,
+      selectedKeys = props.selectedKeys,
+      rest = Object(objectWithoutProperties["a" /* default */])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
+
+  Object(react["useEffect"])(function () {
+    // console.log('selectedKeys',selectedKeys)
+    if (!lodash_default.a.isEmpty(selectedKeys)) {
+      setSelectedRowKeys(selectedKeys);
+    }
+  }, [JSON.stringify(selectedKeys)]); // 获取选中元素
+
+  var getSelectedRowKeys = function getSelectedRowKeys() {
+    if (!lodash_default.a.isEmpty(selectedRowKeys)) {
+      return {
+        selectedRowKeys: selectedRowKeys
+      };
+    }
+
+    return {};
+  }; // table 单选、多选配置
+
+
+  var rowSelection = Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({
+    type: 'checkbox'
+  }, getSelectedRowKeys()), {}, {
+    onChange: function onChange(selectedRowKeys, selectedRows) {
+      console.log(selectedRowKeys, selectedRows);
+      setSelectedRowKeys(selectedRowKeys);
+      setSelectedRows(selectedRows);
+    },
+    onSelectAll: function onSelectAll(selected, selectedRows) {
+      console.log(selected, selectedRows); // setSelectedRowKeys(selectedRows);
+
+      setSelectedRows(selectedRows);
+    }
+  });
+
+  var rowSelections = Boolean;
+
+  if (selectionType === false || selectionType === null) {
+    rowSelections = false;
+  } else if (selectionType === 'checkbox') {
+    rowSelection.type = 'checkbox';
+  } else {
+    rowSelection.type = 'radio';
+  } //table 合并数组单元格
+
+
+  var createNewArr = function createNewArr(data) {
+    if (!data || data.length === 0) return [];
+    return data.reduce(function (result, item) {
+      //首先将name字段作为新数组result取出
+      if (result.indexOf(item.name) < 0) {
+        result.push(item.name);
+      }
+
+      return result;
+    }, []).reduce(function (result, name) {
+      //将name相同的数据作为新数组取出，并在其内部添加新字段**rowSpan**
+      var children = data.filter(function (item) {
+        return item.name === name;
+      });
+      result = result.concat(children.map(function (item, index) {
+        return Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, item), {}, {
+          rowSpan: index === 0 ? children.length : 0 //将第一行数据添加rowSpan字段
+
+        });
+      }));
+      return result;
+    }, []);
+  };
+
+  var footer = function footer() {
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      className: index_modulemodules['right-btn']
+    }, children);
+  }; // table配置
+
+
+  var tableProps = Object(objectSpread2["a" /* default */])({
+    columns: columns,
+    // dataSource,
+    dataSource: createNewArr(dataSource),
+    pagination: pagination,
+    rowKey: function rowKey(record) {
+      return record.id || guid();
+    },
+    rowSelection: rowSelections ? rowSelection : null,
+    onChange: onPageChg,
+    footer: children && !lodash_default.a.isEmpty(dataSource) ? footer : null
+  }, rest);
+
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: classnames_default()(index_modulemodules.container, className)
+  }, /*#__PURE__*/react_default.a.createElement(table["a" /* default */], tableProps));
+}
+
+BaseTable = /*#__PURE__*/Object(react["forwardRef"])(BaseTable);
+/* harmony default export */ var components_BaseTable = __webpack_exports__["a"] = (BaseTable);
+
+/***/ }),
+
+/***/ "6ZGt":
+/*!********************************!*\
+  !*** ./src/pages/constants.js ***!
+  \********************************/
+/*! exports provided: UPLOAD_FILE_URL, errorImg, acceptType, maxFileSize, colorList, dateFormat, contentType, queueType, keepDays, queueStatus, rightStatus, roleStatus, auditStatus, runningStatus, orderFieldMap, orderTypeMap, auditResult, auditResult1, passReason, rejectReason */
+/*! exports used: UPLOAD_FILE_URL, acceptType, auditResult, auditResult1, contentType, dateFormat, errorImg, keepDays, maxFileSize, orderFieldMap, orderTypeMap, passReason, queueStatus, queueType, rejectReason, rightStatus, roleStatus, runningStatus */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UPLOAD_FILE_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return errorImg; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return acceptType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return maxFileSize; });
+/* unused harmony export colorList */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return dateFormat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return contentType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return queueType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return keepDays; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return queueStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return rightStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return roleStatus; });
+/* unused harmony export auditStatus */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return runningStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return orderFieldMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return orderTypeMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return auditResult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return auditResult1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return passReason; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return rejectReason; });
+/* eslint-disable import/newline-after-import */
+
+/* eslint-disable global-require */
+// import { BASEURL } from '@/config';
+var BASEURL = ''; // 上传文件路径
+
+var UPLOAD_FILE_URL = "".concat(BASEURL, "/audit/file/upload/image");
+var errorImg = __webpack_require__(/*! @/assets/error.png */ "H+gj");
+var acceptType = ['jpg', 'png', 'jpeg', 'gif'];
+var maxFileSize = 5; // 系统使用的随机颜色
+
+var colorList = ['#7eacea', '#e15777', '#95ea71', '#ea9b4f', '#7577df', '#be72d8', '#6633FF', '#6600CC', '#006633', '#993333', '#FF9900', '#9999FF']; // 时间类型
+
+var dateFormat = 'YYYY-MM-DD HH:mm:ss'; // 内容类型
+
+var contentType = {
+  '': '全部',
+  NEWS: '图文',
+  VIDEO: '视频',
+  AUDIO: '音频',
+  ATLAS: '图集',
+  TEXT: '纯文本'
+}; // 队列机制
+
+var queueType = {
+  '': '全部',
+  1: '先审后发',
+  2: '先发后审',
+  3: '免审'
+}; // 队列保存时长
+
+var keepDays = {
+  '': '全部',
+  1: '1天',
+  3: '3天',
+  7: '7天',
+  15: '15天',
+  30: '30天',
+  60: '60天',
+  90: '90天'
+}; // 队列状态
+
+var queueStatus = {
+  '': '全部',
+  0: '启用',
+  1: '停用'
+}; // 权限状态
+
+var rightStatus = {
+  '': '全部',
+  0: '离线',
+  1: '在线',
+  2: '注销'
+}; // 角色状态
+
+var roleStatus = {
+  '': '全部',
+  0: '有效',
+  1: '注销'
+}; // 审核状态
+
+var auditStatus = {
+  '': '全部',
+  1: '待审核',
+  2: '审核通过',
+  3: '审核未通过'
+}; // 上架状态
+
+var runningStatus = {
+  '': '全部',
+  ONLINE: '上架',
+  OFFLINE: '下架'
+}; // 统计排序
+
+var orderFieldMap = {
+  '': '全部',
+  dt: '时间',
+  entry_queue_count: '入审量',
+  audit_count: '审核量',
+  audit_passed_count: '审核通过量'
+}; // 统计排序
+
+var orderTypeMap = {
+  desc: '降序',
+  asc: '升序'
+}; // 审核结果
+
+var auditResult = {
+  '': '全部',
+  INIT: '待审核',
+  // PENDING: '已领取',
+  PASS: '审核通过',
+  REJECT: '审核未通过'
+}; // 审核结果
+
+var auditResult1 = {
+  '': '全部',
+  '审核通过': '审核通过',
+  '审核未通过': '审核未通过'
+}; // 文章审核通过&未通过原因
+
+var passReason = ['去杂不净', '广告'];
+var rejectReason = ['文章质量差', '广告', '软文', '封图', '去杂不净', '抓取不全/错误', '版权问题', '其他'];
+
+/***/ }),
+
+/***/ "H+gj":
+/*!******************************!*\
+  !*** ./src/assets/error.png ***!
+  \******************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "mAEq":
+/*!******************************************************************************!*\
+  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.js + 1 modules ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/HomePage/constants.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/utils/utils.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/classnames/index.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/count-up-react/dist/index.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/echarts/lib/echarts.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-redux/es/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -26,12 +400,33 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__("wx14");
 
+// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js + 1 modules
+var style = __webpack_require__("y8nQ");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/form/index.js + 14 modules
+var es_form = __webpack_require__("Vl3Y");
+
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
 var objectSpread2 = __webpack_require__("VTBJ");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js + 1 modules
+var select_style = __webpack_require__("OaEy");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/select/index.js + 25 modules
+var es_select = __webpack_require__("2fM7");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js + 1 modules
+var input_style = __webpack_require__("5NDa");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/input/index.js + 3 modules
+var input = __webpack_require__("5rEg");
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 22 modules
+var es = __webpack_require__("/MKj");
 
 // EXTERNAL MODULE: ./node_modules/lodash/lodash.js
 var lodash = __webpack_require__("LvDl");
@@ -43,281 +438,52 @@ var umiExports = __webpack_require__("9kvl");
 // EXTERNAL MODULE: ./src/components/BaseForm/index.js + 5 modules
 var BaseForm = __webpack_require__("zLEZ");
 
-// EXTERNAL MODULE: ./node_modules/count-up-react/dist/index.js
-var dist = __webpack_require__("Mcei");
+// EXTERNAL MODULE: ./src/components/BaseTable/index.js + 1 modules
+var BaseTable = __webpack_require__("5KP8");
 
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__("TSYQ");
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
-
-// CONCATENATED MODULE: ./src/components/TextCountUp/index.module.less?modules
-// extracted by mini-css-extract-plugin
-/* harmony default export */ var index_modulemodules = ({"container":"container___2X4q8","item":"item___11Qd9","content":"content___3R-KH","countup":"countup___OAa-M"});
-// CONCATENATED MODULE: ./src/components/TextCountUp/index.js
-
-
-/* eslint-disable react/no-array-index-key */
-
-
-
-
-
-
-function TextCountUp(props) {
-  var countupProps = {
-    className: index_modulemodules.countup,
-    itemHeight: 40,
-    symbol: ',',
-    scrollTime: 2000,
-    initStatus: true
-  };
-  var className = props.className,
-      dataSource = props.dataSource;
-  return /*#__PURE__*/react_default.a.createElement("div", {
-    className: classnames_default()(className, index_modulemodules.container)
-  }, !lodash_default.a.isEmpty(dataSource) && dataSource.map(function (item, index) {
-    return /*#__PURE__*/react_default.a.createElement("div", {
-      key: index,
-      className: index_modulemodules.item
-    }, /*#__PURE__*/react_default.a.createElement("div", {
-      className: index_modulemodules.content
-    }, /*#__PURE__*/react_default.a.createElement("span", null, item.name), /*#__PURE__*/react_default.a.createElement(dist["Countup"], Object(esm_extends["a" /* default */])({
-      number: item.value
-    }, countupProps))));
-  }));
-}
-
-/* harmony default export */ var components_TextCountUp = (TextCountUp);
-// EXTERNAL MODULE: ./node_modules/echarts/map/js/china.js
-var china = __webpack_require__("MTm3");
-
-// EXTERNAL MODULE: ./node_modules/echarts/lib/echarts.js
-var echarts = __webpack_require__("ProS");
-var echarts_default = /*#__PURE__*/__webpack_require__.n(echarts);
-
-// EXTERNAL MODULE: ./node_modules/echarts-wordcloud/index.js
-var echarts_wordcloud = __webpack_require__("h6EL");
-
-// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/bar.js
-var bar = __webpack_require__("lLGD");
-
-// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/pie.js
-var pie = __webpack_require__("wDdD");
-
-// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/line.js
-var line = __webpack_require__("75ce");
-
-// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/lines.js
-var lines = __webpack_require__("p+If");
-
-// EXTERNAL MODULE: ./node_modules/echarts/lib/chart/map.js
-var map = __webpack_require__("Z1wy");
-
-// EXTERNAL MODULE: ./node_modules/echarts/lib/component/title.js
-var title = __webpack_require__("Ynxi");
-
-// CONCATENATED MODULE: ./src/components/Charts/lib/useECharts.js
-/* eslint-disable no-useless-return */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-
-/* eslint-disable no-unused-vars */
-
-/* eslint-disable react-hooks/exhaustive-deps */
-
-
- // 词云
-
- // 柱状图
-
- // 饼状图
-
- // 线图
-
-
- // 地图
-
- // 标题
-
-
-
-function useECharts(chartRef, config) {
-  var option = config.option,
-      getOption = config.getOption,
-      data = config.data;
-  var chartIS = null; // 渲染charts
-
-  var renderChart = function renderChart() {
-    var renderIS = echarts_default.a.getInstanceByDom(chartRef.current);
-
-    if (renderIS) {
-      chartIS = renderIS;
-    } else {
-      chartIS = echarts_default.a.init(chartRef.current);
-    }
-
-    var finalOption = getOption(option, data); // console.log(finalOption)
-
-    chartIS.setOption(finalOption);
-  };
-
-  Object(react["useEffect"])(function () {
-    renderChart();
-    return function () {
-      chartIS && chartIS.dispose();
-    };
-  }, [chartIS, config, renderChart]);
-  return;
-}
-
-/* harmony default export */ var lib_useECharts = (useECharts);
-// CONCATENATED MODULE: ./src/components/Charts/Pie/option.js
-/* harmony default export */ var Pie_option = ({
-  title: {
-    text: '666',
-    left: 'center',
-    top: '49%',
-    textStyle: {
-      fontSize: 16,
-      color: '#3C4353',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      fontFamily: 'PingFangSC-Regular,PingFang SC;'
-    }
-  },
-  color: ['#7eacea', '#e15777', '#95ea71', '#ea9b4f', '#7577df', '#be72d8', '#fff'],
-  tooltip: {
-    trigger: 'item',
-    formatter: '{a} <br/>{b} : {c} ({d}%)'
-  },
-  series: [{
-    name: '统计',
-    type: 'pie',
-    radius: [30, 110],
-    center: ['50%', '50%'],
-    roseType: 'radius',
-    label: {
-      show: true,
-      formatter: '{d}%'
-    },
-    emphasis: {
-      label: {
-        show: true
-      }
-    },
-    data: [{
-      value: 25,
-      name: 'rose1'
-    }, {
-      value: 20,
-      name: 'rose2'
-    }, {
-      value: 15,
-      name: 'rose3'
-    }, {
-      value: 10,
-      name: 'rose4'
-    }, {
-      value: 8,
-      name: 'rose5'
-    }, {
-      value: 3,
-      name: 'rose6'
-    }]
-  }, {
-    name: '占位',
-    type: 'pie',
-    silent: true,
-    center: ['50%', '50%'],
-    radius: 30,
-    hoverAnimation: false,
-    label: {
-      show: false,
-      position: 'center'
-    },
-    data: [{
-      value: 1,
-      name: '占位2'
-    }],
-    itemStyle: {
-      normal: {
-        color: '#fff',
-        shadowColor: 'rgba(0, 0, 0, 0.5)',
-        shadowBlur: 10
-      }
-    }
-  }]
-});
-// CONCATENATED MODULE: ./src/components/Charts/Pie/getOption.js
-
-
-/* eslint-disable func-names */
-
-/* eslint-disable object-shorthand */
-/* harmony default export */ var Pie_getOption = (function (option, data) {
-  return Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({
-    tooltip: Object(objectSpread2["a" /* default */])({}, option.tooltip),
-    animationDelayUpdate: function animationDelayUpdate(idx) {
-      return idx * 5;
-    }
-  }, option), data);
-});
-// CONCATENATED MODULE: ./src/components/Charts/Pie/index.js
-/* eslint-disable object-shorthand */
-
-
-
-
-
-function PieChart(props) {
-  var _props$option = props.option,
-      option = _props$option === void 0 ? Pie_option : _props$option,
-      _props$width = props.width,
-      width = _props$width === void 0 ? '300px' : _props$width,
-      _props$height = props.height,
-      height = _props$height === void 0 ? '200px' : _props$height; // console.log(data)
-
-  var chartRef = Object(react["useRef"])(null);
-  var config = {
-    option: option,
-    getOption: Pie_getOption,
-    props: props
-  };
-  lib_useECharts(chartRef, config);
-  return /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("div", {
-    style: {
-      width: width,
-      height: height
-    },
-    ref: chartRef
-  }));
-}
-
-/* harmony default export */ var Pie = (PieChart);
 // EXTERNAL MODULE: ./src/utils/utils.js
 var utils = __webpack_require__("+n12");
 
-// EXTERNAL MODULE: ./src/pages/HomePage/constants.js
-var constants = __webpack_require__("5nQ6");
+// EXTERNAL MODULE: ./src/pages/constants.js
+var constants = __webpack_require__("6ZGt");
 
-// CONCATENATED MODULE: ./src/pages/HomePage/routes/index.module.less?modules
+// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Personnel/List/index.module.less?modules
 // extracted by mini-css-extract-plugin
-/* harmony default export */ var routes_index_modulemodules = ({"form-contaner":"form-contaner___3xvCj","container":"container___2jiK-","title":"title___28ebp","echarts":"echarts___faRYe"});
-// CONCATENATED MODULE: ./src/pages/HomePage/routes/index.js
+/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___2qm3g"});
+// EXTERNAL MODULE: ./src/components/WrapAuth/index.js
+var WrapAuth = __webpack_require__("yAXW");
+
+// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Personnel/List/index.js
 
 
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
+
+
+
+
+
+/* eslint-disable spaced-comment */
+
+/* eslint-disable import/order */
 
 /* eslint-disable import/no-unresolved */
 
+/* eslint-disable no-param-reassign */
+
+/* eslint-disable no-console */
+
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
+/* eslint-disable object-shorthand */
+
+/* eslint-disable no-undef */
+
 /* eslint-disable prefer-const */
 
-/* eslint-disable react/self-closing-comp */
+/* eslint-disable react/jsx-curly-brace-presence */
 
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/self-closing-comp */
 
 /* eslint-disable no-unused-vars */
 
@@ -330,126 +496,220 @@ var constants = __webpack_require__("5nQ6");
 
 
 
-function HomePage(props) {
-  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
-      _useModel$initialStat = _useModel.initialState,
-      initialState = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
+var InputGroup = input["a" /* default */].Group;
+var Option = es_select["a" /* default */].Option;
 
-  var _initialState$current = initialState.currentUser,
-      currentUser = _initialState$current === void 0 ? {} : _initialState$current;
+function AuditStatistics(props) {
+  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
+      _useModel$initialStat = _useModel.initialState.currentUser,
+      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
+
   var formRef = Object(react["useRef"])(null);
   var dispatch = props.dispatch,
       _props$business = props.business,
       business = _props$business === void 0 ? currentUser.business || {} : _props$business,
-      _props$DataView = props.DataView,
-      loading = _props$DataView.loading,
-      dataSource = _props$DataView.dataSource,
-      yesterdaySource = _props$DataView.yesterdaySource,
-      newAddSource = _props$DataView.newAddSource,
-      totalSource = _props$DataView.totalSource;
+      _props$Statistics = props.Statistics,
+      loading = _props$Statistics.loading,
+      dataSource = _props$Statistics.dataSource,
+      pagination = _props$Statistics.pagination;
   Object(react["useEffect"])(function () {
-    var businessId = formRef.current.getFieldValue('businessId');
-    if (!businessId) return;
     dispatch({
-      type: 'DataView/init',
-      payload: {
-        businessId: businessId
-      }
+      type: 'Statistics/init',
+      payload: Object(objectSpread2["a" /* default */])({
+        type: 'person'
+      }, formRef.current.getFieldsValue())
     });
   }, [dispatch]); // 多条件搜索配置
 
   var searchFormProps = {
-    className: routes_index_modulemodules['form-contaner'],
+    className: index_modulemodules['form-contaner'],
     layout: 'inline',
+    resetShow: true,
+    authProps: {
+      pathUrl: '/statistics/personnel/',
+      perms: 'statistics:person:select'
+    },
     dataSource: [{
       label: '业务线',
       type: 'SELECT',
       name: 'businessId',
       initialValue: utils["a" /* ExObject */].getFirstValue(business),
       map: business
+    }, {
+      label: '时间',
+      name: 'datatime',
+      type: 'DateTimeStartEnd'
+    }, {
+      label: '类型',
+      type: 'SELECT',
+      name: 'newsType',
+      initialValue: 'NEWS',
+      map: constants["e" /* contentType */]
+    }, {
+      label: '人员',
+      name: 'user'
+    }, {
+      label: '排序',
+      name: 'params11',
+      itemRender: /*#__PURE__*/react_default.a.createElement(InputGroup, {
+        compact: true
+      }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+        name: "orderField",
+        initialValue: "",
+        noStyle: true
+      }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+        style: {
+          width: '50%'
+        }
+      }, Object.keys(constants["j" /* orderFieldMap */]).map(function (item) {
+        return /*#__PURE__*/react_default.a.createElement(Option, {
+          key: item,
+          value: item
+        }, constants["j" /* orderFieldMap */][item]);
+      }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+        name: "orderType",
+        initialValue: "desc",
+        noStyle: true
+      }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+        style: {
+          width: '50%'
+        }
+      }, Object.keys(constants["k" /* orderTypeMap */]).map(function (item) {
+        return /*#__PURE__*/react_default.a.createElement(Option, {
+          key: item,
+          value: item
+        }, constants["k" /* orderTypeMap */][item]);
+      }))))
     }],
-    onReset: function onReset() {},
-    onSubmit: function onSubmit(formValues) {
+    onReset: function onReset() {
       dispatch({
-        type: 'DataView/getStatisticCount',
-        payload: Object(objectSpread2["a" /* default */])({}, formValues)
+        type: 'Statistics/init',
+        payload: {
+          type: 'person',
+          businessId: formRef.current.getFieldValue('businessId')
+        }
+      });
+    },
+    onSubmit: function onSubmit(formValues) {
+      if (!lodash_default.a.isEmpty(formValues.datatime)) {
+        formValues.startTime = formValues.datatime[0].format(constants["f" /* dateFormat */]);
+        formValues.endTime = formValues.datatime[1].format(constants["f" /* dateFormat */]);
+      }
+
+      delete formValues.datatime;
+      console.log('formValues', formValues);
+      dispatch({
+        type: 'Statistics/getStatisticQuery',
+        payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValues), {}, {
+          type: 'person'
+        })
       });
     }
-  };
-  var TextCountUpProps = {
-    dataSource: dataSource
-  };
+  }; // 列表配置
 
-  var getOptions = function getOptions() {
-    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-    return {
-      color: constants["a" /* colorList */],
-      tooltip: {
-        trigger: 'item',
-        formatter: '{a} <br/>{b} : {c} ({d}%)'
-      },
-      series: [{
-        name: '统计',
-        type: 'pie',
-        // radius: [30, 110],
-        center: ['50%', '50%'],
-        // roseType: 'radius',
-        label: {
-          show: true,
-          formatter: '{b} : {c} ({d}%)'
-        },
-        emphasis: {
-          label: {
-            show: true
+  var tableProps = {
+    // 类型
+    selectionType: null,
+    //checkbox or radio or null||false
+    // 表头
+    columns: [{
+      title: '时间',
+      dataIndex: 'dt',
+      render: function render(text) {
+        return /*#__PURE__*/react_default.a.createElement("span", null, text);
+      }
+    }, {
+      title: '人员',
+      align: 'center',
+      dataIndex: 'auditorName'
+    }, {
+      title: '领审量',
+      align: 'center',
+      dataIndex: 'takeCount'
+    }, {
+      title: '审核量',
+      align: 'center',
+      dataIndex: 'auditCount'
+    }, {
+      title: '审核通过量',
+      align: 'center',
+      dataIndex: 'auditPassedCount'
+    }, {
+      title: '操作',
+      width: '100px',
+      align: 'center',
+      render: function render(r) {
+        return /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
+          pathUrl: "/statistics/personnel/",
+          perms: 'statistics:person:select',
+          type: "primary",
+          size: "small",
+          text: "\u660E\u7EC6",
+          onClick: function onClick() {
+            return goDetails(r.auditorId);
           }
-        },
-        data: data
-      }]
-    };
+        });
+      }
+    }],
+    loading: loading,
+    dataSource: dataSource,
+    pagination: pagination,
+    onPageChg: function onPageChg(page) {
+      // console.log(page)
+      dispatch({
+        type: 'Statistics/getStatisticQuery',
+        payload: {
+          type: 'person',
+          pageNum: page.current,
+          pageSize: page.pageSize,
+          businessId: formRef.current.getFieldValue('businessId')
+        }
+      });
+    }
+  }; // 审核详情页
+
+  var goDetails = function goDetails(id) {
+    var formValue = formRef.current.getFieldsValue();
+    umiExports["f" /* history */].push({
+      pathname: '/statistics/personnel/details',
+      query: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValue), {}, {
+        id: id,
+        isBack: true
+      })
+    });
+  }; // 下载excel
+
+
+  var DownloadExcel = function DownloadExcel() {
+    // run()
+    dispatch({
+      type: 'Statistics/getPersoneExportExcel',
+      payload: {}
+    });
   };
 
-  var pieChartsProps1 = {
-    option: getOptions(yesterdaySource),
-    width: '800px',
-    height: '500px'
-  };
-  var pieChartsProps2 = {
-    option: getOptions(newAddSource),
-    width: '800px',
-    height: '500px'
-  };
-  var pieChartsProps3 = {
-    option: getOptions(totalSource),
-    width: '800px',
-    height: '500px'
-  };
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], Object(esm_extends["a" /* default */])({}, searchFormProps, {
     pRef: formRef
-  })), /*#__PURE__*/react_default.a.createElement("div", {
-    className: routes_index_modulemodules.container
-  }, /*#__PURE__*/react_default.a.createElement("div", {
-    className: routes_index_modulemodules.piebox
-  }, /*#__PURE__*/react_default.a.createElement("h3", {
-    className: routes_index_modulemodules.title
-  }, "\u6628\u65E5\u5BA1\u6838\u91CF"), /*#__PURE__*/react_default.a.createElement(components_TextCountUp, {
-    dataSource: yesterdaySource
-  }), /*#__PURE__*/react_default.a.createElement(Pie, pieChartsProps1)), /*#__PURE__*/react_default.a.createElement("div", {
-    className: routes_index_modulemodules.piebox
-  }, /*#__PURE__*/react_default.a.createElement("h3", {
-    className: routes_index_modulemodules.title
-  }, "\u5F85\u5BA1\u6838\u91CF"), /*#__PURE__*/react_default.a.createElement(components_TextCountUp, {
-    dataSource: totalSource
-  }), /*#__PURE__*/react_default.a.createElement(Pie, pieChartsProps3))));
+  }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
+    pathUrl: "/statistics/personnel/",
+    perms: "statistics:person:select",
+    text: "\u5BFC\u51FA",
+    ghost: true,
+    type: "primary",
+    onClick: function onClick() {
+      return DownloadExcel();
+    }
+  })), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps));
 }
 
 function mapStateToProps(_ref) {
-  var DataView = _ref.DataView;
+  var Statistics = _ref.Statistics;
   return {
-    DataView: DataView
+    Statistics: Statistics
   };
 }
 
-/* harmony default export */ var routes = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(HomePage));
+/* harmony default export */ var List = __webpack_exports__["default"] = (Object(es["c" /* connect */])(mapStateToProps)(AuditStatistics));
 
 /***/ }),
 
@@ -955,6 +1215,7 @@ function fillFormItems(items) {
         name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
+        validator = item.validator,
         _item$initialValue = item.initialValue,
         initialValue = _item$initialValue === void 0 ? formValues[name] : _item$initialValue,
         _item$help = item.help,
@@ -964,6 +1225,8 @@ function fillFormItems(items) {
         rules: required ? [{
           required: required,
           message: "\u8BF7\u8F93\u5165".concat(label)
+        }, {
+          validator: validator
         }] : null,
         initialValue: initialValue,
         help: help
@@ -993,10 +1256,11 @@ function renderFormItem(item, formLayout, layout, mediaSpan) {
       initialValue = item.initialValue,
       itemRender = item.itemRender,
       placeholder = item.placeholder,
+      validator = item.validator,
       colSpan = item.colSpan,
       _item$isSpecial = item.isSpecial,
       isSpecial = _item$isSpecial === void 0 ? false : _item$isSpecial,
-      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "colSpan", "isSpecial"]);
+      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "validator", "colSpan", "isSpecial"]);
 
   if (!name) return; // 针对时间等长度的组件进行单独配置
 

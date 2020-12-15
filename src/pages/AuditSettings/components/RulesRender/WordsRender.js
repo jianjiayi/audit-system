@@ -154,7 +154,7 @@ function WordsRender(props) {
     tableRef.current.setSelectedRowKeys(null);
     tableRef.current.setSelectedRows(null);
 
-    onChange([...data]);
+    onChange(_.isEmpty(data) ? -1 : [...data]);
 
     setModalVisible(false);
   };

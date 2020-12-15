@@ -130,7 +130,7 @@ function QueueContent(props) {
     ],
     formValues: {},
     onSubmit: (formValues) => {
-      console.log('formValues', formValues);
+      // console.log('formValues', formValues);
 
       formValues.ruleJson = JSON.stringify(formValues.ruleJson);
 

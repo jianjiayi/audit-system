@@ -818,7 +818,7 @@ function AuditSettings(props) {
   }; // 更新队列状态
 
   var updateQueueStatus = function updateQueueStatus(data) {
-    console.log(data);
+    // console.log(data);
     var id = data.id,
         bid = data.bid,
         queueType = data.queueType,
@@ -884,8 +884,8 @@ function AuditSettings(props) {
 
 
   var getViewRules = function getViewRules(data) {
-    setRulesVisible(true);
-    console.log('data', JSON.parse(data));
+    setRulesVisible(true); // console.log('data', JSON.parse(data));
+
     setJsonArray(JSON.parse(data));
   };
 
@@ -5614,7 +5614,7 @@ function WordsRender(props) {
     });
     tableRef.current.setSelectedRowKeys(null);
     tableRef.current.setSelectedRows(null);
-    onChange(Object(toConsumableArray["a" /* default */])(data));
+    onChange(lodash_default.a.isEmpty(data) ? -1 : Object(toConsumableArray["a" /* default */])(data));
     setModalVisible(false);
   }; // console.log('tagsList', tagsList);
 
@@ -6982,6 +6982,7 @@ function fillFormItems(items) {
         name = _item$name === void 0 ? guid() : _item$name,
         _item$required = item.required,
         required = _item$required === void 0 ? false : _item$required,
+        validator = item.validator,
         _item$initialValue = item.initialValue,
         initialValue = _item$initialValue === void 0 ? formValues[name] : _item$initialValue,
         _item$help = item.help,
@@ -6991,6 +6992,8 @@ function fillFormItems(items) {
         rules: required ? [{
           required: required,
           message: "\u8BF7\u8F93\u5165".concat(label)
+        }, {
+          validator: validator
         }] : null,
         initialValue: initialValue,
         help: help
@@ -7020,10 +7023,11 @@ function renderFormItem(item, formLayout, layout, mediaSpan) {
       initialValue = item.initialValue,
       itemRender = item.itemRender,
       placeholder = item.placeholder,
+      validator = item.validator,
       colSpan = item.colSpan,
       _item$isSpecial = item.isSpecial,
       isSpecial = _item$isSpecial === void 0 ? false : _item$isSpecial,
-      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "colSpan", "isSpecial"]);
+      props = Object(objectWithoutProperties["a" /* default */])(item, ["label", "name", "type", "map", "options", "initialValue", "itemRender", "placeholder", "validator", "colSpan", "isSpecial"]);
 
   if (!name) return; // 针对时间等长度的组件进行单独配置
 

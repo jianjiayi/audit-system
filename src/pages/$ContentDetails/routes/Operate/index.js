@@ -67,6 +67,15 @@ function Operate(props) {
       values.hotValue = values.hotValue ? values.hotValue[0] : 0;
       values.bigEvent = values.bigEvent ? values.bigEvent[0] : 0;
 
+      // 处理分类，设置末级分类
+      if(values.categoryThird){
+        values.lastCategory = values.categoryThird;
+      }else if(values.categorySecond){
+        values.lastCategory = values.categorySecond;
+      }else if(values.categoryFirst){
+        values.lastCategory = values.categoryFirst;
+      }
+
       const {auditState, reason, ...rest} = values;
 
       dispatch({

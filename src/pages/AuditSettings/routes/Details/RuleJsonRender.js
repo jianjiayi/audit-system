@@ -47,6 +47,8 @@ function RuleJsonRender(props) {
     jsonArray[key] = value;
 
     setJsonArray({ ...jsonArray });
+
+    onChange({ ...jsonArray });
   };
 
   // 删除配置项
@@ -55,7 +57,8 @@ function RuleJsonRender(props) {
     let arr = _.clone(jsonArray);
     delete arr[key];
     setJsonArray({ ...arr });
-    onChange(arr);
+    // console.log('arr',arr,_.isEmpty(arr))
+    onChange(_.isEmpty(arr) ? null : arr);
   };
 
   return (
