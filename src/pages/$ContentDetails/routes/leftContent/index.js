@@ -211,22 +211,22 @@ function Content(props) {
   const list = [
     {
       name: 'forbiddenWordList',
-      color: 'red',
+      color: '#ff1840',
       value: forbiddenWordList,
     },
     {
       name: 'hotWord',
-      color: 'red',
+      color: '#1890ff',
       value: hotWord,
     },
     {
       name: 'sensitiveWordList',
-      color: 'blue',
+      color: '#ff6600',
       value: sensitiveWordList,
     },
     {
       name: 'personalWord',
-      color: 'green',
+      color: '#00ff97',
       value: personalWord,
     },
   ];

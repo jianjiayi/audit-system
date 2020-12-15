@@ -166,7 +166,7 @@ function FormAction(props) {
           {!_.isEmpty(forbiddenWordList) ? (
             forbiddenWordList.map((item, index) => {
               return (
-                <Tag key={index} color="red">
+                <Tag key={index} color="#ff1840">
                   {item}
                 </Tag>
               );
@@ -181,7 +181,7 @@ function FormAction(props) {
           {!_.isEmpty(sensitiveWordList) ? (
             sensitiveWordList.map((item, index) => {
               return (
-                <Tag key={index} color="volcano">
+                <Tag key={index} color="#ff6600">
                   {item}
                 </Tag>
               );
@@ -196,7 +196,7 @@ function FormAction(props) {
           {!_.isEmpty(hotWord) ? (
             hotWord.map((item, index) => {
               return (
-                <Tag key={index} color="blue">
+                <Tag key={index} color="#1890ff">
                   {item}
                 </Tag>
               );
@@ -211,7 +211,7 @@ function FormAction(props) {
           {!_.isEmpty(personalWord) ? (
             personalWord.map((item, index) => {
               return (
-                <Tag key={index} color="green">
+                <Tag key={index} color="#00ff97">
                   {item}
                 </Tag>
               );

@@ -273,19 +273,19 @@ function Content(props) {
 
   var list = [{
     name: 'forbiddenWordList',
-    color: 'red',
+    color: '#ff1840',
     value: forbiddenWordList
   }, {
     name: 'hotWord',
-    color: 'red',
+    color: '#1890ff',
     value: hotWord
   }, {
     name: 'sensitiveWordList',
-    color: 'blue',
+    color: '#ff6600',
     value: sensitiveWordList
   }, {
     name: 'personalWord',
-    color: 'green',
+    color: '#00ff97',
     value: personalWord
   }]; // 正文
 
@@ -2042,7 +2042,7 @@ function FormAction(props) {
   }, !lodash_default.a.isEmpty(forbiddenWordList) ? forbiddenWordList.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(es_tag["a" /* default */], {
       key: index,
-      color: "red"
+      color: "#ff1840"
     }, item);
   }) : /*#__PURE__*/react_default.a.createElement("span", null, "\u6682\u65E0"))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     label: "\u654F\u611F\u8BCD"
@@ -2051,7 +2051,7 @@ function FormAction(props) {
   }, !lodash_default.a.isEmpty(sensitiveWordList) ? sensitiveWordList.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(es_tag["a" /* default */], {
       key: index,
-      color: "volcano"
+      color: "#ff6600"
     }, item);
   }) : /*#__PURE__*/react_default.a.createElement("span", null, "\u6682\u65E0"))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     label: "\u70ED\u8BCD"
@@ -2060,7 +2060,7 @@ function FormAction(props) {
   }, !lodash_default.a.isEmpty(hotWord) ? hotWord.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(es_tag["a" /* default */], {
       key: index,
-      color: "blue"
+      color: "#1890ff"
     }, item);
   }) : /*#__PURE__*/react_default.a.createElement("span", null, "\u6682\u65E0"))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     label: "\u4EBA\u7269\u8BCD"
@@ -2069,7 +2069,7 @@ function FormAction(props) {
   }, !lodash_default.a.isEmpty(personalWord) ? personalWord.map(function (item, index) {
     return /*#__PURE__*/react_default.a.createElement(es_tag["a" /* default */], {
       key: index,
-      color: "green"
+      color: "#00ff97"
     }, item);
   }) : /*#__PURE__*/react_default.a.createElement("span", null, "\u6682\u65E0"))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, Object(esm_extends["a" /* default */])({}, layout, {
     label: "\u662F\u5426\u53EF\u91CD\u590D\u5206\u53D1",

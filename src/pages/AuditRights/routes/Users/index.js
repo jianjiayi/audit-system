@@ -292,18 +292,15 @@ function UserRights(props) {
           label: '密码',
           name: title === '创建' ? 'password' : null,
           required: true,
-          validator: async (rule, value, calaback) => {
-            console.log('rule, value',value)
-            const pwdRegex = new RegExp('(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{1,4}');
-            console.log(pwdRegex.test(value))
+          validator: (rule, value, callback) => {
+            // console.log('rule, value',value)
+            const pwdRegex = new RegExp('(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{8,30}');
             if (!pwdRegex.test(value)) {
-              return calaback(`密码中必须包含大小写 字母、数字、特称字符，至少8个字符，最多30个字符`);
+              return callback(`密码中必须包含大小写 字母、数字、特殊字符，至少8个字符，最多30个字符`);
             }
             return callback();
           },
-          help: `密码中必须包含大小写 字母、数字、特称字符，至少8个字符，最多30个字符`
         },
-        
         {
           label: '角色',
           name: 'roles',

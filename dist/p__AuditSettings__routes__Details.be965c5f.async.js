@@ -7174,14 +7174,18 @@ function fillFormItems(items) {
         initialValue = _item$initialValue === void 0 ? formValues[name] : _item$initialValue,
         _item$help = item.help,
         help = _item$help === void 0 ? null : _item$help;
+    var rules = validator ? [{
+      required: required,
+      message: "\u8BF7\u8F93\u5165".concat(label)
+    }, {
+      validator: validator
+    }] : [{
+      required: required,
+      message: "\u8BF7\u8F93\u5165".concat(label)
+    }];
     return Object(objectSpread2["a" /* default */])({
       options: {
-        rules: required ? [{
-          required: required,
-          message: "\u8BF7\u8F93\u5165".concat(label)
-        }, {
-          validator: validator
-        }] : null,
+        rules: required ? rules : null,
         initialValue: initialValue,
         help: help
       }

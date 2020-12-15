@@ -1,4 +1,108 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
+
+/***/ "+Q71":
+/*!*************************************************************!*\
+  !*** ./src/pages/AuditRights/components/ModalForm/index.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var antd_es_modal_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/es/modal/style */ "2qtc");
+/* harmony import */ var antd_es_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/es/modal */ "kLXV");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/extends */ "wx14");
+/* harmony import */ var antd_es_button_style__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/es/button/style */ "+L6B");
+/* harmony import */ var antd_es_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/es/button */ "2/Rp");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread2 */ "VTBJ");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "Ff2n");
+/* harmony import */ var _Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "ODXe");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "q1tI");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _components_BaseForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @components/BaseForm */ "zLEZ");
+
+
+
+
+
+
+
+
+
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
+/* eslint-disable spaced-comment */
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable import/no-unresolved */
+
+/* eslint-disable no-func-assign */
+
+
+
+function ModalForm(props, ref) {
+  var formRef = Object(react__WEBPACK_IMPORTED_MODULE_8__["useRef"])(null);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_8__["useState"])(false),
+      _useState2 = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(_useState, 2),
+      visible = _useState2[0],
+      setVisible = _useState2[1];
+
+  var title = props.title,
+      formProps = props.formProps,
+      disabled = props.disabled,
+      onCancel = props.onCancel,
+      rest = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(props, ["title", "formProps", "disabled", "onCancel"]); // 向父组件暴露的方法
+
+
+  Object(react__WEBPACK_IMPORTED_MODULE_8__["useImperativeHandle"])(ref, function () {
+    return {
+      visible: visible,
+      setVisible: setVisible,
+      //设置modal状态
+      setModalStatus: setModalStatus,
+      updateFormValues: updateFormValues
+    };
+  });
+
+  var setModalStatus = function setModalStatus(status, callback) {
+    setVisible(status);
+    callback();
+  }; // 更新表单状态
+
+
+  var updateFormValues = function updateFormValues(value) {
+    // console.log('+++value',value)
+    var setFieldsValue = formRef.current.setFieldsValue; // 设置form中的name值
+
+    setFieldsValue(value);
+  };
+
+  var modalProps = Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])({
+    title: title,
+    visible: visible,
+    centered: true,
+    okText: '确认',
+    cancelText: '取消',
+    destroyOnClose: true,
+    // onOk: () =>{this.handleOk},
+    onCancel: onCancel
+  }, rest);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_modal__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], modalProps, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_BaseForm__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"], Object(_Users_jsp_Documents_rmkj_projectCode_new_idata_audit_view_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])({}, formProps, {
+    pRef: formRef
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(antd_es_button__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"], {
+    onClick: function onClick() {
+      return onCancel();
+    }
+  }, "\u53D6\u6D88")));
+}
+
+ModalForm = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_8__["forwardRef"])(ModalForm);
+/* harmony default export */ __webpack_exports__["a"] = (ModalForm);
+
+/***/ }),
 
 /***/ "1W/9":
 /*!**************************************************************!*\
@@ -832,35 +936,40 @@ var rejectReason = ['文章质量差', '广告', '软文', '封图', '去杂不�
 
 /***/ }),
 
-/***/ "9kV3":
-/*!***********************************************************!*\
-  !*** ./src/pages/AuditSearch/routes/index.js + 2 modules ***!
-  \***********************************************************/
+/***/ "H+gj":
+/*!******************************!*\
+  !*** ./src/assets/error.png ***!
+  \******************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "cfdY":
+/*!*****************************************************************!*\
+  !*** ./src/pages/AuditRights/routes/Users/index.js + 1 modules ***!
+  \*****************************************************************/
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/AuditRights/components/ModalForm/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/utils.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/modal/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/modal/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tag/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tag/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tooltip/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tooltip/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -878,41 +987,17 @@ var style = __webpack_require__("+BJd");
 // EXTERNAL MODULE: ./node_modules/antd/es/tag/index.js + 1 modules
 var tag = __webpack_require__("mr32");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/modal/style/index.js + 1 modules
-var modal_style = __webpack_require__("2qtc");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/modal/index.js + 7 modules
-var modal = __webpack_require__("kLXV");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/message/style/index.js + 1 modules
-var message_style = __webpack_require__("miYZ");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/message/index.js + 1 modules
-var message = __webpack_require__("tsqr");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/tooltip/style/index.js + 1 modules
-var tooltip_style = __webpack_require__("5Dmo");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/tooltip/index.js + 1 modules
-var tooltip = __webpack_require__("3S7+");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js + 1 modules
-var input_style = __webpack_require__("5NDa");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/input/index.js + 3 modules
-var input = __webpack_require__("5rEg");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js + 1 modules
-var form_style = __webpack_require__("y8nQ");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/form/index.js + 14 modules
-var es_form = __webpack_require__("Vl3Y");
-
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
 var objectSpread2 = __webpack_require__("VTBJ");
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
 var slicedToArray = __webpack_require__("ODXe");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/modal/style/index.js + 1 modules
+var modal_style = __webpack_require__("2qtc");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/modal/index.js + 7 modules
+var modal = __webpack_require__("kLXV");
 
 // EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js + 1 modules
 var select_style = __webpack_require__("OaEy");
@@ -924,12 +1009,12 @@ var es_select = __webpack_require__("2fM7");
 var react = __webpack_require__("q1tI");
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
+// EXTERNAL MODULE: ./src/.umi-production/core/umiExports.ts + 19 modules
+var umiExports = __webpack_require__("9kvl");
+
 // EXTERNAL MODULE: ./node_modules/lodash/lodash.js
 var lodash = __webpack_require__("LvDl");
 var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
-
-// EXTERNAL MODULE: ./src/.umi-production/core/umiExports.ts + 19 modules
-var umiExports = __webpack_require__("9kvl");
 
 // EXTERNAL MODULE: ./src/components/BaseForm/index.js + 5 modules
 var BaseForm = __webpack_require__("zLEZ");
@@ -937,104 +1022,19 @@ var BaseForm = __webpack_require__("zLEZ");
 // EXTERNAL MODULE: ./src/components/BaseTable/index.js + 1 modules
 var BaseTable = __webpack_require__("5KP8");
 
-// CONCATENATED MODULE: ./src/pages/AuditSearch/components/viewlog.js
-
-
-
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable no-func-assign */
-
-/* eslint-disable spaced-comment */
-
-/* eslint-disable import/no-unresolved */
-
-
-
-
-function ViewLogRender(props, ref) {
-  var _useState = Object(react["useState"])(false),
-      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
-      modalVisible = _useState2[0],
-      setModalVisible = _useState2[1];
-
-  var _useState3 = Object(react["useState"])([]),
-      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
-      dataSource = _useState4[0],
-      setDataSource = _useState4[1]; // 向父组件暴露的方法
-
-
-  Object(react["useImperativeHandle"])(ref, function () {
-    return {
-      setModalVisible: setModalVisible,
-      //设置modal状态
-      setDataSource: setDataSource
-    };
-  });
-  var modalProps = {
-    title: "\u5BA1\u6838\u64CD\u4F5C\u8BB0\u5F55",
-    footer: null,
-    width: 820,
-    visible: modalVisible,
-    bodyStyle: {
-      padding: 0
-    },
-    destroyOnClose: true,
-    onCancel: function onCancel() {
-      setModalVisible(false);
-    }
-  };
-  var tableProps = {
-    // className: styles['table-container'],
-    // 类型
-    selectionType: null,
-    // 表头
-    columns: [{
-      title: '操作人',
-      dataIndex: 'auditorName'
-    }, {
-      title: '审核操作',
-      align: 'center',
-      dataIndex: 'auditStatus',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("a", null, text);
-      }
-    }, {
-      title: '任务状态',
-      align: 'center',
-      dataIndex: 'event',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("a", null, text);
-      }
-    }, {
-      title: '操作时间',
-      align: 'center',
-      dataIndex: 'logTime',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("a", null, text);
-      }
-    }],
-    dataSource: dataSource
-  };
-  return /*#__PURE__*/react_default.a.createElement(modal["a" /* default */], modalProps, /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps));
-}
-
-ViewLogRender = /*#__PURE__*/Object(react["forwardRef"])(ViewLogRender);
-/* harmony default export */ var viewlog = (ViewLogRender);
-// EXTERNAL MODULE: ./src/utils/utils.js
-var utils = __webpack_require__("+n12");
+// EXTERNAL MODULE: ./src/pages/AuditRights/components/ModalForm/index.js
+var ModalForm = __webpack_require__("+Q71");
 
 // EXTERNAL MODULE: ./src/pages/constants.js
 var constants = __webpack_require__("6ZGt");
 
+// CONCATENATED MODULE: ./src/pages/AuditRights/routes/Users/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___2y0Ej"});
 // EXTERNAL MODULE: ./src/components/WrapAuth/index.js
 var WrapAuth = __webpack_require__("yAXW");
 
-// CONCATENATED MODULE: ./src/pages/AuditSearch/routes/index.module.less?modules
-// extracted by mini-css-extract-plugin
-/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___xDDT2","right-button":"right-button___1h1nM"});
-// CONCATENATED MODULE: ./src/pages/AuditSearch/routes/index.js
+// CONCATENATED MODULE: ./src/pages/AuditRights/routes/Users/index.js
 
 
 
@@ -1045,43 +1045,45 @@ var WrapAuth = __webpack_require__("yAXW");
 
 
 
+/* eslint-disable react/no-array-index-key */
 
-
-
-
-
-
-
-
-/* eslint-disable import/order */
-
-/* eslint-disable react/jsx-boolean-value */
-
-/* eslint-disable no-console */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable no-underscore-dangle */
-
-/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-useless-return */
 
 /* eslint-disable consistent-return */
 
-/* eslint-disable @typescript-eslint/no-use-before-define */
-
-/* eslint-disable no-param-reassign */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 /* eslint-disable spaced-comment */
 
+/* eslint-disable import/order */
+
 /* eslint-disable import/no-unresolved */
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable import/newline-after-import */
 
-/* eslint-disable eqeqeq */
+/* eslint-disable @typescript-eslint/no-shadow */
 
-/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @typescript-eslint/no-use-before-define */
 
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-return-assign */
+
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-console */
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable @typescript-eslint/dot-notation */
+
+/* eslint-disable object-shorthand */
+
+/* eslint-disable no-param-reassign */
+
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+
+/* eslint-disable react/jsx-curly-brace-presence */
+
+/* eslint-disable react/self-closing-comp */
 
 /* eslint-disable array-callback-return */
 
@@ -1089,399 +1091,176 @@ var WrapAuth = __webpack_require__("yAXW");
 
 
 
- // import { renderSelect } from '@components/BasicForm/BaseForm';
-
 
 
 
 
 var Option = es_select["a" /* default */].Option;
-delete constants["e" /* contentType */][''];
+var Users_confirm = modal["a" /* default */].confirm;
 
-function AuditSearch(props) {
-  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
-      _useModel$initialStat = _useModel.initialState.currentUser,
-      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
-
-  var tableRef = Object(react["useRef"])(null);
-  var formRef = Object(react["useRef"])(null);
-  var viewRecordRef = Object(react["useRef"])(null); // 内容类型
+function UserRights(props) {
+  var modalFormRef = Object(react["useRef"])(null); // modal标题
 
   var _useState = Object(react["useState"])(''),
       _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
-      cType = _useState2[0],
-      setCType = _useState2[1]; // 搜索表单参数值
+      title = _useState2[0],
+      setTitle = _useState2[1]; // 临时存储用户信息
 
 
-  var QUERY_FROM_SEARCH = JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH')) || {};
+  var _useState3 = Object(react["useState"])({}),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
+      formValues = _useState4[0],
+      setFormValues = _useState4[1];
+
   var dispatch = props.dispatch,
-      _props$Global = props.Global,
-      firstCategory = _props$Global.firstCategory,
-      secondCategory = _props$Global.secondCategory,
-      thirdCategory = _props$Global.thirdCategory,
-      _props$business = props.business,
-      business = _props$business === void 0 ? currentUser.business || {} : _props$business,
-      _props$Search = props.Search,
-      query = _props$Search.query,
-      loading = _props$Search.loading,
-      queueMap = _props$Search.queueMap,
-      dataSource = _props$Search.dataSource,
-      pagination = _props$Search.pagination;
+      _props$Rights = props.Rights,
+      loading = _props$Rights.loading,
+      query = _props$Rights.query,
+      roleList = _props$Rights.roleList,
+      roleAllLIst = _props$Rights.roleAllLIst,
+      dataSource = _props$Rights.dataSource,
+      pagination = _props$Rights.pagination;
   Object(react["useEffect"])(function () {
-    var params = formRef.current.getFieldsValue();
-    var query = JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH')) || {}; // 获取缓存中查询条件
-
-    console.log('query', query);
-    formRef.current.setFieldsValue(Object(objectSpread2["a" /* default */])({}, query));
     dispatch({
-      type: 'Search/init',
-      payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, params), query)
+      type: 'Rights/init',
+      payload: {
+        type: 'user'
+      }
     });
-  }, [dispatch]);
-  Object(react["useEffect"])(function () {
-    if (query.category1) {
-      dispatch({
-        type: 'Global/getSecondCategory',
-        payload: {
-          id: query.category1,
-          type: cType
-        }
-      });
-    }
-  }, [query.category1]);
-  Object(react["useEffect"])(function () {
-    if (query.category2) {
-      dispatch({
-        type: 'Global/getSecondCategory',
-        payload: {
-          id: query.category2,
-          type: cType
-        }
-      });
-    }
-  }, [query.category2]); // 表单默认值
-
-  var staticFormValues = {
-    businessId: utils["a" /* ExObject */].getFirstValue(business),
-    type: 'NEWS',
-    queue: '',
-    resultStatus: '',
-    status: ''
-  }; // console.log(updateFormValues, _.isEmpty(JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH'))))
-
-  var selectCategoryFun = function selectCategoryFun(id, name) {
-    if (name === 'firstCategoryId') {
-      formRef.current.resetFields(['category2', 'category3']);
-      formRef.current.setFieldsValue({
-        category2: null,
-        category3: null
-      });
-      dispatch({
-        type: 'Global/getSecondCategory',
-        payload: {
-          id: id,
-          type: cType
-        }
-      });
-    } else {
-      formRef.current.resetFields(['category3']);
-      formRef.current.setFieldsValue({
-        category3: null
-      });
-      dispatch({
-        type: 'Global/getThirdCategory',
-        payload: {
-          id: id,
-          type: cType
-        }
-      });
-    }
-  }; // 多条搜索表单配置
-
+  }, [dispatch]); // 多条件搜索表单
 
   var searchFormProps = {
     className: index_modulemodules['form-contaner'],
     layout: 'inline',
     resetShow: true,
     authProps: {
-      pathUrl: '/search',
-      perms: 'news:select'
+      pathUrl: '/rights/user',
+      perms: 'user:select'
     },
     dataSource: [{
-      label: '业务线',
+      label: '角色',
       type: 'SELECT',
-      name: 'businessId',
-      map: business,
-      onChange: function onChange(e) {
-        console.log('e', e);
-        if (!e) return; // 更新队列
-
-        formRef.current.setFieldsValue({
-          queue: ''
-        });
-        dispatch({
-          type: 'Search/getQueue',
-          payload: {
-            bid: e
-          }
-        });
-      }
+      name: 'roleId',
+      initialValue: '',
+      map: Object(objectSpread2["a" /* default */])({
+        '': '全部'
+      }, roleList)
     }, {
-      label: '入审时间',
+      label: '时间',
       name: 'datatime',
       type: 'DateTimeStartEnd'
     }, {
-      label: '内容类型',
+      label: '状态',
       type: 'SELECT',
-      name: 'type',
-      map: constants["e" /* contentType */],
-      onChange: function onChange(e) {
-        console.log(e);
-        setCType(e);
-        console.log(formRef.current);
-        formRef.current.setFieldsValue({
-          firstCategoryId: null,
-          secondCategoryId: null,
-          thirdCategoryId: null
-        });
-        dispatch({
-          type: 'Global/getFirstCategory',
-          payload: {
-            id: 0,
-            type: e
-          }
-        });
-      }
+      name: 'state',
+      initialValue: '',
+      map: constants["p" /* rightStatus */]
     }, {
-      label: '内容分类',
-      type: 'MultilevelCategories',
-      firstCategory: firstCategory,
-      secondCategory: secondCategory,
-      thirdCategory: thirdCategory,
-      onChange: function onChange(values, name) {
-        selectCategoryFun(values[name], name);
-      }
+      label: '真实姓名',
+      name: 'name'
     }, {
-      label: '所属队列',
-      type: 'SELECT',
-      name: 'queue',
-      map: Object(objectSpread2["a" /* default */])({
-        '': '全部'
-      }, queueMap)
+      label: 'ip',
+      name: 'loginIp'
     }, {
-      label: '审核状态',
-      type: 'SELECT',
-      name: 'resultStatus',
-      // initialValue: '',
-      map: constants["c" /* auditResult */]
-    }, {
-      label: '是否上架',
-      type: 'SELECT',
-      name: 'status',
-      // initialValue: '',
-      map: constants["r" /* runningStatus */]
-    }, {
-      label: '来源',
-      name: 'source'
-    }, {
-      label: '采集源ID',
-      name: 'crawlSourceId'
-    }, {
-      label: '采集源',
-      name: 'crawlSource'
-    }, {
-      label: '筛选',
-      // name: 'filter',
-      isSpecial: true,
-      itemRender: /*#__PURE__*/react_default.a.createElement(input["a" /* default */].Group, {
-        compact: true
-      }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
-        name: "key",
-        noStyle: true,
-        initialValue: "title"
-      }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
-        style: {
-          width: '30%'
-        }
-      }, /*#__PURE__*/react_default.a.createElement(Option, {
-        value: "title"
-      }, "\u6807\u9898"), /*#__PURE__*/react_default.a.createElement(Option, {
-        value: "id"
-      }, "ID"))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
-        name: "value",
-        noStyle: true
-      }, /*#__PURE__*/react_default.a.createElement(input["a" /* default */], {
-        placeholder: "\u8BF7\u8F93\u5165",
-        style: {
-          width: '70%'
-        }
-      })))
+      label: '用户名',
+      name: 'username'
     }],
-    formValues: !lodash_default.a.isEmpty(QUERY_FROM_SEARCH) && Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, QUERY_FROM_SEARCH), staticFormValues) || staticFormValues,
     onReset: function onReset() {
-      var params = formRef.current.getFieldsValue();
       dispatch({
-        type: 'Search/init',
-        payload: Object(objectSpread2["a" /* default */])({}, params)
+        type: 'Rights/init',
+        payload: {
+          type: 'user'
+        }
       });
     },
     onSubmit: function onSubmit(formValues) {
-      // 取消table选中的数据
-      tableRef.current.setSelectedRowKeys(null); // 整理时间
-
       if (!lodash_default.a.isEmpty(formValues.datatime)) {
         formValues.startTime = formValues.datatime[0].format(constants["f" /* dateFormat */]);
         formValues.endTime = formValues.datatime[1].format(constants["f" /* dateFormat */]);
       }
 
-      delete formValues.datatime; // 格式化筛选条件
-
-      formValues[formValues.key] = formValues.value;
+      delete formValues.datatime;
       console.log('formValues', formValues);
       dispatch({
-        type: 'Search/getNewsList',
-        payload: formValues
+        type: 'Rights/getUserOrRoleQuery',
+        payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValues), {}, {
+          type: 'user'
+        })
       });
     }
-  }; // 格式化所属队列
-
-  var getQueueText = function getQueueText(data) {
-    var str = '';
-
-    if (!lodash_default.a.isEmpty(data)) {
-      data.map(function (item, index) {
-        if (index === data.length - 1) {
-          str += item.name;
-        } else {
-          str += "".concat(item.name, ",");
-        }
-      });
-    }
-
-    var text = str.length > 20 ? "".concat(str.slice(0, 20), "...") : str;
-    return /*#__PURE__*/react_default.a.createElement(tooltip["a" /* default */], {
-      title: str
-    }, /*#__PURE__*/react_default.a.createElement("a", null, text));
-  }; // 列表配置
-
+  }; // 分页table列表
 
   var tableProps = {
     // 类型
-    selectionType: 'checkbox',
-    // checkbox or radio or null||false
+    selectionType: null,
+    //checkbox or radio or null||false
     // 表头
     columns: [{
-      title: '标题',
-      dataIndex: 'title',
-      align: 'center',
-      width: '150px',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement(tooltip["a" /* default */], {
-          title: text
-        }, /*#__PURE__*/react_default.a.createElement("a", null, text.length > 15 ? "".concat(text.slice(0, 15), "...") : text));
-      }
-    }, {
-      title: 'ID',
-      align: 'center',
-      dataIndex: 'articleId',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, text);
-      }
-    }, {
-      title: '分类',
-      align: 'center',
-      dataIndex: 'categorys'
-    }, {
-      title: '来源',
-      align: 'center',
-      dataIndex: 'source'
-    }, {
-      title: '采集源ID',
-      align: 'center',
-      dataIndex: 'crawlSourceId'
-    }, {
-      title: '采集源',
-      align: 'center',
-      dataIndex: 'crawlSource'
-    }, {
-      title: '所属队列',
-      align: 'center',
-      dataIndex: 'queues',
-      render: function render(text) {
-        return getQueueText(text);
-      }
-    }, {
-      title: '封面图',
-      align: 'center',
-      dataIndex: 'cover',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("div", {
-          style: {
-            display: 'table-cell',
-            verticalAlign: 'middle'
-          }
-        }, text && /*#__PURE__*/react_default.a.createElement("img", {
-          style: {
-            width: '120px',
-            height: '90px'
-          },
-          src: text
-        }));
-      }
-    }, {
-      title: '是否上架',
+      title: '用户名',
+      dataIndex: 'username',
       width: '100px',
-      align: 'center',
-      dataIndex: 'status',
       render: function render(text) {
         return /*#__PURE__*/react_default.a.createElement("span", null, text);
       }
     }, {
-      title: '审核状态',
+      title: '真实姓名',
       align: 'center',
-      width: '100px',
-      dataIndex: 'resultStatus',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, text);
+      dataIndex: 'name'
+    }, {
+      title: '角色',
+      align: 'center',
+      dataIndex: 'roles',
+      render: function render(data) {
+        return !lodash_default.a.isEmpty(data) && data.map(function (item, index) {
+          return /*#__PURE__*/react_default.a.createElement(tag["a" /* default */], {
+            color: "#87d068",
+            style: {
+              marginBottom: '5px'
+            },
+            key: item.id
+          }, item.roleName);
+        });
       }
     }, {
-      title: '入审时间',
+      title: '最近一次登录时间',
       align: 'center',
-      dataIndex: 'createTime'
+      dataIndex: 'loginTime'
+    }, {
+      title: '登录IP',
+      align: 'center',
+      dataIndex: 'loginIp'
+    }, {
+      title: '状态',
+      align: 'center',
+      dataIndex: 'state',
+      render: function render(text) {
+        return /*#__PURE__*/react_default.a.createElement("span", null, text === '' ? '全部' : constants["p" /* rightStatus */][text]);
+      }
     }, {
       title: '操作',
-      width: '40px',
+      width: '150px',
       align: 'center',
       render: function render(r) {
-        return /*#__PURE__*/react_default.a.createElement("div", {
+        return r.username !== 'system' ? /*#__PURE__*/react_default.a.createElement("div", {
           className: index_modulemodules.tableaction
         }, /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/search",
-          perms: "news:get",
+          pathUrl: "/rights/user",
+          perms: 'user:edit',
           type: "primary",
           size: "small",
-          text: "\u9886\u5BA1",
+          text: "\u7F16\u8F91",
           onClick: function onClick() {
-            return goDetails(r);
+            return openUserModal('edit', r);
           }
         }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/search",
-          perms: "queue:add",
+          pathUrl: "/rights/user",
+          perms: 'user:edit',
           size: "small",
-          type: "dashed",
-          text: "\u52A0\u961F\u5217",
+          text: r.state !== 2 ? '注销' : '重启',
           onClick: function onClick() {
-            return openAddQueueModal(r);
+            return updateUserOrRoleStatus('user', r.state, r.username);
           }
-        }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/search",
-          perms: "history:select",
-          size: "small",
-          text: "\u64CD\u4F5C\u8BB0\u5F55",
-          onClick: function onClick() {
-            return getViewRecord(r.id);
-          }
-        }));
+        })) : null;
       }
     }],
     loading: loading,
@@ -1490,216 +1269,197 @@ function AuditSearch(props) {
     onPageChg: function onPageChg(page) {
       // console.log(page)
       dispatch({
-        type: 'Search/getNewsList',
+        type: 'Rights/getUserOrRoleQuery',
         payload: {
+          type: 'user',
           pageNum: page.current,
           pageSize: page.pageSize
         }
       });
-      tableRef.current.setSelectedRowKeys(null);
-      tableRef.current.setSelectedRows(null);
     }
-  }; // 领审操作
+  }; // 更新用户或角色状态
 
-  var goDetails = function goDetails(data) {
-    var businessId = data.businessId,
-        id = data.id,
-        queues = data.queues,
-        type = data.type;
+  var updateUserOrRoleStatus = function updateUserOrRoleStatus(type, number, username) {
+    console.log(type, number, username);
 
-    var _ref = lodash_default.a.isEmpty(queues) ? '' : queues[0],
-        queueType = _ref.queueType,
-        queue = _ref.id;
-
-    var params = {
-      routersource: 'search',
-      businessId: businessId,
-      id: id,
-      queue: queue,
-      queueType: queueType,
-      type: type
-    };
-    console.log(params);
-
-    try {
-      dispatch({
-        type: 'CDetails/getNewsGetTask',
-        payload: params,
-        callback: function callback(data) {
-          if (lodash_default.a.isEmpty(data)) {
-            return message["b" /* default */].error('当前文章不可以领取');
-          }
-
-          dispatch({
-            type: 'CDetails/save',
-            payload: {
-              query: params
-            }
-          });
-          sessionStorage.setItem('$QUERY', JSON.stringify(params));
-          sessionStorage.setItem('$QUERY_FROM_SEARCH', query);
-          sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify(query));
-          umiExports["f" /* history */].push({
-            pathname: '/search/cdetails',
-            query: {
-              isBack: true
-            }
-          });
-        }
+    if (number !== 2) {
+      Users_confirm({
+        title: '提示',
+        content: '是否确认注销该用户吗？',
+        onOk: function onOk() {
+          return updateUserOrRoleAsyncFun(type, number, username);
+        },
+        onCancel: function onCancel() {}
       });
-    } catch (e) {
-      console.log('e', e);
+    } else {
+      updateUserOrRoleAsyncFun(type, number, username);
     }
-  }; // 加队列操作
+  }; // 更新用户状态
 
 
-  var openAddQueueModal = function openAddQueueModal(data) {
-    var businessId = data.businessId,
-        id = data.id,
-        type = data.type;
+  var updateUserOrRoleAsyncFun = function updateUserOrRoleAsyncFun(type, number, username) {
     dispatch({
-      type: 'Search/getNewsReAduit',
+      type: 'Rights/updateUserOrRoleStatus',
       payload: {
-        businessId: businessId,
-        id: id,
-        type: type
+        type: type,
+        name: number === 2 ? 'enable' : 'disable',
+        username: username
       },
-      callback: function callback(code, data) {
-        if (code === 200) {
-          if (data == 1) {
-            message["b" /* default */].success('加入复审队列成功');
-          } else {
-            message["b" /* default */].warning('该文章已经在复审队列，请勿重复添加');
+      callback: function callback() {
+        // 更新当前列表状态
+        var tableList = lodash_default.a.cloneDeep(dataSource);
+
+        var index = tableList.findIndex(function (item) {
+          return username === item.username;
+        });
+        var item = tableList[index];
+        tableList.splice(index, 1, Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, item), {
+          state: number === 2 ? 0 : 2
+        }));
+        dispatch({
+          type: 'Rights/save',
+          payload: {
+            dataSource: tableList
           }
-        } else {
-          message["b" /* default */].error('加入复审队列失败');
-        }
-      }
-    });
-  }; // 查看操作记录
-
-
-  var getViewRecord = function getViewRecord(id) {
-    dispatch({
-      type: 'Search/getNewsLog',
-      payload: {
-        id: id
-      },
-      callback: function callback(data) {
-        viewRecordRef.current.setModalVisible(true);
-        viewRecordRef.current.setDataSource(data);
-      }
-    });
-  }; // 批量审核操作
-
-
-  var batchAudit = function batchAudit(status) {
-    var pass = status; // console.log(tableRef.current.selectedRows)
-
-    var selectedRows = tableRef.current.selectedRows; // 获取选中的列表
-
-    if (lodash_default.a.isEmpty(selectedRows)) return message["b" /* default */].error('请勾选文章列表后在操作'); // 处理选中文章数据
-
-    var paramsList = [];
-    selectedRows.map(function (item) {
-      var id = item.id;
-      var firstQueue = item.queues[0];
-      var queueInfo = {
-        bid: firstQueue.bid,
-        id: firstQueue.id,
-        queueType: firstQueue.queueType,
-        type: firstQueue.type
-      };
-      paramsList.push({
-        id: id,
-        queueInfo: queueInfo
-      });
-    }); // console.log(paramsList)
-
-    dispatch({
-      type: 'Search/batchAudit',
-      payload: {
-        pass: pass,
-        paramsList: paramsList
-      },
-      callback: function callback(data) {
-        tableRef.current.setSelectedRowKeys(null);
-        tableRef.current.setSelectedRows(null);
-        if (pass && lodash_default.a.isEmpty(data._2) || !pass && lodash_default.a.isEmpty(data._1)) return; // 温馨提示
-
-        modal["a" /* default */].warning({
-          title: '温馨提示',
-          content: /*#__PURE__*/react_default.a.createElement("div", null, pass ? /*#__PURE__*/react_default.a.createElement("div", {
-            className: ""
-          }, /*#__PURE__*/react_default.a.createElement("p", null, "\u4EE5\u4E0B\u6587\u7AE0id\u6CA1\u6709\u64CD\u4F5C\u6210\u529F"), data._2.map(function (item) {
-            return /*#__PURE__*/react_default.a.createElement(tag["a" /* default */], {
-              key: item
-            }, item);
-          })) : /*#__PURE__*/react_default.a.createElement("div", {
-            className: ""
-          }, /*#__PURE__*/react_default.a.createElement("p", null, "\u4EE5\u4E0B\u6587\u7AE0id\u6CA1\u6709\u64CD\u4F5C\u6210\u529F"), data._1.map(function (item) {
-            return /*#__PURE__*/react_default.a.createElement(tag["a" /* default */], {
-              key: item
-            }, item);
-          }))),
-          onOk: function onOk() {}
         });
       }
     });
-  };
+  }; // 点击打开用户编辑模态框
 
-  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], Object(esm_extends["a" /* default */])({}, searchFormProps, {
-    pRef: formRef
-  })), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], Object(esm_extends["a" /* default */])({}, tableProps, {
-    ref: tableRef
-  }), /*#__PURE__*/react_default.a.createElement("div", {
-    className: index_modulemodules['right-button']
-  }, /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-    pathUrl: "/search",
-    perms: "news:audit",
-    text: "\u901A\u8FC7",
+
+  var openUserModal = function openUserModal(type, values) {
+    setTitle(type === 'create' ? '创建' : '编辑');
+    modalFormRef.current.setVisible(true);
+    if (!values) return;
+    values.roles = values.roles[0] && values.roles[0].roleName || null;
+    console.log(values);
+    setFormValues(values);
+  }; // 创建用户moddal表
+
+
+  var modalFormProps = {
+    title: title + '用户',
+    footer: null,
+    onCancel: function onCancel() {
+      modalFormRef.current.setModalStatus(false, function () {
+        setFormValues({});
+      });
+    },
+
+    /**表单参数*/
+    formProps: {
+      className: index_modulemodules['form-contaner'],
+      layout: 'vertical',
+      submitText: '保存',
+      dataSource: [{
+        label: '用户名',
+        name: 'username',
+        required: true,
+        disabled: title !== '创建' && true,
+        type: 'TextArea',
+        showCount: true,
+        maxLength: 100
+      }, {
+        label: '密码',
+        name: title === '创建' ? 'password' : null,
+        required: true,
+        validator: function validator(rule, value, callback) {
+          // console.log('rule, value',value)
+          var pwdRegex = new RegExp('(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{8,30}');
+
+          if (!pwdRegex.test(value)) {
+            return callback("\u5BC6\u7801\u4E2D\u5FC5\u987B\u5305\u542B\u5927\u5C0F\u5199 \u5B57\u6BCD\u3001\u6570\u5B57\u3001\u7279\u6B8A\u5B57\u7B26\uFF0C\u81F3\u5C118\u4E2A\u5B57\u7B26\uFF0C\u6700\u591A30\u4E2A\u5B57\u7B26");
+          }
+
+          return callback();
+        }
+      }, {
+        label: '角色',
+        name: 'roles',
+        required: true,
+        itemRender: /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+          showSearch: true,
+          placeholder: "\u8BF7\u9009\u62E9\u89D2\u8272"
+        }, !lodash_default.a.isEmpty(roleAllLIst) && roleAllLIst.map(function (item, index) {
+          return /*#__PURE__*/react_default.a.createElement(Option, {
+            key: index,
+            value: item.roleName
+          }, item.roleName);
+        }))
+      }, {
+        label: '真实姓名',
+        name: 'name',
+        required: true,
+        type: 'TextArea',
+        showCount: true,
+        maxLength: 100
+      }, {
+        label: '备注',
+        name: 'remarks',
+        type: 'TextArea',
+        showCount: true,
+        maxLength: 200
+      }],
+      formValues: formValues,
+      onSubmit: function onSubmit(formValues) {
+        console.log('formValues', formValues); // 处理角色
+
+        if (!lodash_default.a.isEmpty(formValues.roles)) {
+          var list = [];
+          var item = roleAllLIst.filter(function (v) {
+            return v.roleName === formValues.roles;
+          });
+          console.log(item);
+          list.push(item[0].id);
+          formValues.roles = list;
+        }
+
+        dispatch({
+          type: 'Rights/addUserOrRole',
+          payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValues), {}, {
+            pathname: 'user',
+            type: title === '创建' ? 'add' : 'edit'
+          }),
+          callback: function callback(res) {
+            if (res === 200) {
+              modalFormRef.current.setModalStatus(false, function () {
+                setFormValues({});
+              });
+              console.log('query:', query); // 刷新当前列表
+
+              dispatch({
+                type: 'Rights/getUserOrRoleQuery',
+                payload: Object(objectSpread2["a" /* default */])({}, query)
+              });
+              return;
+            }
+          }
+        });
+      }
+    }
+  };
+  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], searchFormProps, /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
+    pathUrl: "/rights/user",
+    perms: "user:add",
+    text: "\u65B0\u5EFA",
+    ghost: true,
     type: "primary",
     onClick: function onClick() {
-      return batchAudit(true);
+      return openUserModal('create');
     }
-  }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-    pathUrl: "/search",
-    perms: "news:audit",
-    text: "\u672A\u901A\u8FC7",
-    type: "danger",
-    onClick: function onClick() {
-      return batchAudit(false);
-    }
-  }))), /*#__PURE__*/react_default.a.createElement(viewlog, {
-    ref: viewRecordRef
-  }));
+  })), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps), /*#__PURE__*/react_default.a.createElement(ModalForm["a" /* default */], Object(esm_extends["a" /* default */])({}, modalFormProps, {
+    ref: modalFormRef
+  })));
 }
 
-function mapStateToProps(_ref2) {
-  var Global = _ref2.Global,
-      User = _ref2.User,
-      Search = _ref2.Search;
+function mapStateToProps(_ref) {
+  var Rights = _ref.Rights;
   return {
-    Global: Global,
-    User: User,
-    Search: Search
+    Rights: Rights
   };
 }
 
-/* harmony default export */ var routes = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(AuditSearch));
-
-/***/ }),
-
-/***/ "H+gj":
-/*!******************************!*\
-  !*** ./src/assets/error.png ***!
-  \******************************/
-/*! no static exports found */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQvc6UAAABRWlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8LAwSDCIMogwMCcmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsis7PPOq3QdDFcvjV3jOD1boQVTPQrgSkktTgbSf4A4LbmgqISBgTEFyFYuLykAsTuAbJEioKOA7DkgdjqEvQHEToKwj4DVhAQ5A9k3gGyB5IxEoBmML4BsnSQk8XQkNtReEOBxcfXxUQg1Mjc0dyHgXNJBSWpFCYh2zi+oLMpMzyhRcASGUqqCZ16yno6CkYGRAQMDKMwhqj/fAIcloxgHQqxAjIHBEugw5sUIsSQpBobtQPdLciLEVJYzMPBHMDBsayhILEqEO4DxG0txmrERhM29nYGBddr//5/DGRjYNRkY/l7////39v///y4Dmn+LgeHANwDrkl1AuO+pmgAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAwqADAAQAAAABAAAAwwAAAAD9b/HnAAAHlklEQVR4Ae3dP3PTWBSGcbGzM6GCKqlIBRV0dHRJFarQ0eUT8LH4BnRU0NHR0UEFVdIlFRV7TzRksomPY8uykTk/zewQfKw/9znv4yvJynLv4uLiV2dBoDiBf4qP3/ARuCRABEFAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghggQAQZQKAnYEaQBAQaASKIAQJEkAEEegJmBElAoBEgghgg0Aj8i0JO4OzsrPv69Wv+hi2qPHr0qNvf39+iI97soRIh4f3z58/u7du3SXX7Xt7Z2enevHmzfQe+oSN2apSAPj09TSrb+XKI/f379+08+A0cNRE2ANkupk+ACNPvkSPcAAEibACyXUyfABGm3yNHuAECRNgAZLuYPgEirKlHu7u7XdyytGwHAd8jjNyng4OD7vnz51dbPT8/7z58+NB9+/bt6jU/TI+AGWHEnrx48eJ/EsSmHzx40L18+fLyzxF3ZVMjEyDCiEDjMYZZS5wiPXnyZFbJaxMhQIQRGzHvWR7XCyOCXsOmiDAi1HmPMMQjDpbpEiDCiL358eNHurW/5SnWdIBbXiDCiA38/Pnzrce2YyZ4//59F3ePLNMl4PbpiL2J0L979+7yDtHDhw8vtzzvdGnEXdvUigSIsCLAWavHp/+qM0BcXMd/q25n1vF57TYBp0a3mUzilePj4+7k5KSLb6gt6ydAhPUzXnoPR0dHl79WGTNCfBnn1uvSCJdegQhLI1vvCk+fPu2ePXt2tZOYEV6/fn31dz+shwAR1sP1cqvLntbEN9MxA9xcYjsxS1jWR4AIa2Ibzx0tc44fYX/16lV6NDFLXH+YL32jwiACRBiEbf5KcXoTIsQSpzXx4N28Ja4BQoK7rgXiydbHjx/P25TaQAJEGAguWy0+2Q8PD6/Ki4R8EVl+bzBOnZY95fq9rj9zAkTI2SxdidBHqG9+skdw43borCXO/ZcJdraPWdv22uIEiLA4q7nvvCug8WTqzQveOH26fodo7g6uFe/a17W3+nFBAkRYENRdb1vkkz1CH9cPsVy/jrhr27PqMYvENYNlHAIesRiBYwRy0V+8iXP8+/fvX11Mr7L7ECueb/r48eMqm7FuI2BGWDEG8cm+7G3NEOfmdcTQw4h9/55lhm7DekRYKQPZF2ArbXTAyu4kDYB2YxUzwg0gi/41ztHnfQG26HbGel/crVrm7tNY+/1btkOEAZ2M05r4FB7r9GbAIdxaZYrHdOsgJ/wCEQY0J74TmOKnbxxT9n3FgGGWWsVdowHtjt9Nnvf7yQM2aZU/TIAIAxrw6dOnAWtZZcoEnBpNuTuObWMEiLAx1HY0ZQJEmHJ3HNvGCBBhY6jtaMoEiJB0Z29vL6ls58vxPcO8/zfrdo5qvKO+d3Fx8Wu8zf1dW4p/cPzLly/dtv9Ts/EbcvGAHhHyfBIhZ6NSiIBTo0LNNtScABFyNiqFCBChULMNNSdAhJyNSiECRCjUbEPNCRAhZ6NSiAARCjXbUHMCRMjZqBQiQIRCzTbUnAARcjYqhQgQoVCzDTUnQIScjUohAkQo1GxDzQkQIWejUogAEQo121BzAkTI2agUIkCEQs021JwAEXI2KoUIEKFQsw01J0CEnI1KIQJEKNRsQ80JECFno1KIABEKNdtQcwJEyNmoFCJAhELNNtScABFyNiqFCBChULMNNSdAhJyNSiECRCjUbEPNCRAhZ6NSiAARCjXbUHMCRMjZqBQiQIRCzTbUnAARcjYqhQgQoVCzDTUnQIScjUohAkQo1GxDzQkQIWejUogAEQo121BzAkTI2agUIkCEQs021JwAEXI2KoUIEKFQsw01J0CEnI1KIQJEKNRsQ80JECFno1KIABEKNdtQcwJEyNmoFCJAhELNNtScABFyNiqFCBChULMNNSdAhJyNSiECRCjUbEPNCRAhZ6NSiAARCjXbUHMCRMjZqBQiQIRCzTbUnAARcjYqhQgQoVCzDTUnQIScjUohAkQo1GxDzQkQIWejUogAEQo121BzAkTI2agUIkCEQs021JwAEXI2KoUIEKFQsw01J0CEnI1KIQJEKNRsQ80JECFno1KIABEKNdtQcwJEyNmoFCJAhELNNtScABFyNiqFCBChULMNNSdAhJyNSiEC/wGgKKC4YMA4TAAAAABJRU5ErkJggg=="
+/* harmony default export */ var Users = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(UserRights));
 
 /***/ }),
 
@@ -3520,14 +3280,18 @@ function fillFormItems(items) {
         initialValue = _item$initialValue === void 0 ? formValues[name] : _item$initialValue,
         _item$help = item.help,
         help = _item$help === void 0 ? null : _item$help;
+    var rules = validator ? [{
+      required: required,
+      message: "\u8BF7\u8F93\u5165".concat(label)
+    }, {
+      validator: validator
+    }] : [{
+      required: required,
+      message: "\u8BF7\u8F93\u5165".concat(label)
+    }];
     return Object(objectSpread2["a" /* default */])({
       options: {
-        rules: required ? [{
-          required: required,
-          message: "\u8BF7\u8F93\u5165".concat(label)
-        }, {
-          validator: validator
-        }] : null,
+        rules: required ? rules : null,
         initialValue: initialValue,
         help: help
       }

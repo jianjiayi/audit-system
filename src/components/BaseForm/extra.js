@@ -58,9 +58,13 @@ export function fillFormItems(items, formValues = {}) {
       help = null,
     } = item;
 
+    const rules = validator ? 
+      [{ required: required, message: `请输入${label}` } , { validator }]:
+      [{ required: required, message: `请输入${label}` }];
+
     return {
       options: {
-        rules: required ? [{ required: required, message: `请输入${label}` }, { validator }] : null,
+        rules: required ? rules : null,
         initialValue,
         help,
       },

@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
 
 /***/ "5KP8":
 /*!*******************************************************!*\
@@ -368,27 +368,26 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 
 /***/ }),
 
-/***/ "mAEq":
-/*!******************************************************************************!*\
-  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.js + 1 modules ***!
-  \******************************************************************************/
+/***/ "hpMx":
+/*!************************************************************************!*\
+  !*** ./src/pages/AuditStatistics/routes/Classify/index.js + 1 modules ***!
+  \************************************************************************/
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/utils/utils.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-redux/es/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -409,6 +408,9 @@ var es_form = __webpack_require__("Vl3Y");
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
 var objectSpread2 = __webpack_require__("VTBJ");
 
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
+
 // EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js + 1 modules
 var select_style = __webpack_require__("OaEy");
 
@@ -424,9 +426,6 @@ var input = __webpack_require__("5rEg");
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
-
-// EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 22 modules
-var es = __webpack_require__("/MKj");
 
 // EXTERNAL MODULE: ./node_modules/lodash/lodash.js
 var lodash = __webpack_require__("LvDl");
@@ -447,13 +446,10 @@ var utils = __webpack_require__("+n12");
 // EXTERNAL MODULE: ./src/pages/constants.js
 var constants = __webpack_require__("6ZGt");
 
-// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Personnel/List/index.module.less?modules
+// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Classify/index.module.less?modules
 // extracted by mini-css-extract-plugin
-/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___2qm3g"});
-// EXTERNAL MODULE: ./src/components/WrapAuth/index.js
-var WrapAuth = __webpack_require__("yAXW");
-
-// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Personnel/List/index.js
+/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___2Pp41"});
+// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Classify/index.js
 
 
 
@@ -463,27 +459,16 @@ var WrapAuth = __webpack_require__("yAXW");
 
 
 
-/* eslint-disable spaced-comment */
-
-/* eslint-disable import/order */
-
-/* eslint-disable import/no-unresolved */
-
-/* eslint-disable no-param-reassign */
 
 /* eslint-disable no-console */
 
-/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable no-param-reassign */
 
-/* eslint-disable object-shorthand */
+/* eslint-disable import/no-unresolved */
 
-/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-/* eslint-disable prefer-const */
-
-/* eslint-disable react/jsx-curly-brace-presence */
-
-/* eslint-disable react/self-closing-comp */
+/* eslint-disable array-callback-return */
 
 /* eslint-disable no-unused-vars */
 
@@ -494,20 +479,25 @@ var WrapAuth = __webpack_require__("yAXW");
 
 
 
-
-
 var InputGroup = input["a" /* default */].Group;
-var Option = es_select["a" /* default */].Option;
+var Option = es_select["a" /* default */].Option; // const dateFormat = 'YYYY-MM-DD';
 
 function AuditStatistics(props) {
   var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
       _useModel$initialStat = _useModel.initialState.currentUser,
       currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
 
-  var formRef = Object(react["useRef"])(null);
+  var formRef = Object(react["useRef"])(null); // 存放分类
+
+  var _useState = Object(react["useState"])({}),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
+      categoryMap = _useState2[0],
+      setCategoryMap = _useState2[1];
+
   var dispatch = props.dispatch,
       _props$business = props.business,
       business = _props$business === void 0 ? currentUser.business || {} : _props$business,
+      firstCategory = props.Global.firstCategory,
       _props$Statistics = props.Statistics,
       loading = _props$Statistics.loading,
       dataSource = _props$Statistics.dataSource,
@@ -516,18 +506,25 @@ function AuditStatistics(props) {
     dispatch({
       type: 'Statistics/init',
       payload: Object(objectSpread2["a" /* default */])({
-        type: 'person'
+        type: 'category'
       }, formRef.current.getFieldsValue())
     });
-  }, [dispatch]); // 多条件搜索配置
+  }, [dispatch]);
+  Object(react["useEffect"])(function () {
+    var mapObj = {};
+    firstCategory.map(function (item) {
+      mapObj[item.id.toString()] = item.name;
+    });
+    setCategoryMap(mapObj);
+  }, [firstCategory]); // 多条件搜索配置
 
   var searchFormProps = {
     className: index_modulemodules['form-contaner'],
     layout: 'inline',
     resetShow: true,
     authProps: {
-      pathUrl: '/statistics/personnel/',
-      perms: 'statistics:person:select'
+      pathUrl: '/statistics/classify',
+      perms: 'statistics:classify:select'
     },
     dataSource: [{
       label: '业务线',
@@ -544,10 +541,28 @@ function AuditStatistics(props) {
       type: 'SELECT',
       name: 'newsType',
       initialValue: 'NEWS',
-      map: constants["e" /* contentType */]
+      map: constants["e" /* contentType */],
+      onChange: function onChange(e) {
+        console.log(e);
+        formRef.current.setFieldsValue({
+          categoryId: ''
+        });
+        dispatch({
+          type: 'Global/getFirstCategory',
+          payload: {
+            id: 0,
+            type: e
+          }
+        });
+      }
     }, {
-      label: '人员',
-      name: 'user'
+      label: '分类',
+      type: 'SELECT',
+      name: 'categoryId',
+      initialValue: '',
+      map: Object(objectSpread2["a" /* default */])({
+        '': '全部'
+      }, categoryMap)
     }, {
       label: '排序',
       name: 'params11',
@@ -585,7 +600,7 @@ function AuditStatistics(props) {
       dispatch({
         type: 'Statistics/init',
         payload: {
-          type: 'person',
+          type: 'category',
           businessId: formRef.current.getFieldValue('businessId')
         }
       });
@@ -601,7 +616,7 @@ function AuditStatistics(props) {
       dispatch({
         type: 'Statistics/getStatisticQuery',
         payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValues), {}, {
-          type: 'person'
+          type: 'category'
         })
       });
     }
@@ -610,7 +625,7 @@ function AuditStatistics(props) {
   var tableProps = {
     // 类型
     selectionType: null,
-    //checkbox or radio or null||false
+    // checkbox or radio or null||false
     // 表头
     columns: [{
       title: '时间',
@@ -619,13 +634,13 @@ function AuditStatistics(props) {
         return /*#__PURE__*/react_default.a.createElement("span", null, text);
       }
     }, {
-      title: '人员',
+      title: '分类',
       align: 'center',
-      dataIndex: 'auditorName'
+      dataIndex: 'categoryName'
     }, {
-      title: '领审量',
+      title: '入审量',
       align: 'center',
-      dataIndex: 'takeCount'
+      dataIndex: 'entryQueueCount'
     }, {
       title: '审核量',
       align: 'center',
@@ -633,23 +648,8 @@ function AuditStatistics(props) {
     }, {
       title: '审核通过量',
       align: 'center',
+      width: '160px',
       dataIndex: 'auditPassedCount'
-    }, {
-      title: '操作',
-      width: '100px',
-      align: 'center',
-      render: function render(r) {
-        return /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/statistics/personnel/",
-          perms: 'statistics:person:select',
-          type: "primary",
-          size: "small",
-          text: "\u660E\u7EC6",
-          onClick: function onClick() {
-            return goDetails(r.auditorId);
-          }
-        });
-      }
     }],
     loading: loading,
     dataSource: dataSource,
@@ -659,57 +659,29 @@ function AuditStatistics(props) {
       dispatch({
         type: 'Statistics/getStatisticQuery',
         payload: {
-          type: 'person',
+          type: 'category',
           pageNum: page.current,
           pageSize: page.pageSize,
           businessId: formRef.current.getFieldValue('businessId')
         }
       });
     }
-  }; // 审核详情页
-
-  var goDetails = function goDetails(id) {
-    var formValue = formRef.current.getFieldsValue();
-    umiExports["f" /* history */].push({
-      pathname: '/statistics/personnel/details',
-      query: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValue), {}, {
-        id: id,
-        isBack: true
-      })
-    });
-  }; // 下载excel
-
-
-  var DownloadExcel = function DownloadExcel() {
-    // run()
-    dispatch({
-      type: 'Statistics/getPersoneExportExcel',
-      payload: {}
-    });
   };
-
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], Object(esm_extends["a" /* default */])({}, searchFormProps, {
     pRef: formRef
-  }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-    pathUrl: "/statistics/personnel/",
-    perms: "statistics:person:select",
-    text: "\u5BFC\u51FA",
-    ghost: true,
-    type: "primary",
-    onClick: function onClick() {
-      return DownloadExcel();
-    }
   })), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps));
 }
 
 function mapStateToProps(_ref) {
-  var Statistics = _ref.Statistics;
+  var Global = _ref.Global,
+      Statistics = _ref.Statistics;
   return {
+    Global: Global,
     Statistics: Statistics
   };
 }
 
-/* harmony default export */ var List = __webpack_exports__["default"] = (Object(es["c" /* connect */])(mapStateToProps)(AuditStatistics));
+/* harmony default export */ var Classify = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(AuditStatistics));
 
 /***/ }),
 
@@ -1220,14 +1192,18 @@ function fillFormItems(items) {
         initialValue = _item$initialValue === void 0 ? formValues[name] : _item$initialValue,
         _item$help = item.help,
         help = _item$help === void 0 ? null : _item$help;
+    var rules = validator ? [{
+      required: required,
+      message: "\u8BF7\u8F93\u5165".concat(label)
+    }, {
+      validator: validator
+    }] : [{
+      required: required,
+      message: "\u8BF7\u8F93\u5165".concat(label)
+    }];
     return Object(objectSpread2["a" /* default */])({
       options: {
-        rules: required ? [{
-          required: required,
-          message: "\u8BF7\u8F93\u5165".concat(label)
-        }, {
-          validator: validator
-        }] : null,
+        rules: required ? rules : null,
         initialValue: initialValue,
         help: help
       }
