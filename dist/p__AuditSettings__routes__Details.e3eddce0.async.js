@@ -4764,7 +4764,6 @@ es_modal_Modal.config = globalConfig;
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/style/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-redux/es/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -4788,9 +4787,6 @@ var objectSpread2 = __webpack_require__("VTBJ");
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
-
-// EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 22 modules
-var es = __webpack_require__("/MKj");
 
 // EXTERNAL MODULE: ./node_modules/lodash/lodash.js
 var lodash = __webpack_require__("LvDl");
@@ -5228,7 +5224,6 @@ var utils = __webpack_require__("+n12");
 
 
 
-
 delete constants["e" /* contentType */]['']; //删除内容类型中的全部
 
 function QueueContent(props) {
@@ -5242,8 +5237,7 @@ function QueueContent(props) {
       _props$business = props.business,
       business = _props$business === void 0 ? currentUser.business || {} : _props$business,
       art = props.QDetails.art;
-  var formRef = Object(react["useRef"])(null); // 组件销毁时候
-
+  var formRef = Object(react["useRef"])(null);
   Object(react["useEffect"])(function () {
     dispatch({
       type: 'QDetails/init',
@@ -5257,7 +5251,6 @@ function QueueContent(props) {
   }, [dispatch]); // 处理规则配置回显
 
   Object(react["useEffect"])(function () {
-    // console.log('art',art)
     var artData = lodash_default.a.clone(art);
 
     if (lodash_default.a.isEmpty(artData)) {
@@ -5284,17 +5277,13 @@ function QueueContent(props) {
         span: 16
       }
     },
-    // loading: btnLoading,
     dataSource: [{
       label: '业务线',
       type: 'SELECT',
       name: 'bid',
       initialValue: utils["a" /* ExObject */].getFirstValue(business),
       placeholder: '选择业务线',
-      map: business // onChange:()=>{
-      //   formRef.current.setFieldsValue({ruleJson: {}});
-      // }
-
+      map: business
     }, {
       label: '内容类型',
       type: 'SELECT',
@@ -5343,18 +5332,15 @@ function QueueContent(props) {
     }],
     formValues: {},
     onSubmit: function onSubmit(formValues) {
-      console.log('formValues', formValues);
+      console.log('formValues.priority', formValues.priority);
+      var priority = formValues.priority;
+      console.log('formValues', formValues, priority);
       formValues.ruleJson = JSON.stringify(formValues.ruleJson); // 判断是否更新
 
       var _location$query = location.query,
           action = _location$query.action,
           id = _location$query.id;
-
-      if (action === 'update') {
-        formValues['id'] = id;
-      }
-
-      console.log('formValues', formValues);
+      if (action === 'update') formValues['id'] = id;
       dispatch({
         type: 'QDetails/saveQueue',
         payload: formValues,
@@ -5391,7 +5377,7 @@ function Details_mapStateToProps(_ref) {
   };
 }
 
-/* harmony default export */ var Details = __webpack_exports__["default"] = (Object(es["c" /* connect */])(Details_mapStateToProps)(QueueContent));
+/* harmony default export */ var Details = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(Details_mapStateToProps)(QueueContent));
 
 /***/ }),
 

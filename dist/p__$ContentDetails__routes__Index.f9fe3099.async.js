@@ -2352,7 +2352,9 @@ function Operate(props) {
         console.log('OK');
         dispatch({
           type: 'CDetails/getNewsExit',
-          payload: {},
+          payload: {
+            id: queueContentId
+          },
           callback: function callback() {
             setExitBtnLoading(false);
             umiExports["f" /* history */].go(-1);

@@ -6,10 +6,9 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { connect } from 'dva';
 import { Form, Input, Select } from 'antd';
 import _ from 'lodash';
-import { useModel } from 'umi';
+import { useModel, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';

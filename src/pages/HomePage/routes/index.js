@@ -6,10 +6,8 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useEffect, useRef } from 'react';
-import { connect } from 'dva';
-import { Card } from 'antd';
 import _ from 'lodash';
-import { useModel } from 'umi';
+import { useModel, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import TextCountUp from '@components/TextCountUp';

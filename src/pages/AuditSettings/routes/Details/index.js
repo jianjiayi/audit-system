@@ -8,10 +8,9 @@
 /* eslint-disable import/no-unresolved */
 
 import React, { useEffect, useRef } from 'react';
-import { connect } from 'dva';
 import _ from 'lodash';
 import { Button } from 'antd';
-import { history, useModel } from 'umi';
+import { history, useModel, connect } from 'umi';
 
 import BaseForm  from '@components/BaseForm';
 import RuleJsonRender from './RuleJsonRender';
@@ -38,7 +37,6 @@ function QueueContent(props) {
 
   const formRef = useRef(null);
 
-  // 组件销毁时候
   useEffect(() => {
     dispatch({
       type: 'QDetails/init',
@@ -53,7 +51,6 @@ function QueueContent(props) {
 
   // 处理规则配置回显
   useEffect(() => {
-    // console.log('art',art)
     const artData = _.clone(art);
     if(_.isEmpty(artData)){
       formRef.current.resetFields();
@@ -77,7 +74,6 @@ function QueueContent(props) {
       labelCol: { span: 8 },
       wrapperCol: { span: 16 },
     },
-    // loading: btnLoading,
     dataSource: [
       {
         label: '业务线',
@@ -86,9 +82,6 @@ function QueueContent(props) {
         initialValue: ExObject.getFirstValue(business),
         placeholder: '选择业务线',
         map: business,
-        // onChange:()=>{
-        //   formRef.current.setFieldsValue({ruleJson: {}});
-        // }
       },
       {
         label: '内容类型',
@@ -140,16 +133,15 @@ function QueueContent(props) {
     ],
     formValues: {},
     onSubmit: formValues => {
-      console.log('formValues',formValues)
+      console.log('formValues.priority',formValues.priority)
+      const priority = formValues.priority;
+      console.log('formValues',formValues,priority)
       formValues.ruleJson = JSON.stringify(formValues.ruleJson);
 
       // 判断是否更新
       const { action, id } = location.query;
-      if (action === 'update') {
-        formValues['id'] = id;
-      }
+      if (action === 'update') formValues['id'] = id;
 
-      console.log('formValues', formValues);
       dispatch({
         type: 'QDetails/saveQueue',
         payload: formValues,
