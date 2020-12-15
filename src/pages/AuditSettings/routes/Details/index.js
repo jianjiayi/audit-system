@@ -12,7 +12,7 @@ import _ from 'lodash';
 import { Button } from 'antd';
 import { history, useModel, connect } from 'umi';
 
-import BaseForm  from '@components/BaseForm';
+import BaseForm from '@components/BaseForm';
 import RuleJsonRender from './RuleJsonRender';
 
 import { contentType } from '@/pages/constants';
@@ -52,16 +52,15 @@ function QueueContent(props) {
   // 处理规则配置回显
   useEffect(() => {
     const artData = _.clone(art);
-    if(_.isEmpty(artData)){
+    if (_.isEmpty(artData)) {
       formRef.current.resetFields();
       formRef.current.setFieldsValue({
-        queueType: '1'
+        queueType: '1',
       });
-    }else{
-      artData.bid = _.toString(artData.bid)
-      formRef.current.setFieldsValue({...artData});
+    } else {
+      artData.bid = _.toString(artData.bid);
+      formRef.current.setFieldsValue({ ...artData });
     }
-    
   }, [JSON.stringify(art)]);
 
   const searchFormProps = {
@@ -91,21 +90,19 @@ function QueueContent(props) {
         placeholder: '选择类型',
         map: contentType,
       },
-      { 
-        label: '队列名称', 
-        name: 'name', 
+      {
+        label: '队列名称',
+        name: 'name',
         type: 'TextArea',
-        showCount:true,
-        maxLength:50,
-        required: true 
-      },
-      { 
-        label: '规则配置', 
-        name: 'ruleJson', 
+        showCount: true,
+        maxLength: 50,
         required: true,
-        itemRender: (
-          <RuleJsonRender pForm={formRef.current}></RuleJsonRender>
-        )
+      },
+      {
+        label: '规则配置',
+        name: 'ruleJson',
+        required: true,
+        itemRender: <RuleJsonRender pForm={formRef.current}></RuleJsonRender>,
       },
       {
         label: '队列机制',
@@ -114,28 +111,27 @@ function QueueContent(props) {
         required: true,
         map: { 1: '先审后发', 2: '先发后审', 3: '免审' },
       },
-      { 
-        label: '队列权重', 
-        name: 'priority', 
+      {
+        label: '队列权重',
+        name: 'priority',
         type: 'Number',
         min: 0,
         max: 100000,
         required: true,
-        help: '权重：0~10000，整数'
+        help: '权重：0~10000，整数',
       },
-      { 
-        label: '备注', 
-        name: 'remark', 
+      {
+        label: '备注',
+        name: 'remark',
         type: 'TextArea',
-        showCount:true,
-        maxLength:200
+        showCount: true,
+        maxLength: 200,
       },
     ],
     formValues: {},
-    onSubmit: formValues => {
-      console.log('formValues.priority',formValues.priority)
-      const priority = formValues.priority;
-      console.log('formValues',formValues,priority)
+    onSubmit: (formValues) => {
+      console.log('formValues', formValues);
+
       formValues.ruleJson = JSON.stringify(formValues.ruleJson);
 
       // 判断是否更新
@@ -144,8 +140,10 @@ function QueueContent(props) {
 
       dispatch({
         type: 'QDetails/saveQueue',
-        payload: formValues,
-        callback: res => {
+        payload: {
+          ...formValues,
+        },
+        callback: (res) => {
           if (res !== 200) {
             return;
           }
@@ -158,14 +156,21 @@ function QueueContent(props) {
   return (
     <div className={styles.container}>
       <BaseForm {...searchFormProps} pRef={formRef}>
-        <Button type="dashed" onClick={()=>{history.go(-1)}}>返回</Button>
+        <Button
+          type="dashed"
+          onClick={() => {
+            history.go(-1);
+          }}
+        >
+          返回
+        </Button>
       </BaseForm>
     </div>
-  )
+  );
 }
 
 function mapStateToProps({ Global, QDetails }) {
   return { Global, QDetails };
 }
 
-export default (connect(mapStateToProps)(QueueContent));
+export default connect(mapStateToProps)(QueueContent);

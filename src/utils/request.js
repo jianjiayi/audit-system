@@ -70,8 +70,6 @@ const errorHandler = ({ showToast = true }) => (error) => {
   return response;
 };
 
-
-
 /**
  * 配置request请求时的默认参数
  */
@@ -82,133 +80,139 @@ const request = extend({
   // credentials: 'include', // 默认请求是否带上cookie
 });
 
-
 // 过去掉value为空的元素参数
-const getValidParams = (params) =>{
-  for(let key in params){
-    if(!params[key]){
-      delete params[key]
-    } 
+const getValidParams = (params) => {
+  for (let key in params) {
+    if (!params[key] && params[key] !== 0) {
+      delete params[key];
+    }
   }
   return params;
-}
+};
 
+request.interceptors.request.use(
+  (url, { tokenName, credentials = 'include', ...options }) => {
+    const newOptions = {
+      method: 'get',
+      headers: {},
+      ...options,
+    };
 
-request.interceptors.request.use((url, { tokenName, credentials = 'include', ...options }) => {
-  const newOptions = {
-    method: 'get',
-    headers: {},
-    ...options,
-  };
-
-  // 默认错误处理 传递配置参数
-  newOptions.errorHandler = errorHandler(newOptions);
-  // 默认请求是否带上cookie，允许关闭
-  if (credentials) {
-    newOptions.credentials = credentials;
-  }
-  // 添加时间戳，避免缓存
-  // if (newOptions.method === 'get') {
-  //   newOptions.params = {
-  //     _t: Date.parse(new Date()) / 1000,
-  //     ...newOptions.params,
-  //   };
-  // } else {
-  //   newOptions.data = {
-  //     ...newOptions.data,
-  //     _t: Date.parse(new Date()) / 1000,
-  //   };
-  // }
-  if (
-    newOptions.method.toUpperCase() === 'POST'
-    || newOptions.method.toUpperCase() === 'PUT'
-    || newOptions.method.toUpperCase() === 'DELETE'
-  ) {
-    if (!(newOptions.body instanceof FormData)) {
-      newOptions.headers = {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
-        ...newOptions.headers,
-      };
-      newOptions.body = JSON.stringify(getValidParams(newOptions.body));
-    } else {
-      // newOptions.body is FormData
-      newOptions.headers = {
-        Accept: 'application/json',
-        ...newOptions.headers,
-      };
+    // 默认错误处理 传递配置参数
+    newOptions.errorHandler = errorHandler(newOptions);
+    // 默认请求是否带上cookie，允许关闭
+    if (credentials) {
+      newOptions.credentials = credentials;
     }
-  }
-
-  const token = getStorage(tokenName || 'JWT_JHFF_TOKEN');
-  // 权限
-  if (token) {
-    // eslint-disable-next-line dot-notation
-    newOptions.headers['Authorization'] = token;
-  }
-  return {
-    url: `${url}`,
-    options: {
-      ...newOptions,
-    },
-  };
-}, { global: false });
-// eslint-disable-next-line consistent-return
-request.interceptors.response.use(async (response, { showToast = true }) => {
-  // 下载
-  if (response.headers.get('content-disposition')) {
-    const blb = await response.blob();
-    const blob = new Blob([blb]);
-    const blobURL = window.URL.createObjectURL(blob);
-    // 创建a标签，用于跳转至下载链接
-    const tempLink = document.createElement('a');
-    tempLink.style.display = 'none';
-    tempLink.href = blobURL;
-    tempLink.setAttribute(
-      'download',
-      decodeURI(escape(
-        response.headers
-          .get('content-disposition')
-          .replace('attachment;filename=', ''),
-      )),
-    );
-    // 兼容：某些浏览器不支持HTML5的download属性
-    if (typeof tempLink.download === 'undefined') {
-      tempLink.setAttribute('target', '_blank');
-    }
-    // 挂载a标签
-    document.body.appendChild(tempLink);
-    tempLink.click();
-    document.body.removeChild(tempLink);
-    // 释放blob URL地址
-    window.URL.revokeObjectURL(blobURL);
-    return;
-  }
-
-  if (response && response.status === 200) {
-    const data = await response.clone().json();
-    if (data.code !== successCode) {
-      // 未登录跳转
-      if (data.code === 401 && history.location.pathname !== PATH_USER_LOGIN) {
-        return history.push(`${PATH_USER_LOGIN}?redirect=${encodeURIComponent(window.location.href)}`);
+    // 添加时间戳，避免缓存
+    // if (newOptions.method === 'get') {
+    //   newOptions.params = {
+    //     _t: Date.parse(new Date()) / 1000,
+    //     ...newOptions.params,
+    //   };
+    // } else {
+    //   newOptions.data = {
+    //     ...newOptions.data,
+    //     _t: Date.parse(new Date()) / 1000,
+    //   };
+    // }
+    if (
+      newOptions.method.toUpperCase() === 'POST' ||
+      newOptions.method.toUpperCase() === 'PUT' ||
+      newOptions.method.toUpperCase() === 'DELETE'
+    ) {
+      if (!(newOptions.body instanceof FormData)) {
+        newOptions.headers = {
+          Accept: 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
+          ...newOptions.headers,
+        };
+        newOptions.body = JSON.stringify(getValidParams(newOptions.body));
+      } else {
+        // newOptions.body is FormData
+        newOptions.headers = {
+          Accept: 'application/json',
+          ...newOptions.headers,
+        };
       }
-      throw new Error(JSON.stringify({
-        ...data,
-        response: data,
-      }));
     }
-    // return RequestResults.success(data)
-    return data;
-  }
-  if (response && response.status) {
-    if (showToast) {
-      notification.error({
-        message: codeMessage[response.status] || response.statusText,
-      });
+
+    const token = getStorage(tokenName || 'JWT_JHFF_TOKEN');
+    // 权限
+    if (token) {
+      // eslint-disable-next-line dot-notation
+      newOptions.headers['Authorization'] = token;
+    }
+    return {
+      url: `${url}`,
+      options: {
+        ...newOptions,
+      },
+    };
+  },
+  { global: false },
+);
+// eslint-disable-next-line consistent-return
+request.interceptors.response.use(
+  async (response, { showToast = true }) => {
+    // 下载
+    if (response.headers.get('content-disposition')) {
+      const blb = await response.blob();
+      const blob = new Blob([blb]);
+      const blobURL = window.URL.createObjectURL(blob);
+      // 创建a标签，用于跳转至下载链接
+      const tempLink = document.createElement('a');
+      tempLink.style.display = 'none';
+      tempLink.href = blobURL;
+      tempLink.setAttribute(
+        'download',
+        decodeURI(
+          escape(response.headers.get('content-disposition').replace('attachment;filename=', '')),
+        ),
+      );
+      // 兼容：某些浏览器不支持HTML5的download属性
+      if (typeof tempLink.download === 'undefined') {
+        tempLink.setAttribute('target', '_blank');
+      }
+      // 挂载a标签
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
+      // 释放blob URL地址
+      window.URL.revokeObjectURL(blobURL);
+      return;
+    }
+
+    if (response && response.status === 200) {
+      const data = await response.clone().json();
+      if (data.code !== successCode) {
+        // 未登录跳转
+        if (data.code === 401 && history.location.pathname !== PATH_USER_LOGIN) {
+          return history.push(
+            `${PATH_USER_LOGIN}?redirect=${encodeURIComponent(window.location.href)}`,
+          );
+        }
+        throw new Error(
+          JSON.stringify({
+            ...data,
+            response: data,
+          }),
+        );
+      }
+      // return RequestResults.success(data)
+      return data;
+    }
+    if (response && response.status) {
+      if (showToast) {
+        notification.error({
+          message: codeMessage[response.status] || response.statusText,
+        });
+      }
+      return response;
     }
     return response;
-  }
-  return response;
-  // return RequestResults.error('错误', -9999)
-}, { global: false });
+    // return RequestResults.error('错误', -9999)
+  },
+  { global: false },
+);
 export default request;
