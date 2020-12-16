@@ -160,7 +160,7 @@ function FormCoverImage(props) {
   };
 
   return (
-    <Form.Item name="covers" noStyle>
+    <>
       <div className={styles.content}>
         <img
           width={240}
@@ -205,126 +205,128 @@ function FormCoverImage(props) {
           <ButtonMobilePreview {...MobilePreviewProps} />
         </div>
       </div>
-
-      <Modal
-        title={tabKey === 2 ? '正文全图' : '封面图'}
-        centered
-        destroyOnClose
-        visible={coverPictureVisible}
-        onCancel={() => {
-          setCoverPictureVisible(false);
-          setImageSourceType('cover');
-          if (tabKey !== 2) {
-            setFileList([...fileList]);
-          }
-        }}
-        footer={null}
-      >
-        {(tabKey === 0 || tabKey === 2) && (
-          <div className={styles.images_list}>
-            {/* 封面图 */}
-            {imageSourceType === 'cover' && !_.isEmpty(fileList)
-              ? fileList.map((item, index) => {
-                  return (
-                    <Image
-                      className={styles.item}
-                      key={index}
-                      width={120}
-                      height={90}
-                      alt="封面图"
-                      src={item.originalUrl}
-                      fallback={errorImg}
-                    />
-                  );
-                })
-              : imageSourceType === 'cover' && <p>暂无封面图</p>}
-
-            {/* 正文全图 */}
-            {imageSourceType === 'contentImages' && !_.isEmpty(contentList)
-              ? contentList.map((item, index) => {
-                  return (
-                    <Image
-                      className={styles.item}
-                      key={index}
-                      width={120}
-                      height={90}
-                      alt="封面图"
-                      src={item.src}
-                      fallback={errorImg}
-                    />
-                  );
-                })
-              : imageSourceType === 'contentImages' && <p>暂无内容图片</p>}
-          </div>
-        )}
-
-        {/* 上传图片组件 */}
-        {tabKey === 1 && (
-          <div className={styles.upload_list}>
-            <Radio.Group
-              className={styles.button_header}
-              name="image-number"
-              defaultValue={imagesValue}
-              onChange={(e) => setCoverImagesNumber(e.target.value)}
-            >
-              <Radio value={1}>单图</Radio>
-              <Radio value={3}>三图</Radio>
-            </Radio.Group>
-            <ImgCrop rotate>
-              <Upload
-                action={UPLOAD_FILE_URL}
-                listType="picture-card"
-                fileList={objToArr(fileList) || []}
-                beforeUpload={beforeUpload}
-                onChange={onChange}
-                onPreview={onPreview}
-              >
-                {!_.isEmpty(fileList) && objToArr(fileList).length >= imagesValue ? null : (
-                  <>
-                    <PlusOutlined />
-                    <div style={{ marginTop: 8 }}>Upload</div>
-                  </>
-                )}
-              </Upload>
-            </ImgCrop>
-          </div>
-        )}
-
-        {/* 图片预览 */}
+      
+      <Form.Item name="covers" noStyle>
         <Modal
-          visible={previewVisible}
-          title="图片预览"
+          title={tabKey === 2 ? '正文全图' : '封面图'}
+          centered
+          destroyOnClose
+          visible={coverPictureVisible}
+          onCancel={() => {
+            setCoverPictureVisible(false);
+            setImageSourceType('cover');
+            if (tabKey !== 2) {
+              setFileList([...fileList]);
+            }
+          }}
           footer={null}
-          onCancel={() => setPreviewVisible(false)}
         >
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
-        </Modal>
+          {(tabKey === 0 || tabKey === 2) && (
+            <div className={styles.images_list}>
+              {/* 封面图 */}
+              {imageSourceType === 'cover' && !_.isEmpty(fileList)
+                ? fileList.map((item, index) => {
+                    return (
+                      <Image
+                        className={styles.item}
+                        key={index}
+                        width={120}
+                        height={90}
+                        alt="封面图"
+                        src={item.originalUrl}
+                        fallback={errorImg}
+                      />
+                    );
+                  })
+                : imageSourceType === 'cover' && <p>暂无封面图</p>}
 
-        {tabKey !== 2 && (
-          <div className={styles.footer}>
-            {tabKey === 0 ? (
-              <Button type="primary" onClick={() => setTabKey(1)}>
-                修改封面图
-              </Button>
-            ) : (
-              <Button
-                type="primary"
-                onClick={() => {
-                  pForm.setFieldsValue({
-                    covers: fileList,
-                  });
-                  setCoverPictureVisible(false);
-                }}
+              {/* 正文全图 */}
+              {imageSourceType === 'contentImages' && !_.isEmpty(contentList)
+                ? contentList.map((item, index) => {
+                    return (
+                      <Image
+                        className={styles.item}
+                        key={index}
+                        width={120}
+                        height={90}
+                        alt="封面图"
+                        src={item.src}
+                        fallback={errorImg}
+                      />
+                    );
+                  })
+                : imageSourceType === 'contentImages' && <p>暂无内容图片</p>}
+            </div>
+          )}
+
+          {/* 上传图片组件 */}
+          {tabKey === 1 && (
+            <div className={styles.upload_list}>
+              <Radio.Group
+                className={styles.button_header}
+                name="image-number"
+                defaultValue={imagesValue}
+                onChange={(e) => setCoverImagesNumber(e.target.value)}
               >
-                确定
-              </Button>
-            )}
+                <Radio value={1}>单图</Radio>
+                <Radio value={3}>三图</Radio>
+              </Radio.Group>
+              <ImgCrop rotate>
+                <Upload
+                  action={UPLOAD_FILE_URL}
+                  listType="picture-card"
+                  fileList={objToArr(fileList) || []}
+                  beforeUpload={beforeUpload}
+                  onChange={onChange}
+                  onPreview={onPreview}
+                >
+                  {!_.isEmpty(fileList) && objToArr(fileList).length >= imagesValue ? null : (
+                    <>
+                      <PlusOutlined />
+                      <div style={{ marginTop: 8 }}>Upload</div>
+                    </>
+                  )}
+                </Upload>
+              </ImgCrop>
+            </div>
+          )}
 
-            <Button onClick={() => setCoverPictureVisible(false)}>关闭</Button>
-          </div>
-        )}
-      </Modal>
-    </Form.Item>
+          {/* 图片预览 */}
+          <Modal
+            visible={previewVisible}
+            title="图片预览"
+            footer={null}
+            onCancel={() => setPreviewVisible(false)}
+          >
+            <img alt="example" style={{ width: '100%' }} src={previewImage} />
+          </Modal>
+
+          {tabKey !== 2 && (
+            <div className={styles.footer}>
+              {tabKey === 0 ? (
+                <Button type="primary" onClick={() => setTabKey(1)}>
+                  修改封面图
+                </Button>
+              ) : (
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    pForm.setFieldsValue({
+                      covers: fileList,
+                    });
+                    setCoverPictureVisible(false);
+                  }}
+                >
+                  确定
+                </Button>
+              )}
+
+              <Button onClick={() => setCoverPictureVisible(false)}>关闭</Button>
+            </div>
+          )}
+        </Modal>
+      </Form.Item>
+    </>
   );
 }
 

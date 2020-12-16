@@ -160,7 +160,9 @@ function FormAction(props) {
 
   return (
     <Form {...formProps} from={selfForm}>
-      <ThreeLevelClassification pForm={selfForm} type={newsDataType}/>
+      <Form.Item label="分类"> 
+        <ThreeLevelClassification pForm={selfForm} type={newsDataType}/>
+      </Form.Item>
       <Form.Item label="违禁词">
         <p className={styles.p_text}>
           {!_.isEmpty(forbiddenWordList) ? (
@@ -264,7 +266,7 @@ function FormAction(props) {
           })}
           {inputVisible && (
             <div className={styles.tags_input}>
-              <Input ref={saveInputRef} type="text" size="small" onPressEnter={(e)=>{e.preventDefault()}} />
+              <Input ref={saveInputRef} type="text" size="small"  />
               <Button size="small" type="primary" onClick={() => handleInputConfirm()}>
                 保存
               </Button>

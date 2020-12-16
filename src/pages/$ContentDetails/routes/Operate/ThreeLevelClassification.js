@@ -19,7 +19,7 @@ function multilevelCategories(props) {
     Global: { firstCategory, secondCategory, thirdCategory },
   } = props;
 
-  // console.log('------------------',type)
+  console.log('------------------',getFieldsValue())
 
   const selectProps = {
     allowClear: true,
@@ -27,7 +27,7 @@ function multilevelCategories(props) {
   };
 
   useEffect(()=>{
-    if(getFieldsValue().categoryFirst){
+    if(getFieldsValue().categoryFirst !== undefined){
       dispatch({
         type: 'Global/getSecondCategory',
         payload: {
@@ -39,7 +39,7 @@ function multilevelCategories(props) {
   }, [getFieldsValue().categoryFirst])
 
   useEffect(()=>{
-    if(getFieldsValue().categorySecond){
+    if(getFieldsValue().categorySecond !== undefined){
       dispatch({
         type: 'Global/getThirdCategory',
         payload: {
@@ -81,7 +81,6 @@ function multilevelCategories(props) {
   }
 
   return (
-    <Form.Item label="分类" shouldUpdate>
       <Input.Group compact>
         <Form.Item  
           key="categoryFirst" 
@@ -91,6 +90,7 @@ function multilevelCategories(props) {
           <Select
             placeholder="一级分类"
             {...selectProps}
+            allowClear={false}
             onChange={(e) => selectChange(e, 'firstCategoryId')}
           >
             {!_.isEmpty(firstCategory) &&
@@ -106,8 +106,7 @@ function multilevelCategories(props) {
         <Form.Item 
           key="categorySecond" 
           name="categorySecond" 
-          noStyle 
-          shouldUpdate
+          noStyle
         >
           <Select
             placeholder="二级分类"
@@ -145,7 +144,6 @@ function multilevelCategories(props) {
           </Select>
         </Form.Item>
       </Input.Group>
-    </Form.Item>
   );
 }
 

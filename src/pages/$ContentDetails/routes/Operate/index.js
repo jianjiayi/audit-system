@@ -145,7 +145,6 @@ function Operate(props) {
   };
 
   return (
-    <>
       <Form {...formProps}>
         <div className={classNames(className)}>
           <FormCoverImage pForm={selfForm} name='FormCoverImage'></FormCoverImage>
@@ -184,7 +183,6 @@ function Operate(props) {
         </div>
         
       </Form>
-    </>
   );
 }
 

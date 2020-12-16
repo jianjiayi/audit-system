@@ -26,10 +26,8 @@ const Login = () => {
 
   const onFinish = values => {
     const password = encode(values.password);
-    console.log('password',password);
     
     signin({...values, password}, setInitialState, refresh);
-    // signin({...values}, setInitialState, refresh);
   };
 
   return (
