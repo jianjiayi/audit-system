@@ -99,7 +99,8 @@ function WordsRender(props) {
   // 删除tags
   const handleClose = (removedTag) => {
     const tags = tagsList.filter((tag) => tag.id !== removedTag.id);
-    onChange([...tags]);
+
+    onChange(_.isEmpty(tags) ? -1 : [...tags]);
   };
 
   const forMapTagsRender = (tag) => {

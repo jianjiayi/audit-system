@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[11],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[10],{
 
 /***/ "1W/9":
 /*!**************************************************************!*\
@@ -474,462 +474,6 @@ var button_style = __webpack_require__("+L6B");
  // style dependencies
 
 
-
-/***/ }),
-
-/***/ "4srC":
-/*!*******************************************************************!*\
-  !*** ./src/pages/AuditSettings/routes/Index/index.js + 1 modules ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/*! all exports used */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/AuditSettings/components/RulesRender/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/modal/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/modal/style/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js + 1 modules
-var style = __webpack_require__("y8nQ");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/form/index.js + 14 modules
-var es_form = __webpack_require__("Vl3Y");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-var objectSpread2 = __webpack_require__("VTBJ");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
-var slicedToArray = __webpack_require__("ODXe");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/modal/style/index.js + 1 modules
-var modal_style = __webpack_require__("2qtc");
-
-// EXTERNAL MODULE: ./node_modules/antd/es/modal/index.js + 7 modules
-var modal = __webpack_require__("kLXV");
-
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__("q1tI");
-var react_default = /*#__PURE__*/__webpack_require__.n(react);
-
-// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
-var lodash = __webpack_require__("LvDl");
-var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
-
-// EXTERNAL MODULE: ./src/.umi-production/core/umiExports.ts + 19 modules
-var umiExports = __webpack_require__("9kvl");
-
-// EXTERNAL MODULE: ./src/components/BaseForm/index.js + 5 modules
-var BaseForm = __webpack_require__("zLEZ");
-
-// EXTERNAL MODULE: ./src/components/BaseTable/index.js + 1 modules
-var BaseTable = __webpack_require__("5KP8");
-
-// EXTERNAL MODULE: ./src/components/WrapAuth/index.js
-var WrapAuth = __webpack_require__("yAXW");
-
-// EXTERNAL MODULE: ./src/pages/constants.js
-var constants = __webpack_require__("6ZGt");
-
-// EXTERNAL MODULE: ./src/pages/AuditSettings/components/RulesRender/index.js + 9 modules
-var RulesRender = __webpack_require__("pHGe");
-
-// CONCATENATED MODULE: ./src/pages/AuditSettings/routes/Index/index.module.less?modules
-// extracted by mini-css-extract-plugin
-/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___3rv3B"});
-// CONCATENATED MODULE: ./src/pages/AuditSettings/routes/Index/index.js
-
-
-
-
-
-
-
-/* eslint-disable no-console */
-
-/* eslint-disable prefer-const */
-
-/* eslint-disable @typescript-eslint/no-shadow */
-
-/* eslint-disable @typescript-eslint/no-use-before-define */
-
-/* eslint-disable react/self-closing-comp */
-
-/* eslint-disable no-param-reassign */
-
-/* eslint-disable import/no-unresolved */
-
-/* eslint-disable react/jsx-curly-brace-presence */
-
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
-
-
-
-
-
-
-
-
-var dateFormat = 'YYYY-MM-DD HH:mm:ss';
-var Index_confirm = modal["a" /* default */].confirm;
-
-function AuditSettings(props) {
-  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
-      _useModel$initialStat = _useModel.initialState.currentUser,
-      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
-
-  var _useState = Object(react["useState"])(false),
-      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
-      rulesVisible = _useState2[0],
-      setRulesVisible = _useState2[1];
-
-  var _useState3 = Object(react["useState"])([]),
-      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
-      jsonArray = _useState4[0],
-      setJsonArray = _useState4[1];
-
-  var dispatch = props.dispatch,
-      _props$business = props.business,
-      business = _props$business === void 0 ? currentUser.business || {} : _props$business,
-      configRule = props.QDetails.configRule,
-      _props$Settings = props.Settings,
-      loading = _props$Settings.loading,
-      dataSource = _props$Settings.dataSource,
-      pagination = _props$Settings.pagination;
-  Object(react["useEffect"])(function () {
-    dispatch({
-      type: 'Settings/init',
-      payload: {}
-    });
-  }, [dispatch]); // 搜索表单配置项
-
-  var searchFormProps = {
-    className: index_modulemodules['form-contaner'],
-    layout: 'inline',
-    resetShow: true,
-    authProps: {
-      pathUrl: '/setting/',
-      perms: 'setting:select'
-    },
-    dataSource: [{
-      label: '业务线',
-      type: 'SELECT',
-      name: 'bid',
-      initialValue: '',
-      map: Object(objectSpread2["a" /* default */])({
-        '': '全部'
-      }, business)
-    }, {
-      label: '内容类型',
-      type: 'SELECT',
-      name: 'type',
-      initialValue: '',
-      map: Object(objectSpread2["a" /* default */])({
-        '': '全部'
-      }, constants["e" /* contentType */])
-    }, {
-      label: '队列名称',
-      name: 'name'
-    }, {
-      label: '队列机制',
-      type: 'SELECT',
-      name: 'queueType',
-      initialValue: '',
-      map: constants["n" /* queueType */]
-    }, {
-      label: '保存时长',
-      type: 'SELECT',
-      name: 'keepDays',
-      initialValue: '',
-      map: constants["h" /* keepDays */]
-    }, {
-      label: '状态',
-      type: 'SELECT',
-      name: 'status',
-      initialValue: '',
-      map: constants["m" /* queueStatus */]
-    }, {
-      label: '更新时间',
-      name: 'updateTime',
-      type: 'DateTimeStartEnd'
-    }, {
-      label: '更新人',
-      name: 'updateBy'
-    }],
-    onReset: function onReset() {
-      dispatch({
-        type: 'Settings/init',
-        payload: {}
-      });
-    },
-    onSubmit: function onSubmit(formValues) {
-      if (!lodash_default.a.isEmpty(formValues.updateTime)) {
-        formValues.updateTime_start = formValues.updateTime[0].format(dateFormat);
-        formValues.updateTime_end = formValues.updateTime[1].format(dateFormat);
-      }
-
-      delete formValues.updateTime;
-      console.log('formValues', formValues);
-      dispatch({
-        type: 'Settings/getQueue',
-        payload: formValues
-      });
-    }
-  }; // 队列详情页
-
-  var goDetails = function goDetails(params) {
-    umiExports["f" /* history */].push({
-      pathname: '/setting/details/',
-      query: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, params), {}, {
-        isBack: true
-      })
-    });
-  }; // 列表配置
-
-
-  var tableProps = {
-    // 类型
-    selectionType: null,
-    // checkbox or radio or null||false
-    // 表头
-    columns: [{
-      title: '队列名称',
-      dataIndex: 'name',
-      width: '300px',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, text);
-      }
-    }, {
-      title: '队列规则',
-      align: 'center',
-      dataIndex: 'ruleJson',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("a", {
-          onClick: function onClick() {
-            return getViewRules(text);
-          }
-        }, "\u67E5\u770B");
-      }
-    }, {
-      title: '内容类型',
-      align: 'center',
-      dataIndex: 'type',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, constants["e" /* contentType */][text || '']);
-      }
-    }, {
-      title: '队列机制',
-      align: 'center',
-      dataIndex: 'queueType',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, constants["n" /* queueType */][text || '']);
-      }
-    }, {
-      title: '保存时长',
-      align: 'center',
-      dataIndex: 'keepDays',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, constants["h" /* keepDays */][text || ''] || "".concat(text, "\u5929"));
-      }
-    }, {
-      title: '更新时间',
-      align: 'center',
-      dataIndex: 'updateTime'
-    }, {
-      title: '更新人',
-      align: 'center',
-      dataIndex: 'updateBy'
-    }, {
-      title: '状态',
-      align: 'center',
-      width: '160px',
-      dataIndex: 'status',
-      render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("span", null, text === 0 ? '启用' : '停用');
-      }
-    }, {
-      title: '操作',
-      width: '210px',
-      align: 'center',
-      render: function render(r) {
-        return /*#__PURE__*/react_default.a.createElement("div", {
-          className: index_modulemodules.tableaction
-        }, /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/setting/",
-          text: "\u4FEE\u6539",
-          perms: 'setting:edit',
-          type: "primary",
-          size: "small",
-          onClick: function onClick() {
-            return goDetails({
-              id: r.id,
-              action: 'update'
-            });
-          }
-        }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/setting/",
-          text: r.status === 0 ? '停用' : '开启',
-          perms: 'setting:edit',
-          size: "small",
-          onClick: function onClick() {
-            return updateQueueStatus(r);
-          }
-        }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/setting/",
-          text: "\u590D\u5236",
-          perms: 'setting:add',
-          size: "small",
-          onClick: function onClick() {
-            return goDetails({
-              id: r.id,
-              action: 'copy'
-            });
-          }
-        }));
-      }
-    }],
-    loading: loading,
-    dataSource: dataSource,
-    pagination: pagination,
-    onPageChg: function onPageChg(page) {
-      // console.log(page)
-      dispatch({
-        type: 'Settings/getQueue',
-        payload: {
-          pageNum: page.current,
-          pageSize: page.pageSize
-        }
-      });
-    }
-  }; // 更新队列状态
-
-  var updateQueueStatus = function updateQueueStatus(data) {
-    // console.log(data);
-    var id = data.id,
-        bid = data.bid,
-        queueType = data.queueType,
-        name = data.name,
-        type = data.type,
-        keepDays = data.keepDays,
-        status = data.status;
-
-    if (status === 1) {
-      Index_confirm({
-        title: '提示',
-        content: '是否确认开启队列',
-        onOk: function onOk() {
-          return updateQueueAsyncFun({
-            id: id,
-            bid: bid,
-            queueType: queueType,
-            name: name,
-            type: type,
-            keepDays: keepDays
-          }, status);
-        },
-        onCancel: function onCancel() {}
-      });
-    } else {
-      updateQueueAsyncFun({
-        id: id,
-        bid: bid,
-        queueType: queueType,
-        name: name,
-        type: type,
-        keepDays: keepDays
-      }, status);
-    }
-  };
-
-  var updateQueueAsyncFun = function updateQueueAsyncFun(params, status) {
-    dispatch({
-      type: 'Settings/updateQueueStatus',
-      payload: Object(objectSpread2["a" /* default */])({
-        typename: status === 1 ? 'close' : 'reOpen'
-      }, params),
-      callback: function callback() {
-        // 更新当前列表状态
-        var tableList = lodash_default.a.cloneDeep(dataSource);
-
-        var index = tableList.findIndex(function (item) {
-          return params.id === item.id;
-        });
-        var item = tableList[index];
-        tableList.splice(index, 1, Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, item), {
-          status: status === 1 ? 0 : 1
-        }));
-        dispatch({
-          type: 'Settings/save',
-          payload: {
-            dataSource: tableList
-          }
-        });
-      }
-    });
-  }; // 查看队列规则
-
-
-  var getViewRules = function getViewRules(data) {
-    setRulesVisible(true); // console.log('data', JSON.parse(data));
-
-    setJsonArray(JSON.parse(data));
-  };
-
-  var modalProps = {
-    title: '队列规则',
-    footer: null,
-    visible: rulesVisible,
-    destroyOnClose: true,
-    onCancel: function onCancel() {
-      setRulesVisible(false);
-    }
-  };
-  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], searchFormProps, /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-    pathUrl: "/setting/",
-    text: "\u521B\u5EFA\u961F\u5217",
-    perms: 'setting:add',
-    type: "link",
-    onClick: function onClick() {
-      return goDetails({
-        action: 'create'
-      });
-    }
-  })), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps), /*#__PURE__*/react_default.a.createElement(modal["a" /* default */], modalProps, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */], {
-    name: "basic",
-    initialValues: {
-      ruleJson: jsonArray
-    }
-  }, !lodash_default.a.isEmpty(jsonArray) && Object.keys(jsonArray).map(function (item) {
-    var params = item.split('_');
-    var key = params[0];
-    return Object(RulesRender["a" /* default */])(configRule, item, 'text')[key]();
-  }))));
-}
-
-function mapStateToProps(_ref) {
-  var QDetails = _ref.QDetails,
-      Settings = _ref.Settings;
-  return {
-    QDetails: QDetails,
-    Settings: Settings
-  };
-}
-
-/* harmony default export */ var Index = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(AuditSettings));
 
 /***/ }),
 
@@ -5191,6 +4735,649 @@ es_modal_Modal.config = globalConfig;
 
 /***/ }),
 
+/***/ "ncST":
+/*!*********************************************************************!*\
+  !*** ./src/pages/AuditSettings/routes/Details/index.js + 6 modules ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/es/components/AntdIcon.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@ant-design/icons/es/icons/PlusOutlined.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseForm/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/AuditSettings/components/RulesRender/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/utils.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/button/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+var esm_extends = __webpack_require__("wx14");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/button/style/index.js + 1 modules
+var style = __webpack_require__("+L6B");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/button/index.js
+var es_button = __webpack_require__("2/Rp");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+var objectSpread2 = __webpack_require__("VTBJ");
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__("q1tI");
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
+var lodash = __webpack_require__("LvDl");
+var lodash_default = /*#__PURE__*/__webpack_require__.n(lodash);
+
+// EXTERNAL MODULE: ./src/.umi-production/core/umiExports.ts + 19 modules
+var umiExports = __webpack_require__("9kvl");
+
+// EXTERNAL MODULE: ./src/components/BaseForm/index.js + 5 modules
+var BaseForm = __webpack_require__("zLEZ");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js + 1 modules
+var form_style = __webpack_require__("y8nQ");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/form/index.js + 14 modules
+var es_form = __webpack_require__("Vl3Y");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js + 1 modules
+var input_style = __webpack_require__("5NDa");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/input/index.js + 3 modules
+var input = __webpack_require__("5rEg");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/message/style/index.js + 1 modules
+var message_style = __webpack_require__("miYZ");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/message/index.js + 1 modules
+var message = __webpack_require__("tsqr");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
+var slicedToArray = __webpack_require__("ODXe");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js + 1 modules
+var select_style = __webpack_require__("OaEy");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/select/index.js + 25 modules
+var es_select = __webpack_require__("2fM7");
+
+// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/PlusOutlined.js + 1 modules
+var PlusOutlined = __webpack_require__("xvlK");
+
+// CONCATENATED MODULE: ./node_modules/@ant-design/icons-svg/es/asn/MinusCircleOutlined.js
+// This icon file is generated automatically.
+var MinusCircleOutlined_MinusCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M696 480H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z" } }, { "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }] }, "name": "minus-circle", "theme": "outlined" };
+/* harmony default export */ var asn_MinusCircleOutlined = (MinusCircleOutlined_MinusCircleOutlined);
+
+// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/components/AntdIcon.js + 2 modules
+var AntdIcon = __webpack_require__("6VBw");
+
+// CONCATENATED MODULE: ./node_modules/@ant-design/icons/es/icons/MinusCircleOutlined.js
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+
+
+
+var icons_MinusCircleOutlined_MinusCircleOutlined = function MinusCircleOutlined(props, ref) {
+  return react["createElement"](AntdIcon["a" /* default */], Object.assign({}, props, {
+    ref: ref,
+    icon: asn_MinusCircleOutlined
+  }));
+};
+
+icons_MinusCircleOutlined_MinusCircleOutlined.displayName = 'MinusCircleOutlined';
+/* harmony default export */ var icons_MinusCircleOutlined = (react["forwardRef"](icons_MinusCircleOutlined_MinusCircleOutlined));
+// EXTERNAL MODULE: ./src/pages/AuditSettings/components/RulesRender/index.js + 9 modules
+var RulesRender = __webpack_require__("pHGe");
+
+// CONCATENATED MODULE: ./src/pages/AuditSettings/routes/Details/RuleJsonRender.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var RuleJsonRender_modulemodules = ({"container":"container___1pknY","ruleitem":"ruleitem___3mE-D","delete_button":"delete_button___1CefL"});
+// CONCATENATED MODULE: ./src/pages/AuditSettings/utils/index.js
+/* eslint-disable consistent-return */
+
+/* eslint-disable no-return-assign */
+
+/* eslint-disable no-else-return */
+
+/* eslint-disable spaced-comment */
+
+/* eslint-disable array-callback-return */
+
+/* eslint-disable eqeqeq */
+// 规则配置
+// const configRule = [
+//   {
+//     key: 0,
+//     label: '无',
+//     name: 'rparams0'
+//   },
+//   {
+//     key: 1,
+//     label: '违禁词',
+//     name: 'rparams1'
+//   },
+//   {
+//     key: 2,
+//     label: '敏感词',
+//     name: 'rparams2'
+//   },
+//   {
+//     key: 3,
+//     label: '热词',
+//     name: 'rparams3'
+//   },
+//   {
+//     key: 4,
+//     label: '人物词',
+//     name: 'rparams4'
+//   },
+//   {
+//     key: 5,
+//     label: '内容分值',
+//     name: 'rparams5'
+//   },
+//   {
+//     key: 6,
+//     label: '媒体权重',
+//     name: 'rparams6'
+//   },
+//   {
+//     key: 7,
+//     label: '媒体类型',
+//     name: 'rparams7'
+//   },
+//   // {
+//   //   key: 8,
+//   //   label: '媒体分类',
+//   //   name: 'rparams8'
+//   // },
+//   {
+//     key: 9,
+//     label: '媒体属性',
+//     name: 'rparams9'
+//   },
+//   {
+//     key: 10,
+//     label: '媒体数据',
+//     name: 'rparams10'
+//   },
+//   {
+//     key: 11,
+//     label: '涉黄',
+//     name: 'rparams11'
+//   },
+//   {
+//     key: 12,
+//     label: '政暴恐',
+//     name: 'rparams12'
+//   },
+//   {
+//     key: 13,
+//     label: '二维码',
+//     name: 'rparams13'
+//   },
+//   {
+//     key: 14,
+//     label: '广告',
+//     name: 'rparams14'
+//   },
+//   {
+//     key: 15,
+//     label: '特定词',
+//     name: 'rparams15'
+//   },
+//   {
+//     key: 16,
+//     label: '时效性',
+//     name: 'rparams16'
+//   },
+//   {
+//     key: 17,
+//     label: '审核机制',
+//     name: 'rparams17'
+//   },
+//   {
+//     key: 18,
+//     label: '抓取来源',
+//     name: 'rparams18'
+//   },
+//   {
+//     key: 19,
+//     label: '内容来源',
+//     name: 'rparams19'
+//   },
+// ]
+
+/**
+ * 格式化敏感词规则
+ * @param {*} name
+ */
+var getDenyWordsKey = function getDenyWordsKey(name) {
+  var words = [{
+    key: 'sensitive',
+    value: '敏感词'
+  }, {
+    key: 'forbidden',
+    value: '违禁词'
+  }, {
+    key: 'hot',
+    value: '热词'
+  }, {
+    key: 'personage ',
+    value: '人物词'
+  }];
+  return words.find(function (item) {
+    return item.value == name;
+  });
+};
+/**是否展示包含选项*/
+
+var isShowInclude = function isShowInclude(key) {
+  // console.log('222222222',key)
+  var arr = ['1', '2', '3', '4', '7', '8', '9', '10', '15', '16', '17', '18', '19'];
+
+  if (arr.includes(key)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+/**格式化配置规则*/
+
+var getRulesItem = function getRulesItem(key, configRule) {
+  var obj = {};
+  if (key == 0) return obj;
+  configRule.map(function (item) {
+    if (key == item.id) {
+      return obj = item;
+    }
+  });
+  return obj;
+};
+/** 输出配置规则下来选择项*/
+
+var getRules = function getRules(configRule) {
+  var obj = {};
+  configRule.map(function (item) {
+    if (item.id != 8) {
+      var key = item.id;
+      var value = item.name;
+      obj[key] = value;
+    }
+  });
+  return obj;
+};
+// CONCATENATED MODULE: ./src/pages/AuditSettings/routes/Details/RuleJsonRender.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* eslint-disable no-console */
+
+/* eslint-disable consistent-return */
+
+/* eslint-disable @typescript-eslint/no-shadow */
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable react/self-closing-comp */
+
+
+
+
+
+
+
+var Option = es_select["a" /* default */].Option;
+
+function RuleJsonRender(props) {
+  var pForm = props.pForm,
+      _props$value = props.value,
+      value = _props$value === void 0 ? {} : _props$value,
+      _props$onChange = props.onChange,
+      onChange = _props$onChange === void 0 ? function () {} : _props$onChange,
+      _props$QDetails$confi = props.QDetails.configRule,
+      configRule = _props$QDetails$confi === void 0 ? [] : _props$QDetails$confi; // console.log('pForm222',pForm)
+
+  var _useState = Object(react["useState"])({}),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
+      jsonArray = _useState2[0],
+      setJsonArray = _useState2[1];
+
+  var _useState3 = Object(react["useState"])('无'),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
+      itemKey = _useState4[0],
+      setItemKey = _useState4[1];
+
+  var _useState5 = Object(react["useState"])('in'),
+      _useState6 = Object(slicedToArray["a" /* default */])(_useState5, 2),
+      itemExtra = _useState6[0],
+      setItemExtra = _useState6[1];
+
+  Object(react["useEffect"])(function () {
+    if (!lodash_default.a.isEmpty(value)) {
+      setJsonArray(value || {});
+    }
+  }, [value]); // 增加配置项
+
+  var addJsonItem = function addJsonItem() {
+    var key = isShowInclude(itemKey.toString()) ? "".concat(itemKey, "_").concat(itemExtra) : itemKey;
+    var value = null; // 判断是否存在该表单项
+
+    if (jsonArray[key] !== undefined) return message["b" /* default */].error('该表单项已被创建');
+    jsonArray[key] = value;
+    setJsonArray(Object(objectSpread2["a" /* default */])({}, jsonArray));
+    onChange(Object(objectSpread2["a" /* default */])({}, jsonArray));
+  }; // 删除配置项
+
+
+  var delJsonItem = function delJsonItem(key) {
+    console.log(key);
+
+    var arr = lodash_default.a.clone(jsonArray);
+
+    delete arr[key];
+    setJsonArray(Object(objectSpread2["a" /* default */])({}, arr)); // console.log('arr',arr,_.isEmpty(arr))
+
+    onChange(lodash_default.a.isEmpty(arr) ? null : arr);
+  };
+
+  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(input["a" /* default */].Group, {
+    compact: true
+  }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+    defaultValue: itemKey,
+    style: {
+      width: 120
+    },
+    onChange: function onChange(value) {
+      setItemKey(value);
+    }
+  }, !lodash_default.a.isEmpty(configRule) && configRule.map(function (item) {
+    return item.name !== '媒体分类' && /*#__PURE__*/react_default.a.createElement(Option, {
+      key: item.id,
+      value: item.id
+    }, item.name);
+  })), isShowInclude(itemKey.toString()) && /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+    defaultValue: itemExtra,
+    style: {
+      width: 120
+    },
+    onChange: function onChange(value) {
+      setItemExtra(value);
+    }
+  }, /*#__PURE__*/react_default.a.createElement(Option, {
+    value: "in"
+  }, "\u5305\u542B"), /*#__PURE__*/react_default.a.createElement(Option, {
+    value: "notIn"
+  }, "\u4E0D\u5305\u542B")), /*#__PURE__*/react_default.a.createElement(es_button["a" /* default */], {
+    type: "primary",
+    disabled: itemKey === '无',
+    icon: /*#__PURE__*/react_default.a.createElement(PlusOutlined["a" /* default */], null),
+    onClick: function onClick() {
+      return addJsonItem();
+    }
+  }, "\u589E\u52A0")), !lodash_default.a.isEmpty(jsonArray) && pForm ? /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+    key: "qqqqqqqq",
+    className: RuleJsonRender_modulemodules.container,
+    shouldUpdate: function shouldUpdate(prevValues, curValues) {
+      return prevValues.ruleJson !== curValues.ruleJson || prevValues.bid !== curValues.bid;
+    }
+  }, function (_ref) {
+    var getFieldValue = _ref.getFieldValue;
+    var bid = getFieldValue('bid') || ''; // console.log('bid', bid);
+
+    return !lodash_default.a.isEmpty(jsonArray) && Object.keys(jsonArray).map(function (item) {
+      var params = item.split('_');
+      var key = params[0]; // console.log('params', params, 'key', key);
+
+      return /*#__PURE__*/react_default.a.createElement("div", {
+        key: item,
+        className: RuleJsonRender_modulemodules.ruleitem
+      }, Object(RulesRender["a" /* default */])(configRule, item, 'form', bid, pForm)[key](), key !== '8' && /*#__PURE__*/react_default.a.createElement(es_button["a" /* default */], {
+        className: RuleJsonRender_modulemodules.delete_button,
+        type: "link",
+        icon: /*#__PURE__*/react_default.a.createElement(icons_MinusCircleOutlined, null),
+        onClick: function onClick() {
+          return delJsonItem(item);
+        }
+      }));
+    });
+  }) : null);
+}
+
+function mapStateToProps(_ref2) {
+  var QDetails = _ref2.QDetails;
+  return {
+    QDetails: QDetails
+  };
+}
+
+/* harmony default export */ var Details_RuleJsonRender = (Object(umiExports["c" /* connect */])(mapStateToProps)(RuleJsonRender));
+// EXTERNAL MODULE: ./src/pages/constants.js
+var constants = __webpack_require__("6ZGt");
+
+// EXTERNAL MODULE: ./src/utils/utils.js
+var utils = __webpack_require__("+n12");
+
+// CONCATENATED MODULE: ./src/pages/AuditSettings/routes/Details/index.module.less?modules
+// extracted by mini-css-extract-plugin
+/* harmony default export */ var index_modulemodules = ({"container":"container___169dV","content":"content___1nFEE"});
+// CONCATENATED MODULE: ./src/pages/AuditSettings/routes/Details/index.js
+
+
+
+
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable no-param-reassign */
+
+/* eslint-disable no-console */
+
+/* eslint-disable react/self-closing-comp */
+
+/* eslint-disable @typescript-eslint/dot-notation */
+
+/* eslint-disable spaced-comment */
+
+/* eslint-disable import/order */
+
+/* eslint-disable import/no-unresolved */
+
+
+
+
+
+
+
+
+delete constants["e" /* contentType */]['']; //删除内容类型中的全部
+
+function QueueContent(props) {
+  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
+      _useModel$initialStat = _useModel.initialState.currentUser,
+      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat; // 获取state
+
+
+  var dispatch = props.dispatch,
+      location = props.location,
+      _props$business = props.business,
+      business = _props$business === void 0 ? currentUser.business || {} : _props$business,
+      art = props.QDetails.art;
+  var formRef = Object(react["useRef"])(null);
+  Object(react["useEffect"])(function () {
+    dispatch({
+      type: 'QDetails/init',
+      payload: {
+        business: business,
+        id: location.query.id || '',
+        action: location.query.action || ''
+      },
+      callback: function callback() {}
+    });
+  }, [dispatch]); // 处理规则配置回显
+
+  Object(react["useEffect"])(function () {
+    var artData = lodash_default.a.clone(art);
+
+    if (lodash_default.a.isEmpty(artData)) {
+      formRef.current.resetFields();
+      formRef.current.setFieldsValue({
+        queueType: '1'
+      });
+    } else {
+      artData.bid = lodash_default.a.toString(artData.bid);
+      formRef.current.setFieldsValue(Object(objectSpread2["a" /* default */])({}, artData));
+    }
+  }, [JSON.stringify(art)]);
+  var searchFormProps = {
+    className: index_modulemodules['content'],
+    layout: 'horizontal',
+    submitText: '保存',
+    cancelShow: true,
+    formLayout: {
+      labelAlign: 'right',
+      labelCol: {
+        span: 8
+      },
+      wrapperCol: {
+        span: 16
+      }
+    },
+    dataSource: [{
+      label: '业务线',
+      type: 'SELECT',
+      name: 'bid',
+      initialValue: utils["a" /* ExObject */].getFirstValue(business),
+      placeholder: '选择业务线',
+      map: business
+    }, {
+      label: '内容类型',
+      type: 'SELECT',
+      name: 'type',
+      required: true,
+      placeholder: '选择类型',
+      map: constants["e" /* contentType */]
+    }, {
+      label: '队列名称',
+      name: 'name',
+      type: 'TextArea',
+      showCount: true,
+      maxLength: 50,
+      required: true
+    }, {
+      label: '规则配置',
+      name: 'ruleJson',
+      required: true,
+      itemRender: /*#__PURE__*/react_default.a.createElement(Details_RuleJsonRender, {
+        pForm: formRef.current
+      })
+    }, {
+      label: '队列机制',
+      type: 'RADIO',
+      name: 'queueType',
+      required: true,
+      map: {
+        1: '先审后发',
+        2: '先发后审',
+        3: '免审'
+      }
+    }, {
+      label: '队列权重',
+      name: 'priority',
+      type: 'Number',
+      min: 0,
+      max: 100000,
+      required: true,
+      help: '权重：0~10000，整数'
+    }, {
+      label: '备注',
+      name: 'remark',
+      type: 'TextArea',
+      showCount: true,
+      maxLength: 200
+    }],
+    formValues: {},
+    onSubmit: function onSubmit(formValues) {
+      // console.log('formValues', formValues);
+      formValues.ruleJson = JSON.stringify(formValues.ruleJson); // 判断是否更新
+
+      var _location$query = location.query,
+          action = _location$query.action,
+          id = _location$query.id;
+      if (action === 'update') formValues['id'] = id;
+      dispatch({
+        type: 'QDetails/saveQueue',
+        payload: Object(objectSpread2["a" /* default */])({}, formValues),
+        callback: function callback(res) {
+          if (res !== 200) {
+            return;
+          }
+
+          umiExports["f" /* history */].push({
+            pathname: '/setting'
+          });
+        }
+      });
+    }
+  };
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: index_modulemodules.container
+  }, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], Object(esm_extends["a" /* default */])({}, searchFormProps, {
+    pRef: formRef
+  }), /*#__PURE__*/react_default.a.createElement(es_button["a" /* default */], {
+    type: "dashed",
+    onClick: function onClick() {
+      umiExports["f" /* history */].go(-1);
+    }
+  }, "\u8FD4\u56DE")));
+}
+
+function Details_mapStateToProps(_ref) {
+  var Global = _ref.Global,
+      QDetails = _ref.QDetails;
+  return {
+    Global: Global,
+    QDetails: QDetails
+  };
+}
+
+/* harmony default export */ var Details = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(Details_mapStateToProps)(QueueContent));
+
+/***/ }),
+
 /***/ "ozfa":
 /*!**************************************************************!*\
   !*** ./node_modules/antd/es/tree/style/index.js + 1 modules ***!
@@ -5559,7 +5746,7 @@ function WordsRender(props) {
     var tags = tagsList.filter(function (tag) {
       return tag.id !== removedTag.id;
     });
-    onChange(Object(toConsumableArray["a" /* default */])(tags));
+    onChange(lodash_default.a.isEmpty(tags) ? -1 : Object(toConsumableArray["a" /* default */])(tags));
   };
 
   var forMapTagsRender = function forMapTagsRender(tag) {
