@@ -644,20 +644,17 @@ function BaseTable(props, ref) {
       rest = Object(objectWithoutProperties["a" /* default */])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
 
   Object(react["useEffect"])(function () {
-    // console.log('selectedKeys',selectedKeys)
+    console.log('selectedKeys', selectedKeys);
+
     if (!lodash_default.a.isEmpty(selectedKeys)) {
       setSelectedRowKeys(selectedKeys);
     }
   }, [JSON.stringify(selectedKeys)]); // 获取选中元素
 
   var getSelectedRowKeys = function getSelectedRowKeys() {
-    if (!lodash_default.a.isEmpty(selectedRowKeys)) {
-      return {
-        selectedRowKeys: selectedRowKeys
-      };
-    }
-
-    return {};
+    return {
+      selectedRowKeys: selectedRowKeys
+    };
   }; // table 单选、多选配置
 
 

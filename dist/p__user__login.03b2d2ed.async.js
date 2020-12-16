@@ -268,10 +268,9 @@ var login_Login = function Login() {
 
   var onFinish = function onFinish(values) {
     var password = encode(values.password);
-    console.log('password', password);
     signin(Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, values), {}, {
       password: password
-    }), setInitialState, refresh); // signin({...values}, setInitialState, refresh);
+    }), setInitialState, refresh);
   };
 
   return /*#__PURE__*/react_default.a.createElement("div", {

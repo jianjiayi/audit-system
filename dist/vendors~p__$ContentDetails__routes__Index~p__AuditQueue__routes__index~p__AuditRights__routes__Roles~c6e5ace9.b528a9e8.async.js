@@ -75,7 +75,7 @@ exports.default = _default;
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/config-provider/context.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/date-picker/locale/en_US.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/locale-provider/LocaleReceiver.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tag/index.js because of ./src/pages/AuditSearch/routes/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/tag/index.js because of ./src/pages/AuditRights/routes/Users/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/classnames/index.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/moment/moment.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/rc-trigger/es/index.js */

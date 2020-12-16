@@ -1455,10 +1455,7 @@ function FormCoverImage(props) {
     // 当前文章
     newsDataType: newsDataType
   };
-  return /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
-    name: "covers",
-    noStyle: true
-  }, /*#__PURE__*/react_default.a.createElement("div", {
+  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement("div", {
     className: FormCoverImage_modulemodules.content
   }, /*#__PURE__*/react_default.a.createElement("img", {
     width: 240,
@@ -1488,7 +1485,10 @@ function FormCoverImage(props) {
       setTabKey(2);
       setImageSourceType('contentImages');
     }
-  }, "\u6B63\u6587\u5168\u56FE"), /*#__PURE__*/react_default.a.createElement(components_ButtonMobilePreview, MobilePreviewProps))), /*#__PURE__*/react_default.a.createElement(modal["a" /* default */], {
+  }, "\u6B63\u6587\u5168\u56FE"), /*#__PURE__*/react_default.a.createElement(components_ButtonMobilePreview, MobilePreviewProps))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+    name: "covers",
+    noStyle: true
+  }, /*#__PURE__*/react_default.a.createElement(modal["a" /* default */], {
     title: tabKey === 2 ? '正文全图' : '封面图',
     centered: true,
     destroyOnClose: true,
@@ -1582,7 +1582,7 @@ function FormCoverImage(props) {
     onClick: function onClick() {
       return setCoverPictureVisible(false);
     }
-  }, "\u5173\u95ED"))));
+  }, "\u5173\u95ED")))));
 }
 
 function mapStateToProps(_ref2) {
@@ -1691,8 +1691,8 @@ function multilevelCategories(props) {
       _props$Global = props.Global,
       firstCategory = _props$Global.firstCategory,
       secondCategory = _props$Global.secondCategory,
-      thirdCategory = _props$Global.thirdCategory; // console.log('------------------',type)
-
+      thirdCategory = _props$Global.thirdCategory;
+  console.log('------------------', getFieldsValue());
   var selectProps = {
     allowClear: true,
     style: {
@@ -1700,7 +1700,7 @@ function multilevelCategories(props) {
     }
   };
   Object(react["useEffect"])(function () {
-    if (getFieldsValue().categoryFirst) {
+    if (getFieldsValue().categoryFirst !== undefined) {
       dispatch({
         type: 'Global/getSecondCategory',
         payload: {
@@ -1711,7 +1711,7 @@ function multilevelCategories(props) {
     }
   }, [getFieldsValue().categoryFirst]);
   Object(react["useEffect"])(function () {
-    if (getFieldsValue().categorySecond) {
+    if (getFieldsValue().categorySecond !== undefined) {
       dispatch({
         type: 'Global/getThirdCategory',
         payload: {
@@ -1756,10 +1756,7 @@ function multilevelCategories(props) {
     selectCategoryFun(e, id);
   };
 
-  return /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
-    label: "\u5206\u7C7B",
-    shouldUpdate: true
-  }, /*#__PURE__*/react_default.a.createElement(input["a" /* default */].Group, {
+  return /*#__PURE__*/react_default.a.createElement(input["a" /* default */].Group, {
     compact: true
   }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "categoryFirst",
@@ -1768,6 +1765,7 @@ function multilevelCategories(props) {
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E00\u7EA7\u5206\u7C7B"
   }, selectProps, {
+    allowClear: false,
     onChange: function onChange(e) {
       return selectChange(e, 'firstCategoryId');
     }
@@ -1779,8 +1777,7 @@ function multilevelCategories(props) {
   }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     key: "categorySecond",
     name: "categorySecond",
-    noStyle: true,
-    shouldUpdate: true
+    noStyle: true
   }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], Object(esm_extends["a" /* default */])({
     placeholder: "\u4E8C\u7EA7\u5206\u7C7B"
   }, selectProps, {
@@ -1807,7 +1804,7 @@ function multilevelCategories(props) {
       key: item.code,
       value: item.code.toString()
     }, item.name);
-  })))));
+  }))));
 }
 
 function ThreeLevelClassification_mapStateToProps(_ref) {
@@ -2032,10 +2029,12 @@ function FormAction(props) {
 
   return /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */], Object(esm_extends["a" /* default */])({}, formProps, {
     from: selfForm
-  }), /*#__PURE__*/react_default.a.createElement(ThreeLevelClassification, {
+  }), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+    label: "\u5206\u7C7B"
+  }, /*#__PURE__*/react_default.a.createElement(ThreeLevelClassification, {
     pForm: selfForm,
     type: newsDataType
-  }), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+  })), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
     label: "\u8FDD\u7981\u8BCD"
   }, /*#__PURE__*/react_default.a.createElement("p", {
     className: FormAction_modulemodules.p_text
@@ -2107,10 +2106,7 @@ function FormAction(props) {
   }, /*#__PURE__*/react_default.a.createElement(input["a" /* default */], {
     ref: saveInputRef,
     type: "text",
-    size: "small",
-    onPressEnter: function onPressEnter(e) {
-      e.preventDefault();
-    }
+    size: "small"
   }), /*#__PURE__*/react_default.a.createElement(es_button["a" /* default */], {
     size: "small",
     type: "primary",
@@ -2374,7 +2370,7 @@ function Operate(props) {
     });
   };
 
-  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */], formProps, /*#__PURE__*/react_default.a.createElement("div", {
+  return /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */], formProps, /*#__PURE__*/react_default.a.createElement("div", {
     className: classnames_default()(className)
   }, /*#__PURE__*/react_default.a.createElement(Operate_FormCoverImage, {
     pForm: selfForm,
@@ -2412,7 +2408,7 @@ function Operate(props) {
       return exitQueue();
     },
     icon: /*#__PURE__*/react_default.a.createElement(RollbackOutlined["a" /* default */], null)
-  }, "\u9000\u51FA"))))));
+  }, "\u9000\u51FA")))));
 }
 
 function Operate_mapStateToProps(_ref) {

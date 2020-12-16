@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[6],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
 
 /***/ "5KP8":
 /*!*******************************************************!*\
@@ -123,20 +123,17 @@ function BaseTable(props, ref) {
       rest = Object(objectWithoutProperties["a" /* default */])(props, ["className", "columns", "dataSource", "selectionType", "pagination", "onPageChg", "children", "selectedKeys"]);
 
   Object(react["useEffect"])(function () {
-    // console.log('selectedKeys',selectedKeys)
+    console.log('selectedKeys', selectedKeys);
+
     if (!lodash_default.a.isEmpty(selectedKeys)) {
       setSelectedRowKeys(selectedKeys);
     }
   }, [JSON.stringify(selectedKeys)]); // 获取选中元素
 
   var getSelectedRowKeys = function getSelectedRowKeys() {
-    if (!lodash_default.a.isEmpty(selectedRowKeys)) {
-      return {
-        selectedRowKeys: selectedRowKeys
-      };
-    }
-
-    return {};
+    return {
+      selectedRowKeys: selectedRowKeys
+    };
   }; // table 单选、多选配置
 
 
@@ -368,10 +365,10 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 
 /***/ }),
 
-/***/ "gIUF":
-/*!**********************************************************!*\
-  !*** ./src/pages/AuditQueue/routes/index.js + 1 modules ***!
-  \**********************************************************/
+/***/ "mAEq":
+/*!******************************************************************************!*\
+  !*** ./src/pages/AuditStatistics/routes/Personnel/List/index.js + 1 modules ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/.umi-production/core/umiExports.ts */
@@ -379,10 +376,16 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/BaseTable/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/components/WrapAuth/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./src/pages/constants.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./src/utils/utils.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/index.js */
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/message/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/form/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/input/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/antd/es/select/style/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-redux/es/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/lodash/lodash.js (<- Module is not an ECMAScript module) */
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -391,21 +394,36 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAYAAADQ
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/antd/es/message/style/index.js + 1 modules
-var style = __webpack_require__("miYZ");
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+var esm_extends = __webpack_require__("wx14");
 
-// EXTERNAL MODULE: ./node_modules/antd/es/message/index.js + 1 modules
-var message = __webpack_require__("tsqr");
+// EXTERNAL MODULE: ./node_modules/antd/es/form/style/index.js + 1 modules
+var style = __webpack_require__("y8nQ");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/form/index.js + 14 modules
+var es_form = __webpack_require__("Vl3Y");
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
 var objectSpread2 = __webpack_require__("VTBJ");
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 1 modules
-var slicedToArray = __webpack_require__("ODXe");
+// EXTERNAL MODULE: ./node_modules/antd/es/select/style/index.js + 1 modules
+var select_style = __webpack_require__("OaEy");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/select/index.js + 25 modules
+var es_select = __webpack_require__("2fM7");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/input/style/index.js + 1 modules
+var input_style = __webpack_require__("5NDa");
+
+// EXTERNAL MODULE: ./node_modules/antd/es/input/index.js + 3 modules
+var input = __webpack_require__("5rEg");
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 22 modules
+var es = __webpack_require__("/MKj");
 
 // EXTERNAL MODULE: ./node_modules/lodash/lodash.js
 var lodash = __webpack_require__("LvDl");
@@ -420,39 +438,51 @@ var BaseForm = __webpack_require__("zLEZ");
 // EXTERNAL MODULE: ./src/components/BaseTable/index.js + 1 modules
 var BaseTable = __webpack_require__("5KP8");
 
+// EXTERNAL MODULE: ./src/utils/utils.js
+var utils = __webpack_require__("+n12");
+
 // EXTERNAL MODULE: ./src/pages/constants.js
 var constants = __webpack_require__("6ZGt");
 
-// CONCATENATED MODULE: ./src/pages/AuditQueue/routes/index.module.less?modules
+// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Personnel/List/index.module.less?modules
 // extracted by mini-css-extract-plugin
-/* harmony default export */ var index_modulemodules = ({"list":"list___325mz","item":"item___CGycI","text":"text___2BXpG"});
+/* harmony default export */ var index_modulemodules = ({"tableaction":"tableaction___2qm3g"});
 // EXTERNAL MODULE: ./src/components/WrapAuth/index.js
 var WrapAuth = __webpack_require__("yAXW");
 
-// CONCATENATED MODULE: ./src/pages/AuditQueue/routes/index.js
+// CONCATENATED MODULE: ./src/pages/AuditStatistics/routes/Personnel/List/index.js
 
 
 
 
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
-/* eslint-disable consistent-return */
 
-/* eslint-disable react/jsx-curly-brace-presence */
 
-/* eslint-disable react/self-closing-comp */
 
 /* eslint-disable spaced-comment */
-
-/* eslint-disable no-console */
-
-/* eslint-disable prefer-const */
 
 /* eslint-disable import/order */
 
 /* eslint-disable import/no-unresolved */
 
+/* eslint-disable no-param-reassign */
+
+/* eslint-disable no-console */
+
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
+/* eslint-disable object-shorthand */
+
+/* eslint-disable no-undef */
+
+/* eslint-disable prefer-const */
+
+/* eslint-disable react/jsx-curly-brace-presence */
+
+/* eslint-disable react/self-closing-comp */
+
+/* eslint-disable no-unused-vars */
 
 
 
@@ -460,150 +490,223 @@ var WrapAuth = __webpack_require__("yAXW");
 
 
 
-delete constants["e" /* contentType */][''];
 
-function AuditQueue(props) {
-  // 当前页面
-  var _useState = Object(react["useState"])(1),
-      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
-      current = _useState2[0],
-      setCurrent = _useState2[1];
 
-  var _useState3 = Object(react["useState"])('NEWS'),
-      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
-      type = _useState4[0],
-      setType = _useState4[1];
 
+var InputGroup = input["a" /* default */].Group;
+var Option = es_select["a" /* default */].Option;
+
+function AuditStatistics(props) {
+  var _useModel = Object(umiExports["k" /* useModel */])('@@initialState'),
+      _useModel$initialStat = _useModel.initialState.currentUser,
+      currentUser = _useModel$initialStat === void 0 ? {} : _useModel$initialStat;
+
+  var formRef = Object(react["useRef"])(null);
   var dispatch = props.dispatch,
-      _props$Queue = props.Queue,
-      loading = _props$Queue.loading,
-      dataSource = _props$Queue.dataSource;
+      _props$business = props.business,
+      business = _props$business === void 0 ? currentUser.business || {} : _props$business,
+      _props$Statistics = props.Statistics,
+      loading = _props$Statistics.loading,
+      dataSource = _props$Statistics.dataSource,
+      pagination = _props$Statistics.pagination;
   Object(react["useEffect"])(function () {
     dispatch({
-      type: 'Queue/init',
-      payload: {
-        type: type
-      }
+      type: 'Statistics/init',
+      payload: Object(objectSpread2["a" /* default */])({
+        type: 'person'
+      }, formRef.current.getFieldsValue())
     });
   }, [dispatch]); // 多条件搜索配置
 
   var searchFormProps = {
     className: index_modulemodules['form-contaner'],
     layout: 'inline',
-    submitText: '刷新',
+    resetShow: true,
     authProps: {
-      pathUrl: '/statistics/classify',
-      perms: 'statistics:classify:select'
+      pathUrl: '/statistics/personnel/',
+      perms: 'statistics:person:select'
     },
     dataSource: [{
-      label: '内容类型',
+      label: '业务线',
       type: 'SELECT',
-      name: 'type',
-      initialValue: type,
+      name: 'businessId',
+      initialValue: utils["a" /* ExObject */].getFirstValue(business),
+      map: business
+    }, {
+      label: '时间',
+      name: 'datatime',
+      type: 'DateTimeStartEnd'
+    }, {
+      label: '类型',
+      type: 'SELECT',
+      name: 'newsType',
+      initialValue: 'NEWS',
       map: constants["e" /* contentType */]
+    }, {
+      label: '人员',
+      name: 'user'
+    }, {
+      label: '排序',
+      name: 'params11',
+      itemRender: /*#__PURE__*/react_default.a.createElement(InputGroup, {
+        compact: true
+      }, /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+        name: "orderField",
+        initialValue: "",
+        noStyle: true
+      }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+        style: {
+          width: '50%'
+        }
+      }, Object.keys(constants["j" /* orderFieldMap */]).map(function (item) {
+        return /*#__PURE__*/react_default.a.createElement(Option, {
+          key: item,
+          value: item
+        }, constants["j" /* orderFieldMap */][item]);
+      }))), /*#__PURE__*/react_default.a.createElement(es_form["a" /* default */].Item, {
+        name: "orderType",
+        initialValue: "desc",
+        noStyle: true
+      }, /*#__PURE__*/react_default.a.createElement(es_select["a" /* default */], {
+        style: {
+          width: '50%'
+        }
+      }, Object.keys(constants["k" /* orderTypeMap */]).map(function (item) {
+        return /*#__PURE__*/react_default.a.createElement(Option, {
+          key: item,
+          value: item
+        }, constants["k" /* orderTypeMap */][item]);
+      }))))
     }],
-    onSubmit: function onSubmit(formValues) {
-      console.log('formValues', formValues);
-      setType(formValues.type);
-      setCurrent(1);
+    onReset: function onReset() {
       dispatch({
-        type: 'Queue/init',
-        payload: Object(objectSpread2["a" /* default */])({}, formValues)
+        type: 'Statistics/init',
+        payload: {
+          type: 'person',
+          businessId: formRef.current.getFieldValue('businessId')
+        }
+      });
+    },
+    onSubmit: function onSubmit(formValues) {
+      if (!lodash_default.a.isEmpty(formValues.datatime)) {
+        formValues.startTime = formValues.datatime[0].format(constants["f" /* dateFormat */]);
+        formValues.endTime = formValues.datatime[1].format(constants["f" /* dateFormat */]);
+      }
+
+      delete formValues.datatime;
+      console.log('formValues', formValues);
+      dispatch({
+        type: 'Statistics/getStatisticQuery',
+        payload: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValues), {}, {
+          type: 'person'
+        })
       });
     }
-  }; // 领审
-
-  var goDetails = function goDetails(name, id) {
-    var params = {
-      queue: id,
-      queueName: name,
-      type: type,
-      routersource: 'queue'
-    };
-    sessionStorage.setItem('$queueContentId', '');
-    sessionStorage.setItem('$QUERY', JSON.stringify({}));
-    dispatch({
-      type: 'CDetails/getNewsGetTask',
-      payload: params,
-      callback: function callback(data) {
-        console.log('data', data);
-
-        if (lodash_default.a.isEmpty(data)) {
-          return message["b" /* default */].error('当前队列没有文章可以领取');
-        }
-
-        dispatch({
-          type: 'CDetails/save',
-          payload: {
-            query: params
-          }
-        });
-        sessionStorage.setItem('$QUERY', JSON.stringify(params));
-        umiExports["f" /* history */].push({
-          pathname: '/queue/cdetails',
-          query: {
-            isBack: true
-          }
-        });
-      }
-    });
-  };
+  }; // 列表配置
 
   var tableProps = {
-    className: index_modulemodules.tablebox,
     // 类型
     selectionType: null,
     //checkbox or radio or null||false
     // 表头
     columns: [{
-      title: '名称',
-      dataIndex: 'queueName',
-      width: 300,
+      title: '时间',
+      dataIndex: 'dt',
       render: function render(text) {
-        return /*#__PURE__*/react_default.a.createElement("b", null, text);
+        return /*#__PURE__*/react_default.a.createElement("span", null, text);
       }
     }, {
-      title: '数量',
-      dataIndex: 'count',
+      title: '人员',
       align: 'center',
-      width: 150
+      dataIndex: 'auditorName'
+    }, {
+      title: '领审量',
+      align: 'center',
+      dataIndex: 'takeCount'
+    }, {
+      title: '审核量',
+      align: 'center',
+      dataIndex: 'auditCount'
+    }, {
+      title: '审核通过量',
+      align: 'center',
+      dataIndex: 'auditPassedCount'
     }, {
       title: '操作',
+      width: '100px',
+      align: 'center',
       render: function render(r) {
         return /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
-          pathUrl: "/queue",
-          text: "\u9886\u53D6",
-          key: r.id,
-          perms: 'queue:receive',
+          pathUrl: "/statistics/personnel/",
+          perms: 'statistics:person:select',
+          type: "primary",
+          size: "small",
+          text: "\u660E\u7EC6",
           onClick: function onClick() {
-            goDetails(r.queueName, r.queueId);
+            return goDetails(r.auditorId);
           }
         });
       }
     }],
     loading: loading,
     dataSource: dataSource,
-    pagination: {
-      current: current
-    },
+    pagination: pagination,
     onPageChg: function onPageChg(page) {
       // console.log(page)
-      setCurrent(page.current);
+      dispatch({
+        type: 'Statistics/getStatisticQuery',
+        payload: {
+          type: 'person',
+          pageNum: page.current,
+          pageSize: page.pageSize,
+          businessId: formRef.current.getFieldValue('businessId')
+        }
+      });
     }
+  }; // 审核详情页
+
+  var goDetails = function goDetails(id) {
+    var formValue = formRef.current.getFieldsValue();
+    umiExports["f" /* history */].push({
+      pathname: '/statistics/personnel/details',
+      query: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, formValue), {}, {
+        id: id,
+        isBack: true
+      })
+    });
+  }; // 下载excel
+
+
+  var DownloadExcel = function DownloadExcel() {
+    // run()
+    dispatch({
+      type: 'Statistics/getPersoneExportExcel',
+      payload: {}
+    });
   };
-  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], searchFormProps), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps));
+
+  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(BaseForm["a" /* default */], Object(esm_extends["a" /* default */])({}, searchFormProps, {
+    pRef: formRef
+  }), /*#__PURE__*/react_default.a.createElement(WrapAuth["a" /* default */], {
+    pathUrl: "/statistics/personnel/",
+    perms: "statistics:person:select",
+    text: "\u5BFC\u51FA",
+    ghost: true,
+    type: "primary",
+    onClick: function onClick() {
+      return DownloadExcel();
+    }
+  })), /*#__PURE__*/react_default.a.createElement(BaseTable["a" /* default */], tableProps));
 }
 
 function mapStateToProps(_ref) {
-  var Queue = _ref.Queue,
-      CDetails = _ref.CDetails;
+  var Statistics = _ref.Statistics;
   return {
-    Queue: Queue,
-    CDetails: CDetails
+    Statistics: Statistics
   };
 }
 
-/* harmony default export */ var routes = __webpack_exports__["default"] = (Object(umiExports["c" /* connect */])(mapStateToProps)(AuditQueue));
+/* harmony default export */ var List = __webpack_exports__["default"] = (Object(es["c" /* connect */])(mapStateToProps)(AuditStatistics));
 
 /***/ }),
 

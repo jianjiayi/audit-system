@@ -54,7 +54,7 @@ function BaseTable(props, ref) {
   } = props;
 
   useEffect(() => {
-    // console.log('selectedKeys',selectedKeys)
+    console.log('selectedKeys',selectedKeys)
     if(!_.isEmpty(selectedKeys)){
       setSelectedRowKeys(selectedKeys);
     }
@@ -63,10 +63,7 @@ function BaseTable(props, ref) {
 
   // 获取选中元素
   const getSelectedRowKeys = () =>{
-    if(!_.isEmpty(selectedRowKeys)){
-      return {selectedRowKeys}
-    }
-    return {};
+    return {selectedRowKeys};
   } 
   // table 单选、多选配置
   const rowSelection = {
