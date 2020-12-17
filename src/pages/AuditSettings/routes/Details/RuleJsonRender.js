@@ -53,9 +53,12 @@ function RuleJsonRender(props) {
 
   // 删除配置项
   const delJsonItem = (key) => {
-    console.log(key);
+    // console.log(key);
     let arr = _.clone(jsonArray);
     delete arr[key];
+    // 特殊处理；媒体类型和媒体分类
+    if (key === '7_in') delete arr['8_in'];
+    if (key === '7_notIn') delete arr['8_notIn'];
     setJsonArray({ ...arr });
     // console.log('arr',arr,_.isEmpty(arr))
     onChange(_.isEmpty(arr) ? null : arr);

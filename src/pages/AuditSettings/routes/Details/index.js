@@ -130,7 +130,12 @@ function QueueContent(props) {
     ],
     formValues: {},
     onSubmit: (formValues) => {
-      // console.log('formValues', formValues);
+      // console.log('formValues', formValues.ruleJson);
+      // 单独处理 黄宝恐政
+      if (formValues.ruleJson[11] === null) formValues.ruleJson[11] = 1;
+      if (formValues.ruleJson[12] === null) formValues.ruleJson[12] = 1;
+      if (formValues.ruleJson[13] === null) formValues.ruleJson[13] = 1;
+      if (formValues.ruleJson[14] === null) formValues.ruleJson[14] = 1;
 
       formValues.ruleJson = JSON.stringify(formValues.ruleJson);
 

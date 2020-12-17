@@ -46,7 +46,7 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     name: [parentName, type ? `${key}_${type}` : key],
     rules: [
       {
-        required: (key >=11 && key<=14 ) ? false : true,
+        required: key >= 11 && key <= 14 ? false : true,
         message: `${label} 字段不能为空`,
       },
     ],
@@ -96,32 +96,37 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     8: () => <></>,
     9: () => (
       <Form.Item {...itemProps}>
-        <CheckBoxRender map={{ 'WHITE_LIST': '白名单', 'NO_WHITE_LIST': '非白名单' }} showType={isEdit}></CheckBoxRender>
+        <CheckBoxRender
+          map={{ WHITE_LIST: '白名单', NO_WHITE_LIST: '非白名单' }}
+          showType={isEdit}
+        ></CheckBoxRender>
       </Form.Item>
     ),
     10: () => (
       <Form.Item {...itemProps}>
-        <CheckBoxRender map={{ 'INTERNAL': '人民系', 'NO_INTERNAL': '非人民系' }} showType={isEdit}></CheckBoxRender>
+        <CheckBoxRender
+          map={{ INTERNAL: '人民系', NO_INTERNAL: '非人民系' }}
+          showType={isEdit}
+        ></CheckBoxRender>
       </Form.Item>
     ),
     11: () => (
-      <Form.Item {...itemProps} initialValue={"涉黄"}>
+      <Form.Item {...itemProps}>
         <span>涉黄</span>
-        
       </Form.Item>
     ),
     12: () => (
-      <Form.Item {...itemProps} initialValue={"政暴恐"}>
+      <Form.Item {...itemProps} initialValue={'1'}>
         <span>政暴恐</span>
       </Form.Item>
     ),
     13: () => (
-      <Form.Item {...itemProps} initialValue={"二维码"}>
+      <Form.Item {...itemProps} initialValue={'1'}>
         <span>二维码</span>
       </Form.Item>
     ),
     14: () => (
-      <Form.Item {...itemProps} initialValue={"广告"}>
+      <Form.Item {...itemProps} initialValue={'1'}>
         <span>广告</span>
       </Form.Item>
     ),
