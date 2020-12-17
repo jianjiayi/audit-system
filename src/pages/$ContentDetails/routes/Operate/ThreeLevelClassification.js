@@ -19,7 +19,7 @@ function multilevelCategories(props) {
     Global: { firstCategory, secondCategory, thirdCategory },
   } = props;
 
-  console.log('------------------',getFieldsValue())
+  // console.log('------------------',getFieldsValue())
 
   const selectProps = {
     allowClear: true,
@@ -27,7 +27,7 @@ function multilevelCategories(props) {
   };
 
   useEffect(()=>{
-    if(getFieldsValue().categoryFirst !== undefined){
+    if(getFieldsValue().categoryFirst){
       dispatch({
         type: 'Global/getSecondCategory',
         payload: {
@@ -39,7 +39,7 @@ function multilevelCategories(props) {
   }, [getFieldsValue().categoryFirst])
 
   useEffect(()=>{
-    if(getFieldsValue().categorySecond !== undefined){
+    if(getFieldsValue().categorySecond){
       dispatch({
         type: 'Global/getThirdCategory',
         payload: {

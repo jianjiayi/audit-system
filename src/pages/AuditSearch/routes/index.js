@@ -75,6 +75,7 @@ function AuditSearch(props) {
   }, [dispatch]);
 
   useEffect(() => {
+    console.log('query.category1',query.category1)
     if(query.category1){
       dispatch({
         type: 'Global/getSecondCategory',
@@ -109,9 +110,21 @@ function AuditSearch(props) {
 
   // console.log(updateFormValues, _.isEmpty(JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH'))))
   const selectCategoryFun = (id, name) => {
+    console.log(id, name)
     if (name === 'firstCategoryId') {
       formRef.current.resetFields(['category2', 'category3']);
       formRef.current.setFieldsValue({ category2: null, category3: null });
+      
+      if(!id){
+        dispatch({
+          type: 'Global/save',
+          payload: {
+            secondCategory: [],
+            thirdCategory: []
+          },
+        });
+        return;
+      }
       dispatch({
         type: 'Global/getSecondCategory',
         payload: {
@@ -122,6 +135,15 @@ function AuditSearch(props) {
     } else {
       formRef.current.resetFields(['category3']);
       formRef.current.setFieldsValue({ category3: null });
+      if(!id){
+        dispatch({
+          type: 'Global/save',
+          payload: {
+            thirdCategory: []
+          },
+        });
+        return;
+      }
       dispatch({
         type: 'Global/getThirdCategory',
         payload: {
@@ -382,14 +404,14 @@ function AuditSearch(props) {
                 text="领审"
                 onClick={() => goDetails(r)}
               />
-              <WrapAuthButton
+              {/* <WrapAuthButton
                 pathUrl="/search"
                 perms="queue:add"
                 size="small"
                 type="dashed"
                 text="加队列"
                 onClick={() => openAddQueueModal(r)}
-              />
+              /> */}
               <WrapAuthButton
                 pathUrl="/search"
                 perms="history:select"
@@ -511,9 +533,9 @@ function AuditSearch(props) {
     const paramsList = [];
     selectedRows.map((item) => {
       const { id } = item;
-      const firstQueue = item.queues[0];
+      const firstQueue = item;
       const queueInfo = {
-        bid: firstQueue.bid,
+        bid: firstQueue.businessId,
         id: firstQueue.id,
         queueType: firstQueue.queueType,
         type: firstQueue.type,

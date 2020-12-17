@@ -197,11 +197,16 @@ function Content(props) {
         const data = item.value;
         // 模糊匹配修改样式
         data.map((v, i) => {
-          const reg = `/${v}/g`;
-          textHtml = textHtml.replace(
-            eval(reg),
-            `<span style="background:${item.color};color:#ffffff;padding:0 5px;margin:0 2px;">${v}</span>`,
-          );
+          const reg = />[^<]+</g;
+          textHtml = textHtml.replace(eval(reg), (tag) => {
+            // console.log('tag',tag)
+            const regTag = `/${v}/g`;
+            const text = tag.replace(
+              eval(regTag),
+              `<span style="background:${item.color};color:#ffffff;padding:0 5px;margin:0 2px;">${v}</span>`,
+            );
+            return text;
+          });
         });
       }
     });

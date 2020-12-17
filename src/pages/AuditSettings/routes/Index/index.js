@@ -177,6 +177,11 @@ function AuditSettings(props){
         dataIndex: 'updateBy',
       },
       {
+        title: '权重',
+        align: 'center',
+        dataIndex: 'priority',
+      },
+      {
         title: '状态',
         align: 'center',
         width: '160px',

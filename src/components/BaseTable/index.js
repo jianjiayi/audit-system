@@ -53,6 +53,11 @@ function BaseTable(props, ref) {
     ...rest
   } = props;
 
+  useEffect(()=>{
+    setSelectedRowKeys([]);
+    setSelectedRows([]);
+  },[JSON.stringify(dataSource)])
+
   useEffect(() => {
     console.log('selectedKeys',selectedKeys)
     if(!_.isEmpty(selectedKeys)){
