@@ -17,8 +17,6 @@ export default function multilevelCategories(props) {
     ...rest
   } = props;
 
-  // console.log('3333333', rest);
-
   const selectProps = {
     allowClear: true,
     style: { width: '33%' },

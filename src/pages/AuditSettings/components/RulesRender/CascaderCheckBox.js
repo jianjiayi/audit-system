@@ -6,54 +6,46 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/no-array-index-key */
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form } from 'antd';
 import CheckBoxRender from './CheckBoxRender';
 import * as api from '../../services/index.js';
 
 function CascaderCheckBox(props) {
-  const { 
-    showType = 'form', 
-    map = {}, 
-    itemName = '', 
-    value = [], 
-    parentName, 
-    onChange,
-  } = props;
+  const { showType = 'form', map = {}, itemName = '', value = [], parentName, onChange } = props;
 
   // 媒体类型数据
   const [mediaInfo, setMediaInfo] = useState({});
   // 媒体分类数据
   const [mediaType, setMediaType] = useState([]);
 
-  const ArrToObj = (data)=>{
+  const ArrToObj = (data) => {
     let obj = {};
-    for(let i = 0; i < data.length; i++){
-      obj[data[i].value] = data[i].label
+    for (let i = 0; i < data.length; i++) {
+      obj[data[i].value] = data[i].label;
     }
     return obj;
-  }
+  };
 
   // 异步数据
-  const  getAsyncMediaInfoData = async () => {
-    const {code, data} = await api.getMediaInfo({type: 'rmw_media_type'});
+  const getAsyncMediaInfoData = async () => {
+    const { code, data } = await api.getMediaInfo({ type: 'rmw_media_type' });
     setMediaInfo(ArrToObj(data));
     if (code === 200) {
       let mediaInfoObj = {};
       for (let i in data) {
         let { code: c, data: d } = await api.getMediaInfo({ type: data[i].value });
         if (c === 200) {
-          mediaInfoObj[data[i].value] = ArrToObj(d)
+          mediaInfoObj[data[i].value] = ArrToObj(d);
         }
       }
       setMediaType(mediaInfoObj);
     }
-  }
+  };
 
-  useEffect(()=>{
-    getAsyncMediaInfoData()
-  },[])
-  
+  useEffect(() => {
+    getAsyncMediaInfoData();
+  }, []);
 
   const CheckBoxRenderProps = {
     showType,
@@ -91,7 +83,7 @@ function CascaderCheckBox(props) {
                     name={[parentName, `8_${type}`, `${item}`]}
                   >
                     <CheckBoxRender
-                      showType = {showType}
+                      showType={showType}
                       map={mediaType[item]}
                     ></CheckBoxRender>
                   </Form.Item>
@@ -104,6 +96,5 @@ function CascaderCheckBox(props) {
     </>
   );
 }
-
 
 export default CascaderCheckBox;

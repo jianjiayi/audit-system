@@ -49,6 +49,7 @@ function TableList(props) {
 
   // 列表配置
   const tableProps = {
+    scroll: { x: 1900 },
     // 类型
     selectionType: 'checkbox', // checkbox or radio or null||false
     // 表头
@@ -58,6 +59,7 @@ function TableList(props) {
         dataIndex: 'title',
         align: 'center',
         width: '150px',
+        fixed: 'left',
         render: (text) => (
           <Tooltip title={text}>
             <a>{text.length > 15 ? `${text.slice(0, 15)}...` : text}</a>
@@ -124,7 +126,8 @@ function TableList(props) {
       },
       {
         title: '操作',
-        width: '40px',
+        fixed: 'right',
+        width: '100px',
         align: 'center',
         render(r) {
           return (

@@ -22,7 +22,7 @@ function SearchForm(props) {
   } = useModel('@@initialState');
 
   const formRef = useRef(null);
-
+  
   // 内容类型
   const [cType, setCType] = useState('');
 
@@ -51,10 +51,7 @@ function SearchForm(props) {
         ...query,
       },
     });
-  }, [dispatch]);
 
-  useEffect(() => {
-    // console.log('query.category1',query.category1)
     if(query.category1){
       dispatch({
         type: 'Global/getSecondCategory',
@@ -64,9 +61,7 @@ function SearchForm(props) {
         },
       });
     }
-  }, [query.category1]);
 
-  useEffect(() => {
     if(query.category2){
       dispatch({
         type: 'Global/getSecondCategory',
@@ -76,7 +71,21 @@ function SearchForm(props) {
         },
       });
     }
-  }, [query.category2]);
+  }, []);
+
+  useEffect(()=>{
+    if(query.category1){
+      dispatch({
+        type: 'Global/getSecondCategory',
+        payload: {
+          id: query.category1,
+          type: cType,
+        },
+      });
+    }
+  },[query.category1])
+
+  
 
   // 表单默认值
   const staticFormValues = {

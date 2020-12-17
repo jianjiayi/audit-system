@@ -133,7 +133,7 @@ function FormCoverImage(props) {
         {
           uid: new Date(),
           url: info.file.response.data.fileUrl,
-          imageKey: info.file.response.data.fileUrl,
+          imageKey: info.file.response.data.imageKey,
           originalUrl: info.file.response.data.fileUrl,
           width: info.file.response.data.width,
           height: info.file.response.data.height,
