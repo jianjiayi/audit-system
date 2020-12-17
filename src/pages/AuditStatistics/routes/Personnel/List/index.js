@@ -12,10 +12,9 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useEffect, useRef } from 'react';
-import { connect } from 'dva';
 import { Form, Input, Select } from 'antd';
 import _ from 'lodash';
-import { history, useModel } from 'umi';
+import { history, useModel, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';

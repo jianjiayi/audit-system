@@ -104,6 +104,7 @@ function RolePage(props) {
 
   // 列表配置
   const tableProps = {
+    scroll: { x: 800 },
     // 类型
     selectionType: null, // checkbox or radio or null||false
     // 表头
@@ -111,12 +112,9 @@ function RolePage(props) {
       {
         title: '角色名',
         dataIndex: 'roleName',
+        width: '200px',
+        fixed: 'left',
         render: (text) => <span>{text}</span>,
-      },
-      {
-        title: '更新时间',
-        align: 'center',
-        dataIndex: 'updateTime',
       },
       {
         title: '更新人',
@@ -124,18 +122,24 @@ function RolePage(props) {
         dataIndex: 'updateUser',
       },
       {
+        title: '更新时间',
+        align: 'center',
+        width: '200px',
+        dataIndex: 'updateTime',
+      },
+      {
         title: '状态',
         align: 'center',
-        width: '160px',
         dataIndex: 'state',
         render: (text) => <span>{text === '' ? '全部' : roleStatus[text]}</span>,
       },
       {
         title: '操作',
-        width: '150px',
+        fixed: 'right',
+        width: '100px',
         align: 'center',
         render(r) {
-          return r.roleName !== 'system' ? (
+          return (
             <div className={styles.tableaction}>
               <WrapAuthButton
                 pathUrl="/rights/role"
@@ -143,6 +147,7 @@ function RolePage(props) {
                 type="primary"
                 size="small"
                 text="编辑"
+                disabled={r.roleName === 'system'}
                 onClick={() => openUserModal('edit', r)}
               ></WrapAuthButton>
               <WrapAuthButton
@@ -150,10 +155,11 @@ function RolePage(props) {
                 perms="role:edit"
                 size="small"
                 text={r.state !== 1 ? '注销' : '重启'}
+                disabled={r.roleName === 'system'}
                 onClick={() => updateUserOrRoleStatus('role', r.state, r.id)}
               ></WrapAuthButton>
             </div>
-          ) : null;
+          );
         },
       },
     ],

@@ -182,9 +182,9 @@ function SearchForm(props) {
           setCType(e);
           // console.log(formRef.current);
           formRef.current.setFieldsValue({
-            firstCategoryId: null,
-            secondCategoryId: null,
-            thirdCategoryId: null,
+            category1: null,
+            category2: null,
+            category3: null,
           });
           dispatch({
             type: 'Global/getFirstCategory',

@@ -6,6 +6,6 @@ const routes = () => ({
     name: '审核检索',
     icon: 'UnorderedListOutlined',
     access: 'canAdmin',
-    component: './AuditSearch/routes/index2',
+    component: './AuditSearch/routes/index',
   });
 export default routes;

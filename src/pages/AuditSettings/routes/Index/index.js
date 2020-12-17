@@ -132,6 +132,7 @@ function AuditSettings(props){
 
   // 列表配置
   const tableProps = {
+    scroll: { x: 1000 },
     // 类型
     selectionType: null, // checkbox or radio or null||false
     // 表头
@@ -139,7 +140,8 @@ function AuditSettings(props){
       {
         title: '队列名称',
         dataIndex: 'name',
-        width: '300px',
+        width: '200px',
+        fixed: 'left',
         render: (text) => <span>{text}</span>,
       },
       {
@@ -169,6 +171,7 @@ function AuditSettings(props){
       {
         title: '更新时间',
         align: 'center',
+        width: '200px',
         dataIndex: 'updateTime',
       },
       {
@@ -190,7 +193,8 @@ function AuditSettings(props){
       },
       {
         title: '操作',
-        width: '210px',
+        fixed: 'right',
+        width: '100px',
         align: 'center',
         render(r) {
           return (

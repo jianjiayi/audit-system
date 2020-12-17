@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/self-closing-comp */
@@ -20,10 +21,6 @@ function SelectModeTags(props) {
       setTagsList(value)
     }
   },[JSON.stringify(value)])
-
-  const handleChange = (e)=>{
-    console.log(e)
-  }
 
   return (
     <>

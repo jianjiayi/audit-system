@@ -118,6 +118,7 @@ function UserRights(props) {
 
   // 分页table列表
   const tableProps = {
+    scroll: { x: 1000 },
     // 类型
     selectionType: null, //checkbox or radio or null||false
     // 表头
@@ -125,7 +126,8 @@ function UserRights(props) {
       {
         title: '用户名',
         dataIndex: 'username',
-        width: '100px',
+        fixed: 'left',
+        width: '200px',
         render: (text) => <span>{text}</span>,
       },
       {
@@ -153,6 +155,7 @@ function UserRights(props) {
       {
         title: '最近一次登录时间',
         align: 'center',
+        width: '200px',
         dataIndex: 'loginTime',
       },
       {
@@ -168,10 +171,11 @@ function UserRights(props) {
       },
       {
         title: '操作',
-        width: '150px',
+        fixed: 'right',
+        width: '100px',
         align: 'center',
         render(r) {
-          return r.username !== 'system' ? (
+          return (
             <div className={styles.tableaction}>
               <WrapAuthButton
                 pathUrl="/rights/user"
@@ -179,6 +183,7 @@ function UserRights(props) {
                 type="primary"
                 size="small"
                 text="编辑"
+                disabled={r.username === 'system'}
                 onClick={() => openUserModal('edit', r)}
               ></WrapAuthButton>
               <WrapAuthButton
@@ -186,10 +191,11 @@ function UserRights(props) {
                 perms={'user:edit'}
                 size="small"
                 text={r.state !== 2 ? '注销' : '重启'}
+                disabled={r.username === 'system'}
                 onClick={() => updateUserOrRoleStatus('user', r.state, r.username)}
               ></WrapAuthButton>
             </div>
-          ) : null;
+          );
         },
       },
     ],

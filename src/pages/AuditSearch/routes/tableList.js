@@ -7,12 +7,14 @@
 /* eslint-disable import/order */
 /* eslint-disable import/no-unresolved */
 import React, { useRef } from 'react';
-import { message, Modal, Tag, Tooltip } from 'antd';
+import { message, Modal, Tag, Image, Tooltip } from 'antd';
 import _ from 'lodash';
 import { history, connect } from 'umi';
 
 import BaseTable from '@components/BaseTable';
 import ViewLog from '../components/viewlog';
+
+import { errorImg } from '@/pages/constants';
 
 import WrapAuthButton from '@components/WrapAuth';
 import styles from './index.module.less';
@@ -49,7 +51,7 @@ function TableList(props) {
 
   // 列表配置
   const tableProps = {
-    scroll: { x: 1900 },
+    scroll: { x: 1800 },
     // 类型
     selectionType: 'checkbox', // checkbox or radio or null||false
     // 表头
@@ -58,7 +60,7 @@ function TableList(props) {
         title: '标题',
         dataIndex: 'title',
         align: 'center',
-        width: '150px',
+        width: '200px',
         fixed: 'left',
         render: (text) => (
           <Tooltip title={text}>
@@ -69,6 +71,7 @@ function TableList(props) {
       {
         title: 'ID',
         align: 'center',
+        width: '180px',
         dataIndex: 'articleId',
       },
       {
@@ -84,6 +87,7 @@ function TableList(props) {
       {
         title: '采集源ID',
         align: 'center',
+        width: '140px',
         dataIndex: 'crawlSourceId',
       },
       {
@@ -100,28 +104,29 @@ function TableList(props) {
       {
         title: '封面图',
         align: 'center',
-        dataIndex: 'cover',
-        render: (text) => (
-          <div style={{ display: 'table-cell', verticalAlign: 'middle' }}>
-            {text && <img style={{ width: '120px', height: '90px' }} src={text} />}
-          </div>
-        ),
+        width: '150px',
+        render(r){
+          return <Image key={r.id} width={120} height={90} alt="封面图" src={r.cover} fallback={errorImg}/>
+        },
       },
       {
         title: '是否上架',
         align: 'center',
         dataIndex: 'status',
+        width: '100px',
         render: (text) => <span>{text}</span>,
       },
       {
         title: '审核状态',
         align: 'center',
         dataIndex: 'resultStatus',
+        width: '100px',
         render: (text) => <span>{text}</span>,
       },
       {
         title: '入审时间',
         align: 'center',
+        width: '200px',
         dataIndex: 'createTime',
       },
       {
