@@ -116,17 +116,17 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
       </Form.Item>
     ),
     12: () => (
-      <Form.Item {...itemProps} initialValue={'1'}>
+      <Form.Item {...itemProps}>
         <span>政暴恐</span>
       </Form.Item>
     ),
     13: () => (
-      <Form.Item {...itemProps} initialValue={'1'}>
+      <Form.Item {...itemProps}>
         <span>二维码</span>
       </Form.Item>
     ),
     14: () => (
-      <Form.Item {...itemProps} initialValue={'1'}>
+      <Form.Item {...itemProps}>
         <span>广告</span>
       </Form.Item>
     ),
