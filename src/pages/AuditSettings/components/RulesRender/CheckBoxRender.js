@@ -6,19 +6,10 @@ import { Checkbox, Tag } from 'antd';
 function CheckBoxRender(props) {
   const { showType = 'form', map = {}, value = [], onChange } = props;
 
-  const handleChange = (e) => {
-    if(_.isEmpty(e)){
-      onChange('[]')
-    }else{
-      onChange(e)
-    }
-    
-  }
-
   return (
     <>
       {showType === 'form' ? (
-        <Checkbox.Group defaultValue={value} onChange={handleChange}>
+        <Checkbox.Group defaultValue={value} onChange={onChange}>
           {!_.isEmpty(map) &&
             Object.keys(map).map((key, index) => {
               return (
