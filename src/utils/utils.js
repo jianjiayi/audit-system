@@ -45,7 +45,7 @@ export const ExArray = {
     let newArr = [];
     let i = 0;
     const renderMenuItem = (sliderMenus, parentId) => {
-      sliderMenus.map(route => {
+      sliderMenus.map((route) => {
         route['id'] = i++;
         route['parentId'] = parentId;
         if (!route.routes) {
@@ -138,11 +138,11 @@ export const ExTime = {
   formatDate(datetime) {
     var date = new Date(datetime); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
     var year = date.getFullYear(),
-        month = ('0' + (date.getMonth() + 1)).slice(-2),
-        sdate = ('0' + date.getDate()).slice(-2),
-        hour = ('0' + date.getHours()).slice(-2),
-        minute = ('0' + date.getMinutes()).slice(-2),
-        second = ('0' + date.getSeconds()).slice(-2);
+      month = ('0' + (date.getMonth() + 1)).slice(-2),
+      sdate = ('0' + date.getDate()).slice(-2),
+      hour = ('0' + date.getHours()).slice(-2),
+      minute = ('0' + date.getMinutes()).slice(-2),
+      second = ('0' + date.getSeconds()).slice(-2);
     // 拼接
     var result = year + '-' + month + '-' + sdate + ' ' + hour + ':' + minute + ':' + second;
     // 返回
@@ -193,11 +193,10 @@ export const ExObject = {
   },
 };
 
-const calcByteLength = s => {
+const calcByteLength = (s) => {
   return s.replace(/[^\x00-\xff]/g, 'aa').length;
 };
 // 标签文字长度校验
-export const calcStrLength = value => {
+export const calcStrLength = (value) => {
   return Math.ceil(calcByteLength(value) / 2);
 };
-
