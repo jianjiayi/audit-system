@@ -96,12 +96,12 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     8: () => <></>,
     9: () => (
       <Form.Item {...itemProps}>
-        <CheckBoxRender map={{ 1: '白名单', 2: '非白名单' }} showType={isEdit}></CheckBoxRender>
+        <CheckBoxRender map={{ 'WHITE_LIST': '白名单', 'NO_WHITE_LIST': '非白名单' }} showType={isEdit}></CheckBoxRender>
       </Form.Item>
     ),
     10: () => (
       <Form.Item {...itemProps}>
-        <CheckBoxRender map={{ 1: '人民系', 2: '非人民系' }} showType={isEdit}></CheckBoxRender>
+        <CheckBoxRender map={{ 'INTERNAL': '人民系', 'NO_INTERNAL': '非人民系' }} showType={isEdit}></CheckBoxRender>
       </Form.Item>
     ),
     11: () => (
