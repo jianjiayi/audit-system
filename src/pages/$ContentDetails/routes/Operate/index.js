@@ -30,6 +30,7 @@ function Operate(props) {
     isEdit,
     category,
     query,
+    newsDataType,
     queueContentData,
     queueContentId,
   } = CDetails;
@@ -66,6 +67,11 @@ function Operate(props) {
       // 处理大事件和热点
       values.hotValue = values.hotValue ? values.hotValue[0] : 0;
       values.bigEvent = values.bigEvent ? values.bigEvent[0] : 0;
+
+      // 视频模式下，校验一级分类32
+      if(newsDataType === 'VIDEO' &&values.categoryFirst === '32'){
+        return message.error('视频文章, 一级分类不正确');
+      }
 
       // 处理分类，设置末级分类
       if(values.categoryThird){

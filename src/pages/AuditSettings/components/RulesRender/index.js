@@ -138,7 +138,7 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     16: () => (
       <Form.Item {...itemProps}>
         <CheckBoxRender
-          map={{ 1: '高时效', 2: '中时效', 3: '低时效', 4: '无时效' }}
+          map={{ 'HIGH_TIME_LIMITATIONHIGH': '高时效', 'MID_TIME_LIMITATION': '中时效', 'LOW_TIME_LIMITATION': '低时效', 'NO_TIME_LIMITATION"': '无时效' }}
           showType={isEdit}
         ></CheckBoxRender>
       </Form.Item>
@@ -146,7 +146,7 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     17: () => (
       <Form.Item {...itemProps}>
         <CheckBoxRender
-          map={{ 1: '先审后发', 2: '先发后审', 3: '免审' }}
+          map={{ 'DELIVERY_AUDIT': '先审后发', 'AUDIT_DELIVERY': '先发后审', 'NO_AUDIT': '免审' }}
           showType={isEdit}
         ></CheckBoxRender>
       </Form.Item>
