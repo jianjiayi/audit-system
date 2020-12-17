@@ -62,16 +62,25 @@ function BaseForm(props) {
     form,
     // layout,
     scrollToFirstError: true,
-    onFinish: (values) => onSubmit({ ...values }, form),
+    // onFinish: (values) => onSubmit({ ...values }, form),
     className: classNames(className, styles.container),
   };
 
   const submitProps = {
     text: submitText,
     type: 'primary',
-    htmlType: 'submit',
+    // htmlType: 'submit',
+    // type: "primary",
     ...authProps,
   };
+
+  const handleSubmit = () => {
+    form.validateFields().then(values=>{
+      onSubmit({ ...values }, form)
+    }).catch(errorInfo => {
+      console.log('errorInfo',errorInfo)
+    })
+  }
 
   const RowProps = layout === 'horizontal' ? { gutter: [16, 24] } : null
 
@@ -91,7 +100,7 @@ function BaseForm(props) {
               }
             >
               {cancelShow && <Button onClick={() => reset()}>取消</Button>}
-              <WrapAuthButton {...submitProps}></WrapAuthButton>
+              <WrapAuthButton {...submitProps} onClick={() => handleSubmit()}></WrapAuthButton>
               {/* <Button type="primary" htmlType="submit">
                 {submitText}
               </Button> */}

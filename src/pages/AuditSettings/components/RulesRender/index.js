@@ -10,10 +10,11 @@ import { Form } from 'antd';
 import WordsComponents from './WordsRender';
 import IntervalValue from './IntervalValue';
 import CheckBoxRender from './CheckBoxRender';
-import InputRender from './InputRender';
+// import InputRender from './InputRender';
 import SelectRender from './SelectRender';
 import CascaderCheckBox from './CascaderCheckBox';
 import TreeClassification from './TreeClassification';
+import SelectModeTags from './SelectModeTags';
 
 const labelText = (List = [], key = '') => {
   for (const item of List) {
@@ -132,7 +133,8 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     ),
     15: () => (
       <Form.Item {...itemProps}>
-        <InputRender showType={isEdit}></InputRender>
+        {/* <InputRender showType={isEdit}></InputRender> */}
+        <SelectModeTags showType={isEdit}></SelectModeTags>
       </Form.Item>
     ),
     16: () => (
