@@ -11,6 +11,13 @@ export async function getCategoryTree(params) {
   });
 }
 
+// 获取分类接口
+export async function getCategory(params) {
+  return request(`/audit/categoryInfo?parentCode=${params.id}&type=${params.type === 'VIDEO'? 1 :0}`, {
+    method: 'GET',
+  });
+}
+
 // 获取一级分类接口
 export async function getFirstCategory(params) {
   return request(`/audit/categoryInfo?parentCode=0&type=${params.type === 'VIDEO'? 1 :0}`, {

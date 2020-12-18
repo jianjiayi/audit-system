@@ -19,9 +19,9 @@ import classNames from 'classnames';
 import { connect } from 'umi';
 import _ from 'lodash';
 
-import TagList from './TagList';
-import SelectModeTags from './SelectModeTags';
-import ThreeLevelClassification from './ThreeLevelClassification';
+import TagList from './components/TagList';
+import SelectModeTags from './components/SelectModeTags';
+import ThreeLevelClassification from './components/ThreeLevelClassification';
 
 import { passReason, rejectReason } from '@/pages/constants';
 
