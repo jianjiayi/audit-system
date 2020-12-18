@@ -227,15 +227,15 @@ function FormCoverImage(props) {
               {imageSourceType === 'cover' && !_.isEmpty(fileList)
                 ? fileList.map((item, index) => {
                     return (
-                      <Image
-                        className={styles.item}
-                        key={index}
-                        width={120}
-                        height={90}
-                        alt="封面图"
-                        src={item.originalUrl}
-                        fallback={errorImg}
-                      />
+                      <div className={styles.item} key={index}>
+                        <Image
+                          width={120}
+                          height={90}
+                          alt="封面图"
+                          src={item.originalUrl || item.src}
+                          fallback={errorImg}
+                        />
+                      </div>
                     );
                   })
                 : imageSourceType === 'cover' && <p>暂无封面图</p>}

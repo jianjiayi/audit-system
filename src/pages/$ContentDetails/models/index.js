@@ -84,8 +84,6 @@ export default {
         // 领取 单独处理
         if(!payload.queueSubmitType){
           const { query } = yield select(({ CDetails }) => CDetails);
-
-          // console.log('query',query,payload)
           // 合并参数
           const params = {
             id: sessionStorage.getItem('$queueContentId'),
@@ -96,7 +94,8 @@ export default {
           const res = yield call(api.getNewsGetTask, params);
           code = res.code;
           data = res.data;
-        }else{
+          
+        }else{ // 处理领审页面中确定和跳过操作获取的数据直接使用
           code = 200;
           data = payload.data;
         }
@@ -104,21 +103,6 @@ export default {
 
         if (code === 200) {
           if (data) {
-            // 处理标签
-            let list = [];
-            let tagsArr = data.labels;
-            // let tagsArr = ['as京东方','撒旦法'];
-            for (let i in tagsArr) {
-              let item = tagsArr[i];
-              const { code: c, data: d } = yield call(api.getCheckoutTags, { name: item });
-              if (c === 200) {
-                list.push({
-                  type: 1,
-                  text: item,
-                });
-              }
-            }
-
             // 获取分类
             yield put({ 
               type: 'Global/getFirstCategory',
@@ -148,8 +132,6 @@ export default {
                 sensitiveWordList: data.feedMessage.extra.sensitivewords || [], // 敏感词
                 hotWord: data.feedMessage.extra.hotwords || [], // 热词
                 personalWord: data.feedMessage.extra.personagewords  || [], //人物词
-
-                tagsList: list,
               },
             });
             callback(data);
@@ -168,8 +150,7 @@ export default {
       const { query } = yield select(({ CDetails }) => CDetails);
       // 合并参数
       const params = {
-        info: query,
-        ...payload,
+        info: query,...payload,
       };
       const { code, data } = yield call(api.getAuditSave, params);
       if (code === 200) {
@@ -188,9 +169,7 @@ export default {
       };
       const { code, data } = yield call(api.getNewsSkip, params);
       if (code === 200) {
-        yield put({ type: 'getNewsGetTask', payload: {queueSubmitType: 'save', data: data}});
-
-        // callback(data);
+        yield put({ type: 'getNewsGetTask', payload: {queueSubmitType: 'save', data: data}, callback});
       }
     },
 

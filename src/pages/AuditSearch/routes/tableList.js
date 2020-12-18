@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable array-callback-return */
@@ -10,14 +11,15 @@ import React, { useRef } from 'react';
 import { message, Modal, Tag, Image, Tooltip } from 'antd';
 import _ from 'lodash';
 import { history, connect } from 'umi';
-
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import BaseTable from '@components/BaseTable';
 import ViewLog from '../components/viewlog';
-
-import { errorImg } from '@/pages/constants';
-
 import WrapAuthButton from '@components/WrapAuth';
 import styles from './index.module.less';
+
+const { confirm } = Modal;
+
+
 
 function TableList(props) {
   const tableRef = useRef(null);
@@ -64,7 +66,7 @@ function TableList(props) {
         fixed: 'left',
         render: (text) => (
           <Tooltip title={text}>
-            <a>{text.length > 15 ? `${text.slice(0, 15)}...` : text}</a>
+            <a>{text.length > 50 ? `${text.slice(0, 50)}...` : text}</a>
           </Tooltip>
         ),
       },
@@ -106,7 +108,7 @@ function TableList(props) {
         align: 'center',
         width: '150px',
         render(r){
-          return <Image key={r.id} width={120} height={90} alt="封面图" src={r.cover} fallback={errorImg}/>
+          return r.cover && <Image key={r.id} width={120} height={90} alt="封面图" src={r.cover}/>
         },
       },
       {
@@ -242,13 +244,6 @@ function TableList(props) {
     const paramsList = [];
     selectedRows.map((item) => {
       const { id } = item;
-      // const firstQueue = item;
-      // const queueInfo = {
-      //   bid: firstQueue.businessId,
-      //   id: firstQueue.id,
-      //   queueType: firstQueue.queueType,
-      //   type: firstQueue.type,
-      // };
       paramsList.push({ id });
     });
 
@@ -294,6 +289,22 @@ function TableList(props) {
     });
   };
 
+  // 提示
+  const showConfirm = (status) => {
+    confirm({
+      title: '温馨提示',
+      icon: <ExclamationCircleOutlined />,
+      centered: true,
+      content: '批量操作需谨慎',
+      onOk() {
+        batchAudit(status)
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
+  }
+
   return (
     <>
       <BaseTable {...tableProps} ref={tableRef}>
@@ -303,14 +314,14 @@ function TableList(props) {
             perms="news:audit"
             text="通过"
             type="primary"
-            onClick={() => batchAudit(true)}
+            onClick={() => showConfirm(true)}
           />
           <WrapAuthButton
             pathUrl="/search"
             perms="news:audit"
             text="未通过"
             type="danger"
-            onClick={() => batchAudit(false)}
+            onClick={() => showConfirm(false)}
           />
         </div>
       </BaseTable>

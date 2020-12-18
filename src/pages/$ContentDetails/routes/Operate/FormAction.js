@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable import/order */
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable @typescript-eslint/no-use-before-define */
@@ -11,29 +13,35 @@
 /* eslint-disable no-func-assign */
 /* eslint-disable no-control-regex */
 
-import React, { useState, useEffect, useRef } from 'react';
-import { message, Form, Checkbox, Radio, Input, Tag, Button, Row, Col } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import React, { useEffect } from 'react';
+import { Form, Checkbox, Radio, } from 'antd';
 import classNames from 'classnames';
 import { connect } from 'umi';
 import _ from 'lodash';
 
+import TagList from './TagList';
+import SelectModeTags from './SelectModeTags';
 import ThreeLevelClassification from './ThreeLevelClassification';
 
 import { passReason, rejectReason } from '@/pages/constants';
 
 import styles from './FormAction.module.less';
 
-
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 14 },
 };
 
+const formItemLayout = {
+  labelAlign: 'left',
+  labelCol: { span: 3 },
+  wrapperCol: { span: 21 },
+};
+
 function FormAction(props) {
   const {
     name = 'FormAction',
-    pForm: selfForm, 
+    pForm: selfForm,
     className,
     CDetails: {
       curArt,
@@ -47,110 +55,28 @@ function FormAction(props) {
     },
   } = props;
 
-  // console.log('curArt',curArt)
+  useEffect(() => {
+    setTimeout(() => {
+      setInitFormValues()
+    }, 100);
+    
+  }, [JSON.stringify(curArt)]);
 
-  useEffect(()=>{
+
+  const setInitFormValues = ()=>{
     selfForm.setFieldsValue({
       isDup: curArt.isDup || 0,
       hotValue: [curArt.hotValue] || 0,
       bigEvent: [curArt.bigEvent] || 0,
       tags: curArt.tags || [],
-      auditState: (auditState !== 'PASS' &&  auditState !== 'REJECT') ? null : auditState,
+      auditState: auditState !== 'PASS' && auditState !== 'REJECT' ? null : auditState,
       reason: reason || [],
       categoryFirst: curArt.categoryFirst || null,
       categorySecond: curArt.categorySecond || null,
-      categoryThird: curArt.categoryThird || null
+      categoryThird: curArt.categoryThird || null,
     });
-  },[JSON.stringify(curArt)])
-
-  const filterTags = (list)=>{
-    if(_.isEmpty(list)) return [];
-    return list.map((item)=>{
-      return item = {
-        type: 0,
-        text: item,
-      }
-    })
   }
-
-  const saveInputRef = useRef(null);
-  // 存储标签
-  const [tags, setTags] = useState([]);
-  const [inputVisible, setInputVisible] = useState(false);
-
-  useEffect(() => {
-    setTags(filterTags(curArt.tags))
-  }, [curArt.tags])
-
-
-  const formItemLayout = {
-    labelAlign: 'left',
-    labelCol: { span: 3 },
-    wrapperCol: { span: 21 },
-  };
-
-  // 删除标签tags
-  const deleteTagClose = (removedTag,index) => {
-    const tagsList = _.cloneDeep(tags);
-    tagsList.splice(index,1);
-    setTags(tagsList);
-    selfForm.setFieldsValue({ tags: [...tagsList] });
-  };
-  // 保存标签
-  const handleInputConfirm = () => {
-    if(tags.length>=10) {
-      return message.error('最多支持10个标签')
-    }
-
-    const inputValue = saveInputRef.current.state.value;
-    if (!inputValue) return false;
-
-    if (calcStrLength(inputValue) > 50) {
-      return message.error('您输入的文字过长，最多可输入50个字');
-    }
-
-    // 判断是否存在该表单项
-    const isExist = tags.find((v) => {
-      return v.text === inputValue;
-    });
-    if (isExist) {
-      return message.error('该标签已存在，请不要重复创建');
-    }
-
-
-    setTags([...tags, { text: inputValue }]);
-    // 设置表单项值
-    selfForm.setFieldsValue({ tags: [...tags, { type: 0, text: inputValue }] });
-    // 关闭输入框
-    setInputVisible(false);
-
-    // dispatch({
-    //   type: 'CDetails/getCheckoutTags',
-    //   payload: {
-    //     name: inputValue,
-    //   },
-    //   callback: (data) => {
-    //     setTags([...tags, { type: data ? 1 : 0, text: inputValue }]);
-    //     // 设置表单项值
-    //     selfForm.setFieldsValue({ tags: [...tags, { type: data ? 1 : 0, text: inputValue }] });
-    //     // 关闭输入框
-    //     setInputVisible(false);
-    //   },
-    // });
-  };
-  // 取消
-  const handleInputCancel = () => {
-    setInputVisible(false);
-  };
-
-  // 标签文字长度校验
-  const calcStrLength = value => {
-    return Math.ceil(calcByteLength(value) / 2);
-  };
-  const calcByteLength = s => {
-    return s.replace(/[^\x00-\xff]/g, 'aa').length;
-  };
-
+  
   const formProps = {
     name,
     form: selfForm,
@@ -160,75 +86,16 @@ function FormAction(props) {
 
   return (
     <Form {...formProps} from={selfForm}>
-      <Form.Item label="分类"> 
-        <ThreeLevelClassification pForm={selfForm} type={newsDataType}/>
-      </Form.Item>
-      <Form.Item label="违禁词">
-        <p className={styles.p_text}>
-          {!_.isEmpty(forbiddenWordList) ? (
-            forbiddenWordList.map((item, index) => {
-              return (
-                <Tag key={index} color="#ff1840">
-                  {item}
-                </Tag>
-              );
-            })
-          ) : (
-            <span>暂无</span>
-          )}
-        </p>
-      </Form.Item>
-      <Form.Item label="敏感词">
-        <p className={styles.p_text}>
-          {!_.isEmpty(sensitiveWordList) ? (
-            sensitiveWordList.map((item, index) => {
-              return (
-                <Tag key={index} color="#ff6600">
-                  {item}
-                </Tag>
-              );
-            })
-          ) : (
-            <span>暂无</span>
-          )}
-        </p>
-      </Form.Item>
-      <Form.Item label="热词">
-        <p className={styles.p_text}>
-          {!_.isEmpty(hotWord) ? (
-            hotWord.map((item, index) => {
-              return (
-                <Tag key={index} color="#1890ff">
-                  {item}
-                </Tag>
-              );
-            })
-          ) : (
-            <span>暂无</span>
-          )}
-        </p>
-      </Form.Item>
-      <Form.Item label="人物词">
-        <p className={styles.p_text}>
-          {!_.isEmpty(personalWord) ? (
-            personalWord.map((item, index) => {
-              return (
-                <Tag key={index} color="#00ff97">
-                  {item}
-                </Tag>
-              );
-            })
-          ) : (
-            <span>暂无</span>
-          )}
-        </p>
+      <Form.Item label="分类" >
+        <ThreeLevelClassification pForm={selfForm} type={newsDataType} />
       </Form.Item>
 
-      <Form.Item
-        {...layout}
-        label="是否可重复分发"
-        name="isDup"
-      >
+      <TagList label="违禁词" dataList={forbiddenWordList} color="#ff1840"></TagList>
+      <TagList label="敏感词" dataList={sensitiveWordList} color="#ff6600"></TagList>
+      <TagList label="热词" dataList={hotWord} color="#1890ff"></TagList>
+      <TagList label="人物词" dataList={personalWord} color="#00ff97"></TagList>
+
+      <Form.Item {...layout} label="是否可重复分发" name="isDup">
         <Radio.Group>
           <Radio value={0}>是</Radio>
           <Radio value={1}>否</Radio>
@@ -237,63 +104,23 @@ function FormAction(props) {
       <Form.Item>
         <Form.Item noStyle name="hotValue">
           <Checkbox.Group>
-            <Checkbox value={'1'}>热点</Checkbox>
+            <Checkbox value={1}>热点</Checkbox>
           </Checkbox.Group>
         </Form.Item>
         <Form.Item noStyle name="bigEvent">
           <Checkbox.Group>
-            <Checkbox value={'1'}>大事件</Checkbox>
+            <Checkbox value={1}>大事件</Checkbox>
           </Checkbox.Group>
         </Form.Item>
       </Form.Item>
-      {/* <Form.Item label="标签" name="tags" help={'最多支持10个标签，单个50个字符'} >
-        <SelectModeTags></SelectModeTags>
-      </Form.Item> */}
+
       <Form.Item label="标签" name="tags" help={'最多支持10个标签，单个50个字符'}>
-        <>
-          {tags.map((tag, index) => {
-            const tagElem = (
-              <Tag
-                key={index + tag.text}
-                closable
-                color={tag.type === 1 ? 'green' : ''}
-                onClose={() => deleteTagClose(tag, index)}
-              >
-                {tag.text}
-              </Tag>
-            );
-            return tagElem;
-          })}
-          {inputVisible && (
-            <div className={styles.tags_input}>
-              <Input ref={saveInputRef} type="text" size="small"  />
-              <Button size="small" type="primary" onClick={() => handleInputConfirm()}>
-                保存
-              </Button>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <Button size="small" onClick={() => handleInputCancel()}>
-                取消
-              </Button>
-            </div>
-          )}
-          {!inputVisible && (
-            <Button
-              type="primary"
-              size="small"
-              onClick={() => {
-                setInputVisible(true);
-                // saveInputRef.current.focus();
-              }}
-              style={{margin: '5px'}}
-              icon={<PlusOutlined />}
-            >新增</Button>
-          )}
-        </>
+        <SelectModeTags></SelectModeTags>
       </Form.Item>
 
       <Form.Item
         label="审核结果"
-        labelCol= {{ span: 6}}
+        labelCol={{ span: 6 }}
         name="auditState"
         rules={[{ required: true, message: `选择审核结果` }]}
       >
@@ -313,23 +140,15 @@ function FormAction(props) {
 
           const getReasonTpl = (rules, data) => {
             return (
-              <Form.Item 
-                wrapperCol={{
-                  xs: { span: 20, offset: 3 },
-                  sm: { span: 20, offset: 3 },
-                }} 
-                name="reason" 
-                rules={rules}>
+              <Form.Item name="reason" rules={rules}>
                 <Checkbox.Group>
-                  <Row gutter={24}>
-                    {data.map((item,index) => {
-                      return (
-                        <Col span={8} key={index+item}>
-                          <Checkbox value={item}>{item}</Checkbox>
-                        </Col>
-                      );
-                    })}
-                  </Row>
+                  {data.map((item, index) => {
+                    return (
+                      <Checkbox key={index} value={item}>
+                        {item}
+                      </Checkbox>
+                    );
+                  })}
                 </Checkbox.Group>
               </Form.Item>
             );
@@ -337,11 +156,9 @@ function FormAction(props) {
 
           return result === 'PASS'
             ? getReasonTpl(null, passReason)
-            : (
-              result === 'REJECT' ? 
-              getReasonTpl([{ required: true, message: `选择审核未通过原因` }], rejectReason): 
-              null
-            );
+            : result === 'REJECT'
+            ? getReasonTpl([{ required: true, message: `选择审核未通过原因` }], rejectReason)
+            : null;
         }}
       </Form.Item>
     </Form>
