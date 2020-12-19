@@ -1,3 +1,6 @@
+/* eslint-disable import/order */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-promise-reject-errors */
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable no-unneeded-ternary */
 /* eslint-disable consistent-return */
@@ -10,7 +13,6 @@ import { Form } from 'antd';
 import WordsComponents from './WordsRender';
 import IntervalValue from './IntervalValue';
 import CheckBoxRender from './CheckBoxRender';
-// import InputRender from './InputRender';
 import SelectRender from './SelectRender';
 import CascaderCheckBox from './CascaderCheckBox';
 import TreeClassification from './TreeClassification';
@@ -75,14 +77,22 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
       </Form.Item>
     ),
     5: () => (
-      <Form.Item {...itemProps} help={isEdit === 'form' && '分值：0~100，可输入相同分数，左小右大'}>
-        <IntervalValue pForm={pForm} min={0} max={100} showType={isEdit}></IntervalValue>
-      </Form.Item>
+      <IntervalValue 
+        min={0} 
+        max={100} 
+        showType={isEdit}
+        {...itemProps} 
+        error={'分值：0~100，可输入相同分数，左小右大'} 
+      ></IntervalValue>
     ),
     6: () => (
-      <Form.Item {...itemProps} help={isEdit === 'form' && '权重：0~10，可输入相同分数，左小右大'}>
-        <IntervalValue min={0} max={10} showType={isEdit}></IntervalValue>
-      </Form.Item>
+      <IntervalValue 
+        min={0} 
+        max={10} 
+        showType={isEdit}
+        {...itemProps}  
+        error={'权重：0~10，可输入相同分数，左小右大'}
+      ></IntervalValue>
     ),
     7: () => (
       <Form.Item {...itemProps}>
@@ -133,7 +143,6 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     ),
     15: () => (
       <Form.Item {...itemProps}>
-        {/* <InputRender showType={isEdit}></InputRender> */}
         <SelectModeTags showType={isEdit}></SelectModeTags>
       </Form.Item>
     ),

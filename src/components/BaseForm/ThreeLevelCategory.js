@@ -75,7 +75,7 @@ function ThreeLevelCategory(props) {
    * @param {*} value
    * @param {*} name
    */
-  const handleChange = (eValue = '', name) => {
+  const handleChange = (eValue = null, name) => {
     // 一级分类发生变化
     if (name === 'category1') {
       setCategory1(eValue);

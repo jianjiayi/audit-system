@@ -1,3 +1,4 @@
+/* eslint-disable prefer-promise-reject-errors */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable import/order */
@@ -56,10 +57,7 @@ function FormAction(props) {
   } = props;
 
   useEffect(() => {
-    setTimeout(() => {
-      setInitFormValues()
-    }, 100);
-    
+    setInitFormValues();
   }, [JSON.stringify(curArt)]);
 
 
@@ -96,9 +94,9 @@ function FormAction(props) {
           { 
             validator : (rule, value, callback) => {
               if(!value.category1 && !value.category2 && !value.category3){
-                return callback('请选择分类');
+                return Promise.reject('请选择分类');
               }
-              return callback();
+              return Promise.resolve();
             } 
           }
         ]}

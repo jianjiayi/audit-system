@@ -11,7 +11,7 @@ import {
 } from 'antd';
 // eslint-disable-next-line import/no-cycle
 import { renderRadioGroup, renderCheckBoxGroup, renderSelect } from './extra';
-import NumberRange from './numberRange';
+import IntervalValue from './IntervalValue';
 import ThreeLevelCategory from './ThreeLevelCategory';
 
 const {
@@ -47,9 +47,9 @@ export const FormItem = {
       <InputNumber {...props} style={{ width: '100%' }} />
     </Form.Item>
   ),
-  NumberRange: (options, map, props) => (
+  IntervalValue: (options, map, props) => (
     <Form.Item {...options}>
-      <NumberRange {...props} />
+      <IntervalValue {...props} />
     </Form.Item>
   ),
   ThreeLevelCategory: (options, map, props) => (
