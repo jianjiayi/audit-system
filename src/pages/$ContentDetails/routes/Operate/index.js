@@ -74,6 +74,11 @@ function Operate(props) {
       }
 
       // 处理分类，设置末级分类
+      values.categoryFirst = values.category.category1;
+      values.categorySecond = values.category.category2;
+      values.categoryThird = values.category.category3;
+      delete values.category;
+
       if(values.categoryThird){
         values.lastCategory = values.categoryThird;
       }else if(values.categorySecond){

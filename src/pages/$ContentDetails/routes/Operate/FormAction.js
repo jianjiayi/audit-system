@@ -21,7 +21,7 @@ import _ from 'lodash';
 
 import TagList from './components/TagList';
 import SelectModeTags from './components/SelectModeTags';
-import ThreeLevelClassification from './components/ThreeLevelClassification';
+import ThreeLevelCategory from '@/components/BaseForm/ThreeLevelCategory';
 
 import { passReason, rejectReason } from '@/pages/constants';
 
@@ -71,9 +71,11 @@ function FormAction(props) {
       tags: curArt.tags || [],
       auditState: auditState !== 'PASS' && auditState !== 'REJECT' ? null : auditState,
       reason: reason || [],
-      categoryFirst: curArt.categoryFirst || null,
-      categorySecond: curArt.categorySecond || null,
-      categoryThird: curArt.categoryThird || null,
+      category: {
+        category1: curArt.categoryFirst || null,
+        category2: curArt.categorySecond || null,
+        category3: curArt.categoryThird || null,
+      }
     });
   }
   
@@ -86,8 +88,22 @@ function FormAction(props) {
 
   return (
     <Form {...formProps} from={selfForm}>
-      <Form.Item label="分类" >
-        <ThreeLevelClassification pForm={selfForm} type={newsDataType} />
+      <Form.Item 
+        label="分类" 
+        name="category" 
+        rules={[
+          { required: true }, 
+          { 
+            validator : (rule, value, callback) => {
+              if(!value.category1 && !value.category2 && !value.category3){
+                return callback('请选择分类');
+              }
+              return callback();
+            } 
+          }
+        ]}
+      >
+        <ThreeLevelCategory newsType={newsDataType} />
       </Form.Item>
 
       <TagList label="违禁词" dataList={forbiddenWordList} color="#ff1840"></TagList>

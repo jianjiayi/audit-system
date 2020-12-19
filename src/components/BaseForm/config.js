@@ -12,7 +12,7 @@ import {
 // eslint-disable-next-line import/no-cycle
 import { renderRadioGroup, renderCheckBoxGroup, renderSelect } from './extra';
 import NumberRange from './numberRange';
-import MultilevelCategories from './multilevelCategories';
+import ThreeLevelCategory from './ThreeLevelCategory';
 
 const {
   // MonthPicker,
@@ -52,9 +52,9 @@ export const FormItem = {
       <NumberRange {...props} />
     </Form.Item>
   ),
-  MultilevelCategories: (options, map, props) => (
+  ThreeLevelCategory: (options, map, props) => (
     <Form.Item {...options}>
-      <MultilevelCategories {...props} />
+      <ThreeLevelCategory {...props} />
     </Form.Item>
   ),
 };

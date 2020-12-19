@@ -89,7 +89,7 @@ function AuditStatistics(props) {
             }
           );
           dispatch({
-            type: 'Global/getFirstCategory', 
+            type: 'Global/getCategory', 
             payload:{
               id: 0, 
               type:e

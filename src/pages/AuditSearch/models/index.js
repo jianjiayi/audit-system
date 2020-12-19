@@ -30,7 +30,6 @@ export default {
     // 初始化
     *init({ payload }, { put }) {
       yield put({ type: 'reset' });
-      yield put({ type: 'Global/getFirstCategory', payload:{id: 0, type: payload.type} });
       yield put({
         type: 'getQueue',
         payload: {

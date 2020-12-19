@@ -103,14 +103,6 @@ export default {
 
         if (code === 200) {
           if (data) {
-            // 获取分类
-            yield put({ 
-              type: 'Global/getFirstCategory',
-              payload:{
-                id: 0, 
-                type: data.feedMessage.articleType
-              }
-            });
 
             // 存储文章id
             sessionStorage.setItem('$queueContentId', data.id);

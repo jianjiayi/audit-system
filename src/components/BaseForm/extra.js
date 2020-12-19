@@ -103,8 +103,7 @@ export function renderFormItem(item, formLayout, layout, mediaSpan) {
   // 针对时间等长度的组件进行单独配置
   if (
     type === 'DateTimeStartEnd' ||
-    type === 'selectMore' ||
-    type === 'MultilevelCategories' ||
+    type === 'ThreeLevelCategory' ||
     isSpecial
   ) {
     mediaSpan = {

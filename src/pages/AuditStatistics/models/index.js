@@ -26,7 +26,7 @@ export default {
     // 初始化
     *init({ payload }, { call, put }) {
       yield put({ type: 'reset' });
-      yield put({ type: 'Global/getFirstCategory', payload:{id: 0, type:0}});
+      yield put({ type: 'Global/getCategory', payload:{id: 0, type:0}});
       yield put({ type: 'getStatisticQuery', payload });
     },
     // 获取分类或人员列表

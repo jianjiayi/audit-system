@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-param-reassign */
 /* eslint-disable import/no-unresolved */
 import React, { useState, useEffect, useRef } from 'react';
-import {Form, Select, Input } from 'antd';
+import { Form, Select, Input } from 'antd';
 import _ from 'lodash';
 import { useModel, connect } from 'umi';
 
@@ -10,6 +11,7 @@ import BaseForm from '@components/BaseForm';
 
 import { ExObject } from '@utils/utils.js';
 import { contentType, auditResult, runningStatus, dateFormat } from '@/pages/constants';
+import ThreeLevelCategory from '@/components/BaseForm/ThreeLevelCategory';
 import styles from './index.module.less';
 
 const { Option } = Select;
@@ -22,18 +24,17 @@ function SearchForm(props) {
   } = useModel('@@initialState');
 
   const formRef = useRef(null);
-  
+
   // 内容类型
-  const [cType, setCType] = useState('');
+  const [newsType, setNewsType] = useState('NEWS');
 
   // 搜索表单参数值
   const QUERY_FROM_SEARCH = JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH')) || {};
 
   const {
     dispatch,
-    Global: { firstCategory, secondCategory, thirdCategory },
     business = currentUser.business || {},
-    Search: { query, queueMap },
+    Search: { queueMap },
   } = props;
 
   useEffect(() => {
@@ -51,41 +52,7 @@ function SearchForm(props) {
         ...query,
       },
     });
-
-    if(query.category1){
-      dispatch({
-        type: 'Global/getSecondCategory',
-        payload: {
-          id: query.category1,
-          type: cType,
-        },
-      });
-    }
-
-    if(query.category2){
-      dispatch({
-        type: 'Global/getSecondCategory',
-        payload: {
-          id: query.category2,
-          type: cType,
-        },
-      });
-    }
   }, []);
-
-  useEffect(()=>{
-    if(query.category1){
-      dispatch({
-        type: 'Global/getSecondCategory',
-        payload: {
-          id: query.category1,
-          type: cType,
-        },
-      });
-    }
-  },[query.category1])
-
-  
 
   // 表单默认值
   const staticFormValues = {
@@ -94,52 +61,6 @@ function SearchForm(props) {
     queue: '',
     resultStatus: '',
     status: '',
-  };
-
-  // console.log(updateFormValues, _.isEmpty(JSON.parse(sessionStorage.getItem('$QUERY_FROM_SEARCH'))))
-  const selectCategoryFun = (id, name) => {
-    // console.log(id, name)
-    if (name === 'firstCategoryId') {
-      formRef.current.resetFields(['category2', 'category3']);
-      formRef.current.setFieldsValue({ category2: null, category3: null });
-      
-      if(!id){
-        dispatch({
-          type: 'Global/save',
-          payload: {
-            secondCategory: [],
-            thirdCategory: []
-          },
-        });
-        return;
-      }
-      dispatch({
-        type: 'Global/getSecondCategory',
-        payload: {
-          id,
-          type: cType,
-        },
-      });
-    } else {
-      formRef.current.resetFields(['category3']);
-      formRef.current.setFieldsValue({ category3: null });
-      if(!id){
-        dispatch({
-          type: 'Global/save',
-          payload: {
-            thirdCategory: []
-          },
-        });
-        return;
-      }
-      dispatch({
-        type: 'Global/getThirdCategory',
-        payload: {
-          id,
-          type: cType,
-        },
-      });
-    }
   };
 
   // 多条搜索表单配置
@@ -158,7 +79,6 @@ function SearchForm(props) {
         name: 'businessId',
         map: business,
         onChange: (e) => {
-          // console.log('e', e);
           if (!e) return;
           // 更新队列
           formRef.current.setFieldsValue({ queue: '' });
@@ -177,33 +97,13 @@ function SearchForm(props) {
         type: 'SELECT',
         name: 'type',
         map: contentType,
-        onChange: (e) => {
-          // console.log(e);
-          setCType(e);
-          // console.log(formRef.current);
-          formRef.current.setFieldsValue({
-            category1: null,
-            category2: null,
-            category3: null,
-          });
-          dispatch({
-            type: 'Global/getFirstCategory',
-            payload: {
-              id: 0,
-              type: e,
-            },
-          });
-        },
+        onChange: (value) => { setNewsType(value || 'NEWS')},
       },
       {
         label: '内容分类',
-        type: 'MultilevelCategories',
-        firstCategory,
-        secondCategory,
-        thirdCategory,
-        onChange: (values, name) => {
-          selectCategoryFun(values[name], name);
-        },
+        name: 'category',
+        isSpecial: true,
+        itemRender: <ThreeLevelCategory newsType={newsType} isReset />,
       },
       {
         label: '所属队列',
@@ -215,14 +115,12 @@ function SearchForm(props) {
         label: '审核状态',
         type: 'SELECT',
         name: 'resultStatus',
-        // initialValue: '',
         map: auditResult,
       },
       {
         label: '是否上架',
         type: 'SELECT',
         name: 'status',
-        // initialValue: '',
         map: runningStatus,
       },
       { label: '来源', name: 'source' },
@@ -230,17 +128,16 @@ function SearchForm(props) {
       { label: '采集源', name: 'crawlSource' },
       {
         label: '筛选',
-        // name: 'filter',
         isSpecial: true,
         itemRender: (
           <Input.Group compact>
-            <Form.Item name='key' noStyle initialValue="title">
+            <Form.Item name="key" noStyle initialValue="title">
               <Select style={{ width: '30%' }}>
                 <Option value="title">标题</Option>
                 <Option value="id">ID</Option>
               </Select>
             </Form.Item>
-            <Form.Item name='value' noStyle>
+            <Form.Item name="value" noStyle>
               <Input placeholder="请输入" style={{ width: '70%' }} />
             </Form.Item>
           </Input.Group>
@@ -258,29 +155,28 @@ function SearchForm(props) {
       });
     },
     onSubmit: (formValues) => {
+      const { datatime, category, key, value, ...params } = formValues;
+
       // 整理时间
-      if (!_.isEmpty(formValues.datatime)) {
-        formValues.startTime = formValues.datatime[0].format(dateFormat);
-        formValues.endTime = formValues.datatime[1].format(dateFormat);
+      if (!_.isEmpty(datatime)) {
+        params.startTime = datatime[0].format(dateFormat);
+        params.endTime = datatime[1].format(dateFormat);
       }
-      delete formValues.datatime;
 
       // 格式化筛选条件
-      formValues[formValues.key] = formValues.value;
+      params[key] = value;
 
-      // console.log('formValues', formValues);
+      const paramsData = { ...params, ...category, category };
+
+      console.log('paramsData', paramsData);
       dispatch({
         type: 'Search/getNewsList',
-        payload: formValues,
+        payload: paramsData,
       });
     },
   };
 
-  
-
-  return (
-    <BaseForm {...searchFormProps} pRef={formRef} />
-  );
+  return <BaseForm {...searchFormProps} pRef={formRef} />;
 }
 
 function mapStateToProps({ Global, Search }) {
