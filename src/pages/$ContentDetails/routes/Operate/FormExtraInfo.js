@@ -20,7 +20,7 @@ function FormExtraInfo(props) {
         <span>抓取来源： {curArt.sourceName || ''}</span>
       </p>
       <p>
-        原文链接： <a href={curArt.originUrl || ''}>{curArt.originUrl || ''}</a>
+        原文链接： <a href={curArt.originUrl || ''} target="_black">{curArt.originUrl || ''}</a>
       </p>
       <p>摘要： {curArt.summary || ''}</p>
     </div>

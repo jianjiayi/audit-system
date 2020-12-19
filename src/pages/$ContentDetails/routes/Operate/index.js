@@ -161,7 +161,6 @@ function Operate(props) {
           <FormCoverImage pForm={selfForm} name='FormCoverImage'></FormCoverImage>
           <FormExtraInfo pForm={selfForm} name='FormExtraInfo'></FormExtraInfo>
           <FormAction pForm={selfForm} name='FormAction'></FormAction>
-          <Form.Item>
           <div className={styles.button_group}>
             <WrapAuthButton
               pathUrl="/:type/cdetails"
@@ -190,7 +189,6 @@ function Operate(props) {
               退出
             </Button>
           </div>
-        </Form.Item>
         </div>
         
       </Form>

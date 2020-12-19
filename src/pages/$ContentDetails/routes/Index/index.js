@@ -43,7 +43,6 @@ function ContentDetails(props) {
   return (
     <div {...pageProps}>
       <Content {...contentProps} />
-      <div className={styles.line}></div>
       <Operate {...operateProps} />
       {actionLoading && (
         <div className={styles.loading}>

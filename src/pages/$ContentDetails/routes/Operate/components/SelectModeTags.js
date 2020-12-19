@@ -35,13 +35,11 @@ function SelectModeTags(props) {
     const tempVal = e.target.value;
     if (e.key === 'Enter') {
       if(tempVal === '') return;
-      // console.log('tagsList.length', tagsList.length);
       if (tagsList.length >= 10) {
         return message.error('最多支持10个标签');
       }
       console.log(calcStrLength(tempVal));
       if (calcStrLength(tempVal) > 50) {
-        // console.log(calcStrLength(tempVal));
         return message.error('您输入的文字过长，最多可输入50个字');
       }
 

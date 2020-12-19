@@ -19,12 +19,11 @@ import { Form, Checkbox, Radio, } from 'antd';
 import classNames from 'classnames';
 import { connect } from 'umi';
 import _ from 'lodash';
-
 import TagList from './components/TagList';
 import SelectModeTags from './components/SelectModeTags';
 import ThreeLevelCategory from '@/components/BaseForm/ThreeLevelCategory';
-
 import { passReason, rejectReason } from '@/pages/constants';
+import WrapAuthButton from '@components/WrapAuth';
 
 import styles from './FormAction.module.less';
 

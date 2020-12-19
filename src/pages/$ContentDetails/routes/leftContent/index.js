@@ -117,7 +117,7 @@ function Content(props) {
             {isEdit ? (
               <Input placeholder="请输入标题" />
             ) : (
-              <h3 className={styles.title}>{curArt.title}</h3>
+              <h3 className={styles.titleText}>{curArt.title}</h3>
             )}
           </Form.Item>
           <Form.Item label="&nbsp;&nbsp;&nbsp;ID" name="id" initialValue={curArt.id}>
