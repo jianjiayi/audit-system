@@ -163,8 +163,9 @@ function FormCoverImage(props) {
     <>
       <div className={styles.content}>
         <img
-          width={240}
-          height={180}
+          className={styles.coverImg}
+          width={200}
+          height={150}
           src={(!_.isEmpty(fileList) && fileList[0] && fileList[0].originalUrl) || 
                 (!_.isEmpty(fileList) && fileList[0] && fileList[0].src) || 
                 errorImg}
@@ -172,6 +173,7 @@ function FormCoverImage(props) {
         <div className={styles.button_list}>
           <Button
             type="primary"
+            size="small"
             disabled={_.isEmpty(fileList) || !fileList[2]}
             onClick={() => {
               setCoverPictureVisible(true);
@@ -184,6 +186,7 @@ function FormCoverImage(props) {
           </Button>
           <Button
             type="primary"
+            size="small"
             onClick={() => {
               setCoverPictureVisible(true);
               setTabKey(1);
@@ -194,6 +197,7 @@ function FormCoverImage(props) {
           </Button>
           <Button
             type="primary"
+            size="small"
             onClick={() => {
               setCoverPictureVisible(true);
               setTabKey(2);

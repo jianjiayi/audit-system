@@ -30,6 +30,7 @@ function ButtonMobilePreview(props) {
   return (
     <>
       <Button
+        size="small"
         className={styles.btn}
         type="primary"
         onClick={() => {

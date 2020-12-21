@@ -174,8 +174,34 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     ),
     20: () => (
       <Form.Item {...itemProps}>
-        <TreeClassification showType={isEdit}></TreeClassification>
+        <Form.Item 
+          shouldUpdate={(prevValues, curValues) => {
+            return prevValues.type !== curValues.type;
+          }}
+        >
+          {({getFieldValue, setFieldsValue})=>{
+            const { name } = itemProps;
+            const treeProps = {
+              type: getFieldValue('type'),
+              value: getFieldValue(name),
+              showType: isEdit,
+              onChange: (values)=>{
+                const parentValues = getFieldValue(name[0]);
+                setFieldsValue({
+                  [name[0]]:{
+                    ...parentValues,
+                    [name[1]]:values,
+                  }
+                });
+              }
+            }
+            return (
+              <TreeClassification {...treeProps}></TreeClassification>
+            )
+          }}
       </Form.Item>
+    </Form.Item>
+      
     ),
   };
 };

@@ -87,6 +87,7 @@ function FormAction(props) {
     <Form {...formProps} from={selfForm}>
       <Form.Item 
         label="分类" 
+        labelCol= {{ span: 4}}
         name="category" 
         rules={[
           { required: true }, 

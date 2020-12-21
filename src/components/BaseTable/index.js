@@ -137,8 +137,10 @@ function BaseTable(props, ref) {
   };
 
   return (
-    <div className={classNames(styles.container, className)}>
-      <Table {...tableProps} />
+    <div className={styles.container}>
+      <div className={classNames(styles.table, className)}>
+        <Table {...tableProps} />
+      </div>
     </div>
   );
 }

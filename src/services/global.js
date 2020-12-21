@@ -6,7 +6,7 @@ import request from '@http';
 
 // 获取分类树接口
 export async function getCategoryTree(params) {
-  return request(`/audit/categoryTree?type=${params.type}`, {
+  return request(`/audit/categoryTree?type=${params.type === 'VIDEO'? 1 :0}`, {
     method: 'GET',
   });
 }
