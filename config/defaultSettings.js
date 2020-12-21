@@ -6,7 +6,7 @@ const proSettings = {
   layout: 'side',
   // splitMenus: true, // mix 模式，顶部一级导航，侧边二级
   contentWidth: 'Fluid',
-  fixedHeader: false,
+  fixedHeader: true,
   fixSiderbar: true,
   colorWeak: false,
   menu: {

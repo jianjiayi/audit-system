@@ -24,10 +24,7 @@ function SelectModeTags(props) {
   const [tagsList, setTagsList] = useState(value);
 
   useEffect(() => {
-    if (!_.isEmpty(value)) {
-      // console.log('tags',value)
-      setTagsList(value);
-    }
+    setTagsList(value);
   }, [JSON.stringify(value)]);
 
   // 回车添加标签
@@ -53,9 +50,11 @@ function SelectModeTags(props) {
 
   // 删除指定标签
   const onDeselect = (e) => {
-    console.log(e);
+    // console.log(e);
     const List = _.cloneDeep(tagsList);
     let index = List.indexOf(e);
+    if(List.length === 1) return onChange([]);
+
     if (index > -1) {
       List.splice(index, 1);
       onChange([...List]);
