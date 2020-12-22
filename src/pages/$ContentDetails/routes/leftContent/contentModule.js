@@ -95,7 +95,7 @@ function ContentModule(props) {
     <div className="">
       <h3 className={styles.title}>正文详情 : </h3>
       {isEdit && (
-        <div>
+        <div className={styles.ueditor}>
           <Ueditor 
             id="container" 
             ref={ueRef} 
