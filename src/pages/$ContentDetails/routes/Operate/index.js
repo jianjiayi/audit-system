@@ -68,16 +68,15 @@ function Operate(props) {
       values.hotValue = values.hotValue ? values.hotValue[0] : 0;
       values.bigEvent = values.bigEvent ? values.bigEvent[0] : 0;
 
-      // 视频模式下，校验一级分类32
-      if(newsDataType === 'VIDEO' &&values.categoryFirst === '32'){
-        return message.error('视频文章, 一级分类不正确');
-      }
-
       // 处理分类，设置末级分类
       values.categoryFirst = values.category.category1;
       values.categorySecond = values.category.category2;
       values.categoryThird = values.category.category3;
       delete values.category;
+      // 视频模式下，校验一级分类32
+      if(newsDataType === 'VIDEO' &&values.categoryFirst === '32'){
+        return message.error('视频文章, 一级分类不正确');
+      }
 
       if(values.categoryThird){
         values.lastCategory = values.categoryThird;

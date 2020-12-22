@@ -34,7 +34,7 @@ export const FormItem = {
   ),
   TextArea: (options, map, props) => (
     <Form.Item {...options}>
-      <TextArea {...props}/>
+      <TextArea {...props} allowClear/>
     </Form.Item>
   ),
   DateTimeStartEnd: (options, map, props) => (

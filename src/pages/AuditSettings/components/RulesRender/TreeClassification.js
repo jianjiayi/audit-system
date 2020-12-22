@@ -6,7 +6,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/dot-notation */
 import React, { useState, useEffect } from 'react';
-import { Form, Tree } from 'antd';
+import { Tree } from 'antd';
 import _ from 'lodash';
 import { history } from 'umi';
 import * as api from '@/services/global';

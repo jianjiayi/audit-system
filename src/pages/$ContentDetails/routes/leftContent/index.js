@@ -17,6 +17,8 @@ import moment from 'moment';
 import _ from 'lodash';
 
 import { AudioPlayer, VideoPlayer } from '@components/MediaComponents';
+import VideoModule from './videoModule';
+import ContentModule from './contentModule';
 import Ueditor from '@components/Editor/index2.js';
 
 import { ExTime } from '@utils/utils.js';
@@ -28,7 +30,7 @@ const dateFormat = 'YYYY-MM-DD HH:mm:ss';
 
 function Content(props) {
   const [selfForm] = Form.useForm();
-  const ueRef = useRef(null)
+
   // 临时保存编辑器修改后的文章详情
   const [editorText, setEditorText] = useState('');
 
@@ -61,11 +63,7 @@ function Content(props) {
     initialFrameWidth: '100%',
     initialFrameHeight: 400
   })
-  
-  // 富文本失焦就触发setContent函数设置表单的content内容
-  const setContent = (content)=>{
-    setEditorText(content);
-  }
+
 
   const changeIsEdit = (status) => {
     if (!status) {
@@ -181,113 +179,26 @@ function Content(props) {
     );
   };
 
-  /**
-   * @name: 高亮单词
-   * @test: test font
-   * @msg:
-   * @param {string, object}
-   * @return {string}
-   */
-  const getContentHtml = (textHtml, List) => {
-    // let textHtml = _.cloneDeep(html);
-    if (!textHtml) return;
-
-    List.forEach((item, index) => {
-      if (item.value.length > 0) {
-        const data = item.value;
-        // 模糊匹配修改样式
-        data.map((v, i) => {
-          const reg = />[^<]+</g;
-          textHtml = textHtml.replace(eval(reg), (tag) => {
-            // console.log('tag',tag)
-            const regTag = `/${v}/g`;
-            const text = tag.replace(
-              eval(regTag),
-              `<span style="background:${item.color};color:#ffffff;padding:0 5px;margin:0 2px;">${v}</span>`,
-            );
-            return text;
-          });
-        });
-      }
-    });
-    return textHtml;
-  };
-
-  const list = [
-    {
-      name: 'forbiddenWordList',
-      color: '#ff1840',
-      value: forbiddenWordList,
-    },
-    {
-      name: 'hotWord',
-      color: '#1890ff',
-      value: hotWord,
-    },
-    {
-      name: 'sensitiveWordList',
-      color: '#ff6600',
-      value: sensitiveWordList,
-    },
-    {
-      name: 'personalWord',
-      color: '#00ff97',
-      value: personalWord,
-    },
-  ];
-
-  // 正文
-  const textHtml = { __html: getContentHtml(curArt.content, list) };
   // 音频
   const audioProps = {
     url: curArt.mediaInfo&&curArt.mediaInfo.audios
   };
-  // console.log(curArt.mediaInfo.videos)
-  // 视频
+  
   const videoProps = {
     source: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].src,
     poster: (curArt.mediaInfo && curArt.mediaInfo.images) || [],
     duration: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].duration,
   };
 
-  const getContentTpl = () => {
-    return (
-      <div className={styles['content-container']}>
-        {newsDataType === 'AUDIO' && <AudioPlayer {...audioProps} />}
-
-        {newsDataType === 'VIDEO' && (
-          <div>
-            <h4 className={styles.title}>视频详情 : </h4>
-            <VideoPlayer {...videoProps} />
-          </div>
-        )}
-
-
-        <>
-          <div className="">
-            <h3 className={styles.title}>正文详情 : </h3>
-            {isEdit && (
-              <div>
-                <Ueditor 
-                  id="container" 
-                  ref={ueRef} 
-                  config={config} 
-                  initData={editorText} 
-                  setContent={(e)=>setContent(e)}>
-                  </Ueditor>
-              </div>
-            )}
-            {!isEdit && (
-              <div className={styles['content-box']}>
-                <div className={styles['content-text']} dangerouslySetInnerHTML={textHtml} />
-              </div>
-            )}
-          </div>
-        </>
-        
-      </div>
-    );
-  };
+  const contentProps = {
+    isEdit,
+    editorText, 
+    setEditorText,
+    forbiddenWordList, // 违禁词
+    sensitiveWordList, // 敏感词
+    hotWord, // 热词
+    personalWord, // 人物词
+  }
 
   return (
     <Form
@@ -296,7 +207,9 @@ function Content(props) {
       className={classNames(className, styles.container)}
     >
       {getHaderTpl()}
-      {getContentTpl()}
+      {newsDataType === 'AUDIO' && <AudioPlayer {...audioProps} />}
+      {newsDataType === 'VIDEO' && (<VideoModule {...videoProps}/>)}
+      <ContentModule {...contentProps}></ContentModule>
     </Form>
   );
 }

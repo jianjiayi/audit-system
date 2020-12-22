@@ -1,0 +1,49 @@
+.title{
+  position: relative;
+  display: flex;
+  align-items: center;
+  line-height: 50px;
+  padding-left: 30px;
+  background: #fff;
+  margin-bottom: 0;
+  box-shadow: 0px 5px 4px rgba(0, 21, 41, 0.08);
+}
+
+.content-box {
+  position: relative;
+  overflow-y: auto;
+  line-height: 30px;
+  max-height: 980px;
+  padding: 30px 5px 0 30px;
+
+  .content-text {
+    max-width: 1000px;
+    padding: 0 20px 10px 10px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+/* 处理页面滚动条 */
+.content-box::-webkit-scrollbar {
+  width: 4px;
+  height: 10px;
+}
+
+.content-box::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.content-box::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.content-box::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 10px;
+}
