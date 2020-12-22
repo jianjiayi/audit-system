@@ -138,7 +138,7 @@ function SearchForm(props) {
               </Select>
             </Form.Item>
             <Form.Item name="value" noStyle>
-              <Input placeholder="请输入" style={{ width: '70%' }} />
+              <Input placeholder="请输入" style={{ width: '70%' }} allowClear/>
             </Form.Item>
           </Input.Group>
         ),

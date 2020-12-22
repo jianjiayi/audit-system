@@ -146,7 +146,7 @@ export function renderFormItem(item, formLayout, layout, mediaSpan) {
   if (type && !isFunction(itemRender))
     return <Col {...colProps}>{FormItem[type](itemProps, map, props)}</Col>;
 
-  const child = itemRender || <Input placeholder={placeholder || '请输入'} {...props} />;
+  const child = itemRender || <Input placeholder={placeholder || '请输入'} {...props} allowClear/>;
   return (
     <Col {...colProps}>
       <Form.Item {...itemProps}>{child}</Form.Item>

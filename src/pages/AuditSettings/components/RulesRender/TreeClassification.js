@@ -6,7 +6,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/dot-notation */
 import React, { useState, useEffect } from 'react';
-import { Tree } from 'antd';
+import { Form, Tree } from 'antd';
 import _ from 'lodash';
 import { history } from 'umi';
 import * as api from '@/services/global';
@@ -38,7 +38,7 @@ const getAllTreeCode = (data = []) => {
 };
 
 function TreeClassification(props) {
-  const { showType = 'form', value = [], type = 0, onChange = () => {} } = props;
+  const { showType = 'form', value = [], type = '', onChange = () => {} } = props;
 
   // console.log('---value',value)
 
@@ -47,7 +47,11 @@ function TreeClassification(props) {
 
   useEffect(() => {
     getCategoryTreeData();
-  }, []);
+  }, [type]);
+
+  useEffect(()=>{
+    setCheckedKeys(value)
+  },[JSON.stringify(value)]);
 
   useEffect(() => {
     const action = history.location.query.action || '';
@@ -56,7 +60,7 @@ function TreeClassification(props) {
       setCheckedKeys([...defaultCheckedKeys]);
       onChange([...defaultCheckedKeys]);
     }
-  }, [treeData]);
+  }, [JSON.stringify(treeData)]);
 
   const getCategoryTreeData = async () => {
     const { code, data } = await api.getCategoryTree({ type });
@@ -67,19 +71,18 @@ function TreeClassification(props) {
   };
 
   const onCheck = (checkedKeys) => {
-    // console.log('onCheck', checkedKeys);
     setCheckedKeys(checkedKeys);
     onChange(checkedKeys);
   };
 
   return (
-      <Tree 
-        height= {400}
-        checkable
-        checkedKeys={checkedKeys} 
-        treeData={treeData} 
-        onCheck={onCheck} 
-      />
+    <Tree 
+      height= {400}
+      checkable
+      checkedKeys={checkedKeys} 
+      treeData={treeData} 
+      onCheck={onCheck} 
+    />
   );
 }
 

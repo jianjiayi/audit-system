@@ -7,7 +7,7 @@
 /* eslint-disable import/order */
 /* eslint-disable import/no-unresolved */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import _ from 'lodash';
 import { Button } from 'antd';
 import { history, useModel, connect } from 'umi';
@@ -36,6 +36,7 @@ function QueueContent(props) {
   } = props;
 
   const formRef = useRef(null);
+  const [curType, setCurType] = useState('');
 
   useEffect(() => {
     dispatch({
@@ -60,8 +61,24 @@ function QueueContent(props) {
     } else {
       artData.bid = _.toString(artData.bid);
       formRef.current.setFieldsValue({ ...artData });
+      setCurType(artData.type);
     }
   }, [JSON.stringify(art)]);
+
+  // 修改分类数据源、并设置默认值
+  const changeTreeData = (e) => {
+    const isTree = formRef.current.getFieldValue(['ruleJson',20]);
+    if(isTree && e === 'VIDEO' || isTree && curType === 'VIDEO'){
+      const parentValues = formRef.current.getFieldValue('ruleJson');
+      formRef.current.setFieldsValue({
+        'ruleJson': {
+          ...parentValues,
+          20: []
+        }
+      });
+      setCurType(e)
+    }
+  }
 
   const searchFormProps = {
     className: styles['content'],
@@ -89,6 +106,7 @@ function QueueContent(props) {
         required: true,
         placeholder: '选择类型',
         map: contentType,
+        onChange: changeTreeData,
       },
       {
         label: '队列名称',

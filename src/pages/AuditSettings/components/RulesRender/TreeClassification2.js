@@ -49,9 +49,14 @@ function TreeClassification(props) {
     getCategoryTreeData();
   }, [type]);
 
+  useEffect(()=>{
+    setCheckedKeys(value)
+  },[JSON.stringify(value)]);
+
   useEffect(() => {
-    getAllTreeCode(treeData);
-    if(_.isEmpty(checkedKeys)){
+    const action = history.location.query.action || '';
+    if (action === 'create') {
+      getAllTreeCode(treeData);
       setCheckedKeys([...defaultCheckedKeys]);
       onChange([...defaultCheckedKeys]);
     }
@@ -66,7 +71,6 @@ function TreeClassification(props) {
   };
 
   const onCheck = (checkedKeys) => {
-    // console.log('onCheck', checkedKeys);
     setCheckedKeys(checkedKeys);
     onChange(checkedKeys);
   };
