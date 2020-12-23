@@ -29402,7 +29402,7 @@ UE.ui = baidu.editor.ui = {};
                 for (var i = 0, ci; ci = list[i]; i++) {
                     buff[i] = this.formatHtml('<span unselectable="on" onclick="$$.editor.execCommand(&quot;elementpath&quot;, &quot;' + i + '&quot;);">' + ci + '</span>');
                 }
-                bottom.innerHTML = '<div class="edui-editor-breadcrumb" onmousedown="return false;">' + this.editor.getLang("elementPathTip") + ': ' + buff.join(' &gt; ') + '</div>';
+                bottom.innerHTML = '';
 
             } else {
                 bottom.style.display = 'none'

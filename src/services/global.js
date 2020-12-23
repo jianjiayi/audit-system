@@ -13,7 +13,8 @@ export async function getCategoryTree(params) {
 
 // 获取分类接口
 export async function getCategory(params) {
-  return request(`/audit/categoryInfo?parentCode=${params.id}&type=${params.type === 'VIDEO'? 1 :0}`, {
+  const id = params.id ? `parentCode=${params.id}&` : '';
+  return request(`/audit/categoryInfo?${id}type=${params.type === 'VIDEO'? 1 :0}`, {
     method: 'GET',
   });
 }
