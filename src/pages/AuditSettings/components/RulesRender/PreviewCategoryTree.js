@@ -11,6 +11,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Tree } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 import * as api from '@/services/global';
 
 // 数组去重
@@ -99,7 +100,7 @@ function PreviewCategoryTree(props) {
       return listToTree(listRemoveRepeat([...tree2, ...tree1, ...tree]));
     }
   };
-  return <Tree showLine treeData={treeData} />;
+  return <Tree showLine switcherIcon={<DownOutlined />} treeData={treeData} />;
 }
 
 export default PreviewCategoryTree;
