@@ -73,6 +73,7 @@ function AuditSettings(props){
         initialValue: '',
         map: { '': '全部', ...contentType },
       },
+      { label: '更新时间', name: 'updateTime', type: 'DateTimeStartEnd' },
       { label: '队列名称', name: 'name' },
       {
         label: '队列机制',
@@ -81,13 +82,13 @@ function AuditSettings(props){
         initialValue: '',
         map: queueType,
       },
-      {
-        label: '保存时长',
-        type: 'SELECT',
-        name: 'keepDays',
-        initialValue: '',
-        map: keepDays,
-      },
+      // {
+      //   label: '保存时长',
+      //   type: 'SELECT',
+      //   name: 'keepDays',
+      //   initialValue: '',
+      //   map: keepDays,
+      // },
       {
         label: '状态',
         type: 'SELECT',
@@ -95,7 +96,6 @@ function AuditSettings(props){
         initialValue: '',
         map: queueStatus,
       },
-      { label: '更新时间', name: 'updateTime', type: 'DateTimeStartEnd' },
       { label: '更新人', name: 'updateBy' },
     ],
     onReset: () => {
@@ -162,12 +162,12 @@ function AuditSettings(props){
         dataIndex: 'queueType',
         render: (text) => <span>{queueType[text || '']}</span>,
       },
-      {
-        title: '保存时长',
-        align: 'center',
-        dataIndex: 'keepDays',
-        render: (text) => <span>{keepDays[text || ''] || `${text}天`}</span>,
-      },
+      // {
+      //   title: '保存时长',
+      //   align: 'center',
+      //   dataIndex: 'keepDays',
+      //   render: (text) => <span>{keepDays[text || ''] || `${text}天`}</span>,
+      // },
       {
         title: '更新时间',
         align: 'center',
