@@ -67,6 +67,8 @@ function Operate(props) {
       // 处理大事件和热点
       values.hotTag = values.hotTag ? values.hotTag[0] : 0;
       values.bigEvent = values.bigEvent ? values.bigEvent[0] : 0;
+      // 处理热度值和热点联动关系
+      values.hotValue = values.hotTag === 0 ? 0 : values.hotValue;
 
       // 处理分类，设置末级分类
       values.categoryFirst = values.category.category1;

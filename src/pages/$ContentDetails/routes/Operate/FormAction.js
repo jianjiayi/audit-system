@@ -15,7 +15,7 @@
 /* eslint-disable no-control-regex */
 
 import React, { useEffect } from 'react';
-import { Form, Checkbox, Radio, } from 'antd';
+import { Form, Checkbox, Radio, InputNumber} from 'antd';
 import classNames from 'classnames';
 import { connect } from 'umi';
 import _ from 'lodash';
@@ -60,9 +60,11 @@ function FormAction(props) {
 
 
   const setInitFormValues = ()=>{
+    console.log('curArt.hotValue',curArt.hotValue)
     selfForm.setFieldsValue({
       isDup: curArt.isDup || 0,
       hotTag: [curArt.hotTag] || 0,
+      hotValue: curArt.hotValue === null ? 80 : curArt.hotValue,
       bigEvent: [curArt.bigEvent] || 0,
       tags: curArt.tags || [],
       auditState: auditState !== 'PASS' && auditState !== 'REJECT' ? null : auditState,
@@ -125,6 +127,32 @@ function FormAction(props) {
             <Checkbox value={1}>大事件</Checkbox>
           </Checkbox.Group>
         </Form.Item>
+      </Form.Item>
+      <Form.Item
+        noStyle
+        shouldUpdate={(prevValues, curValues) => {
+          return prevValues.hotTag !== curValues.hotTag;
+        }}
+      >
+        {({ getFieldValue }) => {
+          const hotTag = getFieldValue('hotTag');
+          if(!_.isEmpty(hotTag) && newsDataType !== 'VIDEO'){
+            return (
+              hotTag[0] === 1 && 
+              <Form.Item  
+                label="热度值" 
+                labelCol= {{ span: 4}} 
+                name="hotValue"
+                rules={[
+                  { required: true }, 
+                ]}
+              >
+                <InputNumber min={0} max={100}/>
+              </Form.Item>
+            )
+          }
+          return null;
+        }}
       </Form.Item>
 
       <Form.Item label="标签" name="tags" help={'最多支持10个标签，单个50个字符'}>
