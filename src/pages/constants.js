@@ -91,5 +91,5 @@ export const auditResult = {
 export const auditResult1 = { '': '全部', '审核通过': '审核通过', '审核未通过': '审核未通过' };
 
 // 文章审核通过&未通过原因
-export const passReason = ['去杂不净', '广告'];
+export const passReason = ['去杂不净', '广告', '其他'];
 export const rejectReason = ['文章质量差', '广告', '软文', '封图', '去杂不净', '抓取不全/错误', '版权问题', '其他'];

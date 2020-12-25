@@ -12,7 +12,7 @@ import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import { Form, Image, Button, Modal, Upload, message, Radio } from 'antd';
 import ImgCrop from 'antd-img-crop';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined, StarOutlined } from '@ant-design/icons';
 
 import { connect } from 'umi';
 

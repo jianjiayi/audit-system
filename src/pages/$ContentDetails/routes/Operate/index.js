@@ -65,7 +65,7 @@ function Operate(props) {
 
       const copyArt = _.cloneDeep(curArt);
       // 处理大事件和热点
-      values.hotValue = values.hotValue ? values.hotValue[0] : 0;
+      values.hotTag = values.hotTag ? values.hotTag[0] : 0;
       values.bigEvent = values.bigEvent ? values.bigEvent[0] : 0;
 
       // 处理分类，设置末级分类
@@ -125,8 +125,11 @@ function Operate(props) {
       payload: {
         skipId: queueContentId,
       },
-      callback: () => {
+      callback: (data) => {
         setSkipBtnLoading(false);
+        if (!data) {
+          history.goBack();
+        }
       },
     });
   };

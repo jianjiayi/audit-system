@@ -18,7 +18,7 @@ import BaseTable from '@components/BaseTable';
 
 import WrapAuthButton from '@components/WrapAuth';
 
-import { contentType, queueType, keepDays, queueStatus } from '@/pages/constants';
+import { contentType, queueType, queueStatus } from '@/pages/constants';
 import RulesRender from '../../components/RulesRender';
 
 import styles from './index.module.less';
@@ -66,6 +66,7 @@ function AuditSettings(props){
         initialValue: '',
         map: { '': '全部', ...business },
       },
+      { label: '更新时间', name: 'updateTime', type: 'DateTimeStartEnd' },
       {
         label: '内容类型',
         type: 'SELECT',
@@ -73,7 +74,6 @@ function AuditSettings(props){
         initialValue: '',
         map: { '': '全部', ...contentType },
       },
-      { label: '更新时间', name: 'updateTime', type: 'DateTimeStartEnd' },
       { label: '队列名称', name: 'name' },
       {
         label: '队列机制',
@@ -82,13 +82,6 @@ function AuditSettings(props){
         initialValue: '',
         map: queueType,
       },
-      // {
-      //   label: '保存时长',
-      //   type: 'SELECT',
-      //   name: 'keepDays',
-      //   initialValue: '',
-      //   map: keepDays,
-      // },
       {
         label: '状态',
         type: 'SELECT',
@@ -162,12 +155,6 @@ function AuditSettings(props){
         dataIndex: 'queueType',
         render: (text) => <span>{queueType[text || '']}</span>,
       },
-      // {
-      //   title: '保存时长',
-      //   align: 'center',
-      //   dataIndex: 'keepDays',
-      //   render: (text) => <span>{keepDays[text || ''] || `${text}天`}</span>,
-      // },
       {
         title: '更新时间',
         align: 'center',

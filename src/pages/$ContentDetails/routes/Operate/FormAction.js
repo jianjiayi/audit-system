@@ -23,7 +23,6 @@ import TagList from './components/TagList';
 import SelectModeTags from './components/SelectModeTags';
 import ThreeLevelCategory from '@/components/BaseForm/ThreeLevelCategory';
 import { passReason, rejectReason } from '@/pages/constants';
-import WrapAuthButton from '@components/WrapAuth';
 
 import styles from './FormAction.module.less';
 
@@ -63,7 +62,7 @@ function FormAction(props) {
   const setInitFormValues = ()=>{
     selfForm.setFieldsValue({
       isDup: curArt.isDup || 0,
-      hotValue: [curArt.hotValue] || 0,
+      hotTag: [curArt.hotTag] || 0,
       bigEvent: [curArt.bigEvent] || 0,
       tags: curArt.tags || [],
       auditState: auditState !== 'PASS' && auditState !== 'REJECT' ? null : auditState,
@@ -116,7 +115,7 @@ function FormAction(props) {
         </Radio.Group>
       </Form.Item>
       <Form.Item>
-        <Form.Item noStyle name="hotValue">
+        <Form.Item noStyle name="hotTag">
           <Checkbox.Group>
             <Checkbox value={1}>热点</Checkbox>
           </Checkbox.Group>
@@ -144,6 +143,7 @@ function FormAction(props) {
         </Radio.Group>
       </Form.Item>
       <Form.Item
+        noStyle
         shouldUpdate={(prevValues, curValues) => {
           return prevValues.auditState !== curValues.auditState;
         }}
@@ -154,15 +154,19 @@ function FormAction(props) {
 
           const getReasonTpl = (rules, data) => {
             return (
-              <Form.Item name="reason" rules={rules}>
+              <Form.Item name="reason" wrapperCol={{ offset: 0, span: 24 }} noStyle rules={rules}>
                 <Checkbox.Group>
-                  {data.map((item, index) => {
-                    return (
-                      <Checkbox key={index} value={item}>
-                        {item}
-                      </Checkbox>
-                    );
-                  })}
+                  <div className={styles.checkbox_group}>
+                    {data.map((item, index) => {
+                      return (
+                        <div className={styles.checkbox}>
+                          <Checkbox key={index} value={item}>
+                            {item}
+                          </Checkbox>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </Checkbox.Group>
               </Form.Item>
             );
