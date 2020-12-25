@@ -56,6 +56,7 @@ function TreeClassification(props) {
     if (action === 'create') {
       getAllTreeCode(treeData);
       setCheckedKeys([...defaultCheckedKeys]);
+      console.log(defaultCheckedKeys)
       onChange([...defaultCheckedKeys]);
     }
   }, [JSON.stringify(treeData)]);

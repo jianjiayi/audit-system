@@ -130,7 +130,10 @@ export default {
           } else {
             callback(null);
           }
+          return; 
         }
+
+        callback(null);
       }catch(e){console.log('e',e)}
       
     },
@@ -147,7 +150,10 @@ export default {
       const { code, data } = yield call(api.getAuditSave, params);
       if (code === 200) {
         yield put({ type: 'getNewsGetTask', payload: {queueSubmitType: 'save', data: data} ,callback});
+        return; 
       }
+
+      callback(null);
     },
 
     // 跳过当前待审文章
@@ -162,7 +168,10 @@ export default {
       const { code, data } = yield call(api.getNewsSkip, params);
       if (code === 200) {
         yield put({ type: 'getNewsGetTask', payload: {queueSubmitType: 'save', data: data}, callback});
+        return; 
       }
+
+      callback(null);
     },
 
     // 退出当前领取队列
@@ -186,7 +195,10 @@ export default {
         });
         sessionStorage.setItem('$QUERY', JSON.stringify({}));
         callback(code);
+        return; 
       }
+
+      callback(null);
     },
   },
 
