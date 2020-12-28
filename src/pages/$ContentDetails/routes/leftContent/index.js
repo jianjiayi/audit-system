@@ -186,7 +186,7 @@ function Content(props) {
   
   const videoProps = {
     source: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].src,
-    poster: (curArt.mediaInfo && curArt.mediaInfo.images) || [],
+    poster: (curArt.covers && curArt.covers[0]) || {},
     duration: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].duration,
   };
 

@@ -36,6 +36,7 @@ function VideoPlayer(props) {
   const [showOverlay, setShowOverlay] = useState(true);
   const [hasControls, setHasControls] = useState(false);
   const { className, source, poster, duration } = props;
+  // console.log(poster)
 
   const onPlay = () => {
     const video = videoRef.current;
@@ -51,7 +52,7 @@ function VideoPlayer(props) {
         controls={hasControls}
         controlsList="nodownload"
         src={source}
-        poster={(!_.isEmpty(poster) && poster[1].src) || ''}
+        poster={(!_.isEmpty(poster) && poster.originalUrl) || ''}
         // ended={()=>onEnded()}
       ></video>
       {showOverlay && (
