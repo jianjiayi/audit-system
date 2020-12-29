@@ -84,7 +84,7 @@ function QueueContent(props) {
     className: styles['content'],
     layout: 'horizontal',
     submitText: '保存',
-    cancelShow: true,
+    resetShow: true,
     formLayout: {
       labelAlign: 'right',
       labelCol: { span: 8 },

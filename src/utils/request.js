@@ -48,7 +48,8 @@ const errorHandler = ({ showToast = true }) => (error) => {
 
   // console.log('response',response)
   if (response.code !== successCode && showToast) {
-    const message = response.data || response.data.desc || codeMessage[response.code] || '';
+    console.log(response)
+    const message = response.data && response.data.desc || codeMessage[response.status] || '';
     notification.error({
       message,
     });

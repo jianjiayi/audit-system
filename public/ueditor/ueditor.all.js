@@ -20003,7 +20003,6 @@ UE.plugins['table'] = function () {
             var keyCode = evt.keyCode || evt.which;
 
             if (keyCode == 8) {
-
                 var ut = getUETableBySelected(me);
                 if (ut && ut.selectedTds.length) {
 
@@ -20020,6 +20019,7 @@ UE.plugins['table'] = function () {
                 var caption = domUtils.findParentByTagName(me.selection.getStart(), 'caption', true),
                     range = me.selection.getRange();
                 if (range.collapsed && caption && isEmptyBlock(caption)) {
+                  console.log('3333')
                     me.fireEvent('saveScene');
                     var table = caption.parentNode;
                     domUtils.remove(caption);

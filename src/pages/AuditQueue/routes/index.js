@@ -86,7 +86,7 @@ function AuditQueue(props) {
     sessionStorage.setItem('$QUERY', JSON.stringify({}));
 
     dispatch({
-      type: 'CDetails/getNewsGetTask',
+      type: 'Queue/getQueueListDetails',
       payload: params,
       callback: (data) => {
         console.log('data', data);

@@ -18,6 +18,7 @@ export default {
       sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify({}));
       yield put({ type: 'getQueueListCount', payload });
     },
+
     *getQueueListCount({ payload }, { call, put }) {
       yield put({ type: 'save', payload: { query: {}, loading: true } });
 
@@ -32,6 +33,33 @@ export default {
           },
         });
       }
+    },
+
+    // 领取队列
+    *getQueueListDetails({ payload, callback=()=>{} }, { call, select }) {
+      try{
+        const { query } = yield select(({ CDetails }) => CDetails);
+        // 合并参数
+        const params = {
+          id: sessionStorage.getItem('$queueContentId'),
+          ...query,
+          ...payload,
+        };
+
+        const {code, data} = yield call(api.getNewsGetTask, params);
+        
+
+        if (code === 200 && data) {
+          // 存储文章id
+          sessionStorage.setItem('$queueContentId', data.id);
+          callback(data);
+        }
+
+        callback(null);
+      }catch(e){
+        console.log('e',e)
+      }
+      
     },
   },
 

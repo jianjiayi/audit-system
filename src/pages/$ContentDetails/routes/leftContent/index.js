@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable spaced-comment */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/no-danger */
@@ -9,17 +11,16 @@
 /* eslint-disable no-eval */
 /* eslint-disable react/jsx-no-duplicate-props */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'umi';
 import classNames from 'classnames';
 import { Form, Input, DatePicker, Button } from 'antd';
 import moment from 'moment';
 import _ from 'lodash';
 
-import { AudioPlayer, VideoPlayer } from '@components/MediaComponents';
+import { AudioPlayer } from '@components/MediaComponents';
 import VideoModule from './videoModule';
 import ContentModule from './contentModule';
-import Ueditor from '@components/Editor/index2.js';
 
 import { ExTime } from '@utils/utils.js';
 
@@ -28,11 +29,16 @@ import styles from './index.module.less';
 
 const dateFormat = 'YYYY-MM-DD HH:mm:ss';
 
+
+
 function Content(props) {
   const [selfForm] = Form.useForm();
 
   // 临时保存编辑器修改后的文章详情
   const [editorText, setEditorText] = useState('');
+
+  // 缓存下视频占位符
+  const [videoPlaceholder, setVideoPlaceholder] = useState(''); 
 
   const { className, CDetails, dispatch } = props;
 
@@ -48,7 +54,7 @@ function Content(props) {
   } = CDetails;
 
   useEffect(() => {
-    setEditorText(curArt.content);
+    setEditorText(filterPlaceholder(curArt.content));
   }, [curArt.content]);
 
   useEffect(() => {
@@ -59,10 +65,17 @@ function Content(props) {
     });
   }, [isEdit]);
 
-  const [config] = useState({
-    initialFrameWidth: '100%',
-    initialFrameHeight: 400
-  })
+
+  // 处理视频占位符
+  const filterPlaceholder = (textHtml) => {
+    // return textHtml;
+    if (!textHtml) return textHtml;
+    const reg = /#{{[^]+}}#/g;
+    return textHtml.replace(eval(reg), (tag) => {
+      setVideoPlaceholder(tag);
+      return `<img src="http://lucky.peopletech.cn/static/video_placeholder_img.png" style="width:250px"/>`;
+    });
+  }
 
 
   const changeIsEdit = (status) => {
@@ -81,7 +94,14 @@ function Content(props) {
 
   // 保存函数
   const handelSaveArt = (values) => {
-    values.content = editorText;
+    // 处理视频占位符
+    let textHtml = editorText;
+    const reg = /<img [^>]*src=["http://lucky.peopletech.cn/static/video_placeholder_img.png">]*>/gi;
+    textHtml = textHtml.replace(reg, (tag) => {
+      return videoPlaceholder;
+    });
+
+    values.content = textHtml;
     if (!_.isEmpty(values.datetime)) {
       const time = values.datetime.format(dateFormat);
       values.pubTime = new Date(time.replace(/-/g, '/')).getTime();

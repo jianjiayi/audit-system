@@ -46,13 +46,13 @@ function ViewLogRender(props, ref) {
       {
         title: '审核操作',
         align: 'center',
-        dataIndex: 'auditStatus',
+        dataIndex: 'event',
         render: (text) => <a>{text}</a>,
       },
       {
         title: '任务状态',
         align: 'center',
-        dataIndex: 'event',
+        dataIndex: 'auditStatus',
         render: (text) => <a>{text}</a>,
       },
       {

@@ -21,7 +21,9 @@ function ContentDetails(props) {
   useEffect(() => {
     dispatch({
       type: 'CDetails/init',
-      payload: {},
+      payload: {
+        routersource: 'task'
+      },
       callback: ()=>{}
     });
   }, [dispatch]);

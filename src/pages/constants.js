@@ -8,6 +8,9 @@ export const errorImg = require('@/assets/error.png');
 export const acceptType= ['jpg', 'png', 'jpeg', 'gif'];
 export const maxFileSize=  5;
 
+// 视频占位符
+export const videoPlaceholderImg = require('@/assets/video_placeholder_img.png');
+
 // 系统使用的随机颜色
 export const colorList = [
   '#7eacea',

@@ -60,7 +60,7 @@ function FormAction(props) {
 
 
   const setInitFormValues = ()=>{
-    console.log('curArt.hotValue',curArt.hotValue)
+    // console.log('curArt.hotValue',curArt.hotValue)
     selfForm.setFieldsValue({
       isDup: curArt.isDup || 0,
       hotTag: [curArt.hotTag] || 0,

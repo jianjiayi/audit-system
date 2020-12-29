@@ -8,3 +8,11 @@ export async function getQueueListCount(params) {
     body: params,
   });
 }
+
+// 获取队列详情接口
+export async function getQueueListDetails(params) {
+  return request(`/audit/news/obtainDetail`, {
+    method: 'POST',
+    body: params,
+  });
+}

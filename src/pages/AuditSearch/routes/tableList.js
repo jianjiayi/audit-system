@@ -191,32 +191,38 @@ function TableList(props) {
     };
 
     console.log(params);
-    try {
-      dispatch({
-        type: 'CDetails/getNewsGetTask',
-        payload: params,
-        callback: (data) => {
-          if (_.isEmpty(data)) {
-            return message.error('当前文章不可以领取');
-          }
+    sessionStorage.setItem('$QUERY', JSON.stringify(params));
+    sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify(query));
+    history.push({
+      pathname: '/search/cdetails',
+      query: {
+        isBack: true,
+      },
+    });
+    // try {
+    //   dispatch({
+    //     type: 'CDetails/getNewsGetTask',
+    //     payload: params,
+    //     callback: (data) => {
+    //       if (_.isEmpty(data)) {
+    //         return message.error('当前文章不可以领取');
+    //       }
 
-          dispatch({ type: 'CDetails/save', payload: { query: params } });
+    //       dispatch({ type: 'CDetails/save', payload: { query: params } });
 
-          sessionStorage.setItem('$QUERY', JSON.stringify(params));
-
-          sessionStorage.setItem('$QUERY_FROM_SEARCH', query);
-          sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify(query));
-          history.push({
-            pathname: '/search/cdetails',
-            query: {
-              isBack: true,
-            },
-          });
-        },
-      });
-    } catch (e) {
-      console.log('e', e);
-    }
+    //       sessionStorage.setItem('$QUERY', JSON.stringify(params));
+    //       sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify(query));
+    //       history.push({
+    //         pathname: '/search/cdetails',
+    //         query: {
+    //           isBack: true,
+    //         },
+    //       });
+    //     },
+    //   });
+    // } catch (e) {
+    //   console.log('e', e);
+    // }
   };
 
   // 查看操作记录
