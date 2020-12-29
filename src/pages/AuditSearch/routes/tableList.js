@@ -191,6 +191,7 @@ function TableList(props) {
     };
 
     console.log(params);
+    dispatch({ type: 'CDetails/save', payload: { query: params } });
     sessionStorage.setItem('$QUERY', JSON.stringify(params));
     sessionStorage.setItem('$QUERY_FROM_SEARCH', JSON.stringify(query));
     history.push({
