@@ -5,7 +5,7 @@ import { getPageQuery } from '@/utils/utils';
 import { message } from 'antd';
 import { history } from 'umi';
 
-import { login } from '../services/api';
+import { login } from '../services/index.js';
 
 export default function useAuthModel() {
   const [user, setUser] = useState(null);

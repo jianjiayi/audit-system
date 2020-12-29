@@ -54,8 +54,10 @@ export async function getInitialState() {
   // let currentUser = {};
   // currentUser = await fetchUserInfo();
 
-  // 如果是登录页面，不执行
-  if (history.location.pathname !== '/user/login') {
+  // 如果是登录页面、注册页面、忘记密码，不执行
+  if (history.location.pathname !== '/user/login' && 
+  history.location.pathname !== '/user/register' && 
+  history.location.pathname !== '/user/forgetPassword') {
     const currentUser = await fetchUserInfo();
     // console.log('currentUser', currentUser);
     return {

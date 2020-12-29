@@ -155,7 +155,9 @@ function Operate(props) {
           },
         });
       },
-      onCancel() {},
+      onCancel() {
+        setExitBtnLoading(false);
+      },
     });
   };
 

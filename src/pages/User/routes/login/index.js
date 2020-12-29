@@ -13,8 +13,8 @@ import Particles from '@/components/Particles';
 
 import logo from '@/assets/logo.png';
 
-import proSettings from './../../../../config/defaultSettings';
-import userLogin from './models';
+import proSettings from '../../../../../config/defaultSettings';
+import userLogin from '../../models/login';
 import styles from './index.less';
 
 import { encode } from '@utils/base64';
