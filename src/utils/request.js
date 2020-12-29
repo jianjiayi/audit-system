@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable no-param-reassign */
@@ -48,9 +49,8 @@ const errorHandler = ({ showToast = true }) => (error) => {
 
   // console.log('response',response)
   if (response.code !== successCode && showToast) {
-    console.log(response)
-    const message = response.data && response.data.desc || codeMessage[response.status] || '';
-    notification.error({
+    const message = response.data && response.data.desc || codeMessage[response.code] || '';
+    message && notification.error({
       message,
     });
   }

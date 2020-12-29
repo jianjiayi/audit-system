@@ -88,8 +88,9 @@ function AuditQueue(props) {
     dispatch({
       type: 'Queue/getQueueListDetails',
       payload: params,
-      callback: (data) => {
-        console.log('data', data);
+      callback: (code,data) => {
+        if(code === 500) return;
+        
         if (_.isEmpty(data)) {
           return message.error('当前队列没有文章可以领取');
         }

@@ -46,16 +46,16 @@ export default {
           ...payload,
         };
 
-        const {code, data} = yield call(api.getNewsGetTask, params);
+        const {code, data} = yield call(api.getQueueListDetails, params);
         
 
         if (code === 200 && data) {
           // 存储文章id
           sessionStorage.setItem('$queueContentId', data.id);
-          callback(data);
+          callback(code, data);
         }
 
-        callback(null);
+        callback(code, data);
       }catch(e){
         console.log('e',e)
       }
