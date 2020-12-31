@@ -109,7 +109,7 @@ function Operate(props) {
           setSaveBtnLoading(false);
 
           if (!data) {
-            history.goBack();
+            history.go(-1);
           }
         },
       });
@@ -128,9 +128,10 @@ function Operate(props) {
         skipId: queueContentId,
       },
       callback: (data) => {
+        console.log('data',data)
         setSkipBtnLoading(false);
         if (!data) {
-          history.goBack();
+          history.go(-1);
         }
       },
     });
@@ -149,9 +150,9 @@ function Operate(props) {
           payload: {
             id: queueContentId,
           },
-          callback: () => {
-            setExitBtnLoading(false);
-            history.go(-1)
+          callback: (code) => {
+            if(code === 200) return history.goBack();
+            return message.error('退出失败');
           },
         });
       },
@@ -160,9 +161,9 @@ function Operate(props) {
       },
     });
   };
-
+  console.log(history, 'his')
   return (
-      <Form {...formProps}>
+      <div className={styles.operate_container}>
         <div className={classNames(className)}>
           <FormCoverImage pForm={selfForm} name='FormCoverImage'></FormCoverImage>
           <FormExtraInfo pForm={selfForm} name='FormExtraInfo'></FormExtraInfo>
@@ -197,7 +198,7 @@ function Operate(props) {
           </div>
         </div>
         
-      </Form>
+      </div>
   );
 }
 

@@ -85,7 +85,7 @@ function FormAction(props) {
   };
 
   return (
-    <Form {...formProps} from={selfForm}>
+    <Form {...formProps}>
       <Form.Item 
         label="分类" 
         labelCol= {{ span: 4}}
@@ -182,13 +182,13 @@ function FormAction(props) {
 
           const getReasonTpl = (rules, data) => {
             return (
-              <Form.Item name="reason" wrapperCol={{ offset: 0, span: 24 }} noStyle rules={rules}>
+              <Form.Item name="reason" wrapperCol={{ offset: 0, span: 24 }} rules={rules}>
                 <Checkbox.Group>
                   <div className={styles.checkbox_group}>
                     {data.map((item, index) => {
                       return (
-                        <div className={styles.checkbox}>
-                          <Checkbox key={index} value={item}>
+                        <div key={index} className={styles.checkbox}>
+                          <Checkbox  value={item}>
                             {item}
                           </Checkbox>
                         </div>

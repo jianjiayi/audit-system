@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-console */
 /* eslint-disable import/no-unresolved */
 import * as api from '../services/index.js';
 
@@ -52,10 +54,10 @@ export default {
         if (code === 200 && data) {
           // 存储文章id
           sessionStorage.setItem('$queueContentId', data.id);
-          callback(code, data);
+          return callback(code, data);
         }
 
-        callback(code, data);
+        return callback(code, data);
       }catch(e){
         console.log('e',e)
       }

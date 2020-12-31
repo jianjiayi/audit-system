@@ -25,7 +25,9 @@ import 'antd/es/slider/style';
 
 function FormCoverImage(props) {
   const {
+    name = 'FormImages',
     pForm,
+    className,
     CDetails: { curArt, newsDataType },
   } = props;
 
@@ -159,8 +161,13 @@ function FormCoverImage(props) {
     newsDataType,
   };
 
+  const formProps = {
+    name,
+    form: pForm,
+  };
+
   return (
-    <>
+    <Form {...formProps}>
       <div className={styles.content}>
         <img
           className={styles.coverImg}
@@ -330,7 +337,7 @@ function FormCoverImage(props) {
           )}
         </Modal>
       </Form.Item>
-    </>
+    </Form>
   );
 }
 
