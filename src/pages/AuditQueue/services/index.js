@@ -11,7 +11,7 @@ export async function getQueueListCount(params) {
 
 // 获取队列详情接口
 export async function getQueueListDetails(params) {
-  return request(`/audit/news/obtainDetail`, {
+  return request(`/audit/news/getTask`, {
     method: 'POST',
     body: params,
   });

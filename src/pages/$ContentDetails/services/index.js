@@ -13,7 +13,7 @@ export async function queryArt(params) {
 
 // 领取队列
 export async function getNewsGetTask(params) {
-  return request(`/audit/news/${params.routersource === 'search' ? 'obtainId' : 'getTask'}`, {
+  return request(`/audit/news/${params.routersource === 'search' ? 'obtainId' : 'obtainDetail'}`, {
     method: 'POST',
     body: params,
   });
