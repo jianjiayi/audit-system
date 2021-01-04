@@ -27,8 +27,8 @@ function ThreeLevelCategory(props) {
 
   // 获取一级分类数据源
   useEffect(() => {
-    if(!_.isEmpty(newsType)){
-      if(isReset) reset();
+    if (!_.isEmpty(newsType)) {
+      if (isReset) reset();
       fetchData({ id: 0, type: newsType }, setFirstCategory);
     }
   }, [newsType]);
@@ -59,7 +59,6 @@ function ThreeLevelCategory(props) {
     setThirdCategory([]);
   }, [category2]);
 
-
   // 重置组件数据
   const reset = () => {
     setCategory1(null);
@@ -68,7 +67,7 @@ function ThreeLevelCategory(props) {
     setFirstCategory([]);
     setSecondCategory([]);
     setThirdCategory([]);
-  }
+  };
 
   /**
    * select发生变化

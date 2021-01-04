@@ -34,9 +34,11 @@ function guid() {
  * @returns {any}
  */
 function entries(object, callback = (item) => item) {
-  console.log(isPlainObject(object),object)
-  if(isPlainObject(object)) return Object.entries(object).map(([key, value]) => callback({ key, value }));
-  if(isArray(object)) return object.map(v => callback( v.key, v.value ));
+  // 对象
+  if (isPlainObject(object))
+    return Object.entries(object).map(([key, value]) => callback({ key, value }));
+  // 数组
+  if (isArray(object)) return object.map((v) => callback(v.key, v.value));
 }
 
 /**
@@ -58,9 +60,9 @@ export function fillFormItems(items, formValues = {}) {
       help = null,
     } = item;
 
-    const rules = validator ? 
-      [{ required: required, message: `请输入${label}` } , { validator }]:
-      [{ required: required, message: `请输入${label}` }];
+    const rules = validator
+      ? [{ required: required, message: `请输入${label}` }, { validator }]
+      : [{ required: required, message: `请输入${label}` }];
 
     return {
       options: {
@@ -101,11 +103,7 @@ export function renderFormItem(item, formLayout, layout, mediaSpan) {
   if (!name) return;
 
   // 针对时间等长度的组件进行单独配置
-  if (
-    type === 'DateTimeStartEnd' ||
-    type === 'ThreeLevelCategory' ||
-    isSpecial
-  ) {
+  if (type === 'DateTimeStartEnd' || type === 'ThreeLevelCategory' || isSpecial) {
     mediaSpan = {
       className: 'gutter-row',
       xs: 24,
@@ -146,7 +144,7 @@ export function renderFormItem(item, formLayout, layout, mediaSpan) {
   if (type && !isFunction(itemRender))
     return <Col {...colProps}>{FormItem[type](itemProps, map, props)}</Col>;
 
-  const child = itemRender || <Input placeholder={placeholder || '请输入'} {...props} allowClear/>;
+  const child = itemRender || <Input placeholder={placeholder || '请输入'} {...props} allowClear />;
   return (
     <Col {...colProps}>
       <Form.Item {...itemProps}>{child}</Form.Item>
