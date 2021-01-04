@@ -34,9 +34,9 @@ function guid() {
  * @returns {any}
  */
 function entries(object, callback = (item) => item) {
-  return isPlainObject(object)
-    ? Object.entries(object).map(([key, value]) => callback({ key, value }))
-    : null;
+  console.log(isPlainObject(object),object)
+  if(isPlainObject(object)) return Object.entries(object).map(([key, value]) => callback({ key, value }));
+  if(isArray(object)) return object.map(v => callback( v.key, v.value ));
 }
 
 /**

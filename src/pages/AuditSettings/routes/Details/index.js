@@ -16,7 +16,6 @@ import BaseForm from '@components/BaseForm';
 import RuleJsonRender from './RuleJsonRender';
 
 import { contentType } from '@/pages/constants';
-import { ExObject } from '@/utils/utils';
 
 import styles from './index.module.less';
 
@@ -59,7 +58,6 @@ function QueueContent(props) {
         queueType: '1',
       });
     } else {
-      artData.bid = _.toString(artData.bid);
       formRef.current.setFieldsValue({ ...artData });
       setCurType(artData.type);
     }
@@ -95,7 +93,7 @@ function QueueContent(props) {
         label: '业务线',
         type: 'SELECT',
         name: 'bid',
-        initialValue: ExObject.getFirstValue(business),
+        initialValue: (!_.isEmpty(business) && business[0].key) || '',
         placeholder: '选择业务线',
         map: business,
       },

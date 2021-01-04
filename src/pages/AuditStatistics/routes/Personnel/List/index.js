@@ -19,7 +19,6 @@ import { history, useModel, connect } from 'umi';
 import BaseForm from '@components/BaseForm';
 import BaseTable from '@components/BaseTable';
 
-import { ExObject } from '@utils/utils.js';
 import { contentType, orderFieldMap, orderTypeMap, dateFormat } from '@/pages/constants';
 
 import styles from './index.module.less';
@@ -66,7 +65,7 @@ function AuditStatistics(props) {
         label: '业务线',
         type: 'SELECT',
         name: 'businessId',
-        initialValue: ExObject.getFirstValue(business),
+        initialValue: (!_.isEmpty(business) && business[0].key) || '',
         map: business,
       },
       { label: '时间', name: 'datatime', type: 'DateTimeStartEnd' },

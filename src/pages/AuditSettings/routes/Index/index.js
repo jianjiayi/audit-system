@@ -64,7 +64,7 @@ function AuditSettings(props){
         type: 'SELECT',
         name: 'bid',
         initialValue: '',
-        map: { '': '全部', ...business },
+        map: [ {key: '', value: '全部'}, ...business ],
       },
       { label: '更新时间', name: 'updateTime', type: 'DateTimeStartEnd' },
       {

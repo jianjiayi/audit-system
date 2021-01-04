@@ -57,7 +57,6 @@ function AuditStatistics(props) {
         label: '业务线',
         type: 'SELECT',
         name: 'businessId',
-        // initialValue: ExObject.getFirstValue(business),
         map: business,
       },
       { label: '审核时间', name: 'datatime', type: 'DateTimeStartEnd' },

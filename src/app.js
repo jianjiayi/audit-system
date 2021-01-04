@@ -23,7 +23,7 @@ export async function getInitialState() {
     // console.log(1, 'fetchUserInfo');
     try {
       const { data: user, code: code1 } = await getCurrentUser();
-      const { data: business, code: code2 } = await getBusiness();
+      let { data: business, code: code2 } = await getBusiness();
       const {
         data: { permissions, roles },
         code: code3,
@@ -31,11 +31,16 @@ export async function getInitialState() {
       // console.log(currentUser, 'currentUser')
       if (code1 === 200 && code2 === 200 && code3 === 200) {
         // 处理业务线
-        let mapList = {};
+        let mapList = [];
         !_.isEmpty(business) &&
-          business.map((item) => {
-            mapList[item.id] = item.coorpName;
+          business.forEach((item) => {
+            // console.log('item', item)
+            // if(mapList[item.id]) 
+            mapList.push({key:item.id, value:item.coorpName})
           });
+
+        console.log(business)
+        console.log('mapList', mapList)
 
         return {
           user,
@@ -47,6 +52,7 @@ export async function getInitialState() {
       }
       return {};
     } catch (error) {
+      console.log(error)
       history.push('/user/login');
     }
     return {};

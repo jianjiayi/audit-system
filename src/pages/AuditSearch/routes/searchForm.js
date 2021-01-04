@@ -9,7 +9,6 @@ import { useModel, connect } from 'umi';
 
 import BaseForm from '@components/BaseForm';
 
-import { ExObject } from '@utils/utils.js';
 import { contentType, auditResult, runningStatus, dateFormat } from '@/pages/constants';
 import ThreeLevelCategory from '@/components/BaseForm/ThreeLevelCategory';
 import styles from './index.module.less';
@@ -56,7 +55,7 @@ function SearchForm(props) {
 
   // 表单默认值
   const staticFormValues = {
-    businessId: ExObject.getFirstValue(business),
+    businessId: (!_.isEmpty(business) && business[0].key) || '',
     type: 'NEWS',
     queue: '',
     resultStatus: '',
