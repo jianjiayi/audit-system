@@ -93,7 +93,11 @@ function QueueContent(props) {
         label: '业务线',
         type: 'SELECT',
         name: 'bid',
-        initialValue: (!_.isEmpty(business) && business[0].key) || '',
+        initialValue: (
+          !_.isEmpty(business) && 
+          business.find(v=>v.key===15000002) && 
+          business.find(v=>v.key===15000002).key
+        ) || '',
         placeholder: '选择业务线',
         map: business,
       },

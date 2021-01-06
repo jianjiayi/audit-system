@@ -42,9 +42,9 @@ export async function getDenyWords(params) {
   });
 }
 
-// 内容来源、抓取来源接口
-export async function getContentSource(params) {
-  return request(`/audit/contentSource`, {
+// 内容来源、 抓取来源接口
+export async function getContentOrCrawSource(params) {
+  return request(`/audit/${params.API}`, {
     method: 'GET',
   });
 }

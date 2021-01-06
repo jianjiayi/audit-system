@@ -40,7 +40,6 @@ export default {
     *init({ payload }, { put }) {
       yield put({ type: 'save', payload: { category: '', art: {}, loading: true } });
       yield put({ type: 'getRuleInfo' });
-      yield put({ type: 'getContentSource' });
       yield put({ type: 'save', payload: { loading: false } });
 
 
@@ -100,18 +99,6 @@ export default {
           type: 'save',
           payload: {
             configRule: data,
-          },
-        });
-      }
-    },
-    // 内容来源、抓取来源接口
-    *getContentSource({ payload }, { call, put }) {
-      const { code, data } = yield call(api.getContentSource, payload);
-      if (code === 200) {
-        yield put({
-          type: 'save',
-          payload: {
-            sourceList: data,
           },
         });
       }

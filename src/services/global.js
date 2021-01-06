@@ -27,3 +27,11 @@ export async function getAuditImages(params) {
     method: 'GET',
   });
 }
+
+// 上传文件接口
+export async function fileUploadImage(params) {
+  return request(`/audit/file/upload/image`, {
+    method: 'POST',
+    body: params
+  });
+}

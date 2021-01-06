@@ -164,12 +164,12 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
     ),
     18: () => (
       <Form.Item {...itemProps}>
-        <SelectRender showType={isEdit}></SelectRender>
+        <SelectRender showType={isEdit} API={'crawlSource'}></SelectRender>
       </Form.Item>
     ),
     19: () => (
       <Form.Item {...itemProps}>
-        <SelectRender showType={isEdit}></SelectRender>
+        <SelectRender showType={isEdit} API={'contentSource'}></SelectRender>
       </Form.Item>
     ),
     20: () => (

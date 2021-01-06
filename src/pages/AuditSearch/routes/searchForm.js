@@ -55,7 +55,11 @@ function SearchForm(props) {
 
   // 表单默认值
   const staticFormValues = {
-    businessId: (!_.isEmpty(business) && business[0].key) || '',
+    businessId: (
+      !_.isEmpty(business) && 
+      business.find(v=>v.key===15000002) && 
+      business.find(v=>v.key===15000002).key
+    ) || '',
     type: 'NEWS',
     queue: '',
     resultStatus: '',

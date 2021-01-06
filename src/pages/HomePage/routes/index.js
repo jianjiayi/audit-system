@@ -61,7 +61,11 @@ function HomePage(props) {
         label: '业务线',
         type: 'SELECT',
         name: 'businessId',
-        initialValue: (!_.isEmpty(business) && business[0].key) || '',
+        initialValue: (
+          !_.isEmpty(business) && 
+          business.find(v=>v.key===15000002) && 
+          business.find(v=>v.key===15000002).key
+        ) || '',
         map: business,
       },
     ],
