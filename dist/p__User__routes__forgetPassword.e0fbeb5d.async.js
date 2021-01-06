@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[19],{sVVL:function(n,t,e){"use strict";e.r(t),e.d(t,"default",(function(){return u}));var r=e("q1tI"),o=e.n(r);function u(){return o.a.createElement("div",null,"forgetPassword")}}}]);

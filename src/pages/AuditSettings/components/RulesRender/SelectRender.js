@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/jsx-curly-brace-presence */
@@ -55,7 +56,7 @@ function SelectRender(props) {
           {!_.isEmpty(dataSource) &&
             dataSource.map((item, index) => {
               return (
-                <Option key={item.id+index} value={item.name}>
+                <Option key={item.id+index} value={item.id}>
                   {`${item.name}(${item.id})`}
                 </Option>
               );
@@ -64,8 +65,9 @@ function SelectRender(props) {
       ) : (
         <>
           {!_.isEmpty(value) &&
-            value.map((item, index) => {
-              return <Tag key={index}>{item}</Tag>;
+            value.map((id, index) => {
+              let item = dataSource.find(v=>v.id === id);
+              return item && <Tag key={index}>{item.name}</Tag>;
             })}
         </>
       )}
