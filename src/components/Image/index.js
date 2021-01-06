@@ -36,16 +36,9 @@ function ImageComponent(props) {
             </span>
           </div>
         </div>
-        {showCropperIcon && (
-          <Button
-            type="primary"
-            size="small"
-            className={styles.button}
-            onClick={() => onCropper(imgSrc, idx)}
-          >
-            裁切
-          </Button>
-        )}
+        {showCropperIcon && 
+          <Button type="primary" size="small" className={styles.button} onClick={() => onCropper(imgSrc, idx)}>裁切</Button>
+        }
       </div>
       {/* 图片预览 */}
       <Modal

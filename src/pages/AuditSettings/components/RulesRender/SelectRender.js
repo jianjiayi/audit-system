@@ -56,7 +56,7 @@ function SelectRender(props) {
           {!_.isEmpty(dataSource) &&
             dataSource.map((item, index) => {
               return (
-                <Option key={item.id+index} value={item.id}>
+                <Option key={item.id} value={item.id}>
                   {`${item.name}(${item.id})`}
                 </Option>
               );
