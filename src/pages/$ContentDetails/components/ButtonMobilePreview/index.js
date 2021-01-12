@@ -14,10 +14,17 @@ const iphoneBg = require('./iPhone_bg.svg');
 
 function ButtonMobilePreview(props) {
   const [visible, setVisible] = useState(false);
-  const { title, curArt = {}, newsDataType, ...rest } = props;
+  const { 
+    title= '预览效果',
+    curArt = {}, 
+    newsDataType, 
+    ...rest 
+  } = props;
 
   const mobileProps = {
     title,
+    footer: null,
+    width: 420,
     visible,
     centered: true,
     destroyOnClose: true,

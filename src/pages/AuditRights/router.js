@@ -16,7 +16,7 @@ const routes = () => ({
       {
         path: `/rights/role`,
         name: '角色管理',
-        component: './AuditRights/routes/Roles',
+        component: './AuditRights/routes/Roles/index',
         access: 'canAdmin',
       },
       {

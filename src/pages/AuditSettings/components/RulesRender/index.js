@@ -199,9 +199,26 @@ const ruleJson = (labelList, item, isEdit, bid, pForm) => {
               <TreeClassification {...treeProps}></TreeClassification>
             )
           }}
+        </Form.Item>
       </Form.Item>
-    </Form.Item>
-      
+    ),
+    21: () => (
+      <Form.Item {...itemProps}>
+        <CheckBoxRender
+          map={{ 
+            POLITICAL: '政治',
+            OTHER: '脏话',
+            PORNOGRAPHIC: '色情',
+            CURRENT_EVENT: '敏感时事',
+            LEADER: '领导人',
+            ADVERTISEMENT: '广告',
+            HIGH_RISK: '高危',
+            RUBBISH: '垃圾',
+            VIOLENCE: '暴恐', 
+          }}
+          showType={isEdit}
+        ></CheckBoxRender>
+      </Form.Item>
     ),
   };
 };

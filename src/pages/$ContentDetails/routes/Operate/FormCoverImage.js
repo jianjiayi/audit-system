@@ -1,3 +1,6 @@
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable consistent-return */
@@ -10,13 +13,13 @@
 
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
-import { Form, Image, Button, Modal, Upload, message, Radio } from 'antd';
-import ImgCrop from 'antd-img-crop';
-import { PlusOutlined, StarOutlined } from '@ant-design/icons';
+import { Form, Button, Modal, Radio } from 'antd';
 
 import { connect } from 'umi';
+import ImageList from './components/ImageLIst';
+import UploadImage from '@/components/UploadImage';
 
-import { UPLOAD_FILE_URL, acceptType, maxFileSize, errorImg } from '@/pages/constants';
+import { UPLOAD_FILE_URL } from '@/pages/constants';
 import ButtonMobilePreview from '../../components/ButtonMobilePreview';
 
 import styles from './FormCoverImage.module.less';
@@ -27,7 +30,6 @@ function FormCoverImage(props) {
   const {
     name = 'FormImages',
     pForm,
-    className,
     CDetails: { curArt, newsDataType },
   } = props;
 
@@ -37,7 +39,7 @@ function FormCoverImage(props) {
     if (_.isEmpty(arrObj)) return [];
     Object.keys(arrObj).map((key) => {
       arrObj[key].uid = key;
-      arrObj[key].url = arrObj[key].originalUrl || arrObj[key].src || arrObj[key].imageKey;
+      arrObj[key].url = arrObj[key].originalUrl;
       arr.push(arrObj[key]);
     });
     return arr;
@@ -57,10 +59,8 @@ function FormCoverImage(props) {
   const [fileList, setFileList] = useState([]);
   // 封面图
   const [contentList, setContentList] = useState(contentImages || []);
-  // 预览图片状态和图片地址
-  const [previewVisible, setPreviewVisible] = useState(false);
+
   const [imageSourceType, setImageSourceType] = useState('cover');
-  const [previewImage, setPreviewImage] = useState('');
 
 
   // 设置封面图
@@ -104,79 +104,38 @@ function FormCoverImage(props) {
     setFileList([...imgList]);
   };
 
-  // 上传文件校验
-  const beforeUpload = (file) => {
-    // console.log(file);
-    if (!acceptType) return true;
-    const reg = new RegExp(`.(${acceptType.join('|')})$`, 'i');
-    if (reg.test(file.type)) {
-      // console.log(file.size / 1024 / 1024);
-      if (!maxFileSize) return true;
-
-      if (file.size / 1024 / 1024 <= maxFileSize) {
-        return true;
-      }
-      message.error(`上传文件大小不能超过${maxFileSize}M`);
-      return false;
-    }
-    message.error(`文件类型只支持${acceptType.join(',')}类型`);
-    return false;
-  };
-  // 修改图片
+  // 上传成功后修改图片
   const onChange = (info) => {
-    const { status = '' } = info.file;
-    if (status !== 'uploading') {
-      // console.log(info.file, info.fileList);
-      setFileList([...info.fileList]);
-    }
-    if (status === 'done') {
-      setFileList([
-        ...fileList,
-        {
-          uid: new Date(),
-          url: info.file.response.data.fileUrl,
-          imageKey: info.file.response.data.imageKey,
-          originalUrl: info.file.response.data.fileUrl,
-          width: info.file.response.data.width,
-          height: info.file.response.data.height,
-        },
-      ]);
-    } else if (status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
+    setFileList([...info]);
+    // 修改表单里的封面图
+    const {getFieldsValue,setFieldsValue} = pForm;
+    const values = getFieldsValue();
+    setFieldsValue({
+      ...values,
+      covers: info,
+    })
   };
-  // 图片预览
-  const onPreview = async (file) => {
-    if (!file.url) return;
-    setPreviewVisible(true);
-    setPreviewImage(file.url);
-  };
-
-  // 预览效果
-  const MobilePreviewProps = {
-    title: '预览效果',
-    footer: null,
-    width: 420,
-    curArt, // 当前文章
-    newsDataType,
-  };
-
-  const formProps = {
-    name,
-    form: pForm,
+  // 删除已上传的图片
+  const onRemove = (src = '', index = null) => {
+    const List = _.cloneDeep(fileList);
+    List.splice(index, 1);
+    setFileList([...List]);
   };
 
   return (
-    <Form {...formProps}>
+    <Form name ={name} form={pForm}>
       <div className={styles.content}>
-        <img
-          className={styles.coverImg}
-          width={200}
-          height={150}
-          src={(!_.isEmpty(fileList) && fileList[0] && fileList[0].originalUrl) || 
-                (!_.isEmpty(fileList) && fileList[0] && fileList[0].src) || 
-                errorImg}
-        />
+        <UploadImage 
+          name = 'avatar'
+          action={UPLOAD_FILE_URL}
+          fileList={objToArr(fileList) || []}
+          maxSize = {1}
+          width = {200}
+          height = {150}
+          showRemoveIcon = {false}
+          onChange={onChange}
+          onRemove={onRemove}
+        ></UploadImage>
         <div className={styles.button_list}>
           <Button
             type="primary"
@@ -213,7 +172,7 @@ function FormCoverImage(props) {
           >
             正文全图
           </Button>
-          <ButtonMobilePreview {...MobilePreviewProps} />
+          <ButtonMobilePreview curArt={curArt} newsDataType={newsDataType}/>
         </div>
       </div>
       
@@ -232,43 +191,10 @@ function FormCoverImage(props) {
           }}
           footer={null}
         >
-          {(tabKey === 0 || tabKey === 2) && (
-            <div className={styles.images_list}>
-              {/* 封面图 */}
-              {imageSourceType === 'cover' && !_.isEmpty(fileList)
-                ? fileList.map((item, index) => {
-                    return (
-                      <div className={styles.item} key={index}>
-                        <Image
-                          width={120}
-                          height={90}
-                          alt="封面图"
-                          src={item.originalUrl || item.src}
-                          fallback={errorImg}
-                        />
-                      </div>
-                    );
-                  })
-                : imageSourceType === 'cover' && <p>暂无封面图</p>}
-
-              {/* 正文全图 */}
-              {imageSourceType === 'contentImages' && !_.isEmpty(contentList)
-                ? contentList.map((item, index) => {
-                    return (
-                      <Image
-                        className={styles.item}
-                        key={index}
-                        width={120}
-                        height={90}
-                        alt="封面图"
-                        src={item.src}
-                        fallback={errorImg}
-                      />
-                    );
-                  })
-                : imageSourceType === 'contentImages' && <p>暂无内容图片</p>}
-            </div>
-          )}
+          {
+            (tabKey === 0 || tabKey === 2) && 
+            <ImageList fileList={imageSourceType === 'cover' ? fileList : contentList}></ImageList>
+          }
 
           {/* 上传图片组件 */}
           {tabKey === 1 && (
@@ -282,35 +208,16 @@ function FormCoverImage(props) {
                 <Radio value={1}>单图</Radio>
                 <Radio value={3}>三图</Radio>
               </Radio.Group>
-              <ImgCrop rotate>
-                <Upload
-                  action={UPLOAD_FILE_URL}
-                  listType="picture-card"
-                  fileList={objToArr(fileList) || []}
-                  beforeUpload={beforeUpload}
-                  onChange={onChange}
-                  onPreview={onPreview}
-                >
-                  {!_.isEmpty(fileList) && objToArr(fileList).length >= imagesValue ? null : (
-                    <>
-                      <PlusOutlined />
-                      <div style={{ marginTop: 8 }}>Upload</div>
-                    </>
-                  )}
-                </Upload>
-              </ImgCrop>
+              {/* 上传组件 */}
+              <UploadImage 
+                action={UPLOAD_FILE_URL}
+                fileList={objToArr(fileList) || []}
+                maxSize = {imagesValue}
+                onChange={onChange}
+                onRemove={onRemove}
+              ></UploadImage>
             </div>
           )}
-
-          {/* 图片预览 */}
-          <Modal
-            visible={previewVisible}
-            title="图片预览"
-            footer={null}
-            onCancel={() => setPreviewVisible(false)}
-          >
-            <img alt="example" style={{ width: '100%' }} src={previewImage} />
-          </Modal>
 
           {tabKey !== 2 && (
             <div className={styles.footer}>

@@ -5,15 +5,16 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable array-callback-return */
 /* eslint-disable react/self-closing-comp */
-import React, {useState, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
+import {Form} from 'antd';
 import Ueditor from '@components/Editor/index2.js';
-import styles from './contentModule.less';
+import styles from './index.module.less';
 
 function ContentModule(props) {
   const {
     isEdit = false,
-    editorText = '', 
-    setEditorText= ()=>{},
+    pForm,
+    contentText = '',
     forbiddenWordList = [], // 违禁词
     sensitiveWordList = [], // 敏感词
     hotWord = [], // 热词
@@ -21,16 +22,32 @@ function ContentModule(props) {
   } = props;
 
 
-  const ueRef = useRef(null)
+  const ueRef = useRef(null);
 
   const [config] = useState({
     initialFrameWidth: '100%',
     initialFrameHeight: 400
   })
+
+  useEffect(()=>{
+    if(pForm){
+      const {getFieldsValue,setFieldsValue} = pForm;
+      const values = getFieldsValue();
+      setFieldsValue({
+        ...values,
+        content: contentText,
+      })
+    }
+  },[contentText])
   
   // 富文本失焦就触发setContent函数设置表单的content内容
   const setContent = (content)=>{
-    setEditorText(content);
+    const {getFieldsValue,setFieldsValue} = pForm;
+    const values = getFieldsValue();
+    setFieldsValue({
+      ...values,
+      content,
+    })
   }
 
   /**
@@ -89,18 +106,19 @@ function ContentModule(props) {
   ];
 
   // 正文
-  const textHtml = { __html: getContentHtml(editorText, list) };
+  const textHtml = { __html: getContentHtml(contentText, list) };
 
   return (
-    <div className="">
+    <Form form={pForm} className="">
       <h3 className={styles.title}>正文详情 : </h3>
+      <Form.Item name="content" noStyle></Form.Item>
       {isEdit && (
         <div className={styles.ueditor}>
           <Ueditor 
             id="container" 
             ref={ueRef} 
             config={config} 
-            initData={editorText} 
+            initData={contentText} 
             setContent={(e)=>setContent(e)}>
             </Ueditor>
         </div>
@@ -110,7 +128,7 @@ function ContentModule(props) {
           <div className={styles['content-text']} dangerouslySetInnerHTML={textHtml} />
         </div>
       )}
-    </div>
+    </Form>
   );
 }
 

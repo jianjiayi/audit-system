@@ -4,26 +4,28 @@ import React from 'react';
 import _ from 'lodash';
 import ImageComponent from '@/components/Image';
 
-import styles from './ImageList.module.less';
-
 function ImageLIst(props) {
   const {
     fileList = []
   } = props;
 
   return (
-    <div className={styles.img_list}>
-      {!_.isEmpty(fileList) && fileList.map((item, index) => {
-        return (
-          <div className={styles.item} key={index}>
-            <ImageComponent
-              idx={index}
-              imgSrc={item.originalUrl || item.src}
-              showCropperIcon={false}
-            ></ImageComponent>
-          </div>
-        );
-      })}
+    <div style={{display: 'flex',flexWrap: 'wrap'}}>
+      {
+        !_.isEmpty(fileList) ?
+        fileList.map((item, index) => {
+          return (
+            <div style={{margin: '0 8px 8px 0'}} key={index}>
+              <ImageComponent
+                idx={index}
+                imgSrc={item.originalUrl || item.url || item.src}
+                showCropperIcon={false}
+              ></ImageComponent>
+            </div>
+          );
+        }):
+        <p>暂无内容图片</p>
+      }
     </div>
   )
 }

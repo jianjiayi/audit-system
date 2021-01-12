@@ -44,11 +44,6 @@ function Operate(props) {
 
   const [selfForm] = Form.useForm();
 
-  const formProps = {
-    form: selfForm,
-    className: styles.operate_container
-  };
-
   // 审核操作
   const auditSubmit = () => {
     // 判断左侧是否处于编辑状态
@@ -161,7 +156,7 @@ function Operate(props) {
       },
     });
   };
-  console.log(history, 'his')
+  // console.log(history, 'his')
   return (
       <div className={styles.operate_container}>
         <div className={classNames(className)}>

@@ -9,35 +9,34 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-unused-vars */
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Modal, Tag } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Modal } from 'antd';
 import _ from 'lodash';
 import { connect } from 'umi';
+import { dateFormat } from '@/pages/constants';
 
-import BaseForm from '@components/BaseForm';
-import BaseTable from '@components/BaseTable';
-import { roleStatus, dateFormat } from '@/pages/constants';
-import WrapAuthButton from '@components/WrapAuth';
-import ModalForm from '../../components/ModalForm';
-
-import TreeSelectComponent from '../../components/TreeSelect';
-
-import styles from './index.module.less';
+import SearchForm from './SearchForm';
+import TableList from './TableList';
+import ModalForm from './ModalForm';
 
 const { confirm } = Modal;
 
 function RolePage(props) {
-
-  const modalFormRef = useRef(null);
-  // modal标题
-  const [title, setTitle] = useState('');
-  // 临时存储用户信息
-  const [formValues, setFormValues] = useState({});
-
   const {
     dispatch,
     Rights: { loading, permissionDataList, dataSource, pagination },
   } = props;
+
+  // modal基本状态
+  const [modalInfo, setModalInfo] = useState({
+    visible: false,
+    title: '新建',
+    type: 'create',
+    footer: null,
+  });
+
+  // 临时存储用户信息
+  const [formValues, setFormValues] = useState({});
 
   useEffect(() => {
     dispatch({
@@ -52,30 +51,16 @@ function RolePage(props) {
     });
   }, [dispatch]);
 
-  // 多条件搜索配置
-  const searchFormProps = {
-    className: styles['form-contaner'],
-    layout: 'inline',
-    resetShow: true,
-    authProps: {
-      pathUrl: '/rights/role',
-      perms: 'role:select',
+  // 多条件搜索
+  const searchProps = {
+    onCreate: () => {
+      setModalInfo({
+        ...modalInfo,
+        title: '创建角色',
+        type: 'create',
+        visible: true,
+      });
     },
-    dataSource: [
-      {
-        label: '角色',
-        name: 'roleName',
-      },
-      { label: '更新时间', name: 'datatime', type: 'DateTimeStartEnd' },
-      {
-        label: '状态',
-        type: 'SELECT',
-        name: 'state',
-        initialValue: '',
-        map: roleStatus,
-      },
-      { label: '更新人', name: 'updateUser' },
-    ],
     onReset: () => {
       dispatch({
         type: 'Rights/init',
@@ -84,88 +69,30 @@ function RolePage(props) {
         },
       });
     },
-    onSubmit: (formValues) => {
-      if (!_.isEmpty(formValues.datatime)) {
-        formValues.startTime = formValues.datatime[0].format(dateFormat);
-        formValues.endTime = formValues.datatime[1].format(dateFormat);
+    onSubmit: (values) => {
+      if (!_.isEmpty(values.datatime)) {
+        values.startTime = values.datatime[0].format(dateFormat);
+        values.endTime = values.datatime[1].format(dateFormat);
       }
-      delete formValues.datatime;
+      delete values.datatime;
 
-      console.log('formValues', formValues);
+      console.log('formValues', values);
       dispatch({
         type: 'Rights/getUserOrRoleQuery',
         payload: {
-          ...formValues,
+          ...values,
           type: 'role',
         },
       });
     },
   };
 
-  // 列表配置
+  // 表格列表
   const tableProps = {
-    scroll: { x: 800 },
-    // 类型
-    selectionType: null, // checkbox or radio or null||false
-    // 表头
-    columns: [
-      {
-        title: '角色名',
-        dataIndex: 'roleName',
-        width: '200px',
-        fixed: 'left',
-        render: (text) => <span>{text}</span>,
-      },
-      {
-        title: '更新人',
-        align: 'center',
-        dataIndex: 'updateUser',
-      },
-      {
-        title: '更新时间',
-        align: 'center',
-        width: '200px',
-        dataIndex: 'updateTime',
-      },
-      {
-        title: '状态',
-        align: 'center',
-        dataIndex: 'state',
-        render: (text) => <span>{text === '' ? '全部' : roleStatus[text]}</span>,
-      },
-      {
-        title: '操作',
-        fixed: 'right',
-        width: '100px',
-        align: 'center',
-        render(r) {
-          return (
-            <div className={styles.tableaction}>
-              <WrapAuthButton
-                pathUrl="/rights/role"
-                perms="role:edit"
-                type="primary"
-                size="small"
-                text="编辑"
-                disabled={r.roleName === 'system'}
-                onClick={() => openUserModal('edit', r)}
-              ></WrapAuthButton>
-              <WrapAuthButton
-                pathUrl="/rights/role"
-                perms="role:edit"
-                size="small"
-                text={r.state !== 1 ? '注销' : '重启'}
-                disabled={r.roleName === 'system'}
-                onClick={() => updateUserOrRoleStatus('role', r.state, r.id)}
-              ></WrapAuthButton>
-            </div>
-          );
-        },
-      },
-    ],
     loading,
     dataSource,
     pagination,
+    // 分页
     onPageChg: (page) => {
       // console.log(page)
       dispatch({
@@ -177,25 +104,45 @@ function RolePage(props) {
         },
       });
     },
-  };
-
-  // 更新用户或角色状态
-  const updateUserOrRoleStatus = (type, number, id) => {
-    console.log(type, number, id);
-    if (number !== 1) {
-      confirm({
-        title: '提示',
-        content: '是否确认注销该角色吗？',
-        onOk() {
-          return updateUserOrRoleAsyncFun(type, number, id);
+    // 编辑
+    onEditItem: (data = {}) => {
+      dispatch({ type: 'Rights/save', payload: { permissionIds: [] } });
+      if (!data) return;
+      // 处理编辑用户回显逻辑
+      dispatch({
+        type: 'Rights/getRuleDetailsById',
+        payload: {
+          id: data.id,
         },
-        onCancel() {},
+        callback: (res) => {
+          data.permissionIds = res || [];
+          setFormValues(data);
+          setModalInfo({
+            ...modalInfo,
+            title: '编辑用户',
+            type: 'edit',
+            visible: true,
+          });
+        },
       });
-    } else {
-      updateUserOrRoleAsyncFun(type, number, id);
-    }
+    },
+    // 修改状态
+    onChangeStatus: (type, number, id) => {
+      console.log(type, number, id);
+      if (number !== 1) {
+        confirm({
+          title: '提示',
+          content: '是否确认注销该角色吗？',
+          onOk() {
+            return updateUserOrRoleAsyncFun(type, number, id);
+          },
+          onCancel() {},
+        });
+      } else {
+        updateUserOrRoleAsyncFun(type, number, id);
+      }
+    },
   };
-
   // 更新角色状态
   const updateUserOrRoleAsyncFun = (type, number, id) => {
     // console.log(type, id)
@@ -223,127 +170,75 @@ function RolePage(props) {
     });
   };
 
-  // 点击打开用户编辑模态框
-  const openUserModal = (type, values) => {
-    setTitle(type === 'create' ? '创建' : '编辑');
-    dispatch({ type: 'Rights/save', payload: { permissionIds: [] } });
-
-    modalFormRef.current.setVisible(true);
-    if (!values) return;
-    // 处理编辑用户回显逻辑
-    dispatch({
-      type: 'Rights/getRuleDetailsById',
-      payload: {
-        id: values.id,
-      },
-      callback: (res) => {
-        // console.log(values,res);
-        values.permissionIds = res || [];
-        setFormValues(values);
-        // console.log('modalFormRef',modalFormRef.current)
-        modalFormRef.current.updateFormValues(values);
-      },
-    });
-  };
-
-  // 创建modal配置
-  const modalFormProps = {
-    title: title + '角色',
-    footer: null,
+  // modal 表单
+  const modalProps = {
+    ...modalInfo,
+    formValues,
+    permissionDataList,
+    // 关闭modal
     onCancel: () => {
-      modalFormRef.current.setModalStatus(false, () => {
-        setFormValues({});
+      setFormValues({});
+      setModalInfo({
+        ...modalInfo,
+        visible: false,
       });
     },
-    /** 表单参数 */
-    formProps: {
-      className: styles['form-contaner'],
-      layout: 'horizontal',
-      submitText: '保存',
-      dataSource: [
-        {
-          label: '角色名',
-          name: 'roleName',
-          required: true,
-          type: 'TextArea',
-          showCount: true,
-          maxLength: 200,
+    // 确定
+    onOk: (type, Values) => {
+      console.log(formValues, Values);
+      dispatch({
+        type: 'Rights/addUserOrRole',
+        payload: {
+          id: formValues.id,
+          ...Values,
+          pathname: 'role',
+          type: type === 'create' ? 'add' : 'edit',
         },
-        {
-          label: '分配权限',
-          name: 'permissionIds',
-          itemRender: (
-            <TreeSelectComponent 
-              permissionDataList={permissionDataList} 
-            ></TreeSelectComponent>
-          ),
-        },
-      ],
-      formValues: formValues,
-      onSubmit: (Values) => {
-        // console.log('Values', Values)
-        dispatch({
-          type: 'Rights/addUserOrRole',
-          payload: {
-            id: formValues.id,
-            ...Values,
-            pathname: 'role',
-            type: title === '创建' ? 'add' : 'edit',
-          },
-          callback: (res) => {
-            if (res === 200) {
-              modalFormRef.current.setModalStatus(false, () => {
-                setFormValues({});
+        callback: (res) => {
+          if (res === 200) {
+            setFormValues({});
+            setModalInfo({
+              ...modalInfo,
+              visible: false,
+            });
+            // 创建成功，刷新当前列表
+            if (type === 'create') {
+              dispatch({
+                type: 'Rights/init',
+                payload: {
+                  type: 'role',
+                },
               });
 
-              // 创建成功，刷新当前列表
-              if (title === '创建') {
-                dispatch({
-                  type: 'Rights/init',
-                  payload: {
-                    type: 'role',
-                  },
-                });
-
-                dispatch({
-                  type: 'Rights/getPermissionList',
-                  payload: {},
-                });
-              } else {
-                // 更新当前列表状态
-                const tableList = _.cloneDeep(dataSource);
-                const index = tableList.findIndex((item) => formValues.id === item.id);
-                const item = tableList[index];
-                tableList.splice(index, 1, {
-                  ...item,
-                  ...formValues,
-                });
-                dispatch({
-                  type: 'Rights/save',
-                  payload: { dataSource: tableList },
-                });
-              }
+              dispatch({
+                type: 'Rights/getPermissionList',
+                payload: {},
+              });
+            } else {
+              // 更新当前列表状态
+              const tableList = _.cloneDeep(dataSource);
+              const index = tableList.findIndex((item) => formValues.id === item.id);
+              const item = tableList[index];
+              tableList.splice(index, 1, {
+                ...item,
+                ...formValues,
+              });
+              dispatch({
+                type: 'Rights/save',
+                payload: { dataSource: tableList },
+              });
             }
-          },
-        });
-      },
+          }
+        },
+      });
     },
   };
 
   return (
     <>
-      <BaseForm {...searchFormProps}>
-        <WrapAuthButton
-          pathUrl="/rights/role"
-          perms="role:add"
-          text="新建"
-          ghost
-          type="primary"
-          onClick={() => openUserModal('create')}
-        ></WrapAuthButton>
-      </BaseForm>
-      <BaseTable {...tableProps}></BaseTable>
-      <ModalForm {...modalFormProps} ref={modalFormRef}></ModalForm>
+      <SearchForm {...searchProps}></SearchForm>
+      <TableList {...tableProps}></TableList>
+      <ModalForm {...modalProps}></ModalForm>
     </>
   );
 }

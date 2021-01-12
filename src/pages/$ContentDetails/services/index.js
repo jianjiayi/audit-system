@@ -27,6 +27,15 @@ export async function getNewsSaveContent(params) {
   });
 }
 
+// 裁切视频
+export async function cutVideo(params) {
+  return request(`/audit/video/cut`, {
+    method: 'POST',
+    body: params,
+    timeout: 5*1000*60
+  });
+}
+
 // 校验标签是否存在
 export async function getCheckoutTags(params) {
   return request(`/audit/tag/exists?name=${params.name}`, {

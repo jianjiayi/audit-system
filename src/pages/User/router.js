@@ -25,11 +25,11 @@ const routes = (
       },
     ],
   },
-  {
-    path: `/person/center`,
-    name: '个人中心',
-    icon: 'UnorderedListOutlined',
-    component: './User/routes/personCenter',
-  }
+  // {
+  //   path: `/person/center`,
+  //   name: '个人中心',
+  //   icon: 'UnorderedListOutlined',
+  //   component: './User/routes/personCenter',
+  // }
 ]);
 export default routes;

@@ -1,56 +1,39 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-useless-return */
-/* eslint-disable consistent-return */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable spaced-comment */
-/* eslint-disable import/order */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/newline-after-import */
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable @typescript-eslint/no-use-before-define */
-/* eslint-disable no-return-assign */
-/* eslint-disable prefer-template */
-/* eslint-disable no-console */
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/dot-notation */
-/* eslint-disable object-shorthand */
+/* eslint-disable no-undef */
 /* eslint-disable no-param-reassign */
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-/* eslint-disable react/jsx-curly-brace-presence */
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable prefer-const */
 /* eslint-disable react/self-closing-comp */
-/* eslint-disable array-callback-return */
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'umi';
 import _ from 'lodash';
-import { Form, Input,  Modal, Select, Tag } from 'antd';
+import { Modal } from 'antd';
+import { dateFormat } from '@/pages/constants';
 
-import BaseForm from '@components/BaseForm';
-import BaseTable from '@components/BaseTable';
-import ModalForm from '../../components/ModalForm';
+import SearchForm from './SearchFrom';
+import TableList from './TableList';
+import ModalForm from './ModalFrom';
 
-import { rightStatus, dateFormat } from '@/pages/constants';
 
-import styles from './index.module.less';
-
-import WrapAuthButton from '@components/WrapAuth';
-
-const { Option } = Select;
 
 const { confirm } = Modal;
 
 function UserRights(props) {
-
-  const modalFormRef = useRef(null);
-  // modal标题
-  const [title, setTitle] = useState('');
-  // 临时存储用户信息
-  const [formValues, setFormValues] = useState({});
-
   const {
     dispatch,
     Rights: { loading, query, roleList, roleAllLIst, dataSource, pagination },
   } = props;
+
+  // modal基本状态
+  const [modalInfo, setModalInfo] = useState({
+    visible: false,
+    title: '新建',
+    type: 'create',
+    footer: null,
+  });
+
+  // 临时存储用户信息
+  const [formValues, setFormValues] = useState({});
 
   useEffect(() => {
     dispatch({
@@ -61,35 +44,17 @@ function UserRights(props) {
     });
   }, [dispatch]);
 
-  // 多条件搜索表单
-  const searchFormProps = {
-    className: styles['form-contaner'],
-    layout: 'inline',
-    resetShow: true,
-    authProps: {
-      pathUrl: '/rights/user',
-      perms: 'user:select',
+  // 多条件搜索
+  const searchProps = {
+    roleList,
+    onCreate: () => {
+      setModalInfo({
+        ...modalInfo,
+        title: '创建用户',
+        type: 'create',
+        visible: true,
+      });
     },
-    dataSource: [
-      {
-        label: '角色',
-        type: 'SELECT',
-        name: 'roleId',
-        initialValue: '',
-        map: { '': '全部', ...roleList },
-      },
-      { label: '时间', name: 'datatime', type: 'DateTimeStartEnd' },
-      {
-        label: '状态',
-        type: 'SELECT',
-        name: 'state',
-        initialValue: '',
-        map: rightStatus,
-      },
-      { label: '真实姓名', name: 'name' },
-      { label: 'ip', name: 'loginIp' },
-      { label: '用户名', name: 'username' },
-    ],
     onReset: () => {
       dispatch({
         type: 'Rights/init',
@@ -98,110 +63,30 @@ function UserRights(props) {
         },
       });
     },
-    onSubmit: (formValues) => {
-      if (!_.isEmpty(formValues.datatime)) {
-        formValues.startTime = formValues.datatime[0].format(dateFormat);
-        formValues.endTime = formValues.datatime[1].format(dateFormat);
+    onSubmit: (values) => {
+      if (!_.isEmpty(values.datatime)) {
+        values.startTime = values.datatime[0].format(dateFormat);
+        values.endTime = values.datatime[1].format(dateFormat);
       }
-      delete formValues.datatime;
-
-      console.log('formValues', formValues);
+      delete values.datatime;
       dispatch({
         type: 'Rights/getUserOrRoleQuery',
         payload: {
-          ...formValues,
+          ...values,
           type: 'user',
         },
       });
     },
   };
 
-  // 分页table列表
+  
+
+  // 表格列表
   const tableProps = {
-    scroll: { x: 1000 },
-    // 类型
-    selectionType: null, //checkbox or radio or null||false
-    // 表头
-    columns: [
-      {
-        title: '用户名',
-        dataIndex: 'username',
-        fixed: 'left',
-        width: '200px',
-        render: (text) => <span>{text}</span>,
-      },
-      {
-        title: '真实姓名',
-        align: 'center',
-        dataIndex: 'name',
-      },
-      {
-        title: '角色',
-        align: 'center',
-        dataIndex: 'roles',
-        render: (data) => {
-          return (
-            !_.isEmpty(data) &&
-            data.map((item, index) => {
-              return (
-                <Tag color="#87d068" style={{ marginBottom: '5px' }} key={item.id}>
-                  {item.roleName}
-                </Tag>
-              );
-            })
-          );
-        },
-      },
-      {
-        title: '最近一次登录时间',
-        align: 'center',
-        width: '200px',
-        dataIndex: 'loginTime',
-      },
-      {
-        title: '登录IP',
-        align: 'center',
-        dataIndex: 'loginIp',
-      },
-      {
-        title: '状态',
-        align: 'center',
-        dataIndex: 'state',
-        render: (text) => <span>{text === '' ? '全部' : rightStatus[text]}</span>,
-      },
-      {
-        title: '操作',
-        fixed: 'right',
-        width: '100px',
-        align: 'center',
-        render(r) {
-          return (
-            <div className={styles.tableaction}>
-              <WrapAuthButton
-                pathUrl="/rights/user"
-                perms={'user:edit'}
-                type="primary"
-                size="small"
-                text="编辑"
-                disabled={r.username === 'system'}
-                onClick={() => openUserModal('edit', r)}
-              ></WrapAuthButton>
-              <WrapAuthButton
-                pathUrl="/rights/user"
-                perms={'user:edit'}
-                size="small"
-                text={r.state !== 2 ? '注销' : '重启'}
-                disabled={r.username === 'system'}
-                onClick={() => updateUserOrRoleStatus('user', r.state, r.username)}
-              ></WrapAuthButton>
-            </div>
-          );
-        },
-      },
-    ],
     loading,
     dataSource,
     pagination,
+    // 分页
     onPageChg: (page) => {
       // console.log(page)
       dispatch({
@@ -213,25 +98,34 @@ function UserRights(props) {
         },
       });
     },
-  };
-
-  // 更新用户或角色状态
-  const updateUserOrRoleStatus = (type, number, username) => {
-    console.log(type, number, username);
-    if (number !== 2) {
-      confirm({
-        title: '提示',
-        content: '是否确认注销该用户吗？',
-        onOk() {
-          return updateUserOrRoleAsyncFun(type, number, username);
-        },
-        onCancel() {},
+    // 编辑
+    onEditItem: (data = {}) => {
+      if (!data) return;
+      data.roles = (data.roles[0] && data.roles[0].roleName) || null;
+      setFormValues(data);
+      setModalInfo({
+        ...modalInfo,
+        title: '编辑用户',
+        type: 'edit',
+        visible: true,
       });
-    } else {
-      updateUserOrRoleAsyncFun(type, number, username);
-    }
+    },
+    // 修改状态
+    onChangeStatus: (type, number, username) => {
+      if (number !== 2) {
+        confirm({
+          title: '提示',
+          content: '是否确认注销该用户吗？',
+          onOk() {
+            return updateUserOrRoleAsyncFun(type, number, username);
+          },
+          onCancel() {},
+        });
+      } else {
+        updateUserOrRoleAsyncFun(type, number, username);
+      }
+    },
   };
-
   // 更新用户状态
   const updateUserOrRoleAsyncFun = (type, number, username) => {
     dispatch({
@@ -258,145 +152,59 @@ function UserRights(props) {
     });
   };
 
-  // 点击打开用户编辑模态框
-  const openUserModal = (type, values) => {
-    setTitle(type === 'create' ? '创建' : '编辑');
-    modalFormRef.current.setVisible(true);
-    if (!values) return;
-    values.roles = (values.roles[0] && values.roles[0].roleName) || null;
-    console.log(values);
-    
-    setFormValues(values);
-  };
 
-  // 创建用户moddal表
-  const modalFormProps = {
-    title: title + '用户',
-    footer: null,
+  // modal 表单
+  const modalProps = {
+    ...modalInfo,
+    formValues,
+    roleAllLIst,
+    // 关闭modal
     onCancel: () => {
-      modalFormRef.current.setModalStatus(false, () => {
-        setFormValues({});
+      setFormValues({});
+      setModalInfo({
+        ...modalInfo,
+        visible: false,
       });
     },
-
-    /**表单参数*/
-    formProps: {
-      className: styles['form-contaner'],
-      layout: 'vertical',
-      submitText: '保存',
-      dataSource: [
-        {
-          label: '用户名',
-          name: 'username',
-          required: true,
-          disabled: title !== '创建' && true,
-          type: 'TextArea',
-          showCount: true,
-          maxLength: 100,
-        },
-        {
-          label: '密码',
-          name: title === '创建' ? 'password' : null,
-          required: true,
-          validator: (rule, value, callback) => {
-            // console.log('rule, value',value)
-            const pwdRegex = new RegExp('(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{8,30}');
-            if (!pwdRegex.test(value)) {
-              return callback(`密码中必须包含大小写 字母、数字、特殊字符，至少8个字符，最多30个字符`);
-            }
-            return callback();
-          },
-        },
-        {
-          label: '角色',
-          name: 'roles',
-          required: true,
-          itemRender: (
-            <Select showSearch placeholder="请选择角色">
-              {!_.isEmpty(roleAllLIst) &&
-                roleAllLIst.map((item, index) => {
-                  return (
-                    <Option key={index} value={item.roleName}>
-                      {item.roleName}
-                    </Option>
-                  );
-                })}
-            </Select>
-          ),
-        },
-
-        {
-          label: '真实姓名',
-          name: 'name',
-          required: true,
-          type: 'TextArea',
-          showCount: true,
-          maxLength: 100,
-        },
-
-        {
-          label: '备注',
-          name: 'remarks',
-          type: 'TextArea',
-          showCount: true,
-          maxLength: 200,
-        },
-      ],
-      formValues: formValues,
-      onSubmit: (formValues) => {
-        console.log('formValues', formValues);
-        // 处理角色
-        if (!_.isEmpty(formValues.roles)) {
-          let list = [];
-          let item = roleAllLIst.filter((v) => {
-            return v.roleName === formValues.roles;
-          });
-          console.log(item);
-          list.push(item[0].id);
-          formValues.roles = list;
-        }
-
-        dispatch({
-          type: 'Rights/addUserOrRole',
-          payload: {
-            ...formValues,
-            pathname: 'user',
-            type: title === '创建' ? 'add' : 'edit',
-          },
-          callback: (res) => {
-
-            if (res === 200) {
-              modalFormRef.current.setModalStatus(false, () => {
-                setFormValues({});
-              });
-
-              console.log('query:', query);
-
-              // 刷新当前列表
-              dispatch({ type: 'Rights/getUserOrRoleQuery', payload: { ...query } });
-
-              return;
-            }
-          },
+    // 确定
+    onOk: (type, values) => {
+      // 处理角色
+      if (!_.isEmpty(values.roles)) {
+        let list = [];
+        let item = roleAllLIst.filter((v) => {
+          return v.roleName === values.roles;
         });
-      },
+        list.push(item[0].id);
+        values.roles = list;
+      }
+
+      dispatch({
+        type: 'Rights/addUserOrRole',
+        payload: {
+          ...values,
+          pathname: 'user',
+          type: type === 'create' ? 'add' : 'edit',
+        },
+        callback: (res) => {
+          if (res === 200) {
+            setFormValues({});
+            setModalInfo({
+              ...modalInfo,
+              visible: false,
+            });
+            // 刷新当前列表
+            return dispatch({ type: 'Rights/getUserOrRoleQuery', payload: { ...query } });
+          }
+        },
+      });
     },
   };
 
   return (
     <>
-      <BaseForm {...searchFormProps}>
-        <WrapAuthButton
-          pathUrl="/rights/user"
-          perms="user:add"
-          text="新建"
-          ghost
-          type="primary"
-          onClick={() => openUserModal('create')}
-        ></WrapAuthButton>
-      </BaseForm>
-      <BaseTable {...tableProps}></BaseTable>
-      <ModalForm {...modalFormProps} ref={modalFormRef}></ModalForm>
+      <SearchForm {...searchProps}></SearchForm>
+      <TableList {...tableProps}></TableList>
+      <ModalForm {...modalProps}></ModalForm>
     </>
   );
 }

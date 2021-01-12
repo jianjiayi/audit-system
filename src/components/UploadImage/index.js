@@ -30,6 +30,22 @@ const uploadButton = (
 );
 
 function UploadImage(props) {
+
+  const {
+    name = 'list', // list：列表 avatar：头像
+    action = '',  // 接口地址
+    maxSize = 5,  // 最大上传数量
+    fileList = [],
+    width = 102,
+    height = null,
+    showRemoveIcon = true,
+    showCropperIcon = true,
+    onChange = () => {},
+    onRemove = () => {},
+    listType = "picture-card",
+    acceptType = ['jpg', 'png', 'jpeg', 'gif'], 
+  } = props;
+
   const [file, setFile] = useState({
     src: '',
     uid: '',
@@ -41,9 +57,6 @@ function UploadImage(props) {
   // change 图片的索引
   const [idx, setIdx] = useState(null);
 
-  // 临时文件
-  const [fileList, setFileList] = useState([]);
-
   // 上传之前校验
   const beforeUpload = (file) => {
     // 校验文件类型
@@ -53,8 +66,8 @@ function UploadImage(props) {
       return false;
     }
     // 校验文件大小
-    if (file.size / 1024 / 1024 > maxFileSize) {
-      message.error(`上传文件大小不能超过${maxFileSize}M`);
+    if (file.size / 1024 / 1024 > maxSize) {
+      message.error(`上传文件大小不能超过${maxSize}M`);
       return false;
     }
 
@@ -100,9 +113,10 @@ function UploadImage(props) {
       if (code === 200) {
         // 关闭裁切modal
         setCropVisible(false);
+        let tableList = [];
         if (idx !== null) {
           // 修改图片
-          let tableList = _.cloneDeep(fileList);
+          tableList = _.cloneDeep(fileList);
           const item = tableList[idx];
           tableList.splice(idx, 1, {
             ...{
@@ -114,22 +128,21 @@ function UploadImage(props) {
               height: data.height,
             }
           });
-          closeModal();
-          return setFileList([...tableList]);
+        }else{
+          tableList = [
+            ...fileList,
+            {
+              uid: new Date(),
+              url: data.fileUrl,
+              imageKey: data.imageKey,
+              originalUrl: data.fileUrl,
+              width: data.width,
+              height: data.height,
+            },
+          ]
         }
-        // 新增图片
-        setFileList([
-          ...fileList,
-          {
-            uid: new Date(),
-            url: data.fileUrl,
-            imageKey: data.imageKey,
-            originalUrl: data.fileUrl,
-            width: data.width,
-            height: data.height,
-          },
-        ]);
         closeModal();
+        onChange(tableList)
       }
 
       setCroLoading(false)
@@ -148,45 +161,53 @@ function UploadImage(props) {
     });
   };
 
-  // 删除图片
-  const onRemove = (src = '', index = null) => {
-    const List = _.cloneDeep(fileList);
-    List.splice(index, 1);
-    setFileList([...List]);
-  };
-
   return (
     <>
       <div className={styles.upload_container}>
         <div className={styles.img_list}>
-          {fileList.map((item, index) => {
-            return (
-              <div className={styles.item} key={index}>
-                <ImageComponent
-                  idx={index}
-                  imgSrc={item.url}
-                  showRemoveIcon={true}
-                  onRemove={onRemove}
-                  showCropperIcon={true}
-                  onCropper={onCropper}
-                ></ImageComponent>
-              </div>
-            );
-          })}
+          { 
+            name === 'list' ? 
+            fileList.map((item, index) => {
+              return (
+                <div className={styles.item} key={index}>
+                  <ImageComponent
+                    idx={index}
+                    imgSrc={item.url}
+                    showRemoveIcon = {showRemoveIcon}
+                    onRemove={onRemove}
+                    showCropperIcon = {showCropperIcon}
+                    onCropper={onCropper}
+                  ></ImageComponent>
+                </div>
+              );
+            }) :
+            <div className={styles.item}>
+              <ImageComponent
+                idx={0}
+                width = {width}
+                height = {height}
+                imgSrc={fileList[0] && fileList[0].url}
+                showRemoveIcon = {showRemoveIcon}
+                onRemove={onRemove}
+                showCropperIcon = {showCropperIcon}
+                onCropper={onCropper}
+              ></ImageComponent>
+            </div>
+          }
         </div>
 
-        {fileList.length < 3 && (
+        {(fileList.length < maxSize && name === 'list') && 
           <Upload
-            listType="picture-card"
+            listType= {listType}
             className={styles.uploader}
             showUploadList={false}
             fileList={fileList || []}
-            action={UPLOAD_FILE_URL}
+            action={action}
             beforeUpload={beforeUpload}
           >
             {uploadButton}
           </Upload>
-        )}
+        }
       </div>
 
       {/* 裁切modal */}

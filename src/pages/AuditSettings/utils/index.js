@@ -141,7 +141,7 @@ export const getDenyWordsKey = (name) => {
 /**是否展示包含选项*/
 export const isShowInclude = (key) => {
   // console.log('222222222',key)
-  const arr = ['1', '2', '3', '4', '7', '8', '9', '10', '15', '16', '17', '18', '19'];
+  const arr = ['1', '2', '3', '4', '7', '8', '9', '10', '15', '16', '17', '18', '19', '21'];
   if (arr.includes(key)) {
     return true;
   } else {

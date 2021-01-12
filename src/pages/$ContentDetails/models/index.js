@@ -67,6 +67,22 @@ export default {
       }
     },
 
+
+    // 裁切视频
+    *cutVideo({ payload, callback }, { call, put, select }) {
+      yield put({ type: 'save', payload: { actionLoading: true } });
+      const { code, data } = yield call(api.cutVideo, payload);
+      if(code === 200){
+        const { curArt } = yield select(({ CDetails }) => CDetails);
+        curArt.mediaInfo.videos[1].src = data.url;
+        curArt.mediaInfo.videos[1].duration = data.duration;
+        console.log( curArt.mediaInfo.videos)
+        yield put({ type: 'save', payload: { curArt: {...curArt} } });
+      }
+      yield put({ type: 'save', payload: { actionLoading: false } });
+      callback(code, data);
+    },
+
     // 校验标签是否存在
     *getCheckoutTags({ payload, callback }, { call }) {
       const { code, data } = yield call(api.getCheckoutTags, payload);

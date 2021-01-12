@@ -41,10 +41,10 @@ const getTreeData = (dataPermissions) => {
 };
 
 function TreeClassification(props) {
-  const { permissionDataList, value = [], onChange = () => {} } = props;
+  const { permissionDataList=[], value = [], onChange = () => {} } = props;
 
   const [treeData, setTreeData] = useState([]);
-  const [checkedKeys, setCheckedKeys] = useState(value);
+  const [checkedKeys, setCheckedKeys] = useState([]);
 
   useEffect(() => {
     setTreeData(getTreeData(permissionDataList));
@@ -55,11 +55,6 @@ function TreeClassification(props) {
   }, [JSON.stringify(value)]);
 
   const onCheck = (checkedKeys) => {
-    //注意：halfCheckedKeys 是没有全部勾选状态下的父节点
-    console.log(checkedKeys)
-    // setcConcatTreeData(checkedKeys.concat(e.halfCheckedKeys))
-
-    // setCheckedKeys(concatTreeData);
     onChange(checkedKeys.checked);
   };
 
@@ -68,6 +63,7 @@ function TreeClassification(props) {
       height={400} 
       checkable  
       checkStrictly
+      // defaultExpandAll
       expandedKeys={checkedKeys}
       checkedKeys={checkedKeys} 
       treeData={treeData} 

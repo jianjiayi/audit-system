@@ -21,19 +21,23 @@ const getDenyWordsKey = (name) => {
   const words = [
     {
       key: 'sensitive',
-      value: '敏感词',
+      value: '敏感词-聚发',
+    },
+    {
+      key: 'sensitive',
+      value: '敏感词-审核',
     },
     {
       key: 'forbidden',
-      value: '违禁词',
+      value: '违禁词-聚发',
     },
     {
       key: 'hot',
-      value: '热词',
+      value: '热词-聚发',
     },
     {
       key: 'personage',
-      value: '人物词',
+      value: '人物词-聚发',
     },
   ];
   return words.find((item) => {
