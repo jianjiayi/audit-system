@@ -141,7 +141,7 @@ export const rejectReason = [
 ];
 
 // 敏感词状态
-export const sensitiveStatus = { 0: '启用', 1: '停用' };
+export const sensitiveStatus = { 1: '启用', 0: '停用' };
 // 敏感词类别
 export const sensitiveCategories = {
   1: '敏感词',
