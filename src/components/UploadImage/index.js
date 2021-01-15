@@ -126,6 +126,7 @@ function UploadImage(props) {
               originalUrl: data.fileUrl,
               width: data.width,
               height: data.height,
+              size: data.size,
             }
           });
         }else{
@@ -138,6 +139,7 @@ function UploadImage(props) {
               originalUrl: data.fileUrl,
               width: data.width,
               height: data.height,
+              size: data.size,
             },
           ]
         }
