@@ -129,7 +129,7 @@ export default {
 
     // 获取用户或角色列表
     *getUserOrRoleQuery({ payload }, { call, put, select }) {
-      yield put({ type: 'save', payload: { query: {}, loading: true } });
+      yield put({ type: 'save', payload: { loading: true } });
       try{
         const { query, pagination } = yield select(({ Rights }) => Rights);
         // 合并参数

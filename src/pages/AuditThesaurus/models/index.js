@@ -44,7 +44,7 @@ export default {
 
     // 获取列表
     *getSensitiveQuery({ payload }, { call, put, select }) {
-      yield put({ type: 'save', payload: { query: {}, loading: true } });
+      yield put({ type: 'save', payload: { loading: true } });
       try{
         const { query, pagination } = yield select(({ Sensitive }) => Sensitive);
         // 合并参数
