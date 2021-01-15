@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable prefer-promise-reject-errors */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/self-closing-comp */
@@ -15,7 +16,7 @@
 /* eslint-disable no-control-regex */
 
 import React, { useEffect } from 'react';
-import { Form, Checkbox, Radio, InputNumber} from 'antd';
+import { Form, Checkbox, Radio, InputNumber } from 'antd';
 import classNames from 'classnames';
 import { connect } from 'umi';
 import _ from 'lodash';
@@ -45,6 +46,7 @@ function FormAction(props) {
     CDetails: {
       curArt,
       newsDataType,
+      allCategory,
       auditState,
       reason,
       forbiddenWordList, // 违禁词
@@ -58,8 +60,14 @@ function FormAction(props) {
     setInitFormValues();
   }, [JSON.stringify(curArt)]);
 
+  // 判断分类是否正常
+  const isExist = (id) => {
+    const item = allCategory.find((v) => v.code == id);
+    if (item) return id;
+    return null;
+  };
 
-  const setInitFormValues = ()=>{
+  const setInitFormValues = () => {
     // console.log('curArt.hotValue',curArt.hotValue)
     selfForm.setFieldsValue({
       isDup: curArt.isDup || 0,
@@ -70,13 +78,13 @@ function FormAction(props) {
       auditState: auditState !== 'PASS' && auditState !== 'REJECT' ? null : auditState,
       reason: reason || [],
       category: {
-        category1: curArt.categoryFirst || null,
-        category2: curArt.categorySecond || null,
-        category3: curArt.categoryThird || null,
-      }
+        category1: isExist(curArt.categoryFirst) || null,
+        category2: isExist(curArt.categorySecond) || null,
+        category3: isExist(curArt.categoryThird) || null,
+      },
     });
-  }
-  
+  };
+
   const formProps = {
     name,
     form: selfForm,
@@ -86,20 +94,20 @@ function FormAction(props) {
 
   return (
     <Form {...formProps}>
-      <Form.Item 
-        label="分类" 
-        labelCol= {{ span: 4}}
-        name="category" 
+      <Form.Item
+        label="分类"
+        labelCol={{ span: 4 }}
+        name="category"
         rules={[
-          { required: true }, 
-          { 
-            validator : (rule, value, callback) => {
-              if(!value.category1 && !value.category2 && !value.category3){
+          { required: true },
+          {
+            validator: (rule, value, callback) => {
+              if (!value.category1 && !value.category2 && !value.category3) {
                 return Promise.reject('请选择分类');
               }
               return Promise.resolve();
-            } 
-          }
+            },
+          },
         ]}
       >
         <ThreeLevelCategory newsType={newsDataType} />
@@ -136,20 +144,19 @@ function FormAction(props) {
       >
         {({ getFieldValue }) => {
           const hotTag = getFieldValue('hotTag');
-          if(!_.isEmpty(hotTag) && newsDataType !== 'VIDEO'){
+          if (!_.isEmpty(hotTag) && newsDataType !== 'VIDEO') {
             return (
-              hotTag[0] === 1 && 
-              <Form.Item  
-                label="热度值" 
-                labelCol= {{ span: 4}} 
-                name="hotValue"
-                rules={[
-                  { required: true }, 
-                ]}
-              >
-                <InputNumber min={0} max={100}/>
-              </Form.Item>
-            )
+              hotTag[0] === 1 && (
+                <Form.Item
+                  label="热度值"
+                  labelCol={{ span: 4 }}
+                  name="hotValue"
+                  rules={[{ required: true }]}
+                >
+                  <InputNumber min={0} max={100} />
+                </Form.Item>
+              )
+            );
           }
           return null;
         }}
@@ -188,9 +195,7 @@ function FormAction(props) {
                     {data.map((item, index) => {
                       return (
                         <div key={index} className={styles.checkbox}>
-                          <Checkbox  value={item}>
-                            {item}
-                          </Checkbox>
+                          <Checkbox value={item}>{item}</Checkbox>
                         </div>
                       );
                     })}

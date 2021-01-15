@@ -31,6 +31,8 @@ export default {
     personalWord: [], //人物词
 
     tagsList: [], //标签
+
+    allCategory: [],
   },
 
   effects: {
@@ -44,22 +46,22 @@ export default {
     *getNewsSaveContent({ payload }, { call, put, select }) {
       const { query, queueContentData } = yield select(({ CDetails }) => CDetails);
 
-      console.log(queueContentData)
-      console.log(payload)
+      console.log(queueContentData);
+      console.log(payload);
 
-      let feedMessage = {...queueContentData.feedMessage, ...payload.content};
+      let feedMessage = { ...queueContentData.feedMessage, ...payload.content };
       // 合并参数
       const params = {
         info: query,
-        data:{
+        data: {
           ...queueContentData,
           feedMessage: {
-            ...feedMessage
+            ...feedMessage,
           },
-        }
+        },
       };
 
-      console.log(params)
+      console.log(params);
 
       const { code } = yield call(api.getNewsSaveContent, params);
       if (code === 200) {
@@ -67,20 +69,19 @@ export default {
       }
     },
 
-
     // 裁切视频
     *cutVideo({ payload, callback }, { call, put, select }) {
       yield put({ type: 'save', payload: { actionLoading: true } });
       const { code, data } = yield call(api.cutVideo, payload);
-      if(code === 200){
+      if (code === 200) {
         const { curArt } = yield select(({ CDetails }) => CDetails);
         curArt.mediaInfo.videos[1].src = data.url;
         curArt.mediaInfo.videos[1].duration = data.duration;
         curArt.mediaInfo.videos[1].videoSize = data.videoSize;
         curArt.mediaInfo.videos[1].videoSizeByte = data.videoSizeByte;
         curArt.mediaInfo.videos[1].durationType = data.durationType;
-        console.log( curArt.mediaInfo.videos)
-        yield put({ type: 'save', payload: { curArt: {...curArt} } });
+        console.log(curArt.mediaInfo.videos);
+        yield put({ type: 'save', payload: { curArt: { ...curArt } } });
       }
       yield put({ type: 'save', payload: { actionLoading: false } });
       callback(code, data);
@@ -95,13 +96,13 @@ export default {
     },
 
     // 领取队列
-    *getNewsGetTask({ payload, callback=()=>{} }, { call, put, select }) {
-      try{
+    *getNewsGetTask({ payload, callback = () => {} }, { call, put, select }) {
+      try {
         let code = 0;
         let data = {};
 
         // 领取 单独处理
-        if(!payload.queueSubmitType){
+        if (!payload.queueSubmitType) {
           const { query } = yield select(({ CDetails }) => CDetails);
           // 合并参数
           const params = {
@@ -113,48 +114,56 @@ export default {
           const res = yield call(api.getNewsGetTask, params);
           code = res.code;
           data = res.data;
-          
-        }else{ // 处理领审页面中确定和跳过操作获取的数据直接使用
+        } else {
+          // 处理领审页面中确定和跳过操作获取的数据直接使用
           code = 200;
           data = payload.data;
         }
-        
 
         if (code === 200) {
           if (data) {
-
             // 存储文章id
             sessionStorage.setItem('$queueContentId', data.id);
 
-            yield put({
-              type: 'save',
-              payload: {
-                loading: false,
-                isEdit: false, //  左侧编辑状态
-                actionLoading: false, // 页面操作loading
-                reason: data.reason, // 审核原因
-                auditState: data.auditState, //  审核状态
-                queueContentData: data, // 所有数据
-                curArt: data.feedMessage, // 文章详情
-                queueContentId: sessionStorage.getItem('$queueContentId'), // 队列id
-                // category: data.content.categoryIds,
-                newsDataType: data.feedMessage.articleType,
-                forbiddenWordList: data.feedMessage.extra.forbiddenwords || [], // 违禁词
-                sensitiveWordList: data.feedMessage.extra.sensitivewords || [], // 敏感词
-                hotWord: data.feedMessage.extra.hotwords || [], // 热词
-                personalWord: data.feedMessage.extra.personagewords  || [], //人物词
-              },
+            // 获取所有分类
+            const { code: c, data: d } = yield call(api.getAllCategory, {
+              type: data.feedMessage.articleType,
             });
+
+            if (c === 200) {
+              yield put({
+                type: 'save',
+                payload: {
+                  loading: false,
+                  isEdit: false, //  左侧编辑状态
+                  allCategory: d, // 所有分类
+                  actionLoading: false, // 页面操作loading
+                  reason: data.reason, // 审核原因
+                  auditState: data.auditState, //  审核状态
+                  queueContentData: data, // 所有数据
+                  curArt: data.feedMessage, // 文章详情
+                  queueContentId: sessionStorage.getItem('$queueContentId'), // 队列id
+                  // category: data.content.categoryIds,
+                  newsDataType: data.feedMessage.articleType,
+                  forbiddenWordList: data.feedMessage.extra.forbiddenwords || [], // 违禁词
+                  sensitiveWordList: data.feedMessage.extra.sensitivewords || [], // 敏感词
+                  hotWord: data.feedMessage.extra.hotwords || [], // 热词
+                  personalWord: data.feedMessage.extra.personagewords || [], //人物词
+                },
+              });
+            }
+
             callback(data);
           } else {
             callback(null);
           }
-          return; 
+          return;
         }
 
         callback(null);
-      }catch(e){console.log('e',e)}
-      
+      } catch (e) {
+        console.log('e', e);
+      }
     },
 
     // 确认审核
@@ -164,12 +173,17 @@ export default {
       const { query } = yield select(({ CDetails }) => CDetails);
       // 合并参数
       const params = {
-        info: query,...payload,
+        info: query,
+        ...payload,
       };
       const { code, data } = yield call(api.getAuditSave, params);
       if (code === 200) {
-        yield put({ type: 'getNewsGetTask', payload: {queueSubmitType: 'save', data: data} ,callback});
-        return; 
+        yield put({
+          type: 'getNewsGetTask',
+          payload: { queueSubmitType: 'save', data: data },
+          callback,
+        });
+        return;
       }
 
       callback(null);
@@ -182,12 +196,16 @@ export default {
       const { query } = yield select(({ CDetails }) => CDetails);
       // 合并参数
       const params = {
-        info: {...query, ...payload}
+        info: { ...query, ...payload },
       };
       const { code, data } = yield call(api.getNewsSkip, params);
       if (code === 200) {
-        yield put({ type: 'getNewsGetTask', payload: {queueSubmitType: 'save', data: data}, callback});
-        return; 
+        yield put({
+          type: 'getNewsGetTask',
+          payload: { queueSubmitType: 'save', data: data },
+          callback,
+        });
+        return;
       }
 
       callback(null);
@@ -214,7 +232,7 @@ export default {
         });
         sessionStorage.setItem('$QUERY', JSON.stringify({}));
         callback(code);
-        return; 
+        return;
       }
 
       callback(null);

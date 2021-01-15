@@ -71,7 +71,7 @@ function Operate(props) {
       values.categoryThird = values.category.category3;
       delete values.category;
       // 视频模式下，校验一级分类32
-      if(newsDataType === 'VIDEO' && (values.categoryFirst === '32' || values.categoryFirst === '2')){
+      if(newsDataType === 'VIDEO' && (values.categoryFirst === '32')){
         return message.error('视频文章, 一级分类不正确');
       }
 

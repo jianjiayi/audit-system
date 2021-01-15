@@ -66,3 +66,10 @@ export async function getNewsExit(params) {
     body: params,
   });
 }
+
+// 获取所有分类接口
+export async function getAllCategory(params) {
+  return request(`/audit/categoryInfo?type=${params.type === 'VIDEO'? 1 :0}`, {
+    method: 'GET',
+  });
+}
