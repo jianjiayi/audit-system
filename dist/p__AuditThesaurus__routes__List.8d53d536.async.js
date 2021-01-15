@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[17],{xel0:function(n,e,t){"use strict";t.r(e),t.d(e,"default",(function(){return c}));var u=t("q1tI"),r=t.n(u);function c(){return r.a.createElement("div",null,"\u8bcd\u5e93\u7ba1\u7406")}}}]);

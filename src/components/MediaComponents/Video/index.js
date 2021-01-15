@@ -60,7 +60,7 @@ function VideoPlayer(props) {
           <a className={styles['btn-play']} onClick={() => onPlay()}></a>
           <span className={styles['duration-wrap']}>
             <i className={styles['icon']}></i>
-            <span className={styles['duration']}>{formatDate(duration)}</span>
+            <span className={styles['duration']}>{formatDate(duration/1000)}</span>
           </span>
         </div>
       )}

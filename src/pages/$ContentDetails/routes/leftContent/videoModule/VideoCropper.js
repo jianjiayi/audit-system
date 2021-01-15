@@ -84,13 +84,13 @@ function VideoCropper(props) {
                 if(value.start===null || value.end===null){
                   return Promise.reject('切头、切尾不能为空');
                 }
-                if (value.start >= duration) {
+                if (value.start*1000 >= duration) {
                   return Promise.reject('切头时间不能大于视频总长度');
                 }
-                if (value.end >= duration) {
+                if (value.end*1000 >= duration) {
                   return Promise.reject('切尾时间不能大于视频总长度');
                 }
-                if (duration - value.start - value.end < 5) {
+                if (duration - value.start*1000 - value.end*1000 < 5000) {
                   return Promise.reject('裁切后视频剩余时间必须大于等于5秒');
                 }
                 return Promise.resolve();
