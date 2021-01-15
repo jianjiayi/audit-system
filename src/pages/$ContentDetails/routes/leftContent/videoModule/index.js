@@ -19,7 +19,10 @@ function VideoModule(props) {
     pFrom,
     duration,
     className: styles.form,
-    onFinish: (values) => onChange({ ...values.videoInfo, duration, videoUrl: source }),
+    onFinish: (values) => {
+      const {start, end} = values.videoInfo;
+      onChange({start:start*1000,end:end*1000, duration, videoUrl: source })
+    },
   };
 
   return (

@@ -63,6 +63,7 @@ function VideoCropper(props) {
     pFrom
     .validateFields()
     .then((values) => {
+      console.log(values)
       onFinish(values);
     })
     .catch((errorInfo) => {
