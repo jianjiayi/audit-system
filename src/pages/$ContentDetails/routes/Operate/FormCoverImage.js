@@ -16,7 +16,7 @@ import _ from 'lodash';
 import { Form, Button, Modal, Radio } from 'antd';
 
 import { connect } from 'umi';
-import ImageList from './components/ImageLIst';
+import ImageList from './components/ImageList';
 import UploadImage from '@/components/UploadImage';
 
 import { UPLOAD_FILE_URL } from '@/pages/constants';
