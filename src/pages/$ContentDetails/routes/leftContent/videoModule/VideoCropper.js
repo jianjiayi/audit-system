@@ -13,6 +13,10 @@ const layout = {
   },
 };
 
+const limitDecimals = value => {
+  return value.replace(/[^\d]+/g,'')
+}
+
 const FormItemInput = (props) => {
   const { value = {}, onChange = () => {}, duration = 0 } = props;
 
@@ -21,6 +25,7 @@ const FormItemInput = (props) => {
     obj[k] = v;
     onChange({ ...obj });
   };
+  
 
   return (
     <Form.Item noStyle>
@@ -28,7 +33,8 @@ const FormItemInput = (props) => {
         <InputNumber
           min={0}
           max={duration}
-          // decimalSeparator={0}
+          formatter={limitDecimals}
+          parser={limitDecimals}
           style={{ width: '80%' }}
           defaultValue={value.start || 0}
           onChange={(e) => handleChange(e, 'start')}
@@ -39,7 +45,8 @@ const FormItemInput = (props) => {
         <InputNumber
           min={0}
           max={duration}
-          // decimalSeparator={0}
+          formatter={limitDecimals}
+          parser={limitDecimals}
           style={{ width: '80%' }}
           defaultValue={value.end || 0}
           onChange={(e) => handleChange(e, 'end')}
