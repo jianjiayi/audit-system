@@ -76,6 +76,9 @@ export default {
         const { curArt } = yield select(({ CDetails }) => CDetails);
         curArt.mediaInfo.videos[1].src = data.url;
         curArt.mediaInfo.videos[1].duration = data.duration;
+        curArt.mediaInfo.videos[1].videoSize = data.videoSize;
+        curArt.mediaInfo.videos[1].videoSizeByte = data.videoSizeByte;
+        curArt.mediaInfo.videos[1].durationType = data.durationType;
         console.log( curArt.mediaInfo.videos)
         yield put({ type: 'save', payload: { curArt: {...curArt} } });
       }

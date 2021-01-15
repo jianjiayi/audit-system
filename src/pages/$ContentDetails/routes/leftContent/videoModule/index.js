@@ -11,6 +11,7 @@ function VideoModule(props) {
     source = '',
     poster = '',
     duration = '',
+    showType = '',
     pFrom,
     onChange = () => {}, // 该函数用来修改全局中的时长以及视频新地址
   } = props;
@@ -21,7 +22,7 @@ function VideoModule(props) {
     className: styles.form,
     onFinish: (values) => {
       const {start, end} = values.videoInfo;
-      onChange({start:start*1000,end:end*1000, duration, videoUrl: source })
+      onChange({start:start*1000,end:end*1000, duration, videoUrl: source, showType })
     },
   };
 

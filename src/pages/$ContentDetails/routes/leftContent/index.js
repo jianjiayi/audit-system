@@ -108,11 +108,12 @@ function Content(props) {
     source: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].src,
     poster: (curArt.covers && curArt.covers[0]) || {},
     duration: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].duration,
+    showType: curArt.mediaInfo && curArt.mediaInfo.videos && curArt.mediaInfo.videos[1].showType,
     pFrom: videoCropForm,
     onChange: (params) => {
       dispatch({
         type: 'CDetails/cutVideo',
-        payload: { ...params },
+        payload: { ...params},
         callback: (code, data) => {
           if (code !== 200) return message.error('裁切失败');
           videoCropForm.resetFields();
