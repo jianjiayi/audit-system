@@ -15,20 +15,41 @@ import BaseTable from '@components/BaseTable';
 
 import { ExObject } from '@utils/utils.js';
 import { contentType, orderFieldMap, orderTypeMap, dateFormat } from '@/pages/constants';
+import ThreeLevelCategory from '@/components/BaseForm/ThreeLevelCategory';
 
 import styles from './index.module.less';
 
 const InputGroup = Input.Group;
 const { Option } = Select;
 
+// 过滤分类
+const filterCategory = (firstCategoryName, secondCategoryName, thirdCategoryName) => {
+  let str = '';
+  if (!firstCategoryName && !secondCategoryName && !thirdCategoryName) return str;
+
+  if (firstCategoryName) {
+    str += `${firstCategoryName}`;
+    if (secondCategoryName) {
+      str += `/${secondCategoryName}`;
+      if (thirdCategoryName) {
+        str += `/${thirdCategoryName}`;
+      }
+    }
+  }
+
+  return str;
+};
+
 // const dateFormat = 'YYYY-MM-DD';
 
 function AuditStatistics(props) {
   const {
-    initialState: { currentUser = {}},
+    initialState: { currentUser = {} },
   } = useModel('@@initialState');
 
   const formRef = useRef(null);
+  // 内容类型
+  const [newsType, setNewsType] = useState('NEWS');
   // 存放分类
   const [categoryMap, setCategoryMap] = useState({});
 
@@ -71,11 +92,11 @@ function AuditStatistics(props) {
         label: '业务线',
         type: 'SELECT',
         name: 'businessId',
-        initialValue: (
-          !_.isEmpty(business) && 
-          business.find(v=>v.key===15000002) && 
-          business.find(v=>v.key===15000002).key
-        ) || '',
+        initialValue:
+          (!_.isEmpty(business) &&
+            business.find((v) => v.key === 15000002) &&
+            business.find((v) => v.key === 15000002).key) ||
+          '',
         map: business,
       },
       { label: '时间', name: 'datatime', type: 'DateTimeStartEnd' },
@@ -85,28 +106,16 @@ function AuditStatistics(props) {
         name: 'newsType',
         initialValue: 'NEWS',
         map: contentType,
-        onChange: (e)=>{
-          console.log(e)
-          formRef.current.setFieldsValue(
-            {
-              categoryId: '',
-            }
-          );
-          dispatch({
-            type: 'Global/getCategory', 
-            payload:{
-              id: 0, 
-              type:e
-            }
-          })
-        }
+        onChange: (value) => {
+          setNewsType(value || 'NEWS');
+        },
       },
       {
         label: '分类',
-        type: 'SELECT',
-        name: 'categoryId',
+        name: 'category',
         initialValue: '',
-        map: { '': '全部', ...categoryMap },
+        isSpecial: true,
+        itemRender: <ThreeLevelCategory newsType={newsType} isReset />,
       },
       {
         label: '排序',
@@ -149,17 +158,28 @@ function AuditStatistics(props) {
       });
     },
     onSubmit: (formValues) => {
-      if (!_.isEmpty(formValues.datatime)) {
-        formValues.startTime = formValues.datatime[0].format(dateFormat);
-        formValues.endTime = formValues.datatime[1].format(dateFormat);
-      }
-      delete formValues.datatime;
+      const { datatime, category, ...params } = formValues;
 
-      console.log('formValues', formValues);
+      // 整理时间
+      if (!_.isEmpty(datatime)) {
+        params.startTime = datatime[0].format(dateFormat);
+        params.endTime = datatime[1].format(dateFormat);
+      }
+
+      //  处理多及分类
+      const {
+        category1: firstCategoryId,
+        category2: secondCategoryId,
+        category3: thirdCategoryId,
+      } = category;
+
+      // 合并参数
+      const paramsData = { ...params, firstCategoryId, secondCategoryId, thirdCategoryId };
+
       dispatch({
         type: 'Statistics/getStatisticQuery',
         payload: {
-          ...formValues,
+          ...paramsData,
           type: 'category',
         },
       });
@@ -180,12 +200,18 @@ function AuditStatistics(props) {
       {
         title: '分类',
         align: 'center',
-        dataIndex: 'categoryName',
+        render(r) {
+          return (
+            <span>
+              {filterCategory(r.firstCategoryName, r.secondCategoryName, r.thirdCategoryName)}
+            </span>
+          );
+        },
       },
       {
         title: '入审量',
         align: 'center',
-        dataIndex: 'entryQueueCount',
+        dataIndex: 'auditPendingCount',
       },
       {
         title: '审核量',
