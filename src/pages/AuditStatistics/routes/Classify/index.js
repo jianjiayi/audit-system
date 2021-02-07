@@ -209,7 +209,7 @@ function AuditStatistics(props) {
         },
       },
       {
-        title: '入审量',
+        title: '待审核量',
         align: 'center',
         dataIndex: 'auditPendingCount',
       },
