@@ -41,11 +41,11 @@ export const contentType = {
 };
 
 // 队列机制
-export const queueType = { 
-  '': '全部', 
-  1: '先审后发', 
-  2: '先发后审', 
-  3: '免审' 
+export const queueType = {
+  '': '全部',
+  1: '先审后发',
+  2: '先发后审',
+  3: '免审',
 };
 
 // 队列保存时长
@@ -61,40 +61,40 @@ export const keepDays = {
 };
 
 // 队列状态
-export const queueStatus = { 
-  '': '全部', 
-  0: '启用', 
-  1: '停用' 
+export const queueStatus = {
+  '': '全部',
+  0: '启用',
+  1: '停用',
 };
 
 // 权限状态
-export const rightStatus = { 
-  '': '全部', 
-  0: '离线', 
-  1: '在线', 
-  2: '注销' 
+export const rightStatus = {
+  '': '全部',
+  0: '离线',
+  1: '在线',
+  2: '注销',
 };
 
 // 角色状态
-export const roleStatus = { 
-  '': '全部', 
-  0: '有效', 
-  1: '注销' 
+export const roleStatus = {
+  '': '全部',
+  0: '有效',
+  1: '注销',
 };
 
 // 审核状态
-export const auditStatus = { 
-  '': '全部', 
-  1: '待审核', 
-  2: '审核通过', 
-  3: '审核未通过' 
+export const auditStatus = {
+  '': '全部',
+  1: '待审核',
+  2: '审核通过',
+  3: '审核未通过',
 };
 
 // 上架状态
-export const runningStatus = { 
-  '': '全部', 
-  ONLINE: '上架', 
-  OFFLINE: '下架' 
+export const runningStatus = {
+  '': '全部',
+  ONLINE: '上架',
+  OFFLINE: '下架',
 };
 
 // 统计排序
@@ -107,9 +107,9 @@ export const orderFieldMap = {
 };
 
 // 统计排序
-export const orderTypeMap = { 
-  desc: '降序', 
-  asc: '升序' 
+export const orderTypeMap = {
+  desc: '降序',
+  asc: '升序',
 };
 
 // 审核结果
@@ -121,10 +121,10 @@ export const auditResult = {
   REJECT: '审核未通过',
 };
 // 审核结果
-export const auditResult1 = { 
-  '': '全部', 
-  审核通过: '审核通过', 
-  审核未通过: '审核未通过' 
+export const auditResult1 = {
+  '': '全部',
+  审核通过: '审核通过',
+  审核未通过: '审核不通过',
 };
 
 // 文章审核通过&未通过原因
