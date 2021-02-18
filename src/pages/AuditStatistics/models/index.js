@@ -15,7 +15,7 @@ export default {
     pagination: {
       showSizeChanger: true,
       showQuickJumper: true,
-      showTotal: total => `共 ${total} 条`,
+      showTotal: (total) => `共 ${total} 条`,
       pageSize: 10,
       current: 1,
       total: null,
@@ -26,7 +26,7 @@ export default {
     // 初始化
     *init({ payload }, { call, put }) {
       yield put({ type: 'reset' });
-      yield put({ type: 'Global/getCategory', payload:{id: 0, type:0}});
+      yield put({ type: 'Global/getCategory', payload: { id: 0, type: 0 } });
       yield put({ type: 'getStatisticQuery', payload });
     },
     // 获取分类或人员列表
@@ -64,8 +64,6 @@ export default {
 
     // 获取人员明细列表
     *getPersoneDetailQuery({ payload }, { call, put, select }) {
-      yield put({ type: 'reset' });
-
       const { query, pagination } = yield select(({ Statistics }) => Statistics);
       // 合并参数
       const params = {
@@ -96,7 +94,7 @@ export default {
     },
 
     // 下载excel
-    *getPersoneExportExcel({ payload }, { call, put, select }){
+    *getPersoneExportExcel({ payload }, { call, put, select }) {
       const { query, pagination } = yield select(({ Statistics }) => Statistics);
       // 合并参数
       const params = {
@@ -105,13 +103,12 @@ export default {
         pageSize: pagination.pageSize,
         ...payload,
       };
-      try{
-         yield call(api.getPersoneExportExcel, params);
-      }catch(e){
-        console.log(e)
+      try {
+        yield call(api.getPersoneExportExcel, params);
+      } catch (e) {
+        console.log(e);
       }
-       
-    }
+    },
   },
 
   reducers: {
@@ -126,7 +123,7 @@ export default {
         pagination: {
           showSizeChanger: true,
           showQuickJumper: true,
-          showTotal: total => `共 ${total} 条`,
+          showTotal: (total) => `共 ${total} 条`,
           pageSize: 10,
           current: 1,
           total: null,

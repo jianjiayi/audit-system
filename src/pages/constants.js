@@ -124,7 +124,7 @@ export const auditResult = {
 export const auditResult1 = {
   '': '全部',
   审核通过: '审核通过',
-  审核未通过: '审核不通过',
+  审核不通过: '审核不通过',
 };
 
 // 文章审核通过&未通过原因
